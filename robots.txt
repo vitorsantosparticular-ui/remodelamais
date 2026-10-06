@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /estrategia/
 
 Sitemap: https://soniasantosadvogada.pt/sitemap.xml

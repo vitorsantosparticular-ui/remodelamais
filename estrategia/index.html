@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plano de comunicação · Sónia Alexandra Santos</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../img/monograma.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&family=Marcellus&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: documento de reunião em creme da marca; secções numeradas pela ordem da apresentação. Tema único da marca. */
+:root {
+  color-scheme: light;
+  --fundo: #f7eee7; --fundo-2: #efe2d7; --claro: #fffaf6; --linha: #e1d0c1;
+  --tinta: #4f4035; --texto: #5a4d43; --suave: #8c7d71; --acento: #b0915f; --acento-claro: #e3cc9f; --escuro: #4f4035;
+  --ouro: linear-gradient(115deg,#9c7d55,#c9a874 30%,#ecd7a8 50%,#c4a575 70%,#9c7d55);
+  --serif: "Marcellus", Georgia, serif; --it: "Cormorant Garamond", Georgia, serif; --sans: "Montserrat", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--fundo); color: var(--texto); font: 300 15px/1.65 var(--sans); }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; color: var(--tinta); margin: 0; text-wrap: balance; line-height: 1.15; }
+em { font-family: var(--it); font-style: italic; font-weight: 500; color: var(--acento); }
+.wrap { max-width: 1180px; margin: 0 auto; padding-inline: 20px; }
+.eyebrow { font-size: .7rem; letter-spacing: .3em; text-transform: uppercase; font-weight: 500; color: var(--acento); margin: 0 0 10px; }
+
+/* Topo */
+.capa { background: var(--escuro); color: #efe4d9; padding-block: 64px 56px; }
+.capa__top { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 48px; flex-wrap: wrap; }
+.capa__top img { width: 52px; filter: brightness(0) invert(1); opacity: .85; }
+.capa__top span { font-size: .7rem; letter-spacing: .26em; text-transform: uppercase; color: var(--acento-claro); }
+.capa h1 { color: #fff; font-size: clamp(2.3rem, 5.6vw, 4rem); max-width: 16ch; }
+.capa h1 em { color: var(--acento-claro); }
+.capa p { max-width: 60ch; color: #d8c9bb; margin: 18px 0 0; }
+.indice { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 34px; }
+.indice a { text-decoration: none; font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 500; padding: 9px 14px; border: 1px solid rgba(227,204,159,.45); border-radius: 30px; color: #fff; transition: background .2s; }
+.indice a:hover { background: rgba(227,204,159,.18); }
+.indice a:focus-visible { outline: 2px solid var(--acento-claro); outline-offset: 2px; }
+
+section.bloco { padding-block: 72px; border-bottom: 1px solid var(--linha); scroll-margin-top: 10px; }
+.cab { display: grid; grid-template-columns: 70px 1fr; gap: 10px 20px; margin-bottom: 36px; }
+.cab__n { font: 400 2.6rem/1 var(--serif); background: var(--ouro); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.cab h2 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); }
+.cab p { grid-column: 2; margin: 6px 0 0; color: var(--suave); max-width: 64ch; }
+
+/* Estratégia */
+.posicao { background: var(--claro); border: 1px solid var(--linha); border-left: 3px solid var(--acento); padding: 26px 28px; font-family: var(--it); font-style: italic; font-size: clamp(1.3rem, 2.6vw, 1.7rem); line-height: 1.35; color: var(--tinta); margin: 0 0 36px; }
+.cartoes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.cartao { background: var(--claro); border: 1px solid var(--linha); padding: 22px 22px 24px; border-radius: 4px; min-width: 0; }
+.cartao h3 { font-size: 1.2rem; margin-bottom: 8px; }
+.cartao p { margin: 0; font-size: .9rem; }
+.subtit { font-family: var(--serif); font-size: 1.35rem; color: var(--tinta); margin: 44px 0 16px; }
+.pilares { display: grid; gap: 10px; }
+.pilar { display: grid; grid-template-columns: 220px 1fr 52px; gap: 16px; align-items: center; }
+.pilar b { font-weight: 500; color: var(--tinta); font-size: .92rem; }
+.pilar b small { display: block; font-weight: 300; color: var(--suave); font-size: .78rem; }
+.barra { height: 10px; background: var(--fundo-2); border-radius: 10px; overflow: hidden; }
+.barra i { display: block; height: 100%; background: var(--ouro); border-radius: 10px; }
+.pilar span { text-align: right; font-variant-numeric: tabular-nums; font-weight: 500; color: var(--tinta); }
+
+/* Instagram */
+.ig { display: grid; grid-template-columns: 380px 1fr; gap: 48px; align-items: start; }
+.ig > * { min-width: 0; }
+.tel { position: sticky; top: 20px; background: #fff; border-radius: 38px; padding: 12px; box-shadow: 0 0 0 9px #2b231d, 0 40px 80px -30px rgba(47,37,30,.5); }
+.tel__ecra { border-radius: 27px; overflow: hidden; background: #fff; color: #262626; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-weight: 400; }
+.tel__barra { display: flex; justify-content: space-between; padding: 12px 16px 6px; font-weight: 600; }
+.tel__barra small { font-weight: 400; color: #8e8e8e; font-size: .7rem; }
+.perfil { display: flex; align-items: center; gap: 16px; padding: 6px 16px; }
+.perfil__foto { width: 80px; height: 80px; border-radius: 50%; background: var(--fundo); display: grid; place-items: center; box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--acento); flex: none; }
+.perfil__foto img { width: 74px; }
+.numeros { display: flex; flex: 1; justify-content: space-around; text-align: center; font-size: .74rem; }
+.numeros b { display: block; font-size: .98rem; }
+.bio { padding: 4px 16px 10px; font-size: .8rem; line-height: 1.4; }
+.bio b { display: block; }
+.bio .cat { color: #8e8e8e; }
+.bio a { color: #00376b; text-decoration: none; font-weight: 500; }
+.botoes { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 0 16px 12px; }
+.botoes span { background: #efefef; border-radius: 8px; text-align: center; padding: 6px; font-size: .78rem; font-weight: 600; }
+.destaques { display: flex; gap: 12px; padding: 2px 16px 12px; overflow: hidden; }
+.destaques div { text-align: center; font-size: .66rem; flex: none; }
+.destaques i { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--fundo); box-shadow: 0 0 0 1px #dbdbdb, inset 0 0 0 3px #fff; margin-bottom: 4px; }
+.destaques img { width: 24px; }
+.feed { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; border-top: 1px solid #dbdbdb; padding-top: 2px; }
+.feed button { all: unset; position: relative; aspect-ratio: 3 / 4; cursor: pointer; overflow: hidden; display: block; }
+.feed img { width: 100%; height: 100%; object-fit: cover; transition: opacity .2s; }
+.feed button:hover img { opacity: .85; }
+.feed button:focus-visible { outline: 3px solid var(--acento); outline-offset: -3px; }
+.feed .multi::after { content: ""; position: absolute; top: 7px; right: 7px; width: 13px; height: 13px; border: 2px solid #fff; border-radius: 3px; box-shadow: -4px 4px 0 -2px #fff; }
+.nota { font-size: .74rem; color: var(--suave); text-align: center; margin: 14px 0 0; }
+
+.posts { display: grid; gap: 22px; }
+.post { display: grid; grid-template-columns: 250px 1fr; gap: 24px; padding: 22px; background: var(--claro); border: 1px solid var(--linha); border-radius: 6px; scroll-margin-top: 20px; transition: box-shadow .3s; }
+.post.ativo { box-shadow: 0 0 0 2px var(--acento); }
+.post > * { min-width: 0; }
+.car { position: relative; border-radius: 4px; overflow: hidden; background: var(--fundo-2); max-width: 100%; }
+.car--ig { aspect-ratio: 4 / 5; }
+.car--li { aspect-ratio: 1 / 1; }
+.car__trilho { display: flex; height: 100%; transition: transform .45s cubic-bezier(.16,1,.3,1); }
+.car__trilho img { width: 100%; height: 100%; flex: none; object-fit: cover; }
+.seta { all: unset; position: absolute; top: 50%; translate: 0 -50%; width: 30px; height: 30px; border-radius: 50%; background: rgba(255,250,246,.92); display: grid; place-items: center; cursor: pointer; color: var(--tinta); box-shadow: 0 4px 12px rgba(0,0,0,.15); }
+.seta:focus-visible { outline: 2px solid var(--acento); }
+.seta[disabled] { opacity: 0; pointer-events: none; }
+.seta--e { left: 8px; } .seta--d { right: 8px; }
+.pontos { position: absolute; bottom: 9px; left: 0; right: 0; display: flex; justify-content: center; gap: 5px; }
+.pontos i { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.55); }
+.pontos i.on { background: #fff; }
+.meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+.chip { font-size: .64rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 500; padding: 4px 10px; border-radius: 20px; background: var(--fundo-2); color: var(--tinta); }
+.chip--ouro { background: var(--ouro); color: #fff; text-shadow: 0 1px 1px rgba(70,50,30,.3); }
+.chip--aviso { background: #f3e1c8; color: #7a5a2e; }
+.post h3 { font-size: 1.25rem; margin-bottom: 10px; }
+.legenda { white-space: pre-line; font-size: .86rem; line-height: 1.6; background: var(--fundo); border: 1px dashed var(--linha); border-radius: 4px; padding: 13px 15px; margin: 0; }
+.legenda .tags { color: #00376b; }
+.acoes { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 12px; }
+.btn { all: unset; cursor: pointer; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; padding: 10px 14px; border: 1px solid var(--acento); color: var(--tinta); border-radius: 2px; transition: background .2s, color .2s; text-decoration: none; }
+.btn:hover { background: var(--acento); color: #fff; }
+.btn:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
+.acoes small { color: var(--suave); font-size: .74rem; }
+
+/* Calendário */
+.tabela { overflow-x: auto; border: 1px solid var(--linha); border-radius: 6px; background: var(--claro); }
+table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: .86rem; }
+th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--linha); vertical-align: top; }
+th { font-size: .66rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 600; color: var(--suave); background: var(--fundo-2); }
+td b { font-weight: 500; color: var(--tinta); }
+td .rede { display: inline-block; font-size: .6rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; padding: 2px 7px; border-radius: 10px; margin-right: 6px; }
+.rede--ig { background: #f1dfe6; color: #7d3c56; }
+.rede--li { background: #dde8f3; color: #2c4f75; }
+tr:last-child td { border-bottom: 0; }
+
+/* LinkedIn */
+.li-grelha { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.li-grelha .post { grid-template-columns: 1fr; }
+.li-grelha .car { max-width: 420px; }
+
+/* Ideias */
+.ideias { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.ideia { background: var(--claro); border: 1px solid var(--linha); border-radius: 4px; padding: 22px; min-width: 0; }
+.ideia h3 { font-size: 1.1rem; margin-bottom: 10px; }
+.ideia ul { margin: 0; padding-left: 18px; font-size: .88rem; display: grid; gap: 6px; }
+.ideia li::marker { color: var(--acento); }
+
+.regras { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.caixa { background: var(--escuro); color: #efe4d9; border-radius: 6px; padding: 26px 28px; }
+.caixa h3 { color: #fff; font-size: 1.25rem; margin-bottom: 12px; }
+.caixa ul { margin: 0; padding-left: 18px; display: grid; gap: 8px; font-size: .88rem; }
+.caixa li::marker { color: var(--acento-claro); }
+.caixa b { color: #fff; font-weight: 500; }
+.caixa--clara { background: var(--claro); color: var(--texto); border: 1px solid var(--linha); }
+.caixa--clara h3 { color: var(--tinta); }
+.caixa--clara b { color: var(--tinta); }
+.caixa--clara li::marker { color: var(--acento); }
+
+footer { padding-block: 40px; text-align: center; font-size: .78rem; color: var(--suave); }
+
+@media (max-width: 980px) {
+  .ig { grid-template-columns: 1fr; }
+  .tel { position: static; max-width: 380px; margin: 0 auto; }
+  .cartoes, .ideias { grid-template-columns: 1fr; }
+  .li-grelha, .regras { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .post { grid-template-columns: 1fr; }
+  .car--ig { max-width: 340px; }
+  .pilar { grid-template-columns: 1fr 44px; }
+  .pilar .barra { grid-column: 1 / -1; grid-row: 2; }
+  .cab { grid-template-columns: 1fr; }
+  .cab p { grid-column: 1; }
+  section.bloco { padding-block: 56px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .car__trilho { transition: none; } }
+</style>
+</head>
+<body>
+
+<header class="capa">
+  <div class="wrap">
+    <div class="capa__top"><img src="../img/monograma.png" alt=""><span>Documento interno · para reunião</span></div>
+    <p class="eyebrow" style="color:var(--acento-claro)">Plano de comunicação</p>
+    <h1>Instagram e LinkedIn da <em>Dra. Sónia</em></h1>
+    <p>Proposta para o lançamento das redes sociais: posicionamento, público, tipos de conteúdo, os primeiros posts prontos a publicar e o calendário das primeiras três semanas.</p>
+    <nav class="indice" aria-label="Secções">
+      <a href="#estrategia">Estratégia</a><a href="#instagram">Instagram</a><a href="#calendario">Calendário</a><a href="#linkedin">LinkedIn</a><a href="#ideias">Stories e Reels</a><a href="#regras">Regras e aprovação</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="bloco" id="estrategia">
+    <div class="cab"><span class="cab__n">01</span><h2>Estratégia</h2><p>O que queremos que as pessoas pensem quando veem um post da Dra. Sónia.</p></div>
+    <p class="posicao">“A advogada que ajuda a resolver antes de complicar.” Próxima, rigorosa e focada na prevenção, sobretudo em família, heranças e empresas.</p>
+
+    <div class="cartoes">
+      <div class="cartao"><p class="eyebrow">Público 1</p><h3>Famílias da região</h3><p>Santa Maria da Feira e arredores. Heranças, partilhas, testamentos, divórcios e responsabilidades parentais.</p></div>
+      <div class="cartao"><p class="eyebrow">Público 2</p><h3>Portugueses no estrangeiro</h3><p>Emigrantes com assuntos por tratar em Portugal: heranças, procurações, registos. Consultas por videochamada.</p></div>
+      <div class="cartao"><p class="eyebrow">Público 3</p><h3>Pequenas empresas</h3><p>Sobretudo no LinkedIn. Contratos, sociedades e cobranças, com uma abordagem preventiva.</p></div>
+    </div>
+
+    <h3 class="subtit">Tipos de conteúdo</h3>
+    <div class="pilares">
+      <div class="pilar"><b>Educar<small>“Sabia que”, mitos, dicas</small></b><div class="barra"><i style="width:40%"></i></div><span>40%</span></div>
+      <div class="pilar"><b>Situações<small>“Reconhece-se nisto?”</small></b><div class="barra"><i style="width:25%"></i></div><span>25%</span></div>
+      <div class="pilar"><b>Proximidade<small>escritório, equipa, bastidores</small></b><div class="barra"><i style="width:20%"></i></div><span>20%</span></div>
+      <div class="pilar"><b>Serviços e site<small>marcações, novidades</small></b><div class="barra"><i style="width:15%"></i></div><span>15%</span></div>
+    </div>
+  </section>
+
+  <section class="bloco" id="instagram">
+    <div class="cab"><span class="cab__n">02</span><h2>Instagram: os primeiros 9 posts</h2><p>Toque numa imagem do perfil para ver o post. Cada post tem a legenda pronta a copiar e as imagens para descarregar.</p></div>
+    <div class="ig">
+      <aside>
+        <div class="tel" aria-label="Simulação do perfil">
+          <div class="tel__ecra">
+            <div class="tel__barra"><span>soniasantosadvogada</span><small>sugestão</small></div>
+            <div class="perfil">
+              <div class="perfil__foto"><img src="avatar.png" alt=""></div>
+              <div class="numeros"><div><b>9</b>publicações</div><div><b>—</b>seguidores</div><div><b>—</b>a seguir</div></div>
+            </div>
+            <div class="bio">
+              <b>Sónia Alexandra Santos · Advogada</b>
+              <span class="cat">Advogado(a)</span><br>
+              Advocacia preventiva · Família e Heranças<br>
+              Advogada desde 2005 · Santa Maria da Feira<br>
+              Consultas no escritório e por videochamada<br>
+              <a href="https://soniasantosadvogada.pt" target="_blank" rel="noopener">soniasantosadvogada.pt</a>
+            </div>
+            <div class="botoes"><span>Contactar</span><span>Como chegar</span></div>
+            <div class="destaques">
+              <div><i><img src="../img/monograma.png" alt=""></i>Sobre</div>
+              <div><i><img src="../img/monograma.png" alt=""></i>Família</div>
+              <div><i><img src="../img/monograma.png" alt=""></i>Escritório</div>
+              <div><i><img src="../img/monograma.png" alt=""></i>Consultas</div>
+            </div>
+            <div class="feed" id="feed"></div>
+          </div>
+        </div>
+        <p class="nota">O Instagram mostra o post mais recente no canto superior esquerdo.</p>
+      </aside>
+      <div class="posts" id="posts-ig"></div>
+    </div>
+  </section>
+
+  <section class="bloco" id="calendario">
+    <div class="cab"><span class="cab__n">03</span><h2>Calendário das primeiras 3 semanas</h2><p>Instagram 3 vezes por semana, LinkedIn 2 vezes. Melhor horário: entre as 12h e as 14h ou entre as 19h e as 21h.</p></div>
+    <div class="tabela">
+      <table>
+        <thead><tr><th>Semana</th><th>Segunda</th><th>Terça</th><th>Quarta</th><th>Quinta</th><th>Sexta</th></tr></thead>
+        <tbody>
+          <tr><td><b>1 · Lançamento</b></td><td><span class="rede rede--ig">IG</span>01 Apresentação</td><td><span class="rede rede--li">IN</span>L4 Apresentação</td><td><span class="rede rede--ig">IG</span>02 Família (carrossel)</td><td><span class="rede rede--li">IN</span>L1 Novo site</td><td><span class="rede rede--ig">IG</span>03 Novo site</td></tr>
+          <tr><td><b>2 · Prevenção</b></td><td><span class="rede rede--ig">IG</span>04 Antes de assinar</td><td><span class="rede rede--li">IN</span>L2 Citação</td><td><span class="rede rede--ig">IG</span>05 Escritório</td><td><span class="rede rede--li">IN</span>L3 Empresas</td><td><span class="rede rede--ig">IG</span>06 Citação</td></tr>
+          <tr><td><b>3 · Proximidade</b></td><td><span class="rede rede--ig">IG</span>07 Mito ou facto</td><td>—</td><td><span class="rede rede--ig">IG</span>08 Vive fora</td><td>—</td><td><span class="rede rede--ig">IG</span>09 Videochamada</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="bloco" id="linkedin">
+    <div class="cab"><span class="cab__n">04</span><h2>LinkedIn: 4 posts</h2><p>Formato quadrado, tom mais institucional e escrito na primeira pessoa, para o perfil pessoal da Dra. Sónia.</p></div>
+    <div class="li-grelha" id="posts-li"></div>
+  </section>
+
+  <section class="bloco" id="ideias">
+    <div class="cab"><span class="cab__n">05</span><h2>Stories e Reels</h2><p>O que mais faz crescer a audiência. As fotos vêm de uma sessão filmada, por isso há material para vídeos curtos.</p></div>
+    <div class="ideias">
+      <div class="ideia"><p class="eyebrow">Stories · semanal</p><h3>“Pergunte à advogada”</h3><ul><li>Caixa de perguntas à segunda-feira</li><li>Respostas curtas em texto ou vídeo</li><li>As melhores viram posts “Sabia que”</li></ul></div>
+      <div class="ideia"><p class="eyebrow">Stories · interação</p><h3>Sondagens “Mito ou facto?”</h3><ul><li>“Pode deserdar um filho?”</li><li>“Os enteados herdam?”</li><li>Resposta no dia seguinte, com link para o site</li></ul></div>
+      <div class="ideia"><p class="eyebrow">Reels · 15 a 30 s</p><h3>Com as filmagens</h3><ul><li>“Um dia no escritório” com música calma</li><li>3 frases “Sabia que” sobre imagens da Dra.</li><li>A Dra. a falar para a câmara: 1 dúvida, 1 resposta</li></ul></div>
+    </div>
+  </section>
+
+  <section class="bloco" id="regras">
+    <div class="cab"><span class="cab__n">06</span><h2>Regras e aprovação</h2><p>A publicidade de advogados é permitida desde 2024, mas deve ser verdadeira, objetiva e respeitar o sigilo profissional.</p></div>
+    <div class="regras">
+      <div class="caixa"><h3>Cuidados em todos os posts</h3><ul>
+        <li><b>Nunca</b> falar de casos ou clientes reais, mesmo sem nomes.</li>
+        <li>Sem preços nem promoções nos posts.</li>
+        <li>Informar, não prometer resultados.</li>
+        <li>Responder a dúvidas nos comentários de forma geral e convidar a marcar consulta.</li>
+        <li>Responder a comentários e mensagens no prazo de 24 horas.</li>
+      </ul></div>
+      <div class="caixa caixa--clara"><h3>Para a Dra. aprovar</h3><ul>
+        <li><b>Citação:</b> “O melhor processo é aquele que nunca chega a tribunal.”</li>
+        <li><b>Textos jurídicos:</b> o “Sabia que” sobre a legítima e o “Mito ou facto” sobre testamentos.</li>
+        <li><b>Nome do perfil:</b> @soniasantosadvogada (confirmar se está livre).</li>
+        <li><b>Legendas do LinkedIn</b> na primeira pessoa.</li>
+        <li><b>O que medir:</b> guardados, partilhas, visitas ao perfil, cliques no site e marcações.</li>
+      </ul></div>
+    </div>
+  </section>
+</main>
+
+<footer>Sónia Alexandra Santos — Advogada, RL · Documento interno, não indexado</footer>
+
+<script>
+const TAGS_BASE = '#advogada #santamariadafeira #mozelos';
+const IG = [
+  { n: '01', titulo: 'Apresentação', tema: 'Proximidade', imgs: ['01-apresentacao'],
+    legenda: `Advogada desde 2005, a Dra. Sónia Alexandra Santos construiu a sua carreira na advocacia preventiva: ajudar pessoas, famílias e empresas a tomar as decisões certas antes de os problemas surgirem.
+
+Exerce sobretudo em Direito da Família e Sucessões, Atos Notariais e advocacia de empresa, com escritório em Mozelos, Santa Maria da Feira.
+
+📍 Rua Dr. Amorim, Ed. Casa do Povo, Loja G, Mozelos
+🌐 soniasantosadvogada.pt`,
+    tags: TAGS_BASE + ' #advocaciapreventiva #direitodafamilia' },
+  { n: '02', titulo: 'Como podemos ajudar a sua família', tema: 'Situações', imgs: ['02a-familia','02b-heranca','02c-testamento','02d-responsabilidades-parentais','02e-sabia-que'],
+    legenda: `A casa dos pais, um testamento por fazer, filhos de pais separados… São situações de todas as famílias e ficam muito mais simples quando são tratadas a tempo.
+
+Deslize até ao fim: sabia que não pode deixar tudo em testamento a quem quiser?
+
+Reconheceu-se em alguma? Guarde este post ou envie-o a quem possa precisar.`,
+    tags: TAGS_BASE + ' #herancas #partilhas #testamento #responsabilidadesparentais', aviso: 'Texto jurídico: confirmar' },
+  { n: '03', titulo: 'Novo site disponível', tema: 'Serviços e site', imgs: ['03-novo-site'],
+    legenda: `O novo site já está disponível: soniasantosadvogada.pt
+
+Áreas de atuação, equipa, escritório e marcação de consultas, no escritório ou por videochamada.
+
+Link na bio.`,
+    tags: TAGS_BASE + ' #novosite #consultaonline' },
+  { n: '04', titulo: 'Antes de assinar um contrato', tema: 'Educar', imgs: ['04-antes-de-assinar'],
+    legenda: `Um contrato assinado à pressa pode sair caro.
+
+Antes de assinar, faça estas três perguntas. Se alguma resposta não for clara, vale a pena pedir ajuda antes, e não depois.
+
+Guarde este post para a próxima vez que tiver um contrato nas mãos. 📌`,
+    tags: TAGS_BASE + ' #contratos #advocaciapreventiva #dicasjuridicas' },
+  { n: '05', titulo: 'O escritório', tema: 'Proximidade', imgs: ['05-escritorio'],
+    legenda: `O escritório fica em Mozelos, Santa Maria da Feira:
+
+Rua Dr. Amorim, Ed. Casa do Povo, Loja G
+4535-211 Mozelos
+
+Para reuniões presenciais e atos notariais. Indicações de como chegar em soniasantosadvogada.pt`,
+    tags: TAGS_BASE + ' #escritoriodeadvocacia' },
+  { n: '06', titulo: 'Citação', tema: 'Proximidade', imgs: ['06-citacao'],
+    legenda: `“O melhor processo é aquele que nunca chega a tribunal.”
+— Dra. Sónia Alexandra Santos
+
+Rever um contrato antes de o assinar, planear uma partilha ou preparar um testamento a tempo: é assim que a advocacia preventiva evita litígios.`,
+    tags: TAGS_BASE + ' #advocaciapreventiva', aviso: 'Citação: aprovar' },
+  { n: '07', titulo: 'Testamentos: mito ou facto?', tema: 'Educar', imgs: ['07-mito-facto'],
+    legenda: `Mito ou facto?
+
+Muita gente acha que o testamento só faz sentido para quem tem um grande património. Na verdade, pode ajudar qualquer família a organizar a herança e a evitar desentendimentos, sempre dentro dos limites da lei.
+
+Já tinha pensado nisto? Partilhe com alguém a quem isto possa interessar.`,
+    tags: TAGS_BASE + ' #testamento #herancas #mitooufacto', aviso: 'Texto jurídico: confirmar' },
+  { n: '08', titulo: 'Para quem vive fora', tema: 'Situações', imgs: ['08-vive-fora'],
+    legenda: `Vive fora de Portugal e tem assuntos por resolver cá?
+
+Heranças, partilhas, procurações ou registos podem começar com uma consulta por videochamada, em português, inglês, francês, alemão ou italiano.
+
+Envie este post a um familiar ou amigo que viva no estrangeiro.`,
+    tags: TAGS_BASE + ' #emigrantes #portuguesesnomundo #consultaonline' },
+  { n: '09', titulo: 'No escritório ou por videochamada', tema: 'Serviços e site', imgs: ['09-videochamada'],
+    legenda: `Além das reuniões no escritório, a Dra. Sónia dá consultas por videochamada, de 30 minutos, onde quer que esteja.
+
+Marcação em soniasantosadvogada.pt`,
+    tags: TAGS_BASE + ' #consultaonline #videochamada' },
+];
+const LI = [
+  { n: 'L1', titulo: 'Novo site', img: 'L1-novo-site',
+    legenda: `Tenho o gosto de partilhar o novo site do meu escritório: soniasantosadvogada.pt
+
+Desde 2005 que acompanho pessoas, famílias e empresas. O site reúne as áreas em que trabalho, a equipa, o escritório em Mozelos e a possibilidade de marcar consultas presenciais ou por videochamada.
+
+Obrigada a todos os que confiam no nosso trabalho.`,
+    tags: '#advocacia #advocaciapreventiva #santamariadafeira' },
+  { n: 'L2', titulo: 'Citação', img: 'L2-citacao', aviso: 'Citação: aprovar',
+    legenda: `“O melhor processo é aquele que nunca chega a tribunal.”
+
+É a ideia que orienta a minha prática há mais de 20 anos. Um contrato bem revisto, uma partilha planeada a tempo ou um testamento bem preparado evitam meses, por vezes anos, de litígio.
+
+A advocacia preventiva não é só para empresas. É para qualquer pessoa que prefira resolver antes de ter de discutir.`,
+    tags: '#advocaciapreventiva #direito #advocacia' },
+  { n: 'L3', titulo: 'Empresas: falar antes', img: 'L3-empresas',
+    legenda: `Três momentos em que uma conversa com um advogado pode poupar muito a uma empresa:
+
+1. Antes de assinar contratos importantes com clientes ou fornecedores.
+2. Antes de constituir ou alterar uma sociedade.
+3. Antes de uma dívida por cobrar se tornar um litígio.
+
+Em todos eles, analisar antes costuma custar menos tempo e menos dinheiro do que resolver depois.`,
+    tags: '#empresas #pme #contratos #advocaciapreventiva' },
+  { n: 'L4', titulo: 'Apresentação', img: 'L4-apresentacao',
+    legenda: `Sou advogada desde 2005, com escritório em Mozelos, Santa Maria da Feira.
+
+Trabalho sobretudo em advocacia preventiva, advocacia de empresa, Direito da Família e Sucessões e Atos Notariais. Também dou consultas por videochamada, em português, inglês, francês, alemão e italiano.
+
+Vou partilhar aqui dicas práticas para ajudar a evitar problemas jurídicos antes de eles surgirem.`,
+    tags: '#advogada #advocacia #santamariadafeira' },
+];
+
+const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+
+function cartao(p, rede) {
+  const imgs = rede === 'ig' ? p.imgs : [p.img];
+  const pasta = rede === 'ig' ? 'instagram' : 'linkedin';
+  const multi = imgs.length > 1;
+  const art = document.createElement('article');
+  art.className = 'post'; art.id = `post-${p.n}`;
+  art.innerHTML = `
+    <div class="car car--${rede}" data-i="0">
+      <div class="car__trilho">${imgs.map((s, i) => `<img src="${pasta}/${s}.jpg" alt="Post ${p.n}${multi ? ', imagem ' + (i + 1) : ''}" loading="lazy">`).join('')}</div>
+      ${multi ? `<button class="seta seta--e" aria-label="Imagem anterior" disabled>‹</button><button class="seta seta--d" aria-label="Imagem seguinte">›</button>
+      <div class="pontos">${imgs.map((_, i) => `<i class="${i ? '' : 'on'}"></i>`).join('')}</div>` : ''}
+    </div>
+    <div>
+      <div class="meta"><span class="chip chip--ouro">${p.n}</span>${p.tema ? `<span class="chip">${p.tema}</span>` : ''}${multi ? `<span class="chip">${imgs.length} imagens</span>` : ''}${p.aviso ? `<span class="chip chip--aviso">${p.aviso}</span>` : ''}</div>
+      <h3>${p.titulo}</h3>
+      <p class="legenda" id="leg-${p.n}">${esc(p.legenda)}\n\n<span class="tags">${p.tags}</span></p>
+      <div class="acoes">
+        <button class="btn" data-copiar="${p.n}">Copiar legenda</button>
+        ${imgs.map((s, i) => `<a class="btn" href="${pasta}/${s}.jpg" download>Descarregar${multi ? ' ' + (i + 1) : ' imagem'}</a>`).join('')}
+        <small aria-live="polite"></small>
+      </div>
+    </div>`;
+  if (multi) {
+    const c = art.querySelector('.car'), t = c.querySelector('.car__trilho');
+    const e = c.querySelector('.seta--e'), d = c.querySelector('.seta--d');
+    const ir = k => {
+      const i = Math.min(imgs.length - 1, Math.max(0, +c.dataset.i + k));
+      c.dataset.i = i; t.style.transform = `translateX(-${i * 100}%)`;
+      e.disabled = i === 0; d.disabled = i === imgs.length - 1;
+      c.querySelectorAll('.pontos i').forEach((el, j) => el.classList.toggle('on', j === i));
+    };
+    e.onclick = () => ir(-1); d.onclick = () => ir(1);
+  }
+  return art;
+}
+
+const listaIg = document.getElementById('posts-ig');
+IG.forEach(p => listaIg.appendChild(cartao(p, 'ig')));
+const listaLi = document.getElementById('posts-li');
+LI.forEach(p => listaLi.appendChild(cartao(p, 'li')));
+
+const feed = document.getElementById('feed');
+[...IG].reverse().forEach(p => {
+  const b = document.createElement('button');
+  if (p.imgs.length > 1) b.className = 'multi';
+  b.setAttribute('aria-label', `Ver post ${p.n}: ${p.titulo}`);
+  b.innerHTML = `<img src="instagram/${p.imgs[0]}.jpg" alt="">`;
+  b.onclick = () => {
+    const alvo = document.getElementById('post-' + p.n);
+    document.querySelectorAll('.post.ativo').forEach(x => x.classList.remove('ativo'));
+    alvo.classList.add('ativo');
+    alvo.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+  };
+  feed.appendChild(b);
+});
+
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-copiar]'); if (!b) return;
+  const el = document.getElementById('leg-' + b.dataset.copiar);
+  const aviso = b.parentElement.querySelector('small');
+  const selecionar = () => { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); aviso.textContent = 'Texto selecionado: copie com Ctrl+C.'; };
+  try { navigator.clipboard.writeText(el.innerText.trim()).then(() => { aviso.textContent = 'Legenda copiada.'; }, selecionar); }
+  catch (err) { selecionar(); }
+});
+</script>
+</body>
+</html>

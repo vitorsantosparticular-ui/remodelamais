@@ -165,16 +165,16 @@ if (window.gsap && window.ScrollTrigger && !calmo) {
   gsap.registerPlugin(ScrollTrigger);
   gsap.timeline({ delay: 1.05, defaults: { ease: 'expo.out' } })
     .from('.hero h1 .linha > span', { yPercent: 110, duration: 1.4, stagger: .12 })
-    .from('.hero .eyebrow, .hero .lead, .hero__acoes, .hero__online', { y: 24, opacity: 0, duration: 1.2, stagger: .1 }, '<.2')
-    .from('.hero__foto', { clipPath: 'inset(100% 0 0 0)', duration: 1.6, ease: 'expo.inOut' }, 0)
-    .from('.hero__foto img', { scale: 1.3, duration: 2.2 }, 0)
-    .from('.hero__moldura', { opacity: 0, x: -20, y: -20, duration: 1.4 }, .6)
+    .from('.hero .eyebrow, .hero .lead, .hero__acoes, .hero__selos', { y: 24, opacity: 0, duration: 1.2, stagger: .1 }, '<.2')
+    .from('.hero__media', { clipPath: 'inset(0 0 0 100%)', duration: 1.8, ease: 'expo.inOut' }, 0)
+    .from('.hero__media img', { scale: 1.25, duration: 2.4 }, 0)
     .from('.selo', { scale: 0, rotate: -90, duration: 1.4, ease: 'back.out(1.6)' }, .8)
     .from('.topo', { y: -30, opacity: 0, duration: 1 }, .3);
 
   gsap.utils.toArray('[data-reveal]').forEach(el => {
     gsap.from(el, { y: 50, opacity: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 90%' } });
   });
+  gsap.fromTo('.hero__media img', { yPercent: 0 }, { yPercent: 8, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
   gsap.utils.toArray('.cartao li').forEach(li => {
     gsap.from(li, { x: -16, opacity: 0, duration: .8, ease: 'power3.out', scrollTrigger: { trigger: li, start: 'top 95%' } });
   });

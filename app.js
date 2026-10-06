@@ -203,7 +203,7 @@ if (window.gsap && window.ScrollTrigger && !calmo) {
     .from('.hero__media', { clipPath: 'inset(0 0 0 100%)', duration: 1.8, ease: 'expo.inOut' }, 0)
     .from('.hero__media img', { scale: 1.25, duration: 2.4 }, 0)
     .from('.selo', { scale: 0, rotate: -90, duration: 1.4, ease: 'back.out(1.6)' }, .8)
-    .from('.topo', { y: -30, opacity: 0, duration: 1 }, .3);
+    .from('.topo__inner', { y: -30, opacity: 0, duration: 1, clearProps: 'transform,opacity' }, .3);
 
   gsap.utils.toArray('[data-reveal]').forEach(el => {
     gsap.from(el, { y: 50, opacity: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 90%' } });

@@ -90,7 +90,7 @@ em { font-family: var(--italico); font-style: italic; font-weight: 500; font-siz
 @keyframes loader-sai { to { clip-path: inset(0 0 100% 0); visibility: hidden; } }
 
 /* Topo */
-.topo { position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 20; transition: box-shadow .5s; }
+.topo { position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 20; transition: box-shadow .5s; transform: none !important; }
 .topo::before { content: ""; position: absolute; inset: 0; background: rgba(247, 238, 231, .82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); z-index: -1; }
 .topo.solido { box-shadow: 0 1px 0 var(--linha); }
 .topo__inner { display: flex; align-items: center; justify-content: space-between; gap: 18px; height: 84px; transition: height .5s var(--ease); }

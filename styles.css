@@ -246,7 +246,7 @@ section { position: relative; }
 /* Sobre */
 .sobre__grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(40px, 7vw, 110px); align-items: center; }
 .sobre__foto { margin: 0; overflow: hidden; border-radius: var(--raio); aspect-ratio: 4 / 5; max-width: 100%; }
-.sobre__foto img { width: 100%; height: 112%; object-fit: cover; object-position: center 30%; }
+.sobre__foto img { width: 100%; height: 108%; object-fit: cover; object-position: center 0%; }
 .sobre__texto { min-width: 0; }
 blockquote {
   margin: 0 0 1.4em; padding: 0 0 0 26px; border-left: 1px solid var(--acento);

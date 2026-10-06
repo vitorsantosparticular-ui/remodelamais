@@ -210,7 +210,8 @@ if (window.gsap && window.ScrollTrigger && !calmo) {
   });
   gsap.fromTo('.hero__media img', { yPercent: 0 }, { yPercent: 8, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
   gsap.utils.toArray('[data-parallax] img').forEach(img => {
-    gsap.fromTo(img, { yPercent: -6 }, { yPercent: 6, ease: 'none', scrollTrigger: { trigger: img.parentElement, scrub: true } });
+    // Começa encostada ao topo (não corta a cabeça) e sobe ligeiramente com o scroll
+    gsap.fromTo(img, { yPercent: 0 }, { yPercent: -6, ease: 'none', scrollTrigger: { trigger: img.parentElement, scrub: true } });
   });
   gsap.utils.toArray('.galeria img').forEach((img, i) => {
     const s = i % 2 ? 1 : -1;

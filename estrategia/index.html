@@ -159,6 +159,39 @@ tr:last-child td { border-bottom: 0; }
 .redes-e a { width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--acento); color: var(--tinta); transition: background .3s, color .3s; }
 .redes-e a:hover { background: var(--acento); color: #fff; }
 .redes-e svg { width: 22px; height: 22px; }
+
+/* Reunião */
+.progresso-r { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; margin-bottom: 22px; font-size: .82rem; color: var(--tinta); font-weight: 500; font-variant-numeric: tabular-nums; }
+.progresso-r .barra { height: 8px; }
+.grupos { display: grid; gap: 14px; }
+.grupo { background: var(--claro); border: 1px solid var(--linha); border-radius: 6px; }
+.grupo summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 18px 22px; font: 400 1.25rem var(--serif); color: var(--tinta); }
+.grupo summary::-webkit-details-marker { display: none; }
+.grupo summary small { font: 500 .7rem var(--sans); letter-spacing: .14em; color: var(--acento); white-space: nowrap; }
+.grupo summary:focus-visible { outline: 2px solid var(--acento); outline-offset: -2px; }
+.grupo ul { list-style: none; margin: 0; padding: 0 22px 10px; }
+.q { display: grid; grid-template-columns: 28px 1fr; gap: 12px; padding: 14px 0; border-top: 1px solid var(--linha); }
+.q__chk input { position: absolute; opacity: 0; }
+.q__chk span { display: grid; place-items: center; width: 22px; height: 22px; border: 1px solid var(--acento); border-radius: 4px; background: #fff; cursor: pointer; margin-top: 2px; }
+.q__chk input:checked + span { background: var(--acento); }
+.q__chk input:checked + span::after { content: ""; width: 10px; height: 5px; border: solid #fff; border-width: 0 0 2px 2px; transform: rotate(-45deg) translate(1px, -1px); }
+.q__chk input:focus-visible + span { outline: 2px solid var(--acento); outline-offset: 2px; }
+.q__corpo { min-width: 0; display: grid; gap: 8px; }
+.q__txt { font-size: .92rem; color: var(--texto); cursor: pointer; }
+.q.feito .q__txt { color: var(--suave); }
+.sn { display: flex; gap: 6px; flex-wrap: wrap; }
+.sn label { position: relative; }
+.sn input { position: absolute; opacity: 0; }
+.sn span { display: inline-block; padding: 5px 12px; border: 1px solid var(--linha); border-radius: 20px; font-size: .74rem; cursor: pointer; background: #fff; }
+.sn input:checked + span { background: var(--tinta); border-color: var(--tinta); color: #fff; }
+.sn input:focus-visible + span { outline: 2px solid var(--acento); outline-offset: 2px; }
+.q textarea { width: 100%; font: 300 .88rem var(--sans); color: var(--texto); background: var(--fundo); border: 1px solid var(--linha); border-radius: 4px; padding: 8px 10px; resize: vertical; min-height: 38px; }
+.q textarea:focus { outline: none; border-color: var(--acento); }
+.r-acoes, .r-confirmar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 22px; }
+.r-confirmar { padding: 14px 16px; background: #f3e1c8; border-radius: 6px; color: #6a4c26; font-size: .88rem; }
+.btn--leve { border-color: var(--linha); color: var(--suave); }
+.r-resumo { margin: 18px 0 0; white-space: pre-wrap; font: 400 .82rem/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--claro); border: 1px dashed var(--linha); border-radius: 6px; padding: 16px; max-height: 340px; overflow: auto; }
+@media (max-width: 640px) { .grupo ul { padding: 0 14px 8px; } .grupo summary { padding: 16px 14px; } .progresso-r { grid-template-columns: 1fr; gap: 8px; } }
 footer { padding-block: 40px; text-align: center; font-size: .78rem; color: var(--suave); }
 
 @media (max-width: 980px) {
@@ -186,17 +219,87 @@ footer { padding-block: 40px; text-align: center; font-size: .78rem; color: var(
     <div class="capa__top"><img src="../img/monograma.png" alt=""><span>Documento interno · para reunião</span></div>
     <p class="eyebrow" style="color:var(--acento-claro)">Plano de comunicação</p>
     <h1>Instagram e LinkedIn da <em>Dra. Sónia</em></h1>
-    <p>Proposta para o lançamento das redes sociais: posicionamento, público, tipos de conteúdo, os primeiros posts prontos a publicar e o calendário das primeiras três semanas.</p>
+    <p>Tudo o que falta validar com a Dra. e a proposta para o lançamento das redes sociais: posicionamento, público, tipos de conteúdo, os primeiros posts prontos a publicar e o calendário das primeiras três semanas.</p>
     <nav class="indice" aria-label="Secções">
-      <a href="#estrategia">Estratégia</a><a href="#instagram">Instagram</a><a href="#calendario">Calendário</a><a href="#linkedin">LinkedIn</a><a href="#ideias">Stories e Reels</a><a href="#regras">Regras e aprovação</a>
+      <a href="#reuniao">Reunião: validar</a><a href="#estrategia">Estratégia</a><a href="#instagram">Instagram</a><a href="#calendario">Calendário</a><a href="#linkedin">LinkedIn</a><a href="#ideias">Stories e Reels</a><a href="#regras">Regras e aprovação</a>
     </nav>
   </div>
 </header>
 
 <main class="wrap">
 
+  <section class="bloco" id="reuniao">
+    <div class="cab"><span class="cab__n">01</span><h2>Reunião: o que validar com a Dra.</h2><p>Marque cada ponto e escreva a resposta durante a reunião. As notas ficam guardadas neste navegador; no fim, copie o resumo e envie-o para atualizarmos o site.</p></div>
+    <div class="progresso-r"><span id="r-contagem">0 de 0 pontos tratados</span><div class="barra"><i id="r-barra" style="width:0%"></i></div></div>
+    <div class="grupos">
+      <details class="grupo" open><summary><span>Agenda e marcações</span><small data-grupo="calendario"></small></summary><ul>
+        <li class="q" data-id="calendario-0" data-grupo="calendario"><label class="q__chk"><input type="checkbox" id="calendario-0"><span></span></label><div class="q__corpo"><label for="calendario-0-n" class="q__txt">Já usa o Google Calendar? Com que conta (pessoal ou do escritório)?</label><textarea id="calendario-0-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="calendario-1" data-grupo="calendario"><label class="q__chk"><input type="checkbox" id="calendario-1"><span></span></label><div class="q__corpo"><label for="calendario-1-n" class="q__txt">Quer que as marcações online entrem diretamente no calendário dela?</label><div class="sn" role="group" aria-label="Resposta"><label><input type="radio" name="calendario-1-sn" value="Sim"><span>Sim</span></label><label><input type="radio" name="calendario-1-sn" value="Não"><span>Não</span></label><label><input type="radio" name="calendario-1-sn" value="A ver"><span>A ver</span></label></div><textarea id="calendario-1-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="calendario-2" data-grupo="calendario"><label class="q__chk"><input type="checkbox" id="calendario-2"><span></span></label><div class="q__corpo"><label for="calendario-2-n" class="q__txt">Que dias e horas ficam disponíveis para consultas online? (ex.: ter e qui, 14h–17h)</label><textarea id="calendario-2-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="calendario-3" data-grupo="calendario"><label class="q__chk"><input type="checkbox" id="calendario-3"><span></span></label><div class="q__corpo"><label for="calendario-3-n" class="q__txt">Quantas vagas por dia, no máximo?</label><textarea id="calendario-3-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="calendario-4" data-grupo="calendario"><label class="q__chk"><input type="checkbox" id="calendario-4"><span></span></label><div class="q__corpo"><label for="calendario-4-n" class="q__txt">Intervalo entre consultas (ex.: 15 min) e antecedência mínima para marcar (ex.: 24 h)</label><textarea id="calendario-4-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="calendario-5" data-grupo="calendario"><label class="q__chk"><input type="checkbox" id="calendario-5"><span></span></label><div class="q__corpo"><label for="calendario-5-n" class="q__txt">Também quer marcação online para reuniões presenciais no escritório?</label><div class="sn" role="group" aria-label="Resposta"><label><input type="radio" name="calendario-5-sn" value="Sim"><span>Sim</span></label><label><input type="radio" name="calendario-5-sn" value="Não"><span>Não</span></label><label><input type="radio" name="calendario-5-sn" value="A ver"><span>A ver</span></label></div><textarea id="calendario-5-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="calendario-6" data-grupo="calendario"><label class="q__chk"><input type="checkbox" id="calendario-6"><span></span></label><div class="q__corpo"><label for="calendario-6-n" class="q__txt">Quem confirma e gere as marcações: a Dra., uma estagiária ou a receção?</label><textarea id="calendario-6-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="calendario-7" data-grupo="calendario"><label class="q__chk"><input type="checkbox" id="calendario-7"><span></span></label><div class="q__corpo"><label for="calendario-7-n" class="q__txt">Regra para desmarcações e faltas (ex.: até 24 h antes, sem custo)</label><textarea id="calendario-7-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+      </ul></details>
+      <details class="grupo" open><summary><span>Pagamentos</span><small data-grupo="pagamento"></small></summary><ul>
+        <li class="q" data-id="pagamento-0" data-grupo="pagamento"><label class="q__chk"><input type="checkbox" id="pagamento-0"><span></span></label><div class="q__corpo"><label for="pagamento-0-n" class="q__txt">Mantém a consulta online a 30 €? Inclui IVA? Emite fatura-recibo?</label><textarea id="pagamento-0-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="pagamento-1" data-grupo="pagamento"><label class="q__chk"><input type="checkbox" id="pagamento-1"><span></span></label><div class="q__corpo"><label for="pagamento-1-n" class="q__txt">Paga-se antes de confirmar ou depois da consulta?</label><textarea id="pagamento-1-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="pagamento-2" data-grupo="pagamento"><label class="q__chk"><input type="checkbox" id="pagamento-2"><span></span></label><div class="q__corpo"><label for="pagamento-2-n" class="q__txt">Como prefere receber: MB WAY, transferência, cartão (Stripe/SumUp/easypay) ou na própria agenda Google?</label><textarea id="pagamento-2-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="pagamento-3" data-grupo="pagamento"><label class="q__chk"><input type="checkbox" id="pagamento-3"><span></span></label><div class="q__corpo"><label for="pagamento-3-n" class="q__txt">Os 30 € são descontados se o cliente avançar com o processo?</label><div class="sn" role="group" aria-label="Resposta"><label><input type="radio" name="pagamento-3-sn" value="Sim"><span>Sim</span></label><label><input type="radio" name="pagamento-3-sn" value="Não"><span>Não</span></label><label><input type="radio" name="pagamento-3-sn" value="A ver"><span>A ver</span></label></div><textarea id="pagamento-3-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="pagamento-4" data-grupo="pagamento"><label class="q__chk"><input type="checkbox" id="pagamento-4"><span></span></label><div class="q__corpo"><label for="pagamento-4-n" class="q__txt">A consulta presencial tem outro valor? Mostra-se no site ou não?</label><textarea id="pagamento-4-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="pagamento-5" data-grupo="pagamento"><label class="q__chk"><input type="checkbox" id="pagamento-5"><span></span></label><div class="q__corpo"><label for="pagamento-5-n" class="q__txt">Confirma que mostrar o preço é aceitável perante as regras da Ordem?</label><div class="sn" role="group" aria-label="Resposta"><label><input type="radio" name="pagamento-5-sn" value="Sim"><span>Sim</span></label><label><input type="radio" name="pagamento-5-sn" value="Não"><span>Não</span></label><label><input type="radio" name="pagamento-5-sn" value="A ver"><span>A ver</span></label></div><textarea id="pagamento-5-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+      </ul></details>
+      <details class="grupo" open><summary><span>Reuniões e videochamadas</span><small data-grupo="reunioes"></small></summary><ul>
+        <li class="q" data-id="reunioes-0" data-grupo="reunioes"><label class="q__chk"><input type="checkbox" id="reunioes-0"><span></span></label><div class="q__corpo"><label for="reunioes-0-n" class="q__txt">Plataforma: Google Meet, Zoom, WhatsApp vídeo ou Teams?</label><textarea id="reunioes-0-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="reunioes-1" data-grupo="reunioes"><label class="q__chk"><input type="checkbox" id="reunioes-1"><span></span></label><div class="q__corpo"><label for="reunioes-1-n" class="q__txt">Duração: 30 minutos chega? Precisa de outro formato (ex.: 60 min)?</label><textarea id="reunioes-1-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="reunioes-2" data-grupo="reunioes"><label class="q__chk"><input type="checkbox" id="reunioes-2"><span></span></label><div class="q__corpo"><label for="reunioes-2-n" class="q__txt">Pede documentos antes da consulta? Por email ou outro canal?</label><textarea id="reunioes-2-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="reunioes-3" data-grupo="reunioes"><label class="q__chk"><input type="checkbox" id="reunioes-3"><span></span></label><div class="q__corpo"><label for="reunioes-3-n" class="q__txt">Em que línguas atende de facto (PT, EN, FR, DE, IT)?</label><textarea id="reunioes-3-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+      </ul></details>
+      <details class="grupo" open><summary><span>Contactos e dados do site</span><small data-grupo="dados"></small></summary><ul>
+        <li class="q" data-id="dados-0" data-grupo="dados"><label class="q__chk"><input type="checkbox" id="dados-0"><span></span></label><div class="q__corpo"><label for="dados-0-n" class="q__txt">Telefone fixo e/ou telemóvel a mostrar</label><textarea id="dados-0-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="dados-1" data-grupo="dados"><label class="q__chk"><input type="checkbox" id="dados-1"><span></span></label><div class="q__corpo"><label for="dados-1-n" class="q__txt">Número de WhatsApp (pode ser diferente do telefone)</label><textarea id="dados-1-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="dados-2" data-grupo="dados"><label class="q__chk"><input type="checkbox" id="dados-2"><span></span></label><div class="q__corpo"><label for="dados-2-n" class="q__txt">Email público (ex.: geral@soniasantosadvogada.pt) e email que recebe os pedidos</label><textarea id="dados-2-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="dados-3" data-grupo="dados"><label class="q__chk"><input type="checkbox" id="dados-3"><span></span></label><div class="q__corpo"><label for="dados-3-n" class="q__txt">Horário do escritório</label><textarea id="dados-3-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="dados-4" data-grupo="dados"><label class="q__chk"><input type="checkbox" id="dados-4"><span></span></label><div class="q__corpo"><label for="dados-4-n" class="q__txt">N.º de cédula profissional e NIPC</label><textarea id="dados-4-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="dados-5" data-grupo="dados"><label class="q__chk"><input type="checkbox" id="dados-5"><span></span></label><div class="q__corpo"><label for="dados-5-n" class="q__txt">Nomes dos dois advogados estagiários e se autorizam aparecer no site</label><textarea id="dados-5-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="dados-6" data-grupo="dados"><label class="q__chk"><input type="checkbox" id="dados-6"><span></span></label><div class="q__corpo"><label for="dados-6-n" class="q__txt">Links do Instagram e LinkedIn</label><textarea id="dados-6-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+      </ul></details>
+      <details class="grupo" open><summary><span>Textos e conteúdo</span><small data-grupo="textos"></small></summary><ul>
+        <li class="q" data-id="textos-0" data-grupo="textos"><label class="q__chk"><input type="checkbox" id="textos-0"><span></span></label><div class="q__corpo"><label for="textos-0-n" class="q__txt">Aprova a citação “O melhor processo é aquele que nunca chega a tribunal.”?</label><div class="sn" role="group" aria-label="Resposta"><label><input type="radio" name="textos-0-sn" value="Sim"><span>Sim</span></label><label><input type="radio" name="textos-0-sn" value="Não"><span>Não</span></label><label><input type="radio" name="textos-0-sn" value="A ver"><span>A ver</span></label></div><textarea id="textos-0-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="textos-1" data-grupo="textos"><label class="q__chk"><input type="checkbox" id="textos-1"><span></span></label><div class="q__corpo"><label for="textos-1-n" class="q__txt">Aprova os textos do Sobre e das áreas de atuação?</label><div class="sn" role="group" aria-label="Resposta"><label><input type="radio" name="textos-1-sn" value="Sim"><span>Sim</span></label><label><input type="radio" name="textos-1-sn" value="Não"><span>Não</span></label><label><input type="radio" name="textos-1-sn" value="A ver"><span>A ver</span></label></div><textarea id="textos-1-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="textos-2" data-grupo="textos"><label class="q__chk"><input type="checkbox" id="textos-2"><span></span></label><div class="q__corpo"><label for="textos-2-n" class="q__txt">Que serviços quer destacar em Advocacia de empresa (contratos, sociedades, cobranças…)?</label><textarea id="textos-2-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="textos-3" data-grupo="textos"><label class="q__chk"><input type="checkbox" id="textos-3"><span></span></label><div class="q__corpo"><label for="textos-3-n" class="q__txt">Aprova os textos jurídicos dos posts (“Sabia que” sobre a legítima, “Mito ou facto” sobre testamentos)?</label><div class="sn" role="group" aria-label="Resposta"><label><input type="radio" name="textos-3-sn" value="Sim"><span>Sim</span></label><label><input type="radio" name="textos-3-sn" value="Não"><span>Não</span></label><label><input type="radio" name="textos-3-sn" value="A ver"><span>A ver</span></label></div><textarea id="textos-3-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="textos-4" data-grupo="textos"><label class="q__chk"><input type="checkbox" id="textos-4"><span></span></label><div class="q__corpo"><label for="textos-4-n" class="q__txt">As traduções (EN, FR, DE, IT) podem ser revistas por alguém fluente?</label><textarea id="textos-4-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="textos-5" data-grupo="textos"><label class="q__chk"><input type="checkbox" id="textos-5"><span></span></label><div class="q__corpo"><label for="textos-5-n" class="q__txt">Revê e aprova a Política de Privacidade?</label><div class="sn" role="group" aria-label="Resposta"><label><input type="radio" name="textos-5-sn" value="Sim"><span>Sim</span></label><label><input type="radio" name="textos-5-sn" value="Não"><span>Não</span></label><label><input type="radio" name="textos-5-sn" value="A ver"><span>A ver</span></label></div><textarea id="textos-5-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+      </ul></details>
+      <details class="grupo" open><summary><span>Redes sociais e anúncios</span><small data-grupo="redes"></small></summary><ul>
+        <li class="q" data-id="redes-0" data-grupo="redes"><label class="q__chk"><input type="checkbox" id="redes-0"><span></span></label><div class="q__corpo"><label for="redes-0-n" class="q__txt">Nome do perfil: @soniasantosadvogada está bem?</label><div class="sn" role="group" aria-label="Resposta"><label><input type="radio" name="redes-0-sn" value="Sim"><span>Sim</span></label><label><input type="radio" name="redes-0-sn" value="Não"><span>Não</span></label><label><input type="radio" name="redes-0-sn" value="A ver"><span>A ver</span></label></div><textarea id="redes-0-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="redes-1" data-grupo="redes"><label class="q__chk"><input type="checkbox" id="redes-1"><span></span></label><div class="q__corpo"><label for="redes-1-n" class="q__txt">Quem publica e responde a comentários e mensagens? Em quanto tempo?</label><textarea id="redes-1-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="redes-2" data-grupo="redes"><label class="q__chk"><input type="checkbox" id="redes-2"><span></span></label><div class="q__corpo"><label for="redes-2-n" class="q__txt">Aprova o calendário (Instagram 3x e LinkedIn 2x por semana)?</label><div class="sn" role="group" aria-label="Resposta"><label><input type="radio" name="redes-2-sn" value="Sim"><span>Sim</span></label><label><input type="radio" name="redes-2-sn" value="Não"><span>Não</span></label><label><input type="radio" name="redes-2-sn" value="A ver"><span>A ver</span></label></div><textarea id="redes-2-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="redes-3" data-grupo="redes"><label class="q__chk"><input type="checkbox" id="redes-3"><span></span></label><div class="q__corpo"><label for="redes-3-n" class="q__txt">Está disponível para gravar vídeos curtos (Reels) para a câmara?</label><div class="sn" role="group" aria-label="Resposta"><label><input type="radio" name="redes-3-sn" value="Sim"><span>Sim</span></label><label><input type="radio" name="redes-3-sn" value="Não"><span>Não</span></label><label><input type="radio" name="redes-3-sn" value="A ver"><span>A ver</span></label></div><textarea id="redes-3-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="redes-4" data-grupo="redes"><label class="q__chk"><input type="checkbox" id="redes-4"><span></span></label><div class="q__corpo"><label for="redes-4-n" class="q__txt">Orçamento mensal para anúncios e plataformas (Google, Meta ou ambas)</label><textarea id="redes-4-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="redes-5" data-grupo="redes"><label class="q__chk"><input type="checkbox" id="redes-5"><span></span></label><div class="q__corpo"><label for="redes-5-n" class="q__txt">Que zonas atingir: Santa Maria da Feira e arredores, todo o país, emigrantes?</label><textarea id="redes-5-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="redes-6" data-grupo="redes"><label class="q__chk"><input type="checkbox" id="redes-6"><span></span></label><div class="q__corpo"><label for="redes-6-n" class="q__txt">Tem avaliações no Google que possamos mostrar (com autorização)?</label><div class="sn" role="group" aria-label="Resposta"><label><input type="radio" name="redes-6-sn" value="Sim"><span>Sim</span></label><label><input type="radio" name="redes-6-sn" value="Não"><span>Não</span></label><label><input type="radio" name="redes-6-sn" value="A ver"><span>A ver</span></label></div><textarea id="redes-6-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+      </ul></details>
+      <details class="grupo" open><summary><span>Contas e acessos</span><small data-grupo="acessos"></small></summary><ul>
+        <li class="q" data-id="acessos-0" data-grupo="acessos"><label class="q__chk"><input type="checkbox" id="acessos-0"><span></span></label><div class="q__corpo"><label for="acessos-0-n" class="q__txt">Quer o Google Workspace (email @soniasantosadvogada.pt + calendário)?</label><div class="sn" role="group" aria-label="Resposta"><label><input type="radio" name="acessos-0-sn" value="Sim"><span>Sim</span></label><label><input type="radio" name="acessos-0-sn" value="Não"><span>Não</span></label><label><input type="radio" name="acessos-0-sn" value="A ver"><span>A ver</span></label></div><textarea id="acessos-0-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="acessos-1" data-grupo="acessos"><label class="q__chk"><input type="checkbox" id="acessos-1"><span></span></label><div class="q__corpo"><label for="acessos-1-n" class="q__txt">Criar Google Analytics, Search Console e Google Business Profile: em nome de quem?</label><textarea id="acessos-1-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="acessos-2" data-grupo="acessos"><label class="q__chk"><input type="checkbox" id="acessos-2"><span></span></label><div class="q__corpo"><label for="acessos-2-n" class="q__txt">Quem fica com os acessos ao Netlify, à Amen e às redes sociais?</label><textarea id="acessos-2-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="acessos-3" data-grupo="acessos"><label class="q__chk"><input type="checkbox" id="acessos-3"><span></span></label><div class="q__corpo"><label for="acessos-3-n" class="q__txt">Tem o logótipo em ficheiro original (PNG, SVG ou PDF) do designer?</label><div class="sn" role="group" aria-label="Resposta"><label><input type="radio" name="acessos-3-sn" value="Sim"><span>Sim</span></label><label><input type="radio" name="acessos-3-sn" value="Não"><span>Não</span></label><label><input type="radio" name="acessos-3-sn" value="A ver"><span>A ver</span></label></div><textarea id="acessos-3-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+      </ul></details>
+    </div>
+    <div class="r-acoes">
+      <button class="btn" id="r-copiar" type="button">Copiar resumo da reunião</button>
+      <button class="btn btn--leve" id="r-limpar" type="button">Limpar respostas</button>
+      <small id="r-aviso" aria-live="polite"></small>
+    </div>
+    <div class="r-confirmar" id="r-confirmar" hidden><span>Apagar todas as respostas guardadas neste navegador?</span><button class="btn" id="r-sim" type="button">Apagar</button><button class="btn btn--leve" id="r-nao" type="button">Cancelar</button></div>
+    <pre class="r-resumo" id="r-resumo" hidden></pre>
+  </section>
+
   <section class="bloco" id="estrategia">
-    <div class="cab"><span class="cab__n">01</span><h2>Estratégia</h2><p>O que queremos que as pessoas pensem quando veem um post da Dra. Sónia.</p></div>
+    <div class="cab"><span class="cab__n">02</span><h2>Estratégia</h2><p>O que queremos que as pessoas pensem quando veem um post da Dra. Sónia.</p></div>
     <p class="posicao">“A advogada que ajuda a resolver antes de complicar.” Próxima, rigorosa e focada na prevenção, sobretudo em família, heranças e empresas.</p>
 
     <div class="cartoes">
@@ -215,7 +318,7 @@ footer { padding-block: 40px; text-align: center; font-size: .78rem; color: var(
   </section>
 
   <section class="bloco" id="instagram">
-    <div class="cab"><span class="cab__n">02</span><h2>Instagram: os primeiros 9 posts</h2><p>Toque numa imagem do perfil para ver o post. Cada post tem a legenda pronta a copiar e as imagens para descarregar.</p></div>
+    <div class="cab"><span class="cab__n">03</span><h2>Instagram: os primeiros 9 posts</h2><p>Toque numa imagem do perfil para ver o post. Cada post tem a legenda pronta a copiar e as imagens para descarregar.</p></div>
     <div class="ig">
       <aside>
         <div class="tel" aria-label="Simulação do perfil">
@@ -250,7 +353,7 @@ footer { padding-block: 40px; text-align: center; font-size: .78rem; color: var(
   </section>
 
   <section class="bloco" id="calendario">
-    <div class="cab"><span class="cab__n">03</span><h2>Calendário das primeiras 3 semanas</h2><p>Instagram 3 vezes por semana, LinkedIn 2 vezes. Melhor horário: entre as 12h e as 14h ou entre as 19h e as 21h.</p></div>
+    <div class="cab"><span class="cab__n">04</span><h2>Calendário das primeiras 3 semanas</h2><p>Instagram 3 vezes por semana, LinkedIn 2 vezes. Melhor horário: entre as 12h e as 14h ou entre as 19h e as 21h.</p></div>
     <div class="tabela">
       <table>
         <thead><tr><th>Semana</th><th>Segunda</th><th>Terça</th><th>Quarta</th><th>Quinta</th><th>Sexta</th></tr></thead>
@@ -264,12 +367,12 @@ footer { padding-block: 40px; text-align: center; font-size: .78rem; color: var(
   </section>
 
   <section class="bloco" id="linkedin">
-    <div class="cab"><span class="cab__n">04</span><h2>LinkedIn: 4 posts</h2><p>Formato quadrado, tom mais institucional e escrito na primeira pessoa, para o perfil pessoal da Dra. Sónia.</p></div>
+    <div class="cab"><span class="cab__n">05</span><h2>LinkedIn: 4 posts</h2><p>Formato quadrado, tom mais institucional e escrito na primeira pessoa, para o perfil pessoal da Dra. Sónia.</p></div>
     <div class="li-grelha" id="posts-li"></div>
   </section>
 
   <section class="bloco" id="ideias">
-    <div class="cab"><span class="cab__n">05</span><h2>Stories e Reels</h2><p>O que mais faz crescer a audiência. As fotos vêm de uma sessão filmada, por isso há material para vídeos curtos.</p></div>
+    <div class="cab"><span class="cab__n">06</span><h2>Stories e Reels</h2><p>O que mais faz crescer a audiência. As fotos vêm de uma sessão filmada, por isso há material para vídeos curtos.</p></div>
     <div class="ideias">
       <div class="ideia"><p class="eyebrow">Stories · semanal</p><h3>“Pergunte à advogada”</h3><ul><li>Caixa de perguntas à segunda-feira</li><li>Respostas curtas em texto ou vídeo</li><li>As melhores viram posts “Sabia que”</li></ul></div>
       <div class="ideia"><p class="eyebrow">Stories · interação</p><h3>Sondagens “Mito ou facto?”</h3><ul><li>“Pode deserdar um filho?”</li><li>“Os enteados herdam?”</li><li>Resposta no dia seguinte, com link para o site</li></ul></div>
@@ -278,7 +381,7 @@ footer { padding-block: 40px; text-align: center; font-size: .78rem; color: var(
   </section>
 
   <section class="bloco" id="regras">
-    <div class="cab"><span class="cab__n">06</span><h2>Regras e aprovação</h2><p>A publicidade de advogados é permitida desde 2024, mas deve ser verdadeira, objetiva e respeitar o sigilo profissional.</p></div>
+    <div class="cab"><span class="cab__n">07</span><h2>Regras e aprovação</h2><p>A publicidade de advogados é permitida desde 2024, mas deve ser verdadeira, objetiva e respeitar o sigilo profissional.</p></div>
     <div class="regras">
       <div class="caixa"><h3>Cuidados em todos os posts</h3><ul>
         <li><b>Nunca</b> falar de casos ou clientes reais, mesmo sem nomes.</li>
@@ -469,6 +572,70 @@ document.addEventListener('click', e => {
   try { navigator.clipboard.writeText(el.innerText.trim()).then(() => { aviso.textContent = 'Legenda copiada.'; }, selecionar); }
   catch (err) { selecionar(); }
 });
+
+// ===== Reunião: checklist com notas (guardado só neste navegador) =====
+(function () {
+  const CHAVE = 'reuniao-dra-sonia';
+  let estado = {};
+  try { estado = JSON.parse(localStorage.getItem(CHAVE) || '{}'); } catch (e) {}
+  const guardar = () => { try { localStorage.setItem(CHAVE, JSON.stringify(estado)); } catch (e) {} };
+  const qs = [...document.querySelectorAll('.q')];
+  function atualizar() {
+    const feitos = qs.filter(q => q.querySelector('input[type=checkbox]').checked).length;
+    document.getElementById('r-contagem').textContent = `${feitos} de ${qs.length} pontos tratados`;
+    document.getElementById('r-barra').style.width = (feitos / qs.length * 100) + '%';
+    document.querySelectorAll('summary small[data-grupo]').forEach(s => {
+      const g = qs.filter(q => q.dataset.grupo === s.dataset.grupo);
+      s.textContent = `${g.filter(q => q.querySelector('input[type=checkbox]').checked).length}/${g.length}`;
+    });
+    qs.forEach(q => q.classList.toggle('feito', q.querySelector('input[type=checkbox]').checked));
+  }
+  qs.forEach(q => {
+    const id = q.dataset.id, e = estado[id] || {};
+    const chk = q.querySelector('input[type=checkbox]'), ta = q.querySelector('textarea');
+    chk.checked = !!e.feito; ta.value = e.nota || '';
+    if (e.sn) { const r = q.querySelector(`input[type=radio][value="${e.sn}"]`); if (r) r.checked = true; }
+    const ajustar = () => { ta.style.height = 'auto'; ta.style.height = ta.scrollHeight + 2 + 'px'; };
+    ajustar();
+    q.addEventListener('input', ev => {
+      const s = estado[id] = estado[id] || {};
+      if (ev.target === chk) s.feito = chk.checked;
+      else if (ev.target === ta) { s.nota = ta.value; ajustar(); if (ta.value && !chk.checked) { chk.checked = true; s.feito = true; } }
+      else if (ev.target.type === 'radio') { s.sn = ev.target.value; if (!chk.checked) { chk.checked = true; s.feito = true; } }
+      guardar(); atualizar();
+    });
+  });
+  atualizar();
+
+  function resumo() {
+    const linhas = ['REUNIÃO COM A DRA. SÓNIA — ' + new Date().toLocaleDateString('pt-PT'), ''];
+    document.querySelectorAll('.grupo').forEach(g => {
+      linhas.push(g.querySelector('summary span').textContent.toUpperCase());
+      g.querySelectorAll('.q').forEach(q => {
+        const e = estado[q.dataset.id] || {};
+        const resp = [e.sn, (e.nota || '').trim()].filter(Boolean).join(' — ');
+        linhas.push(`${e.feito ? '[x]' : '[ ]'} ${q.querySelector('.q__txt').textContent}`);
+        linhas.push('    → ' + (resp || 'por responder'));
+      });
+      linhas.push('');
+    });
+    return linhas.join('\n');
+  }
+  const aviso = document.getElementById('r-aviso'), pre = document.getElementById('r-resumo');
+  document.getElementById('r-copiar').onclick = () => {
+    const t = resumo(); pre.textContent = t; pre.hidden = false;
+    const selecionar = () => { const r = document.createRange(); r.selectNodeContents(pre); const s = getSelection(); s.removeAllRanges(); s.addRange(r); aviso.textContent = 'Resumo selecionado: copie com Ctrl+C.'; };
+    try { navigator.clipboard.writeText(t).then(() => { aviso.textContent = 'Resumo copiado. Cole-o numa mensagem ou email.'; }, selecionar); } catch (e) { selecionar(); }
+  };
+  const conf = document.getElementById('r-confirmar');
+  document.getElementById('r-limpar').onclick = () => { conf.hidden = false; };
+  document.getElementById('r-nao').onclick = () => { conf.hidden = true; };
+  document.getElementById('r-sim').onclick = () => {
+    estado = {}; guardar(); conf.hidden = true; pre.hidden = true;
+    qs.forEach(q => { q.querySelectorAll('input').forEach(i => i.checked = false); const ta = q.querySelector('textarea'); ta.value = ''; ta.style.height = ''; });
+    atualizar(); aviso.textContent = 'Respostas apagadas.';
+  };
+})();
 </script>
 </body>
 </html>

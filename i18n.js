@@ -70,7 +70,8 @@ window.TRADUCOES = {
     'hero.s2': 'Notarial services',
     'hero.s3': 'Online consultations',
     'eq.g1': 'Lawyer',
-    'eq.g2': 'Trainee lawyers'
+    'eq.g2': 'Trainee lawyers',
+    'online.linguas': 'Consultations in'
   },
 
   fr: {
@@ -136,7 +137,8 @@ window.TRADUCOES = {
     'hero.s2': 'Actes notariés',
     'hero.s3': 'Consultations en ligne',
     'eq.g1': 'Avocate',
-    'eq.g2': 'Avocats stagiaires'
+    'eq.g2': 'Avocats stagiaires',
+    'online.linguas': 'Consultations en'
   },
 
   de: {
@@ -202,7 +204,8 @@ window.TRADUCOES = {
     'hero.s2': 'Notarielle Akte',
     'hero.s3': 'Online-Beratung',
     'eq.g1': 'Rechtsanwältin',
-    'eq.g2': 'Rechtsanwaltsanwärter'
+    'eq.g2': 'Rechtsanwaltsanwärter',
+    'online.linguas': 'Beratung auf'
   },
 
   it: {
@@ -268,6 +271,7 @@ window.TRADUCOES = {
     'hero.s2': 'Atti notarili',
     'hero.s3': 'Consulenze online',
     'eq.g1': 'Avvocata',
-    'eq.g2': 'Praticanti avvocati'
+    'eq.g2': 'Praticanti avvocati',
+    'online.linguas': 'Consulenze in'
   }
 };

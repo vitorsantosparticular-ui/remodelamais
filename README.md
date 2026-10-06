@@ -9,8 +9,10 @@ Site estático (HTML + CSS + JS), sem build. Para ver, basta abrir `index.html` 
 
 ## Por preencher
 - **Contactos** (secção Contacto em `index.html`): telefone, email, morada, horário e número de WhatsApp (`wa.me/351…`, 3 sítios).
-- **Pagamento da consulta online (30 €)**: em `app.js`, colocar em `PAGAMENTO_URL` o link de pagamento
-  (ex.: Stripe Payment Link, SumUp, easypay com MB WAY). Horas e nº de dias disponíveis também se mudam aí.
+- **Agenda (Google Calendar)**: em `app.js`, colocar em `AGENDA_URL` o link da *Agenda de marcações* do Google Calendar
+  da Dra. Sónia (Criar → Agenda de marcações → Partilhar → Incorporar). O site passa a mostrar a disponibilidade real
+  e as marcações entram diretamente no calendário dela. O pagamento dos 30 € pode ser exigido na própria agenda (Stripe).
+  Sem Google Calendar: usar `PAGAMENTO_URL` (Stripe Payment Link, SumUp, easypay) com a marcação de demonstração.
 - **Equipa**: fotos `img/equipa-sonia.jpg`, `img/equipa-2.jpg`, `img/equipa-3.jpg` e nomes/funções em `index.html`.
 
 ## Publicar

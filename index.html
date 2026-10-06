@@ -28,9 +28,15 @@
         <a href="#sobre" data-i18n="nav.sobre">Sobre</a>
         <a href="#areas" data-i18n="nav.areas">Áreas de atuação</a>
         <a href="#equipa" data-i18n="nav.equipa">Equipa</a>
-        <a href="#escritorio" data-i18n="nav.escritorio">Escritório</a>
+        <a href="#escritorio" class="so-movel" data-i18n="nav.escritorio">Escritório</a>
         <a href="#contacto" data-i18n="nav.contacto">Contacto</a>
         <a href="#online" class="nav__cta" data-i18n="nav.cta">Agendar consulta</a>
+        <div class="nav__extra">
+          <div class="nav__idiomas" role="group" aria-label="Idioma / Language">
+            <button data-lang="pt">PT</button><button data-lang="en">EN</button><button data-lang="fr">FR</button><button data-lang="de">DE</button><button data-lang="it">IT</button>
+          </div>
+          <a href="https://wa.me/351000000000" target="_blank" rel="noopener" class="nav__whats">WhatsApp</a>
+        </div>
       </nav>
       <div class="topo__lado">
         <div class="idiomas">
@@ -102,6 +108,7 @@
           <h2 data-reveal data-i18n="online.titulo">Agende uma conversa e <em class="ouro-texto">perceba a sua situação</em></h2>
           <p class="lead" data-reveal data-i18n="online.lead">Numa videochamada, ouvimos a sua situação, explicamos os seus direitos e indicamos os caminhos possíveis. Sem deslocações e sem compromisso.</p>
           <p class="detalhe" data-reveal><span data-i18n="online.preco">Videochamada de 30 minutos · honorários de 30 €</span></p>
+          <p class="linguas" data-reveal><span data-i18n="online.linguas">Atendimento em</span> <b>PT · EN · FR · DE · IT</b></p>
           <ul class="inclui">
             <li data-reveal>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.5" y="6" width="13" height="12" rx="1.5"/><path d="M15.5 10.5l6-3.5v10l-6-3.5"/></svg>
@@ -119,6 +126,7 @@
         </div>
 
         <!-- Marcação -->
+        <div class="agenda" id="agenda" data-reveal hidden></div>
         <form class="reserva" id="reserva" data-reveal novalidate>
           <h3 data-i18n="res.titulo">Agendar consulta online</h3>
           <p data-i18n="res.sub">Escolha o dia e a hora que lhe dão mais jeito.</p>

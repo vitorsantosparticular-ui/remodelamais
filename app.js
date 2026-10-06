@@ -1,6 +1,10 @@
 // ===== Configuração =====
-// Link de pagamento da consulta online (ex.: Stripe Payment Link, SumUp, easypay).
-// Enquanto estiver vazio, a marcação mostra apenas a confirmação.
+// Página de marcações do Google Calendar da Dra. Sónia (Agenda de marcações / Appointment schedule).
+// Em Google Calendar: Criar > Agenda de marcações > Partilhar > Incorporar > copiar o link do iframe.
+// Quando estiver preenchido, o site mostra o calendário real (com disponibilidade e pagamento do Google)
+// em vez da marcação de demonstração.
+const AGENDA_URL = '';
+// Alternativa sem Google Calendar: link de pagamento (Stripe Payment Link, SumUp, easypay).
 const PAGAMENTO_URL = '';
 const HORAS = ['10:00', '11:00', '12:00', '14:30', '15:30', '16:30', '17:30'];
 const DIAS_DISPONIVEIS = 12; // dias úteis mostrados na marcação
@@ -38,7 +42,7 @@ seletorBtn.addEventListener('click', e => {
   seletorBtn.setAttribute('aria-expanded', aberto);
 });
 document.addEventListener('click', () => { seletor.classList.remove('aberto'); seletorBtn.setAttribute('aria-expanded', false); });
-seletor.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => aplicarIdioma(b.dataset.lang)));
+document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => aplicarIdioma(b.dataset.lang)));
 
 // Faixa contínua: duplica o conteúdo para o movimento não ter cortes
 const trilho = document.querySelector('[data-faixa]');
@@ -71,6 +75,12 @@ document.getElementById('ano').textContent = new Date().getFullYear();
 
 // ===== Marcação da consulta online =====
 const reserva = document.getElementById('reserva');
+if (AGENDA_URL) {
+  const agenda = document.getElementById('agenda');
+  agenda.innerHTML = `<iframe src="${AGENDA_URL}" title="Agenda" loading="lazy"></iframe>`;
+  agenda.hidden = false;
+  reserva.hidden = true;
+}
 const etapas = [...reserva.querySelectorAll('.etapa')];
 const marcas = [...reserva.querySelectorAll('.reserva__passos span')];
 const caixaDatas = document.getElementById('datas');

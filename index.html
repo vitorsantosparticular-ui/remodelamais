@@ -106,7 +106,7 @@
         <div>
           <p class="eyebrow" data-reveal data-i18n="online.eyebrow">Consulta online</p>
           <h2 data-reveal data-i18n="online.titulo">Agende uma conversa e <em class="ouro-texto">perceba a sua situação</em></h2>
-          <p class="lead" data-reveal data-i18n="online.lead">Numa videochamada, ouvimos a sua situação, explicamos os seus direitos e indicamos os caminhos possíveis. Sem deslocações e sem compromisso.</p>
+          <p class="lead" data-reveal data-i18n="online.lead">Numa videochamada, ouvimos a sua situação, explicamos os seus direitos e indicamos os caminhos possíveis, sem precisar de se deslocar ao escritório.</p>
           <p class="detalhe" data-reveal><span data-i18n="online.preco">Videochamada de 30 minutos · honorários de 30 €</span></p>
           <p class="linguas" data-reveal><span data-i18n="online.linguas">Atendimento em</span> <b>PT · EN · FR · DE · IT</b></p>
           <ul class="inclui">
@@ -154,6 +154,7 @@
               </select>
             </label>
             <label class="campo" for="r-msg"><span data-i18n="res.msg">Descreva brevemente a situação</span><textarea id="r-msg" name="mensagem" rows="3"></textarea></label>
+            <label class="consentimento" for="r-consent"><input type="checkbox" id="r-consent" name="consentimento" required><span data-i18n="form.consent">Li e aceito a <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.</span></label>
             <div class="reserva__acoes">
               <button type="button" class="btn btn--linha" data-anterior><span data-i18n="res.voltar">Voltar</span></button>
               <button type="button" class="btn btn--ouro" data-seguinte><span data-i18n="res.continuar">Continuar</span></button>
@@ -180,6 +181,15 @@
             <p data-i18n="res.okd">Vai ser encaminhado para o pagamento seguro. Depois receberá a confirmação e o link da videochamada por email.</p>
           </div>
         </form>
+      </div>
+      <div class="wrap como">
+        <p class="eyebrow como__titulo" data-reveal data-i18n="proc.eyebrow">Como funciona</p>
+        <ol class="passos">
+          <span class="passos__linha" aria-hidden="true"><span></span></span>
+          <li data-reveal><span class="passos__num">1</span><h3 data-i18n="p1t">Marcação</h3><p data-i18n="p1d">Escolha o dia e a hora da consulta online e confirme a marcação em poucos minutos.</p></li>
+          <li data-reveal><span class="passos__num">2</span><h3 data-i18n="p2t">Consulta</h3><p data-i18n="p2d">Por videochamada, ouvimos a sua situação e explicamos as opções, os prazos e os custos.</p></li>
+          <li data-reveal><span class="passos__num">3</span><h3 data-i18n="p3t">Acompanhamento</h3><p data-i18n="p3d">Se decidir avançar, tratamos de tudo e mantemo-lo informado em cada etapa.</p></li>
+        </ol>
       </div>
     </section>
 
@@ -227,6 +237,7 @@
               <li data-i18n="a1.8">Processos de maior acompanhado</li>
               <li data-i18n="a1.9">Separação de pessoas e bens</li>
             </ul>
+            <button type="button" class="cartao__mais" aria-expanded="false"><span class="cartao__mais-txt" data-i18n="areas.mais">Ver todos os serviços</span><i aria-hidden="true"></i></button>
           </article>
           <article class="cartao cartao--escuro" data-reveal>
             <span class="cartao__brilho" aria-hidden="true"></span>
@@ -245,26 +256,12 @@
               <li data-i18n="a2.10">DPA / Escrituras</li>
               <li data-i18n="a2.11">Autorização de saída de menores para o estrangeiro</li>
             </ul>
+            <button type="button" class="cartao__mais" aria-expanded="false"><span class="cartao__mais-txt" data-i18n="areas.mais">Ver todos os serviços</span><i aria-hidden="true"></i></button>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- COMO FUNCIONA -->
-    <section class="processo" id="processo">
-      <div class="wrap">
-        <div class="secao__cabecalho">
-          <p class="eyebrow" data-reveal data-i18n="proc.eyebrow">Como funciona</p>
-          <h2 data-reveal data-i18n="proc.titulo">Três passos, <em class="ouro-texto">sem complicações</em></h2>
-        </div>
-        <ol class="passos">
-          <span class="passos__linha" aria-hidden="true"><span></span></span>
-          <li data-reveal><span class="passos__num">1</span><h3 data-i18n="p1t">Marcação</h3><p data-i18n="p1d">Escolha o dia e a hora da consulta online e confirme a marcação em poucos minutos.</p></li>
-          <li data-reveal><span class="passos__num">2</span><h3 data-i18n="p2t">Consulta</h3><p data-i18n="p2d">Por videochamada, ouvimos a sua situação e explicamos as opções, os prazos e os custos.</p></li>
-          <li data-reveal><span class="passos__num">3</span><h3 data-i18n="p3t">Acompanhamento</h3><p data-i18n="p3d">Se decidir avançar, tratamos de tudo e mantemo-lo informado em cada etapa.</p></li>
-        </ol>
-      </div>
-    </section>
 
     <!-- EQUIPA -->
     <section class="equipa" id="equipa">
@@ -326,8 +323,8 @@
     <!-- CHAMADA -->
     <section class="chamada">
       <div class="wrap chamada__inner" data-reveal>
-        <h2 data-i18n="cham.titulo">Agende a sua consulta. <em>Fale connosco ainda esta semana.</em></h2>
-        <a href="#online" class="btn btn--escuro magnetico"><span data-i18n="cham.cta">Agendar agora</span></a>
+        <h2 data-i18n="cham.titulo">Consultas no escritório <em>ou por videochamada.</em></h2>
+        <a href="#online" class="btn btn--escuro magnetico"><span data-i18n="cham.cta">Agendar consulta</span></a>
       </div>
     </section>
 
@@ -358,6 +355,7 @@
             </select>
           </label>
           <label class="campo" for="f-mensagem"><span data-i18n="form.msg">Mensagem</span><textarea id="f-mensagem" name="mensagem" rows="4"></textarea></label>
+          <label class="consentimento" for="f-consent"><input type="checkbox" id="f-consent" name="consentimento" required><span data-i18n="form.consent">Li e aceito a <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.</span></label>
           <button class="btn btn--ouro" type="submit"><span data-i18n="form.enviar">Enviar pedido</span></button>
           <p class="form__ok" hidden data-i18n="form.ok">Obrigado! Entraremos em contacto brevemente.</p>
         </form>
@@ -371,7 +369,9 @@
       <nav class="rodape__nav">
         <a href="#online" data-i18n="nav.online">Consulta online</a><a href="#sobre" data-i18n="nav.sobre">Sobre</a><a href="#areas" data-i18n="nav.areas">Áreas de atuação</a><a href="#equipa" data-i18n="nav.equipa">Equipa</a><a href="#contacto" data-i18n="nav.contacto">Contacto</a>
       </nav>
-      <p class="rodape__fim">© <span id="ano">2026</span> Sónia Alexandra Santos — <span data-i18n="rod.fim">Advogada, RL</span></p>
+      <!-- TODO: preencher n.º de cédula profissional e NIF -->
+      <p class="rodape__legal"><span data-i18n="rod.cedula">Cédula profissional n.º</span> [ ] · <span data-i18n="rod.ordem">Inscrita na</span> <a href="https://portal.oa.pt" target="_blank" rel="noopener">Ordem dos Advogados</a></p>
+      <p class="rodape__fim">© <span id="ano">2026</span> Sónia Alexandra Santos — <span data-i18n="rod.fim">Advogada, RL</span> · <a href="privacidade.html" data-i18n="rod.priv">Política de Privacidade</a></p>
     </div>
   </footer>
 

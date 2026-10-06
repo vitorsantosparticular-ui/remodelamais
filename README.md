@@ -6,6 +6,7 @@ Site estático (HTML + CSS + JS), sem build. Para ver, basta abrir `index.html` 
 - `i18n.js` — traduções EN, FR, DE, IT
 - `app.js` — idiomas, marcação da consulta online, animações (GSAP via CDN)
 - `styles.css` — design (paleta e tipografia da marca)
+- `privacidade.html` — Política de Privacidade (RGPD)
 
 ## Por preencher
 - **Contactos** (secção Contacto em `index.html`): telefone, email, morada, horário e número de WhatsApp (`wa.me/351…`, 3 sítios).
@@ -14,6 +15,9 @@ Site estático (HTML + CSS + JS), sem build. Para ver, basta abrir `index.html` 
   e as marcações entram diretamente no calendário dela. O pagamento dos 30 € pode ser exigido na própria agenda (Stripe).
   Sem Google Calendar: usar `PAGAMENTO_URL` (Stripe Payment Link, SumUp, easypay) com a marcação de demonstração.
 - **Equipa**: fotos `img/equipa-sonia.jpg`, `img/equipa-2.jpg`, `img/equipa-3.jpg` e nomes/funções em `index.html`.
+
+- **Política de Privacidade** (`privacidade.html`): preencher NIPC, morada, email, prestador de pagamentos, alojamento e data.
+- **Rodapé**: n.º de cédula profissional.
 
 ## Publicar
 GitHub Pages (Settings → Pages) ou Netlify (arrastar a pasta).

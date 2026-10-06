@@ -4,7 +4,9 @@ window.TRADUCOES = {
     'res.erroDia': 'Escolha um dia.',
     'res.erroHora': 'Escolha uma hora.',
     'res.erroNome': 'Indique o seu nome.',
-    'res.erroEmail': 'Indique um email válido.'
+    'res.erroEmail': 'Indique um email válido.',
+    'areas.menos': 'Ver menos',
+    'res.erroConsent': 'Para continuar, aceite a Política de Privacidade.'
   },
 
   en: {
@@ -20,7 +22,7 @@ window.TRADUCOES = {
     'online.eyebrow': 'Online consultation',
     'online.titulo': 'Book a conversation and <em class="ouro-texto">understand your situation</em>',
     'online.preco': '30-minute video call · fee €30',
-    'online.lead': 'In a video call, we listen to your situation, explain your rights and set out the possible ways forward. No travel and no commitment.',
+    'online.lead': 'In a video call, we listen to your situation, explain your rights and set out the possible ways forward, without you having to come to the office.',
     'online.i1t': 'Video call from home', 'online.i1d': 'All you need is a phone or computer. We email you the link.',
     'online.i2t': 'A clear analysis of your case', 'online.i2d': 'We explain the options, timeframes and likely costs.',
     'online.i3t': 'Confidential and secure', 'online.i3d': 'Everything you share is protected by professional secrecy.',
@@ -50,7 +52,7 @@ window.TRADUCOES = {
     'a2.1': 'Drafting powers of attorney', 'a2.2': 'Signature certification', 'a2.3': 'Document authentication', 'a2.4': 'Translation and certified translation',
     'a2.5': 'Certified copies', 'a2.6': 'Acknowledgement of debt', 'a2.7': 'Vehicle registration', 'a2.8': 'Land registry',
     'a2.9': 'Citizen card renewal', 'a2.10': 'Authenticated private documents (DPA) / Deeds', 'a2.11': 'Travel authorisation for minors abroad',
-    'proc.eyebrow': 'How it works', 'proc.titulo': 'Three steps, <em class="ouro-texto">no hassle</em>',
+    'proc.eyebrow': 'How it works',
     'p1t': 'Booking', 'p1d': 'Choose the day and time of your online consultation and confirm your booking in a few minutes.',
     'p2t': 'Consultation', 'p2d': 'By video call, we listen to your situation and explain the options, timeframes and costs.',
     'p3t': 'Follow-up', 'p3d': 'If you decide to proceed, we take care of everything and keep you informed at every stage.',
@@ -61,7 +63,7 @@ window.TRADUCOES = {
     'q2': 'Which documents should I have to hand?', 'r2': 'Your ID and any documents related to the matter. If useful, we will ask you to send them before the consultation.',
     'q3': 'Is the information I share confidential?', 'r3': 'Yes. Everything you tell us is protected by the lawyer’s professional secrecy.',
     'q4': 'Can I be seen at the office?', 'r4': 'Yes. If you prefer an in-person meeting or need a notarial service, book by phone, WhatsApp or the contact form.',
-    'cham.titulo': 'Book your consultation. <em>Talk to us this week.</em>', 'cham.cta': 'Book now',
+    'cham.titulo': 'Consultations at the office <em>or by video call.</em>', 'cham.cta': 'Book a consultation',
     'cont.eyebrow': 'Contact', 'cont.titulo': 'Prefer to talk directly?',
     'cont.lead': 'For meetings at the office or notarial services, contact us by phone, email or WhatsApp.',
     'cont.morada': 'Address', 'cont.horario': 'Hours', 'cont.whats': 'Chat on WhatsApp',
@@ -71,7 +73,14 @@ window.TRADUCOES = {
     'hero.s3': 'Online consultations',
     'eq.g1': 'Lawyer',
     'eq.g2': 'Trainee lawyers',
-    'online.linguas': 'Consultations in'
+    'online.linguas': 'Consultations in',
+    'areas.mais': 'See all services',
+    'areas.menos': 'See less',
+    'form.consent': 'I have read and accept the <a href="privacidade.html" target="_blank" rel="noopener">Privacy Policy</a>.',
+    'res.erroConsent': 'To continue, please accept the Privacy Policy.',
+    'rod.cedula': 'Professional licence no.',
+    'rod.ordem': 'Registered with the',
+    'rod.priv': 'Privacy Policy'
   },
 
   fr: {
@@ -87,7 +96,7 @@ window.TRADUCOES = {
     'online.eyebrow': 'Consultation en ligne',
     'online.titulo': 'Prenez rendez-vous et <em class="ouro-texto">comprenez votre situation</em>',
     'online.preco': 'Visioconférence de 30 minutes · honoraires de 30 €',
-    'online.lead': 'Lors d’un appel vidéo, nous écoutons votre situation, vous expliquons vos droits et vous présentons les solutions possibles. Sans déplacement et sans engagement.',
+    'online.lead': 'Lors d’un appel vidéo, nous écoutons votre situation, vous expliquons vos droits et vous présentons les solutions possibles, sans avoir à vous déplacer au cabinet.',
     'online.i1t': 'Visioconférence depuis chez vous', 'online.i1d': 'Un téléphone ou un ordinateur suffit. Nous vous envoyons le lien par email.',
     'online.i2t': 'Une analyse claire de votre dossier', 'online.i2d': 'Nous vous expliquons les options, les délais et les coûts probables.',
     'online.i3t': 'Confidentiel et sécurisé', 'online.i3d': 'Tout ce que vous partagez est protégé par le secret professionnel.',
@@ -117,7 +126,7 @@ window.TRADUCOES = {
     'a2.1': 'Rédaction de procurations', 'a2.2': 'Légalisation de signatures', 'a2.3': 'Authentification de documents', 'a2.4': 'Traduction et certification de traduction',
     'a2.5': 'Copies certifiées conformes', 'a2.6': 'Reconnaissance de dette', 'a2.7': 'Immatriculation de véhicules', 'a2.8': 'Registre foncier',
     'a2.9': 'Renouvellement de la carte de citoyen', 'a2.10': 'Actes sous seing privé authentifiés (DPA) / Actes', 'a2.11': 'Autorisation de sortie du territoire pour mineurs',
-    'proc.eyebrow': 'Comment ça marche', 'proc.titulo': 'Trois étapes, <em class="ouro-texto">en toute simplicité</em>',
+    'proc.eyebrow': 'Comment ça marche',
     'p1t': 'Réservation', 'p1d': 'Choisissez le jour et l’heure de votre consultation en ligne et confirmez en quelques minutes.',
     'p2t': 'Consultation', 'p2d': 'Par visioconférence, nous écoutons votre situation et vous expliquons les options, les délais et les coûts.',
     'p3t': 'Suivi', 'p3d': 'Si vous décidez d’aller plus loin, nous nous occupons de tout et vous tenons informé à chaque étape.',
@@ -128,7 +137,7 @@ window.TRADUCOES = {
     'q2': 'Quels documents dois-je avoir sous la main ?', 'r2': 'Votre pièce d’identité et les documents liés à votre dossier. Si nécessaire, nous vous demanderons de les envoyer avant la consultation.',
     'q3': 'Les informations que je partage sont-elles confidentielles ?', 'r3': 'Oui. Tout ce que vous nous confiez est protégé par le secret professionnel de l’avocat.',
     'q4': 'Puis-je être reçu au cabinet ?', 'r4': 'Oui. Si vous préférez un rendez-vous en personne ou avez besoin d’un acte notarié, contactez-nous par téléphone, WhatsApp ou via le formulaire.',
-    'cham.titulo': 'Prenez rendez-vous. <em>Parlons-en dès cette semaine.</em>', 'cham.cta': 'Prendre rendez-vous',
+    'cham.titulo': 'Consultations au cabinet <em>ou par visioconférence.</em>', 'cham.cta': 'Prendre rendez-vous',
     'cont.eyebrow': 'Contact', 'cont.titulo': 'Vous préférez nous parler directement ?',
     'cont.lead': 'Pour un rendez-vous au cabinet ou un acte notarié, contactez-nous par téléphone, email ou WhatsApp.',
     'cont.morada': 'Adresse', 'cont.horario': 'Horaires', 'cont.whats': 'Écrire sur WhatsApp',
@@ -138,7 +147,14 @@ window.TRADUCOES = {
     'hero.s3': 'Consultations en ligne',
     'eq.g1': 'Avocate',
     'eq.g2': 'Avocats stagiaires',
-    'online.linguas': 'Consultations en'
+    'online.linguas': 'Consultations en',
+    'areas.mais': 'Voir tous les services',
+    'areas.menos': 'Voir moins',
+    'form.consent': 'J’ai lu et j’accepte la <a href="privacidade.html" target="_blank" rel="noopener">Politique de confidentialité</a>.',
+    'res.erroConsent': 'Pour continuer, veuillez accepter la Politique de confidentialité.',
+    'rod.cedula': 'Carte professionnelle n°',
+    'rod.ordem': 'Inscrite à l’',
+    'rod.priv': 'Politique de confidentialité'
   },
 
   de: {
@@ -154,7 +170,7 @@ window.TRADUCOES = {
     'online.eyebrow': 'Online-Beratung',
     'online.titulo': 'Vereinbaren Sie ein Gespräch und <em class="ouro-texto">verstehen Sie Ihre Situation</em>',
     'online.preco': 'Videoanruf, 30 Minuten · Honorar 30 €',
-    'online.lead': 'In einem Videoanruf hören wir uns Ihre Situation an, erklären Ihre Rechte und zeigen mögliche Wege auf. Ohne Anfahrt und unverbindlich.',
+    'online.lead': 'In einem Videoanruf hören wir uns Ihre Situation an, erklären Ihre Rechte und zeigen mögliche Wege auf, ohne dass Sie in die Kanzlei kommen müssen.',
     'online.i1t': 'Videoanruf von zu Hause', 'online.i1d': 'Ein Smartphone oder Computer genügt. Den Link senden wir Ihnen per E-Mail.',
     'online.i2t': 'Klare Analyse Ihres Falls', 'online.i2d': 'Wir erklären die Möglichkeiten, Fristen und voraussichtlichen Kosten.',
     'online.i3t': 'Vertraulich und sicher', 'online.i3d': 'Alles, was Sie uns mitteilen, unterliegt der anwaltlichen Schweigepflicht.',
@@ -184,7 +200,7 @@ window.TRADUCOES = {
     'a2.1': 'Erstellung von Vollmachten', 'a2.2': 'Unterschriftsbeglaubigung', 'a2.3': 'Beglaubigung von Dokumenten', 'a2.4': 'Übersetzung und Beglaubigung von Übersetzungen',
     'a2.5': 'Beglaubigte Kopien', 'a2.6': 'Schuldanerkenntnis', 'a2.7': 'Fahrzeugregister', 'a2.8': 'Grundbuch',
     'a2.9': 'Erneuerung des Bürgerausweises', 'a2.10': 'Beglaubigte Privaturkunden (DPA) / Urkunden', 'a2.11': 'Reisegenehmigung für Minderjährige ins Ausland',
-    'proc.eyebrow': 'So funktioniert es', 'proc.titulo': 'Drei Schritte, <em class="ouro-texto">ganz einfach</em>',
+    'proc.eyebrow': 'So funktioniert es',
     'p1t': 'Buchung', 'p1d': 'Wählen Sie Tag und Uhrzeit Ihrer Online-Beratung und bestätigen Sie in wenigen Minuten.',
     'p2t': 'Beratung', 'p2d': 'Per Videoanruf hören wir uns Ihre Situation an und erklären Möglichkeiten, Fristen und Kosten.',
     'p3t': 'Begleitung', 'p3d': 'Wenn Sie fortfahren möchten, kümmern wir uns um alles und halten Sie bei jedem Schritt auf dem Laufenden.',
@@ -195,7 +211,7 @@ window.TRADUCOES = {
     'q2': 'Welche Unterlagen sollte ich bereithalten?', 'r2': 'Ihren Ausweis und alle Unterlagen zu Ihrem Anliegen. Falls hilfreich, bitten wir Sie, diese vorab zu senden.',
     'q3': 'Sind meine Angaben vertraulich?', 'r3': 'Ja. Alles, was Sie uns mitteilen, unterliegt der anwaltlichen Schweigepflicht.',
     'q4': 'Kann ich auch in die Kanzlei kommen?', 'r4': 'Ja. Für ein persönliches Gespräch oder einen notariellen Akt kontaktieren Sie uns per Telefon, WhatsApp oder Kontaktformular.',
-    'cham.titulo': 'Vereinbaren Sie Ihren Termin. <em>Sprechen Sie noch diese Woche mit uns.</em>', 'cham.cta': 'Jetzt Termin vereinbaren',
+    'cham.titulo': 'Beratung in der Kanzlei <em>oder per Videoanruf.</em>', 'cham.cta': 'Termin vereinbaren',
     'cont.eyebrow': 'Kontakt', 'cont.titulo': 'Lieber direkt sprechen?',
     'cont.lead': 'Für Termine in der Kanzlei oder notarielle Akte erreichen Sie uns per Telefon, E-Mail oder WhatsApp.',
     'cont.morada': 'Adresse', 'cont.horario': 'Öffnungszeiten', 'cont.whats': 'Per WhatsApp schreiben',
@@ -205,7 +221,14 @@ window.TRADUCOES = {
     'hero.s3': 'Online-Beratung',
     'eq.g1': 'Rechtsanwältin',
     'eq.g2': 'Rechtsanwaltsanwärter',
-    'online.linguas': 'Beratung auf'
+    'online.linguas': 'Beratung auf',
+    'areas.mais': 'Alle Leistungen ansehen',
+    'areas.menos': 'Weniger anzeigen',
+    'form.consent': 'Ich habe die <a href="privacidade.html" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und akzeptiere sie.',
+    'res.erroConsent': 'Bitte akzeptieren Sie die Datenschutzerklärung, um fortzufahren.',
+    'rod.cedula': 'Berufsausweis Nr.',
+    'rod.ordem': 'Eingetragen bei der',
+    'rod.priv': 'Datenschutzerklärung'
   },
 
   it: {
@@ -221,7 +244,7 @@ window.TRADUCOES = {
     'online.eyebrow': 'Consulenza online',
     'online.titulo': 'Prenoti un colloquio e <em class="ouro-texto">comprenda la sua situazione</em>',
     'online.preco': 'Videochiamata di 30 minuti · onorario 30 €',
-    'online.lead': 'In una videochiamata ascoltiamo la sua situazione, le spieghiamo i suoi diritti e le possibili soluzioni. Senza spostamenti e senza impegno.',
+    'online.lead': 'In una videochiamata ascoltiamo la sua situazione, le spieghiamo i suoi diritti e le possibili soluzioni, senza doversi recare in studio.',
     'online.i1t': 'Videochiamata da casa', 'online.i1d': 'Basta uno smartphone o un computer. Le inviamo il link via email.',
     'online.i2t': 'Un’analisi chiara del suo caso', 'online.i2d': 'Spieghiamo le opzioni, i tempi e i costi probabili.',
     'online.i3t': 'Riservato e sicuro', 'online.i3d': 'Tutto ciò che condivide è protetto dal segreto professionale.',
@@ -251,7 +274,7 @@ window.TRADUCOES = {
     'a2.1': 'Redazione di procure', 'a2.2': 'Autentica di firme', 'a2.3': 'Autenticazione di documenti', 'a2.4': 'Traduzione e certificazione di traduzioni',
     'a2.5': 'Copie conformi', 'a2.6': 'Riconoscimento di debito', 'a2.7': 'Registro automobilistico', 'a2.8': 'Registro immobiliare',
     'a2.9': 'Rinnovo della carta d’identità portoghese', 'a2.10': 'Scritture private autenticate (DPA) / Atti', 'a2.11': 'Autorizzazione all’espatrio di minori',
-    'proc.eyebrow': 'Come funziona', 'proc.titulo': 'Tre passaggi, <em class="ouro-texto">senza complicazioni</em>',
+    'proc.eyebrow': 'Come funziona',
     'p1t': 'Prenotazione', 'p1d': 'Scelga il giorno e l’ora della consulenza online e confermi in pochi minuti.',
     'p2t': 'Consulenza', 'p2d': 'In videochiamata ascoltiamo la sua situazione e le spieghiamo opzioni, tempi e costi.',
     'p3t': 'Assistenza', 'p3d': 'Se decide di procedere, ci occupiamo di tutto e la teniamo informata in ogni fase.',
@@ -262,7 +285,7 @@ window.TRADUCOES = {
     'q2': 'Quali documenti devo tenere a portata di mano?', 'r2': 'Il suo documento d’identità e i documenti relativi alla questione. Se utile, le chiederemo di inviarli prima della consulenza.',
     'q3': 'Le informazioni che condivido sono riservate?', 'r3': 'Sì. Tutto ciò che ci comunica è protetto dal segreto professionale dell’avvocato.',
     'q4': 'Posso essere ricevuto in studio?', 'r4': 'Sì. Se preferisce un incontro di persona o ha bisogno di un atto notarile, ci contatti per telefono, WhatsApp o tramite il modulo.',
-    'cham.titulo': 'Prenoti la sua consulenza. <em>Ci parli già questa settimana.</em>', 'cham.cta': 'Prenota ora',
+    'cham.titulo': 'Consulenze in studio <em>o in videochiamata.</em>', 'cham.cta': 'Prenota una consulenza',
     'cont.eyebrow': 'Contatti', 'cont.titulo': 'Preferisce parlare direttamente?',
     'cont.lead': 'Per incontri in studio o atti notarili, ci contatti per telefono, email o WhatsApp.',
     'cont.morada': 'Indirizzo', 'cont.horario': 'Orari', 'cont.whats': 'Scrivici su WhatsApp',
@@ -272,6 +295,13 @@ window.TRADUCOES = {
     'hero.s3': 'Consulenze online',
     'eq.g1': 'Avvocata',
     'eq.g2': 'Praticanti avvocati',
-    'online.linguas': 'Consulenze in'
+    'online.linguas': 'Consulenze in',
+    'areas.mais': 'Vedi tutti i servizi',
+    'areas.menos': 'Vedi meno',
+    'form.consent': 'Ho letto e accetto l’<a href="privacidade.html" target="_blank" rel="noopener">Informativa sulla privacy</a>.',
+    'res.erroConsent': 'Per continuare, accetti l’Informativa sulla privacy.',
+    'rod.cedula': 'Tessera professionale n.',
+    'rod.ordem': 'Iscritta all’',
+    'rod.priv': 'Informativa sulla privacy'
   }
 };

@@ -30,6 +30,7 @@ function aplicarIdioma(lang) {
   document.querySelectorAll('[data-lang]').forEach(b => b.setAttribute('aria-current', b.dataset.lang === idioma));
   try { localStorage.setItem('idioma', idioma); } catch (e) {}
   montarFaixa();
+  document.querySelectorAll('.cartao').forEach(textoMais);
   montarDatas();
   atualizarResumo();
 }
@@ -50,6 +51,23 @@ function montarFaixa() {
   trilho.querySelectorAll('[data-clone]').forEach(n => n.remove());
   [...trilho.children].forEach(n => { const c = n.cloneNode(true); c.setAttribute('data-clone', ''); c.removeAttribute('data-i18n'); trilho.appendChild(c); });
 }
+
+// ===== Listas de serviços abreviadas =====
+function textoMais(cartao) {
+  const total = cartao.querySelectorAll('li').length;
+  const aberto = cartao.classList.contains('aberto');
+  cartao.querySelector('.cartao__mais-txt').textContent = aberto ? t('areas.menos') : `${t('areas.mais')} (${total})`;
+}
+document.querySelectorAll('.cartao').forEach(cartao => {
+  const btn = cartao.querySelector('.cartao__mais');
+  btn.addEventListener('click', () => {
+    const aberto = cartao.classList.toggle('aberto');
+    btn.setAttribute('aria-expanded', aberto);
+    textoMais(cartao);
+    if (!aberto && cartao.getBoundingClientRect().top < 0) cartao.scrollIntoView({ block: 'start' });
+    if (window.ScrollTrigger) ScrollTrigger.refresh();
+  });
+});
 
 // ===== Menu, topo e progresso =====
 const menuBtn = document.querySelector('.menu-btn');
@@ -146,8 +164,10 @@ reserva.addEventListener('click', e => {
   if (etapa === 2) {
     const nome = reserva.querySelector('#r-nome');
     const email = reserva.querySelector('#r-email');
+    const consent = reserva.querySelector('#r-consent');
     if (!nome.value.trim()) { aviso(nome, t('res.erroNome')); return; }
     if (!email.value.trim() || !email.checkValidity()) { aviso(email, t('res.erroEmail')); return; }
+    if (!consent.checked) { aviso(consent, t('res.erroConsent')); return; }
   }
   irPara(etapa + 1);
 });
@@ -165,6 +185,8 @@ reserva.addEventListener('submit', e => {
 const formContacto = document.getElementById('form-contacto');
 formContacto.addEventListener('submit', e => {
   e.preventDefault();
+  const consent = formContacto.querySelector('#f-consent');
+  if (!consent.checked) { aviso(consent, t('res.erroConsent')); return; }
   formContacto.querySelector('.form__ok').hidden = false;
   formContacto.querySelector('button[type="submit"]').disabled = true;
 });
@@ -185,9 +207,6 @@ if (window.gsap && window.ScrollTrigger && !calmo) {
     gsap.from(el, { y: 50, opacity: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 90%' } });
   });
   gsap.fromTo('.hero__media img', { yPercent: 0 }, { yPercent: 8, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
-  gsap.utils.toArray('.cartao li').forEach(li => {
-    gsap.from(li, { x: -16, opacity: 0, duration: .8, ease: 'power3.out', scrollTrigger: { trigger: li, start: 'top 95%' } });
-  });
   gsap.utils.toArray('[data-parallax] img').forEach(img => {
     gsap.fromTo(img, { yPercent: -6 }, { yPercent: 6, ease: 'none', scrollTrigger: { trigger: img.parentElement, scrub: true } });
   });

@@ -51,3 +51,9 @@
   for = "/estrategia/*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
+
+# Página de anúncios: não indexar (o tráfego vem dos anúncios)
+[[headers]]
+  for = "/consulta/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"

@@ -6,7 +6,8 @@ window.TRADUCOES = {
     'res.erroNome': 'Indique o seu nome.',
     'res.erroEmail': 'Indique um email válido.',
     'areas.menos': 'Ver menos',
-    'res.erroConsent': 'Para continuar, aceite a Política de Privacidade.'
+    'res.erroConsent': 'Para continuar, aceite a Política de Privacidade.',
+    'form.erro': 'Não foi possível enviar. Tente novamente ou contacte-nos por telefone ou WhatsApp.'
   },
 
   en: {
@@ -30,10 +31,10 @@ window.TRADUCOES = {
     'res.dia': 'Day', 'res.hora': 'Time', 'res.continuar': 'Continue', 'res.voltar': 'Back',
     'res.msg': 'Briefly describe your situation',
     'res.r1': 'Consultation', 'res.r1v': 'Online · 30 min', 'res.r2': 'Date', 'res.r3': 'Name', 'res.r4': 'Total',
-    'res.pagar': 'Confirm and pay',
-    'res.nota': 'Secure payment (card or MB WAY). You will receive the confirmation and video call link by email.',
-    'res.ok': 'Request received',
-    'res.okd': 'You will be taken to secure payment. You will then receive the confirmation and video call link by email.',
+    'res.pagar': 'Send booking request',
+    'res.nota': 'You will receive confirmation by email. Payment (€30) is made once the booking is confirmed.',
+    'res.ok': 'Request sent',
+    'res.okd': 'We will confirm availability and email you the payment details and the video call link.',
     'res.erroDia': 'Please choose a day.', 'res.erroHora': 'Please choose a time.', 'res.erroNome': 'Please enter your name.', 'res.erroEmail': 'Please enter a valid email.',
     'form.nome': 'Name', 'form.email': 'Email', 'form.tel': 'Phone', 'form.assunto': 'Subject',
     'form.op1': 'Family and Succession Law', 'form.op2': 'Notarial services', 'form.op3': 'Other matter',
@@ -88,7 +89,9 @@ window.TRADUCOES = {
     'esc.dica': 'Swipe to see',
     'esc.c1': 'The office',
     'esc.c2': 'The consulting room',
-    'esc.c3': 'Reception'
+    'esc.c3': 'Reception',
+    'form.erro': 'We could not send your message. Please try again or contact us by phone or WhatsApp.',
+    'rod.cookies': 'Cookie settings'
   },
 
   fr: {
@@ -112,10 +115,10 @@ window.TRADUCOES = {
     'res.dia': 'Jour', 'res.hora': 'Heure', 'res.continuar': 'Continuer', 'res.voltar': 'Retour',
     'res.msg': 'Décrivez brièvement votre situation',
     'res.r1': 'Consultation', 'res.r1v': 'En ligne · 30 min', 'res.r2': 'Date', 'res.r3': 'Nom', 'res.r4': 'Total',
-    'res.pagar': 'Confirmer et payer',
-    'res.nota': 'Paiement sécurisé (carte ou MB WAY). Vous recevrez la confirmation et le lien de la visioconférence par email.',
-    'res.ok': 'Demande enregistrée',
-    'res.okd': 'Vous allez être redirigé vers le paiement sécurisé. Vous recevrez ensuite la confirmation et le lien de la visioconférence par email.',
+    'res.pagar': 'Envoyer la demande de rendez-vous',
+    'res.nota': 'Vous recevrez la confirmation par email. Le paiement (30 €) se fait une fois le rendez-vous confirmé.',
+    'res.ok': 'Demande envoyée',
+    'res.okd': 'Nous confirmerons la disponibilité et vous enverrons par email les modalités de paiement et le lien de la visioconférence.',
     'res.erroDia': 'Choisissez un jour.', 'res.erroHora': 'Choisissez une heure.', 'res.erroNome': 'Indiquez votre nom.', 'res.erroEmail': 'Indiquez un email valide.',
     'form.nome': 'Nom', 'form.email': 'Email', 'form.tel': 'Téléphone', 'form.assunto': 'Objet',
     'form.op1': 'Droit de la famille et des successions', 'form.op2': 'Actes notariés', 'form.op3': 'Autre sujet',
@@ -170,7 +173,9 @@ window.TRADUCOES = {
     'esc.dica': 'Faites glisser',
     'esc.c1': 'Le cabinet',
     'esc.c2': 'Le bureau',
-    'esc.c3': 'L’accueil'
+    'esc.c3': 'L’accueil',
+    'form.erro': 'L’envoi a échoué. Réessayez ou contactez-nous par téléphone ou WhatsApp.',
+    'rod.cookies': 'Paramètres des cookies'
   },
 
   de: {
@@ -194,10 +199,10 @@ window.TRADUCOES = {
     'res.dia': 'Tag', 'res.hora': 'Uhrzeit', 'res.continuar': 'Weiter', 'res.voltar': 'Zurück',
     'res.msg': 'Beschreiben Sie kurz Ihre Situation',
     'res.r1': 'Beratung', 'res.r1v': 'Online · 30 Min.', 'res.r2': 'Termin', 'res.r3': 'Name', 'res.r4': 'Gesamt',
-    'res.pagar': 'Bestätigen und bezahlen',
-    'res.nota': 'Sichere Zahlung (Karte oder MB WAY). Bestätigung und Link zum Videoanruf erhalten Sie per E-Mail.',
-    'res.ok': 'Anfrage erhalten',
-    'res.okd': 'Sie werden zur sicheren Zahlung weitergeleitet. Danach erhalten Sie die Bestätigung und den Link zum Videoanruf per E-Mail.',
+    'res.pagar': 'Terminanfrage senden',
+    'res.nota': 'Sie erhalten die Bestätigung per E-Mail. Die Zahlung (30 €) erfolgt nach Bestätigung des Termins.',
+    'res.ok': 'Anfrage gesendet',
+    'res.okd': 'Wir bestätigen die Verfügbarkeit und senden Ihnen die Zahlungsdaten und den Link zum Videoanruf per E-Mail.',
     'res.erroDia': 'Bitte wählen Sie einen Tag.', 'res.erroHora': 'Bitte wählen Sie eine Uhrzeit.', 'res.erroNome': 'Bitte geben Sie Ihren Namen ein.', 'res.erroEmail': 'Bitte geben Sie eine gültige E-Mail ein.',
     'form.nome': 'Name', 'form.email': 'E-Mail', 'form.tel': 'Telefon', 'form.assunto': 'Thema',
     'form.op1': 'Familien- und Erbrecht', 'form.op2': 'Notarielle Akte', 'form.op3': 'Anderes Anliegen',
@@ -252,7 +257,9 @@ window.TRADUCOES = {
     'esc.dica': 'Zum Ansehen wischen',
     'esc.c1': 'Die Kanzlei',
     'esc.c2': 'Das Büro',
-    'esc.c3': 'Der Empfang'
+    'esc.c3': 'Der Empfang',
+    'form.erro': 'Senden fehlgeschlagen. Bitte versuchen Sie es erneut oder kontaktieren Sie uns telefonisch oder per WhatsApp.',
+    'rod.cookies': 'Cookie-Einstellungen'
   },
 
   it: {
@@ -276,10 +283,10 @@ window.TRADUCOES = {
     'res.dia': 'Giorno', 'res.hora': 'Ora', 'res.continuar': 'Continua', 'res.voltar': 'Indietro',
     'res.msg': 'Descriva brevemente la sua situazione',
     'res.r1': 'Consulenza', 'res.r1v': 'Online · 30 min', 'res.r2': 'Data', 'res.r3': 'Nome', 'res.r4': 'Totale',
-    'res.pagar': 'Conferma e paga',
-    'res.nota': 'Pagamento sicuro (carta o MB WAY). Riceverà la conferma e il link della videochiamata via email.',
-    'res.ok': 'Richiesta registrata',
-    'res.okd': 'Sarà reindirizzato al pagamento sicuro. Poi riceverà la conferma e il link della videochiamata via email.',
+    'res.pagar': 'Invia richiesta di prenotazione',
+    'res.nota': 'Riceverà la conferma via email. Il pagamento (30 €) avviene dopo la conferma dell’appuntamento.',
+    'res.ok': 'Richiesta inviata',
+    'res.okd': 'Confermeremo la disponibilità e le invieremo via email i dati per il pagamento e il link della videochiamata.',
     'res.erroDia': 'Scelga un giorno.', 'res.erroHora': 'Scelga un orario.', 'res.erroNome': 'Indichi il suo nome.', 'res.erroEmail': 'Indichi un’email valida.',
     'form.nome': 'Nome', 'form.email': 'Email', 'form.tel': 'Telefono', 'form.assunto': 'Oggetto',
     'form.op1': 'Diritto di famiglia e delle successioni', 'form.op2': 'Atti notarili', 'form.op3': 'Altro',
@@ -334,6 +341,8 @@ window.TRADUCOES = {
     'esc.dica': 'Scorri per vedere',
     'esc.c1': 'Lo studio',
     'esc.c2': 'L’ufficio',
-    'esc.c3': 'L’accoglienza'
+    'esc.c3': 'L’accoglienza',
+    'form.erro': 'Invio non riuscito. Riprovi o ci contatti per telefono o WhatsApp.',
+    'rod.cookies': 'Impostazioni cookie'
   }
 };

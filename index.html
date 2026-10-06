@@ -119,6 +119,31 @@
       </div>
     </div>
 
+    <!-- SOBRE -->
+    <section class="sobre" id="sobre">
+      <div class="wrap sobre__grid">
+        <figure class="sobre__foto" data-parallax data-reveal>
+          <img src="img/sobre.jpg" alt="Dra. Sónia Alexandra Santos no gabinete" loading="lazy" width="900" height="1125">
+        </figure>
+        <div class="sobre__texto">
+          <p class="eyebrow" data-reveal data-i18n="sobre.eyebrow">Sobre</p>
+          <h2 data-reveal>Dra. Sónia <em class="ouro-texto">Alexandra</em> Santos</h2>
+          <ul class="factos" data-reveal>
+            <li><b data-anos>20+</b><span data-i18n="sobre.f1">anos de advocacia<br>desde 2005</span></li>
+            <li><b>Mozelos</b><span>Santa Maria da Feira</span></li>
+          </ul>
+          <blockquote data-reveal data-i18n="sobre.citacao">“O melhor processo é aquele que nunca chega a tribunal.”</blockquote>
+          <p data-reveal data-i18n="sobre.p1">Advogada desde 2005, construiu o seu percurso na advocacia preventiva: ajudar pessoas e empresas a tomar as decisões certas antes de os problemas surgirem.</p>
+          <p data-reveal data-i18n="sobre.p2">Exerce sobretudo como advogada de empresa e em Direito da Família e Sucessões, com escritório em Mozelos, Santa Maria da Feira, e consultas também por videochamada.</p>
+          <ul class="valores">
+            <li data-reveal><strong data-i18n="v1t">Prevenção</strong><span data-i18n="v1d">Antecipar riscos antes de se tornarem litígios.</span></li>
+            <li data-reveal><strong data-i18n="v2t">Rigor</strong><span data-i18n="v2d">Soluções sólidas e bem fundamentadas.</span></li>
+            <li data-reveal><strong data-i18n="v3t">Discrição</strong><span data-i18n="v3d">Sigilo profissional em todas as matérias.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <!-- CONSULTA ONLINE -->
     <section class="online" id="online">
       <div class="wrap online__grid">
@@ -146,7 +171,12 @@
 
         <!-- Marcação -->
         <div class="agenda" id="agenda" data-reveal hidden></div>
-        <form class="reserva" id="reserva" data-reveal novalidate>
+        <form class="reserva" id="reserva" name="marcacao" method="POST" data-netlify="true" netlify-honeypot="empresa" data-reveal novalidate>
+          <input type="hidden" name="form-name" value="marcacao">
+          <input type="hidden" name="Tipo de pedido" value="Consulta online por videochamada (30 min)">
+          <input type="hidden" name="Data e hora pedida">
+          <input type="hidden" name="Idioma do site">
+          <p class="escondido"><label>Não preencher: <input name="empresa" tabindex="-1" autocomplete="off"></label></p>
           <h3 data-i18n="res.titulo">Agendar consulta online</h3>
           <p data-i18n="res.sub">Escolha o dia e a hora que lhe dão mais jeito.</p>
           <div class="reserva__passos" aria-hidden="true"><span class="feito"></span><span></span><span></span></div>
@@ -160,20 +190,20 @@
           </div>
 
           <div class="etapa" data-etapa="2" hidden>
-            <label class="campo" for="r-nome"><span data-i18n="form.nome">Nome</span><input id="r-nome" name="nome" required autocomplete="name"></label>
+            <label class="campo" for="r-nome"><span data-i18n="form.nome">Nome</span><input id="r-nome" name="Nome" required autocomplete="name"></label>
             <div class="duplo">
-              <label class="campo" for="r-email"><span data-i18n="form.email">Email</span><input id="r-email" name="email" type="email" required autocomplete="email"></label>
-              <label class="campo" for="r-tel"><span data-i18n="form.tel">Telefone</span><input id="r-tel" name="telefone" type="tel" autocomplete="tel"></label>
+              <label class="campo" for="r-email"><span data-i18n="form.email">Email</span><input id="r-email" name="Email" type="email" required autocomplete="email"></label>
+              <label class="campo" for="r-tel"><span data-i18n="form.tel">Telefone</span><input id="r-tel" name="Telefone" type="tel" autocomplete="tel"></label>
             </div>
             <label class="campo" for="r-area"><span data-i18n="form.assunto">Assunto</span>
-              <select id="r-area" name="assunto">
-                <option data-i18n="form.op1">Direito da Família e Sucessões</option>
-                <option data-i18n="form.op2">Atos Notariais</option>
-                <option data-i18n="form.op3">Outro assunto</option>
+              <select id="r-area" name="Assunto">
+                <option value="Direito da Família e Sucessões" data-i18n="form.op1">Direito da Família e Sucessões</option>
+                <option value="Atos Notariais" data-i18n="form.op2">Atos Notariais</option>
+                <option value="Outro assunto" data-i18n="form.op3">Outro assunto</option>
               </select>
             </label>
-            <label class="campo" for="r-msg"><span data-i18n="res.msg">Descreva brevemente a situação</span><textarea id="r-msg" name="mensagem" rows="3"></textarea></label>
-            <label class="consentimento" for="r-consent"><input type="checkbox" id="r-consent" name="consentimento" required><span data-i18n="form.consent">Li e aceito a <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.</span></label>
+            <label class="campo" for="r-msg"><span data-i18n="res.msg">Descreva brevemente a situação</span><textarea id="r-msg" name="Mensagem" rows="3"></textarea></label>
+            <label class="consentimento" for="r-consent"><input type="checkbox" id="r-consent" name="Aceitou a Politica de Privacidade" value="Sim" required><span data-i18n="form.consent">Li e aceito a <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.</span></label>
             <div class="reserva__acoes">
               <button type="button" class="btn btn--linha" data-anterior><span data-i18n="res.voltar">Voltar</span></button>
               <button type="button" class="btn btn--ouro" data-seguinte><span data-i18n="res.continuar">Continuar</span></button>
@@ -189,15 +219,16 @@
             </dl>
             <div class="reserva__acoes">
               <button type="button" class="btn btn--linha" data-anterior><span data-i18n="res.voltar">Voltar</span></button>
-              <button type="submit" class="btn btn--ouro"><span data-i18n="res.pagar">Confirmar e pagar</span></button>
+              <button type="submit" class="btn btn--ouro"><span data-i18n="res.pagar">Enviar pedido de marcação</span></button>
             </div>
-            <p class="nota"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="1.5"/><path d="M8.5 10.5V7.5a3.5 3.5 0 017 0v3"/></svg><span data-i18n="res.nota">Pagamento seguro (cartão ou MB WAY). Recebe a confirmação e o link da videochamada por email.</span></p>
+            <p class="form__erro" hidden data-i18n="form.erro">Não foi possível enviar. Tente novamente ou contacte-nos por telefone ou WhatsApp.</p>
+            <p class="nota"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="1.5"/><path d="M8.5 10.5V7.5a3.5 3.5 0 017 0v3"/></svg><span data-i18n="res.nota">Recebe a confirmação por email. O pagamento (30 €) é feito depois de confirmada a marcação.</span></p>
           </div>
 
           <div class="etapa sucesso" data-etapa="4" hidden>
             <div class="sucesso__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
-            <h3 data-i18n="res.ok">Pedido registado</h3>
-            <p data-i18n="res.okd">Vai ser encaminhado para o pagamento seguro. Depois receberá a confirmação e o link da videochamada por email.</p>
+            <h3 data-i18n="res.ok">Pedido enviado</h3>
+            <p data-i18n="res.okd">Vamos confirmar a disponibilidade e enviar-lhe por email os dados de pagamento e o link da videochamada.</p>
           </div>
         </form>
       </div>
@@ -209,31 +240,6 @@
           <li data-reveal><span class="passos__num">2</span><h3 data-i18n="p2t">Consulta</h3><p data-i18n="p2d">Por videochamada, ouvimos a sua situação e explicamos as opções, os prazos e os custos.</p></li>
           <li data-reveal><span class="passos__num">3</span><h3 data-i18n="p3t">Acompanhamento</h3><p data-i18n="p3d">Se decidir avançar, tratamos de tudo e mantemo-lo informado em cada etapa.</p></li>
         </ol>
-      </div>
-    </section>
-
-    <!-- SOBRE -->
-    <section class="sobre" id="sobre">
-      <div class="wrap sobre__grid">
-        <figure class="sobre__foto" data-parallax data-reveal>
-          <img src="img/sobre.jpg" alt="Dra. Sónia Alexandra Santos no gabinete" loading="lazy" width="900" height="1125">
-        </figure>
-        <div class="sobre__texto">
-          <p class="eyebrow" data-reveal data-i18n="sobre.eyebrow">Sobre</p>
-          <h2 data-reveal>Dra. Sónia <em class="ouro-texto">Alexandra</em> Santos</h2>
-          <ul class="factos" data-reveal>
-            <li><b data-anos>20+</b><span data-i18n="sobre.f1">anos de advocacia<br>desde 2005</span></li>
-            <li><b>Mozelos</b><span>Santa Maria da Feira</span></li>
-          </ul>
-          <blockquote data-reveal data-i18n="sobre.citacao">“O melhor processo é aquele que nunca chega a tribunal.”</blockquote>
-          <p data-reveal data-i18n="sobre.p1">Advogada desde 2005, construiu o seu percurso na advocacia preventiva: ajudar pessoas e empresas a tomar as decisões certas antes de os problemas surgirem.</p>
-          <p data-reveal data-i18n="sobre.p2">Exerce sobretudo como advogada de empresa e em Direito da Família e Sucessões, com escritório em Mozelos, Santa Maria da Feira, e consultas também por videochamada.</p>
-          <ul class="valores">
-            <li data-reveal><strong data-i18n="v1t">Prevenção</strong><span data-i18n="v1d">Antecipar riscos antes de se tornarem litígios.</span></li>
-            <li data-reveal><strong data-i18n="v2t">Rigor</strong><span data-i18n="v2d">Soluções sólidas e bem fundamentadas.</span></li>
-            <li data-reveal><strong data-i18n="v3t">Discrição</strong><span data-i18n="v3d">Sigilo profissional em todas as matérias.</span></li>
-          </ul>
-        </div>
       </div>
     </section>
 
@@ -389,20 +395,25 @@
           </dl>
           <a class="btn btn--linha-claro magnetico" data-reveal href="https://wa.me/351000000000" target="_blank" rel="noopener"><span data-i18n="cont.whats">Falar pelo WhatsApp</span></a>
         </div>
-        <form class="form" id="form-contacto" data-reveal>
-          <label class="campo" for="f-nome"><span data-i18n="form.nome">Nome</span><input id="f-nome" name="nome" required autocomplete="name"></label>
-          <label class="campo" for="f-contacto"><span data-i18n="form.contacto">Telefone ou email</span><input id="f-contacto" name="contacto" required></label>
+        <form class="form" id="form-contacto" name="contacto" method="POST" data-netlify="true" netlify-honeypot="empresa" data-reveal>
+          <input type="hidden" name="form-name" value="contacto">
+          <input type="hidden" name="Tipo de pedido" value="Mensagem do formulário de contacto">
+          <input type="hidden" name="Idioma do site">
+          <p class="escondido"><label>Não preencher: <input name="empresa" tabindex="-1" autocomplete="off"></label></p>
+          <label class="campo" for="f-nome"><span data-i18n="form.nome">Nome</span><input id="f-nome" name="Nome" required autocomplete="name"></label>
+          <label class="campo" for="f-contacto"><span data-i18n="form.contacto">Telefone ou email</span><input id="f-contacto" name="Telefone ou email" required></label>
           <label class="campo" for="f-assunto"><span data-i18n="form.assunto">Assunto</span>
-            <select id="f-assunto" name="assunto">
-              <option data-i18n="form.op1">Direito da Família e Sucessões</option>
-              <option data-i18n="form.op2">Atos Notariais</option>
-              <option data-i18n="form.op3">Outro assunto</option>
+            <select id="f-assunto" name="Assunto">
+              <option value="Direito da Família e Sucessões" data-i18n="form.op1">Direito da Família e Sucessões</option>
+              <option value="Atos Notariais" data-i18n="form.op2">Atos Notariais</option>
+              <option value="Outro assunto" data-i18n="form.op3">Outro assunto</option>
             </select>
           </label>
-          <label class="campo" for="f-mensagem"><span data-i18n="form.msg">Mensagem</span><textarea id="f-mensagem" name="mensagem" rows="4"></textarea></label>
-          <label class="consentimento" for="f-consent"><input type="checkbox" id="f-consent" name="consentimento" required><span data-i18n="form.consent">Li e aceito a <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.</span></label>
+          <label class="campo" for="f-mensagem"><span data-i18n="form.msg">Mensagem</span><textarea id="f-mensagem" name="Mensagem" rows="4"></textarea></label>
+          <label class="consentimento" for="f-consent"><input type="checkbox" id="f-consent" name="Aceitou a Politica de Privacidade" value="Sim" required><span data-i18n="form.consent">Li e aceito a <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.</span></label>
           <button class="btn btn--ouro" type="submit"><span data-i18n="form.enviar">Enviar pedido</span></button>
           <p class="form__ok" hidden data-i18n="form.ok">Obrigado! Entraremos em contacto brevemente.</p>
+          <p class="form__erro" hidden data-i18n="form.erro">Não foi possível enviar. Tente novamente ou contacte-nos por telefone ou WhatsApp.</p>
         </form>
       </div>
     </section>
@@ -416,7 +427,7 @@
       </nav>
       <!-- TODO: preencher n.º de cédula profissional e NIF -->
       <p class="rodape__legal"><span data-i18n="rod.cedula">Cédula profissional n.º</span> [ ] · <span data-i18n="rod.ordem">Inscrita na</span> <a href="https://portal.oa.pt" target="_blank" rel="noopener">Ordem dos Advogados</a></p>
-      <p class="rodape__fim">© <span id="ano">2026</span> Sónia Alexandra Santos — <span data-i18n="rod.fim">Advogada, RL</span> · <a href="privacidade.html" data-i18n="rod.priv">Política de Privacidade</a></p>
+      <p class="rodape__fim">© <span id="ano">2026</span> Sónia Alexandra Santos — <span data-i18n="rod.fim">Advogada, RL</span> · <a href="privacidade.html" data-i18n="rod.priv">Política de Privacidade</a> · <a href="#" data-cookies data-i18n="rod.cookies">Definições de cookies</a></p>
     </div>
   </footer>
 
@@ -426,6 +437,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="consentimento.js"></script>
   <script src="i18n.js"></script>
   <script src="app.js"></script>
 </body>

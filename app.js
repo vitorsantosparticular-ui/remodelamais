@@ -174,23 +174,58 @@ reserva.addEventListener('click', e => {
   irPara(etapa + 1);
 });
 reserva.addEventListener('change', atualizarResumo);
-reserva.addEventListener('submit', e => {
+// Envio para o Netlify Forms (os pedidos chegam por email, configurado no painel do Netlify)
+async function enviarFormulario(form, extra = {}) {
+  const dados = new FormData(form);
+  dados.delete('dia'); dados.delete('hora');
+  Object.entries(extra).forEach(([k, v]) => dados.set(k, v));
+  const r = await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(dados).toString() });
+  if (!r.ok) throw new Error('Envio falhou: ' + r.status);
+}
+const medir = (evento) => { try { window.medirConversao && window.medirConversao(evento); } catch (e) {} };
+
+reserva.addEventListener('submit', async e => {
   e.preventDefault();
-  irPara(4);
-  if (PAGAMENTO_URL) {
-    const email = encodeURIComponent(reserva.querySelector('#r-email').value);
-    setTimeout(() => { location.href = `${PAGAMENTO_URL}${PAGAMENTO_URL.includes('?') ? '&' : '?'}prefilled_email=${email}`; }, 1500);
+  const botao = reserva.querySelector('button[type="submit"]');
+  const erro = reserva.querySelector('[data-etapa="3"] .form__erro');
+  const dia = reserva.querySelector('input[name="dia"]:checked')?.value;
+  const hora = reserva.querySelector('input[name="hora"]:checked')?.value;
+  const [ano, mes, d] = (dia || '').split('-').map(Number);
+  const dataPT = dia ? new Intl.DateTimeFormat('pt-PT', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(ano, mes - 1, d)) + ' às ' + hora : '';
+  botao.disabled = true; erro.hidden = true;
+  try {
+    await enviarFormulario(reserva, { 'Data e hora pedida': dataPT, 'Idioma do site': idioma.toUpperCase() });
+    irPara(4);
+    medir('marcacao');
+    if (PAGAMENTO_URL) {
+      const email = encodeURIComponent(reserva.querySelector('#r-email').value);
+      setTimeout(() => { location.href = `${PAGAMENTO_URL}${PAGAMENTO_URL.includes('?') ? '&' : '?'}prefilled_email=${email}`; }, 1500);
+    }
+  } catch (err) {
+    erro.hidden = false;
+  } finally {
+    botao.disabled = false;
   }
 });
 
 // Formulário de contacto
 const formContacto = document.getElementById('form-contacto');
-formContacto.addEventListener('submit', e => {
+formContacto.addEventListener('submit', async e => {
   e.preventDefault();
   const consent = formContacto.querySelector('#f-consent');
   if (!consent.checked) { aviso(consent, t('res.erroConsent')); return; }
-  formContacto.querySelector('.form__ok').hidden = false;
-  formContacto.querySelector('button[type="submit"]').disabled = true;
+  const botao = formContacto.querySelector('button[type="submit"]');
+  const ok = formContacto.querySelector('.form__ok'), erro = formContacto.querySelector('.form__erro');
+  botao.disabled = true; ok.hidden = true; erro.hidden = true;
+  try {
+    await enviarFormulario(formContacto, { 'Idioma do site': idioma.toUpperCase() });
+    ok.hidden = false;
+    formContacto.reset();
+    medir('contacto');
+  } catch (err) {
+    erro.hidden = false;
+    botao.disabled = false;
+  }
 });
 
 // ===== Animações =====

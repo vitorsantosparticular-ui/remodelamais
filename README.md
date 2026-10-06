@@ -19,6 +19,16 @@ Site estático (HTML + CSS + JS), sem build. Para ver, basta abrir `index.html` 
 - **Política de Privacidade** (`privacidade.html`): preencher NIPC, morada, email, prestador de pagamentos, alojamento e data.
 - **Rodapé**: n.º de cédula profissional.
 
+## Formulários (Netlify Forms)
+Três formulários: `marcacao` (consulta online), `contacto` e `consulta` (página de anúncios `/consulta`).
+Os pedidos aparecem em Netlify → Forms. Para os receber por email:
+Netlify → Site configuration → Notifications → Emails and webhooks → Form submission notifications → Add notification → Email
+(um por formulário, ou "Any form") → drasoniasantos10@gmail.com.
+
+## Medição e cookies
+`consentimento.js` mostra o aviso de cookies e só carrega Google Analytics / Google Ads / Meta Pixel depois de o visitante aceitar.
+Preencher os IDs em `MEDICAO` no topo do ficheiro.
+
 ## Domínios
 - Principal: **soniasantosadvogada.pt**
 - **drasoniasantos.pt** e as versões `www` redirecionam para o principal (ver `netlify.toml`).

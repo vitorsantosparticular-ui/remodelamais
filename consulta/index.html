@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Consulta jurídica · Família e Heranças · Sónia Alexandra Santos, Advogada</title>
+  <meta name="description" content="Herança, testamento, partilha ou responsabilidades parentais? Consulta com a Dra. Sónia Alexandra Santos, advogada desde 2005, em Mozelos (Santa Maria da Feira) ou por videochamada.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://soniasantosadvogada.pt/consulta/">
+  <meta property="og:title" content="Consulta jurídica · Família e Heranças">
+  <meta property="og:description" content="Advogada desde 2005. No escritório em Mozelos ou por videochamada.">
+  <meta property="og:image" content="https://soniasantosadvogada.pt/img/partilha.jpg">
+  <meta name="theme-color" content="#f7eee7">
+  <link rel="icon" href="../img/monograma.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Marcellus&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="../img/hero-caminhar.jpg">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    /* Página de anúncios: uma coluna de leitura, um só objetivo (pedir marcação) */
+    body { padding-bottom: 0; }
+    .lp-topo { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(247, 238, 231, .94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--linha); }
+    .lp-topo .wrap { display: flex; align-items: center; justify-content: space-between; gap: 14px; height: 68px; }
+    .lp-topo .btn { padding: .85em 1.3em; }
+
+    .lp-hero { position: relative; overflow: hidden; }
+    .lp-hero__grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(28px, 5vw, 70px); align-items: center; padding-block: clamp(36px, 6vw, 80px); }
+    .lp-hero__grid > * { min-width: 0; }
+    .lp-hero h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); margin-bottom: .45em; }
+    .lp-hero .lead { margin-bottom: 1.6em; }
+    .lp-acoes { display: flex; flex-wrap: wrap; gap: 12px; }
+    .lp-confianca { list-style: none; padding: 0; margin: 28px 0 0; display: flex; flex-wrap: wrap; gap: 10px 22px; }
+    .lp-confianca li { display: flex; align-items: center; gap: 10px; font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; color: var(--suave); font-weight: 500; }
+    .lp-confianca li::before { content: ""; width: 6px; height: 6px; border: 1px solid var(--acento); transform: rotate(45deg); }
+    .lp-hero__foto { position: relative; margin: 0; aspect-ratio: 4 / 5; max-width: 100%; border-radius: var(--raio); overflow: hidden; box-shadow: 0 40px 80px -45px rgba(79, 64, 53, .55); }
+    .lp-hero__foto img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 18%; }
+    .lp-hero__foto figcaption { position: absolute; left: 16px; right: 16px; bottom: 16px; padding: 14px 16px; background: rgba(255, 250, 246, .94); border-radius: 4px; display: flex; gap: 12px; align-items: center; }
+    .lp-hero__foto figcaption img { width: 38px; height: auto; flex: none; }
+    .lp-hero__foto figcaption b { display: block; font: 400 1rem var(--serif); color: var(--tinta); }
+    .lp-hero__foto figcaption span { font-size: .78rem; color: var(--suave); }
+
+    .lp-sec { padding-block: clamp(56px, 8vw, 96px); }
+    .lp-sec--alt { background: var(--fundo-2); }
+    .lp-sec h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); margin-bottom: .5em; }
+    .lp-cab { max-width: 640px; margin-bottom: 36px; }
+
+    .lp-situacoes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .lp-sit { background: var(--claro); border: 1px solid var(--linha); border-radius: var(--raio); padding: 28px 26px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+    .lp-sit .n { font: 400 2.2rem/1 var(--serif); background: var(--ouro); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lp-sit h3 { font-size: 1.35rem; margin: 0; }
+    .lp-sit p { margin: 0; color: var(--suave); font-size: .95rem; }
+    .lp-sit .tag { margin-top: auto; font-size: .68rem; letter-spacing: .22em; text-transform: uppercase; color: var(--acento); font-weight: 500; }
+
+    .lp-passos { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; counter-reset: p; }
+    .lp-passos li { counter-increment: p; display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; }
+    .lp-passos li::before { content: counter(p); display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--acento); font: 400 1.1rem var(--serif); color: var(--acento); background: var(--claro); }
+    .lp-passos b { display: block; font: 400 1.15rem var(--serif); color: var(--tinta); margin: 8px 0 4px; }
+    .lp-passos span { color: var(--suave); font-size: .92rem; }
+
+    .lp-sobre { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(28px, 5vw, 70px); align-items: center; }
+    .lp-sobre > * { min-width: 0; }
+    .lp-sobre figure { margin: 0; aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--raio); max-width: 100%; }
+    .lp-sobre figure img { width: 100%; height: 100%; object-fit: cover; }
+    .lp-sobre blockquote { font-size: clamp(1.4rem, 2.6vw, 1.9rem); }
+    .lp-factos { list-style: none; padding: 0; margin: 26px 0 0; display: flex; flex-wrap: wrap; gap: 18px 40px; }
+    .lp-factos b { display: block; font: 400 2rem/1 var(--serif); color: var(--acento); }
+    .lp-factos span { font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--suave); }
+
+    .lp-pedido { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(28px, 5vw, 70px); align-items: start; }
+    .lp-pedido > * { min-width: 0; }
+    .lp-pedido .form { background: var(--claro); border: 1px solid var(--linha); box-shadow: 0 40px 80px -45px rgba(79, 64, 53, .45); }
+    .lp-escolha { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .lp-escolha label { position: relative; }
+    .lp-escolha input { position: absolute; opacity: 0; pointer-events: none; }
+    .lp-escolha span { display: block; text-align: center; padding: 12px 10px; border: 1px solid var(--linha); border-radius: 4px; background: var(--fundo); font-size: .88rem; color: var(--texto); letter-spacing: 0; text-transform: none; font-weight: 400; cursor: pointer; transition: .25s; }
+    .lp-escolha input:checked + span { background: var(--acento); border-color: var(--acento); color: #fff; }
+    .lp-escolha input:focus-visible + span { outline: 2px solid var(--acento); outline-offset: 2px; }
+    .lp-ok { text-align: center; padding: 20px 0; }
+    .lp-ok .sucesso__icone { margin-bottom: 14px; }
+    .lp-contactos { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 12px; }
+    .lp-contactos li { display: grid; grid-template-columns: 90px 1fr; gap: 10px; padding-bottom: 12px; border-bottom: 1px solid var(--linha); }
+    .lp-contactos small { font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: var(--acento); padding-top: 3px; font-weight: 500; }
+
+    .lp-faq details { border-bottom: 1px solid var(--linha); }
+    .lp-rodape { padding-block: 34px calc(110px + env(safe-area-inset-bottom, 0px)); text-align: center; font-size: .8rem; color: var(--suave); }
+    .lp-rodape a { color: inherit; }
+    .lp-rodape img { width: 200px; margin: 0 auto 16px; }
+
+    /* Barra fixa no telemóvel */
+    .lp-barra { position: fixed; z-index: 30; left: 0; right: 0; bottom: 0; display: none; gap: 10px; padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); background: rgba(255, 250, 246, .96); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid var(--linha); }
+    .lp-barra .btn { flex: 1; padding: 1em .8em; }
+    .lp-barra .btn--linha { flex: 0 0 auto; }
+
+    @media (max-width: 960px) {
+      .lp-hero__grid, .lp-sobre, .lp-pedido { grid-template-columns: 1fr; }
+      .lp-hero__foto { order: -1; aspect-ratio: 4 / 3.4; }
+      .lp-hero__foto img { object-position: 60% 12%; }
+      .lp-hero__foto figcaption { display: none; }
+      .lp-situacoes, .lp-passos { grid-template-columns: 1fr; }
+      .lp-sobre figure { max-width: 420px; }
+    }
+    @media (max-width: 640px) {
+      .cookies { bottom: calc(84px + env(safe-area-inset-bottom, 0px)) !important; }
+      .lp-topo .btn { display: none; }
+      .lp-barra { display: flex; }
+      .lp-acoes .btn { flex: 1 1 100%; }
+      .lp-escolha { grid-template-columns: 1fr; }
+      .lp-contactos li { grid-template-columns: 1fr; gap: 2px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="lp-topo">
+    <div class="wrap">
+      <a href="../" class="marca" aria-label="Sónia Alexandra Santos, Advogada — site principal">
+        <img class="marca__sigla" src="../img/monograma.png" alt="" width="233" height="220">
+        <span class="marca__nome">Sónia Alexandra Santos<small>Advogada</small></span>
+      </a>
+      <a href="#pedido" class="btn btn--ouro"><span>Pedir marcação</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="lp-hero">
+      <div class="wrap lp-hero__grid">
+        <div>
+          <p class="eyebrow">Família e heranças</p>
+          <h1>Herança, testamento ou partilha? <em class="ouro-texto">Resolva antes de complicar.</em></h1>
+          <p class="lead">Uma consulta com a Dra. Sónia Alexandra Santos para perceber a sua situação, conhecer os seus direitos e saber qual o melhor caminho. No escritório em Mozelos ou por videochamada.</p>
+          <div class="lp-acoes">
+            <a href="#pedido" class="btn btn--ouro"><span>Pedir marcação</span></a>
+            <!-- TODO: substituir pelo número real de WhatsApp -->
+            <a href="https://wa.me/351000000000" class="btn btn--linha" target="_blank" rel="noopener"><span>Falar pelo WhatsApp</span></a>
+          </div>
+          <ul class="lp-confianca">
+            <li>Advogada desde 2005</li>
+            <li>Sigilo profissional</li>
+            <li>Escritório ou videochamada</li>
+          </ul>
+        </div>
+        <figure class="lp-hero__foto">
+          <img src="../img/hero-caminhar.jpg" alt="Dra. Sónia Alexandra Santos" width="1200" height="2133" fetchpriority="high">
+          <figcaption><img src="../img/monograma.png" alt=""><div><b>Mozelos · Santa Maria da Feira</b><span>Rua Dr. Amorim, Ed. Casa do Povo, Loja G</span></div></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="lp-sec lp-sec--alt">
+      <div class="wrap">
+        <div class="lp-cab">
+          <p class="eyebrow">Situações frequentes</p>
+          <h2>Reconhece-se em <em class="ouro-texto">alguma</em>?</h2>
+        </div>
+        <div class="lp-situacoes">
+          <article class="lp-sit"><span class="n">01</span><h3>A casa dos pais ficou para os irmãos… e agora, quem decide?</h3><p>Partilhas, inventários e acordos entre herdeiros, antes que a herança se transforme num conflito.</p><span class="tag">Heranças e partilhas</span></article>
+          <article class="lp-sit"><span class="n">02</span><h3>Quer deixar tudo organizado para que os filhos não discutam?</h3><p>Um testamento bem preparado, dentro do que a lei permite, evita desentendimentos no futuro.</p><span class="tag">Testamentos</span></article>
+          <article class="lp-sit"><span class="n">03</span><h3>Pais separados: quem decide a escola, as férias, a pensão?</h3><p>Divórcio, regulação das responsabilidades parentais e alimentos, com o foco no que é melhor para os filhos.</p><span class="tag">Família</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="lp-sec">
+      <div class="wrap">
+        <div class="lp-cab">
+          <p class="eyebrow">Como funciona</p>
+          <h2>Simples, claro e <em class="ouro-texto">ao seu ritmo</em></h2>
+        </div>
+        <ol class="lp-passos">
+          <li><div><b>Pede a marcação</b><span>Preencha o formulário ou envie mensagem. Respondemos para combinar o dia e a hora.</span></div></li>
+          <li><div><b>Consulta de 30 minutos</b><span>No escritório ou por videochamada. Ouvimos a situação e explicamos as opções, os prazos e os custos.</span></div></li>
+          <li><div><b>Decide com segurança</b><span>Se quiser avançar, tratamos de tudo e mantemo-lo informado em cada etapa.</span></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="lp-sec lp-sec--alt">
+      <div class="wrap lp-sobre">
+        <figure><img src="../img/sobre.jpg" alt="Dra. Sónia Alexandra Santos no gabinete" loading="lazy" width="900" height="1125"></figure>
+        <div>
+          <p class="eyebrow">Quem a vai receber</p>
+          <h2>Dra. Sónia <em class="ouro-texto">Alexandra</em> Santos</h2>
+          <blockquote>“O melhor processo é aquele que nunca chega a tribunal.”</blockquote>
+          <p>Advogada desde 2005, com a carreira construída na advocacia preventiva: ajudar pessoas e famílias a tomar as decisões certas antes de os problemas surgirem.</p>
+          <ul class="lp-factos">
+            <li><b data-anos>20+</b><span>anos de advocacia</span></li>
+            <li><b>5</b><span>idiomas de atendimento</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="lp-sec" id="pedido">
+      <div class="wrap lp-pedido">
+        <div>
+          <p class="eyebrow">Pedir marcação</p>
+          <h2>Peça a sua <em class="ouro-texto">marcação</em></h2>
+          <p class="lead">Deixe os seus dados e a melhor forma de o contactar. Respondemos com brevidade para combinar a consulta.</p>
+          <!-- TODO: substituir pelos contactos reais -->
+          <ul class="lp-contactos">
+            <li><small>Telefone</small><a href="tel:+351000000000">[telefone]</a></li>
+            <li><small>Morada</small><span>Rua Dr. Amorim, Ed. Casa do Povo, Loja G<br>4535-211 Mozelos, Santa Maria da Feira</span></li>
+            <li><small>Horário</small><span>[horário]</span></li>
+          </ul>
+        </div>
+
+        <form class="form" id="form-consulta" name="consulta" method="POST" data-netlify="true" netlify-honeypot="empresa" novalidate>
+          <input type="hidden" name="form-name" value="consulta">
+          <input type="hidden" name="Tipo de pedido" value="Pedido de marcação (página de anúncios)">
+          <input type="hidden" name="Origem">
+          <p class="escondido"><label>Não preencher: <input name="empresa" tabindex="-1" autocomplete="off"></label></p>
+          <div class="lp-campos">
+            <div style="display:grid;gap:18px">
+              <label class="campo" for="c-nome">Nome<input id="c-nome" name="Nome" required autocomplete="name"></label>
+              <div class="duplo">
+                <label class="campo" for="c-tel">Telefone<input id="c-tel" name="Telefone" type="tel" autocomplete="tel"></label>
+                <label class="campo" for="c-email">Email<input id="c-email" name="Email" type="email" autocomplete="email"></label>
+              </div>
+              <label class="campo" for="c-assunto">Assunto
+                <select id="c-assunto" name="Assunto">
+                  <option>Herança ou partilha</option>
+                  <option>Testamento</option>
+                  <option>Divórcio ou responsabilidades parentais</option>
+                  <option>Outro assunto</option>
+                </select>
+              </label>
+              <fieldset style="border:0;padding:0;margin:0;display:grid;gap:8px">
+                <legend class="campo" style="margin-bottom:8px">Prefere</legend>
+                <div class="lp-escolha">
+                  <label><input type="radio" name="Modalidade" value="No escritório (Mozelos)" checked><span>No escritório</span></label>
+                  <label><input type="radio" name="Modalidade" value="Por videochamada"><span>Por videochamada</span></label>
+                </div>
+              </fieldset>
+              <label class="campo" for="c-msg">Em poucas palavras, qual é a situação? (opcional)<textarea id="c-msg" name="Mensagem" rows="3"></textarea></label>
+              <label class="consentimento" for="c-consent"><input type="checkbox" id="c-consent" name="Aceitou a Politica de Privacidade" value="Sim" required><span>Li e aceito a <a href="../privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.</span></label>
+              <p class="form__erro" hidden id="c-erro"></p>
+              <button class="btn btn--ouro" type="submit"><span>Pedir marcação</span></button>
+              <p class="nota" style="margin:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="1.5"/><path d="M8.5 10.5V7.5a3.5 3.5 0 017 0v3"/></svg><span>Os seus dados são usados apenas para responder ao pedido e estão protegidos pelo sigilo profissional.</span></p>
+            </div>
+          </div>
+          <div class="lp-ok" hidden>
+            <div class="sucesso__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+            <h3>Pedido enviado</h3>
+            <p>Obrigado. Vamos contactá-lo em breve para combinar a consulta.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="lp-sec lp-sec--alt faq" style="padding-block:clamp(56px,8vw,96px)">
+      <div class="wrap faq__grid">
+        <div>
+          <p class="eyebrow">Perguntas frequentes</p>
+          <h2>Antes de <em class="ouro-texto">marcar</em></h2>
+        </div>
+        <div class="faq__lista lp-faq">
+          <details><summary>O que acontece na primeira consulta?</summary><p>Ouvimos a sua situação, explicamos os seus direitos e as opções possíveis, com prazos e custos. Só avança se quiser.</p></details>
+          <details><summary>A informação que partilho é confidencial?</summary><p>Sim. Tudo o que nos transmite está protegido pelo segredo profissional do advogado.</p></details>
+          <details><summary>Vivo fora de Portugal. Posso ser atendido?</summary><p>Sim. A consulta pode ser por videochamada, em português, inglês, francês, alemão ou italiano.</p></details>
+          <details><summary>Onde fica o escritório?</summary><p>Rua Dr. Amorim, Ed. Casa do Povo, Loja G, 4535-211 Mozelos, Santa Maria da Feira. <a href="https://www.google.com/maps/search/?api=1&amp;query=Rua+Dr.+Amorim%2C+Ed.+Casa+do+Povo%2C+4535-211+Mozelos" target="_blank" rel="noopener">Ver no mapa</a>.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="lp-rodape">
+    <img src="../img/logo.png" alt="Sónia Alexandra Santos — Advogada, Responsabilidade Limitada" width="752" height="347" loading="lazy">
+    <p>© <span id="ano">2026</span> Sónia Alexandra Santos — Advogada, RL · <a href="../">Site principal</a> · <a href="../privacidade.html">Política de Privacidade</a> · <a href="#" data-cookies>Definições de cookies</a></p>
+  </footer>
+
+  <nav class="lp-barra" aria-label="Ações rápidas">
+    <a href="https://wa.me/351000000000" class="btn btn--linha" target="_blank" rel="noopener" aria-label="WhatsApp"><span>WhatsApp</span></a>
+    <a href="#pedido" class="btn btn--ouro"><span>Pedir marcação</span></a>
+  </nav>
+
+  <script src="../consentimento.js"></script>
+  <script>
+    document.getElementById('ano').textContent = new Date().getFullYear();
+    document.querySelectorAll('[data-anos]').forEach(el => { el.textContent = (new Date().getFullYear() - 2005) + '+'; });
+
+    // Guarda a origem do anúncio (utm_*, gclid, fbclid) para aparecer no email do pedido
+    const q = new URLSearchParams(location.search);
+    const origem = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term']
+      .filter(k => q.get(k)).map(k => `${k.replace('utm_', '')}: ${q.get(k)}`);
+    if (q.get('gclid')) origem.push('Google Ads');
+    if (q.get('fbclid')) origem.push('Facebook/Instagram');
+    const form = document.getElementById('form-consulta');
+    form.elements['Origem'].value = origem.length ? origem.join(' · ') : (document.referrer ? 'Visita a partir de ' + new URL(document.referrer).hostname : 'Visita direta');
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const erro = document.getElementById('c-erro');
+      const nome = form.elements['Nome'], tel = form.elements['Telefone'], email = form.elements['Email'], consent = document.getElementById('c-consent');
+      const falha = (msg, el) => { erro.textContent = msg; erro.hidden = false; el && el.focus(); };
+      erro.hidden = true;
+      if (!nome.value.trim()) return falha('Indique o seu nome.', nome);
+      if (!tel.value.trim() && !email.value.trim()) return falha('Indique um telefone ou um email para o podermos contactar.', tel);
+      if (email.value.trim() && !email.checkValidity()) return falha('O email não parece correto.', email);
+      if (!consent.checked) return falha('Para continuar, aceite a Política de Privacidade.', consent);
+      const botao = form.querySelector('button[type="submit"]'); botao.disabled = true;
+      try {
+        const r = await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(form)).toString() });
+        if (!r.ok) throw new Error(r.status);
+        form.querySelector('.lp-campos').hidden = true;
+        form.querySelector('.lp-ok').hidden = false;
+        window.medirConversao && window.medirConversao('consulta');
+      } catch (err) {
+        falha('Não foi possível enviar. Tente novamente ou contacte-nos por telefone ou WhatsApp.');
+        botao.disabled = false;
+      }
+    });
+
+    document.querySelectorAll('.lp-faq details').forEach(d => d.addEventListener('toggle', () => {
+      if (d.open) document.querySelectorAll('.lp-faq details').forEach(o => { if (o !== d) o.open = false; });
+    }));
+  </script>
+</body>
+</html>

@@ -408,6 +408,8 @@ blockquote {
 .form { background: var(--fundo); color: var(--texto); padding: clamp(28px, 4vw, 48px); border-radius: var(--raio); display: grid; gap: 18px; box-shadow: 0 40px 80px -40px rgba(0, 0, 0, .5); }
 .form .btn { margin-top: 10px; }
 .form__ok { margin: 0; color: var(--tinta); font-weight: 500; }
+.form__erro { margin: 0; color: #9a4a3a; font-size: .9rem; }
+.escondido { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
 /* Rodapé */
 .rodape { background: var(--fundo); color: var(--suave); font-size: .85rem; padding: 70px 0 34px; text-align: center; }

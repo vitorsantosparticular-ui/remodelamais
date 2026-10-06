@@ -1,0 +1,47 @@
+# Publicação no Netlify (site estático, sem build)
+[build]
+  publish = "."
+
+# Domínio principal: soniasantosadvogada.pt
+# Os outros endereços redirecionam permanentemente (301) para o principal.
+[[redirects]]
+  from = "https://www.soniasantosadvogada.pt/*"
+  to = "https://soniasantosadvogada.pt/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://drasoniasantos.pt/*"
+  to = "https://soniasantosadvogada.pt/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.drasoniasantos.pt/*"
+  to = "https://soniasantosadvogada.pt/:splat"
+  status = 301
+  force = true
+
+# Não publicar ficheiros internos
+[[redirects]]
+  from = "/README.md"
+  to = "/"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/netlify.toml"
+  to = "/"
+  status = 404
+  force = true
+
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

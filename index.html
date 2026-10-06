@@ -4,31 +4,52 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sónia Alexandra Santos — Advogada</title>
-  <meta name="description" content="Sónia Alexandra Santos, Advogada. Direito da Família e Sucessões e Atos Notariais: divórcios, heranças, partilhas, testamentos, procurações, reconhecimento de assinaturas e muito mais.">
+  <meta name="description" content="Sónia Alexandra Santos, Advogada RL. Consulta jurídica online por 30 €. Direito da Família e Sucessões e Atos Notariais.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Marcellus&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="icon" href="img/monograma.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+  <div class="loader" aria-hidden="true">
+    <img src="img/monograma.png" alt="">
+    <span class="loader__linha"></span>
+  </div>
+
   <header class="topo" id="topo">
     <div class="wrap topo__inner">
-      <a href="#inicio" class="marca" aria-label="Sónia Alexandra Santos, Advogada — início">
+      <a href="#inicio" class="marca" aria-label="Sónia Alexandra Santos, Advogada">
         <img class="marca__sigla" src="img/monograma.png" alt="" width="233" height="220">
-        <span class="marca__nome">Sónia Alexandra Santos<small>Advogada</small></span>
+        <span class="marca__nome">Sónia Alexandra Santos<small data-i18n="marca.sub">Advogada</small></span>
       </a>
-      <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
-        <span></span><span></span><span></span>
-      </button>
       <nav class="nav" id="nav">
-        <a href="#sobre">Sobre</a>
-        <a href="#areas">Áreas de atuação</a>
-        <a href="#escritorio">Escritório</a>
-        <a href="#contacto" class="nav__cta">Marcar consulta</a>
+        <a href="#sobre" data-i18n="nav.sobre">Sobre</a>
+        <a href="#areas" data-i18n="nav.areas">Áreas de atuação</a>
+        <a href="#equipa" data-i18n="nav.equipa">Equipa</a>
+        <a href="#escritorio" data-i18n="nav.escritorio">Escritório</a>
+        <a href="#contacto" data-i18n="nav.contacto">Contacto</a>
+        <a href="#online" class="nav__cta" data-i18n="nav.cta">Consulta online · 30 €</a>
       </nav>
+      <div class="topo__lado">
+        <div class="idiomas">
+          <button class="idiomas__btn" aria-haspopup="true" aria-expanded="false" aria-label="Idioma / Language">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.6 2.8 3.9 6 3.9 9.5s-1.3 6.7-3.9 9.5c-2.6-2.8-3.9-6-3.9-9.5s1.3-6.7 3.9-9.5z"/></svg>
+            <span class="idiomas__atual">PT</span>
+          </button>
+          <ul class="idiomas__lista">
+            <li><button data-lang="pt">Português <small>PT</small></button></li>
+            <li><button data-lang="en">English <small>EN</small></button></li>
+            <li><button data-lang="fr">Français <small>FR</small></button></li>
+            <li><button data-lang="de">Deutsch <small>DE</small></button></li>
+            <li><button data-lang="it">Italiano <small>IT</small></button></li>
+          </ul>
+        </div>
+        <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
+      </div>
     </div>
+    <span class="progresso" aria-hidden="true"></span>
   </header>
 
   <main>
@@ -36,36 +57,143 @@
     <section class="hero" id="inicio">
       <div class="wrap hero__grid">
         <div class="hero__texto">
-          <img class="hero__logo" src="img/logo.png" alt="Sónia Alexandra Santos — Advogada, Responsabilidade Limitada" width="752" height="347">
-          <p class="eyebrow">Advocacia &amp; Atos Notariais</p>
-          <h1>Proximidade, rigor e confiança em cada processo.</h1>
-          <p class="lead">Acompanhamento jurídico personalizado em Direito da Família e Sucessões e na prática de atos notariais — com a atenção que cada situação merece.</p>
+          <p class="eyebrow" data-i18n="hero.eyebrow">Advocacia &amp; Atos Notariais</p>
+          <h1>
+            <span class="linha"><span data-i18n="hero.l1">Proximidade, rigor</span></span>
+            <span class="linha"><span data-i18n="hero.l2">e <em class="ouro-texto">confiança</em></span></span>
+            <span class="linha"><span data-i18n="hero.l3">em cada processo.</span></span>
+          </h1>
+          <p class="lead" data-i18n="hero.lead">Acompanhamento jurídico personalizado em Direito da Família e Sucessões e na prática de atos notariais, agora também por videochamada, onde quer que esteja.</p>
           <div class="hero__acoes">
-            <a href="#contacto" class="btn btn--escuro">Marcar consulta</a>
-            <a href="#areas" class="btn btn--linha">Ver serviços</a>
+            <a href="#online" class="btn btn--ouro magnetico"><span data-i18n="hero.cta1">Marcar consulta online</span></a>
+            <a href="#areas" class="btn btn--linha magnetico"><span data-i18n="hero.cta2">Ver serviços</span></a>
+          </div>
+          <p class="hero__online"><span class="ponto" aria-hidden="true"></span><span data-i18n="hero.online">Consulta online por</span> <b>30 €</b></p>
+        </div>
+        <div class="hero__visual">
+          <figure class="hero__foto" data-parallax>
+            <img src="img/retrato.jpg" alt="Dra. Sónia Alexandra Santos" width="900" height="1600">
+          </figure>
+          <span class="hero__moldura" aria-hidden="true"></span>
+          <div class="selo" aria-hidden="true">
+            <svg viewBox="0 0 200 200">
+              <defs><path id="circulo" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+              <text><textPath href="#circulo" textLength="488">SÓNIA ALEXANDRA SANTOS · ADVOGADA (RL) ·</textPath></text>
+            </svg>
+            <img src="img/monograma.png" alt="">
           </div>
         </div>
-        <figure class="hero__foto">
-          <img src="img/retrato.jpg" alt="Dra. Sónia Alexandra Santos no seu escritório" width="900" height="1600">
-        </figure>
+      </div>
+      <a href="#online" class="scroll-ind" aria-label="↓"><span></span></a>
+    </section>
+
+    <!-- FAIXA -->
+    <div class="faixa" aria-hidden="true">
+      <div class="faixa__trilho" data-faixa>
+        <span data-i18n="faixa.1">Consulta online</span><i></i><span data-i18n="faixa.2">Divórcios</span><i></i><span data-i18n="faixa.3">Heranças</span><i></i><span data-i18n="faixa.4">Partilhas</span><i></i><span data-i18n="faixa.5">Testamentos</span><i></i><span data-i18n="faixa.6">Procurações</span><i></i><span data-i18n="faixa.7">Responsabilidades parentais</span><i></i><span data-i18n="faixa.8">Escrituras</span><i></i>
+      </div>
+    </div>
+
+    <!-- CONSULTA ONLINE -->
+    <section class="online" id="online">
+      <div class="wrap online__grid">
+        <div>
+          <p class="eyebrow" data-reveal data-i18n="online.eyebrow">Consulta online</p>
+          <h2 data-reveal data-i18n="online.titulo">Perceba a sua situação <em class="ouro-texto">antes de decidir</em></h2>
+          <div class="preco" data-reveal>
+            <span class="preco__valor ouro-texto">30 €</span>
+            <span class="preco__info" data-i18n="online.preco">por consulta<br>videochamada · 30 min</span>
+          </div>
+          <p class="lead" data-reveal data-i18n="online.lead">Numa conversa por videochamada, ouvimos a sua situação, explicamos os seus direitos e indicamos os caminhos possíveis. Sem deslocações e sem compromisso.</p>
+          <ul class="inclui">
+            <li data-reveal>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.5" y="6" width="13" height="12" rx="1.5"/><path d="M15.5 10.5l6-3.5v10l-6-3.5"/></svg>
+              <div><strong data-i18n="online.i1t">Videochamada a partir de casa</strong><span data-i18n="online.i1d">Basta um telemóvel ou computador. Enviamos o link por email.</span></div>
+            </li>
+            <li data-reveal>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.3-7.5 9.5-4.3-1.2-7.5-4.9-7.5-9.5V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+              <div><strong data-i18n="online.i2t">Análise clara do seu caso</strong><span data-i18n="online.i2d">Explicamos as opções, os prazos e os custos prováveis.</span></div>
+            </li>
+            <li data-reveal>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="1.5"/><path d="M8.5 10.5V7.5a3.5 3.5 0 017 0v3"/></svg>
+              <div><strong data-i18n="online.i3t">Confidencial e seguro</strong><span data-i18n="online.i3d">Tudo o que partilha está protegido pelo sigilo profissional.</span></div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Marcação -->
+        <form class="reserva" id="reserva" data-reveal novalidate>
+          <h3 data-i18n="res.titulo">Marcar consulta online</h3>
+          <p data-i18n="res.sub">Escolha o dia e a hora que lhe dão mais jeito.</p>
+          <div class="reserva__passos" aria-hidden="true"><span class="feito"></span><span></span><span></span></div>
+
+          <div class="etapa" data-etapa="1">
+            <span class="campo-titulo" data-i18n="res.dia">Dia</span>
+            <div class="opcoes opcoes--datas" id="datas"></div>
+            <span class="campo-titulo" data-i18n="res.hora">Hora</span>
+            <div class="opcoes" id="horas"></div>
+            <div class="reserva__acoes"><button type="button" class="btn btn--ouro" data-seguinte><span data-i18n="res.continuar">Continuar</span></button></div>
+          </div>
+
+          <div class="etapa" data-etapa="2" hidden>
+            <label class="campo" for="r-nome"><span data-i18n="form.nome">Nome</span><input id="r-nome" name="nome" required autocomplete="name"></label>
+            <div class="duplo">
+              <label class="campo" for="r-email"><span data-i18n="form.email">Email</span><input id="r-email" name="email" type="email" required autocomplete="email"></label>
+              <label class="campo" for="r-tel"><span data-i18n="form.tel">Telefone</span><input id="r-tel" name="telefone" type="tel" autocomplete="tel"></label>
+            </div>
+            <label class="campo" for="r-area"><span data-i18n="form.assunto">Assunto</span>
+              <select id="r-area" name="assunto">
+                <option data-i18n="form.op1">Direito da Família e Sucessões</option>
+                <option data-i18n="form.op2">Atos Notariais</option>
+                <option data-i18n="form.op3">Outro assunto</option>
+              </select>
+            </label>
+            <label class="campo" for="r-msg"><span data-i18n="res.msg">Descreva brevemente a situação</span><textarea id="r-msg" name="mensagem" rows="3"></textarea></label>
+            <div class="reserva__acoes">
+              <button type="button" class="btn btn--linha" data-anterior><span data-i18n="res.voltar">Voltar</span></button>
+              <button type="button" class="btn btn--ouro" data-seguinte><span data-i18n="res.continuar">Continuar</span></button>
+            </div>
+          </div>
+
+          <div class="etapa" data-etapa="3" hidden>
+            <dl class="resumo">
+              <div><dt data-i18n="res.r1">Consulta</dt><dd data-i18n="res.r1v">Online · 30 min</dd></div>
+              <div><dt data-i18n="res.r2">Data</dt><dd id="resumo-data">—</dd></div>
+              <div><dt data-i18n="res.r3">Nome</dt><dd id="resumo-nome">—</dd></div>
+              <div><dt data-i18n="res.r4">Total</dt><dd>30,00 €</dd></div>
+            </dl>
+            <div class="reserva__acoes">
+              <button type="button" class="btn btn--linha" data-anterior><span data-i18n="res.voltar">Voltar</span></button>
+              <button type="submit" class="btn btn--ouro"><span data-i18n="res.pagar">Pagar 30 € e confirmar</span></button>
+            </div>
+            <p class="nota"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="1.5"/><path d="M8.5 10.5V7.5a3.5 3.5 0 017 0v3"/></svg><span data-i18n="res.nota">Pagamento seguro (cartão ou MB WAY). Recebe a confirmação e o link da videochamada por email.</span></p>
+          </div>
+
+          <div class="etapa sucesso" data-etapa="4" hidden>
+            <div class="sucesso__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+            <h3 data-i18n="res.ok">Pedido registado</h3>
+            <p data-i18n="res.okd">Vai ser encaminhado para o pagamento seguro. Depois receberá a confirmação e o link da videochamada por email.</p>
+          </div>
+        </form>
       </div>
     </section>
 
     <!-- SOBRE -->
     <section class="sobre" id="sobre">
       <div class="wrap sobre__grid">
-        <figure class="sobre__foto">
-          <img src="img/trabalho.jpg" alt="Dra. Sónia Alexandra Santos a trabalhar ao computador" loading="lazy" width="900" height="1600">
+        <figure class="sobre__foto" data-parallax data-reveal>
+          <img src="img/trabalho.jpg" alt="Dra. Sónia Alexandra Santos" loading="lazy" width="900" height="1600">
         </figure>
         <div class="sobre__texto">
-          <p class="eyebrow">Sobre</p>
-          <h2>Dra. Sónia Alexandra Santos</h2>
-          <p>Advogada dedicada a ajudar pessoas e famílias em momentos que exigem clareza e tranquilidade. Do divórcio à partilha de uma herança, da elaboração de uma procuração à autenticação de documentos, cada caso é tratado com proximidade, discrição e rigor técnico.</p>
-          <p>No escritório, encontra um atendimento direto e humano: explicamos cada passo, os prazos e os custos, para que tome decisões informadas e seguras.</p>
+          <p class="eyebrow" data-reveal data-i18n="sobre.eyebrow">Sobre</p>
+          <h2 data-reveal>Dra. Sónia <em class="ouro-texto">Alexandra</em> Santos</h2>
+          <blockquote data-reveal data-i18n="sobre.citacao">“Cada pessoa que entra no escritório traz uma história. O meu trabalho é tratá-la com o cuidado que ela merece.”</blockquote>
+          <p data-reveal data-i18n="sobre.p1">Advogada dedicada a ajudar pessoas e famílias em momentos que exigem clareza e tranquilidade. Do divórcio à partilha de uma herança, da elaboração de uma procuração à autenticação de documentos, cada caso é tratado com proximidade, discrição e rigor técnico.</p>
+          <p data-reveal data-i18n="sobre.p2">No escritório ou por videochamada, encontra um atendimento direto e humano: explicamos cada passo, os prazos e os custos, para que tome decisões informadas e seguras.</p>
           <ul class="valores">
-            <li><strong>Proximidade</strong><span>Atendimento pessoal e acompanhamento do início ao fim.</span></li>
-            <li><strong>Rigor</strong><span>Soluções juridicamente sólidas e bem fundamentadas.</span></li>
-            <li><strong>Discrição</strong><span>Total confidencialidade em todas as matérias.</span></li>
+            <li data-reveal><strong data-i18n="v1t">Proximidade</strong><span data-i18n="v1d">Atendimento pessoal, do início ao fim.</span></li>
+            <li data-reveal><strong data-i18n="v2t">Rigor</strong><span data-i18n="v2d">Soluções sólidas e bem fundamentadas.</span></li>
+            <li data-reveal><strong data-i18n="v3t">Discrição</strong><span data-i18n="v3d">Sigilo profissional em todas as matérias.</span></li>
           </ul>
         </div>
       </div>
@@ -75,40 +203,85 @@
     <section class="areas" id="areas">
       <div class="wrap">
         <div class="secao__cabecalho">
-          <p class="eyebrow">Áreas de atuação</p>
-          <h2>Como podemos ajudar</h2>
+          <p class="eyebrow" data-reveal data-i18n="areas.eyebrow">Áreas de atuação</p>
+          <h2 data-reveal data-i18n="areas.titulo">Como podemos <em class="ouro-texto">ajudar</em></h2>
         </div>
         <div class="areas__grid">
-          <article class="cartao">
-            <h3>Direito da Família e Sucessões</h3>
+          <article class="cartao" data-reveal>
+            <span class="cartao__brilho" aria-hidden="true"></span>
+            <p class="cartao__etiqueta" data-i18n="a1.etq">Pessoas &amp; famílias</p>
+            <h3 data-i18n="a1.titulo">Direito da Família e Sucessões</h3>
             <ul>
-              <li>Divórcios (mútuo consentimento e litigiosos)</li>
-              <li>Heranças / inventários (judiciais e extrajudiciais)</li>
-              <li>Partilhas</li>
-              <li>Testamentos</li>
-              <li>Processos tutelares educativos</li>
-              <li>Regulação das responsabilidades parentais</li>
-              <li>Alimentos a filhos maiores</li>
-              <li>Processos de maior acompanhado</li>
-              <li>Separação de pessoas e bens</li>
+              <li data-i18n="a1.1">Divórcios (mútuo consentimento e litigiosos)</li>
+              <li data-i18n="a1.2">Heranças / inventários (judiciais e extrajudiciais)</li>
+              <li data-i18n="a1.3">Partilhas</li>
+              <li data-i18n="a1.4">Testamentos</li>
+              <li data-i18n="a1.5">Processos tutelares educativos</li>
+              <li data-i18n="a1.6">Regulação das responsabilidades parentais</li>
+              <li data-i18n="a1.7">Alimentos a filhos maiores</li>
+              <li data-i18n="a1.8">Processos de maior acompanhado</li>
+              <li data-i18n="a1.9">Separação de pessoas e bens</li>
             </ul>
           </article>
-          <article class="cartao">
-            <h3>Atos Notariais</h3>
+          <article class="cartao cartao--escuro" data-reveal>
+            <span class="cartao__brilho" aria-hidden="true"></span>
+            <p class="cartao__etiqueta" data-i18n="a2.etq">Documentos &amp; registos</p>
+            <h3 data-i18n="a2.titulo">Atos Notariais</h3>
             <ul>
-              <li>Elaboração de procurações</li>
-              <li>Reconhecimento de assinaturas</li>
-              <li>Autenticação de documentos</li>
-              <li>Tradução e certificação de tradução</li>
-              <li>Certificação de fotocópias</li>
-              <li>Confissão de dívida</li>
-              <li>Registo automóvel</li>
-              <li>Registo predial</li>
-              <li>Renovação de cartão de cidadão</li>
-              <li>DPA / Escrituras</li>
-              <li>Autorização de saída de menores para o estrangeiro</li>
+              <li data-i18n="a2.1">Elaboração de procurações</li>
+              <li data-i18n="a2.2">Reconhecimento de assinaturas</li>
+              <li data-i18n="a2.3">Autenticação de documentos</li>
+              <li data-i18n="a2.4">Tradução e certificação de tradução</li>
+              <li data-i18n="a2.5">Certificação de fotocópias</li>
+              <li data-i18n="a2.6">Confissão de dívida</li>
+              <li data-i18n="a2.7">Registo automóvel</li>
+              <li data-i18n="a2.8">Registo predial</li>
+              <li data-i18n="a2.9">Renovação de cartão de cidadão</li>
+              <li data-i18n="a2.10">DPA / Escrituras</li>
+              <li data-i18n="a2.11">Autorização de saída de menores para o estrangeiro</li>
             </ul>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="processo" id="processo">
+      <div class="wrap">
+        <div class="secao__cabecalho">
+          <p class="eyebrow" data-reveal data-i18n="proc.eyebrow">Como funciona</p>
+          <h2 data-reveal data-i18n="proc.titulo">Três passos, <em class="ouro-texto">sem complicações</em></h2>
+        </div>
+        <ol class="passos">
+          <span class="passos__linha" aria-hidden="true"><span></span></span>
+          <li data-reveal><span class="passos__num">1</span><h3 data-i18n="p1t">Marcação</h3><p data-i18n="p1d">Escolha o dia e a hora da consulta online e pague 30 € de forma segura.</p></li>
+          <li data-reveal><span class="passos__num">2</span><h3 data-i18n="p2t">Consulta</h3><p data-i18n="p2d">Por videochamada, ouvimos a sua situação e explicamos as opções, os prazos e os custos.</p></li>
+          <li data-reveal><span class="passos__num">3</span><h3 data-i18n="p3t">Acompanhamento</h3><p data-i18n="p3d">Se decidir avançar, tratamos de tudo e mantemo-lo informado em cada etapa.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- EQUIPA -->
+    <section class="equipa" id="equipa">
+      <div class="wrap">
+        <div class="secao__cabecalho">
+          <p class="eyebrow" data-reveal data-i18n="eq.eyebrow">Equipa</p>
+          <h2 data-reveal data-i18n="eq.titulo">Quem <em class="ouro-texto">cuida</em> do seu processo</h2>
+        </div>
+        <!-- TODO: substituir fotos, nomes e funções dos membros da equipa -->
+        <div class="equipa__grid">
+          <figure class="membro" data-reveal>
+            <div class="membro__foto"><img src="img/equipa-sonia.jpg" alt="Dra. Sónia Alexandra Santos" loading="lazy" width="900" height="1600" onerror="this.onerror=null;this.src='img/trabalho.jpg'"></div>
+            <figcaption><h3>Dra. Sónia Alexandra Santos</h3><p data-i18n="eq.r1">Advogada · Fundadora</p></figcaption>
+          </figure>
+          <figure class="membro" data-reveal>
+            <div class="membro__foto"><img src="img/equipa-2.jpg" alt="" loading="lazy" width="900" height="1600" onerror="this.onerror=null;this.src='img/monograma.png';this.parentNode.classList.add('membro__foto--vazia')"></div>
+            <figcaption><h3>[Nome]</h3><p>[Função]</p></figcaption>
+          </figure>
+          <figure class="membro" data-reveal>
+            <div class="membro__foto"><img src="img/equipa-3.jpg" alt="" loading="lazy" width="900" height="1600" onerror="this.onerror=null;this.src='img/monograma.png';this.parentNode.classList.add('membro__foto--vazia')"></div>
+            <figcaption><h3>[Nome]</h3><p>[Função]</p></figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -117,14 +290,38 @@
     <section class="escritorio" id="escritorio">
       <div class="wrap">
         <div class="secao__cabecalho">
-          <p class="eyebrow">O escritório</p>
-          <h2>Um espaço pensado para o receber</h2>
+          <p class="eyebrow" data-reveal data-i18n="esc.eyebrow">O escritório</p>
+          <h2 data-reveal data-i18n="esc.titulo">Um espaço pensado para <em class="ouro-texto">o receber</em></h2>
         </div>
         <div class="galeria">
-          <img src="img/escritorio-fachada.jpg" alt="Fachada do escritório Sónia Alexandra Santos, Advogada" loading="lazy" width="900" height="1600">
-          <img src="img/servicos-montra.jpg" alt="Montra do escritório com a lista de serviços" loading="lazy" width="900" height="1600">
-          <img src="img/entrada.jpg" alt="Dra. Sónia Alexandra Santos à entrada do edifício" loading="lazy" width="900" height="1600">
+          <figure data-reveal><img src="img/escritorio-fachada.jpg" alt="Escritório Sónia Alexandra Santos, Advogada" loading="lazy" width="900" height="1600"></figure>
+          <figure data-reveal><img src="img/servicos-montra.jpg" alt="" loading="lazy" width="900" height="1600"></figure>
+          <figure data-reveal><img src="img/entrada.jpg" alt="" loading="lazy" width="900" height="1600"></figure>
         </div>
+      </div>
+    </section>
+
+    <!-- PERGUNTAS -->
+    <section class="faq">
+      <div class="wrap faq__grid">
+        <div>
+          <p class="eyebrow" data-reveal data-i18n="faq.eyebrow">Perguntas frequentes</p>
+          <h2 data-reveal data-i18n="faq.titulo">Antes da sua <em class="ouro-texto">consulta</em></h2>
+        </div>
+        <div class="faq__lista">
+          <details data-reveal><summary data-i18n="q1">Como funciona a consulta online?</summary><p data-i18n="r1">Escolhe o dia e a hora, paga 30 € e recebe por email o link da videochamada. No dia, basta abrir o link no telemóvel ou no computador.</p></details>
+          <details data-reveal><summary data-i18n="q2">Que documentos devo ter à mão?</summary><p data-i18n="r2">O seu documento de identificação e os documentos relacionados com o assunto. Se for útil, pedimos-lhe que os envie antes da consulta.</p></details>
+          <details data-reveal><summary data-i18n="q3">A informação que partilho é confidencial?</summary><p data-i18n="r3">Sim. Tudo o que nos transmite está protegido pelo sigilo profissional do advogado.</p></details>
+          <details data-reveal><summary data-i18n="q4">Posso ser atendido no escritório?</summary><p data-i18n="r4">Sim. Se preferir uma reunião presencial ou precisar de um ato notarial, marque pelo telefone, WhatsApp ou formulário de contacto.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAMADA -->
+    <section class="chamada">
+      <div class="wrap chamada__inner" data-reveal>
+        <h2 data-i18n="cham.titulo">Consulta online por 30 €. <em>Fale connosco ainda esta semana.</em></h2>
+        <a href="#online" class="btn btn--escuro magnetico"><span data-i18n="cham.cta">Marcar agora</span></a>
       </div>
     </section>
 
@@ -132,30 +329,31 @@
     <section class="contacto" id="contacto">
       <div class="wrap contacto__grid">
         <div>
-          <p class="eyebrow eyebrow--claro">Contacto</p>
-          <h2>Marque a sua consulta</h2>
-          <p class="lead">Fale connosco por telefone, email ou WhatsApp. Teremos todo o gosto em ajudar.</p>
+          <p class="eyebrow eyebrow--claro" data-reveal data-i18n="cont.eyebrow">Contacto</p>
+          <h2 data-reveal data-i18n="cont.titulo">Prefere falar diretamente?</h2>
+          <p class="lead" data-reveal data-i18n="cont.lead">Para reuniões no escritório ou atos notariais, contacte-nos por telefone, email ou WhatsApp.</p>
           <!-- TODO: substituir os dados entre [ ] pelos contactos reais -->
-          <dl class="dados">
-            <div><dt>Telefone</dt><dd><a href="tel:+351000000000">[telefone]</a></dd></div>
-            <div><dt>Email</dt><dd><a href="mailto:geral@exemplo.pt">[email]</a></dd></div>
-            <div><dt>Morada</dt><dd>[morada do escritório]</dd></div>
-            <div><dt>Horário</dt><dd>[ex.: Segunda a Sexta, 9h30–13h e 14h30–19h]</dd></div>
+          <dl class="dados" data-reveal>
+            <div><dt data-i18n="form.tel">Telefone</dt><dd><a href="tel:+351000000000">[telefone]</a></dd></div>
+            <div><dt data-i18n="form.email">Email</dt><dd><a href="mailto:geral@exemplo.pt">[email]</a></dd></div>
+            <div><dt data-i18n="cont.morada">Morada</dt><dd>[morada do escritório]</dd></div>
+            <div><dt data-i18n="cont.horario">Horário</dt><dd>[ex.: 9h30–13h · 14h30–19h]</dd></div>
           </dl>
-          <a class="btn btn--linha" href="https://wa.me/351000000000" target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+          <a class="btn btn--linha-claro magnetico" data-reveal href="https://wa.me/351000000000" target="_blank" rel="noopener"><span data-i18n="cont.whats">Falar pelo WhatsApp</span></a>
         </div>
-        <form class="form" action="mailto:geral@exemplo.pt" method="post" enctype="text/plain">
-          <label>Nome<input name="nome" required autocomplete="name"></label>
-          <label>Telefone ou email<input name="contacto" required></label>
-          <label>Assunto
-            <select name="assunto">
-              <option>Direito da Família e Sucessões</option>
-              <option>Atos Notariais</option>
-              <option>Outro assunto</option>
+        <form class="form" id="form-contacto" data-reveal>
+          <label class="campo" for="f-nome"><span data-i18n="form.nome">Nome</span><input id="f-nome" name="nome" required autocomplete="name"></label>
+          <label class="campo" for="f-contacto"><span data-i18n="form.contacto">Telefone ou email</span><input id="f-contacto" name="contacto" required></label>
+          <label class="campo" for="f-assunto"><span data-i18n="form.assunto">Assunto</span>
+            <select id="f-assunto" name="assunto">
+              <option data-i18n="form.op1">Direito da Família e Sucessões</option>
+              <option data-i18n="form.op2">Atos Notariais</option>
+              <option data-i18n="form.op3">Outro assunto</option>
             </select>
           </label>
-          <label>Mensagem<textarea name="mensagem" rows="4"></textarea></label>
-          <button class="btn btn--escuro" type="submit">Enviar pedido</button>
+          <label class="campo" for="f-mensagem"><span data-i18n="form.msg">Mensagem</span><textarea id="f-mensagem" name="mensagem" rows="4"></textarea></label>
+          <button class="btn btn--ouro" type="submit"><span data-i18n="form.enviar">Enviar pedido</span></button>
+          <p class="form__ok" hidden data-i18n="form.ok">Obrigado! Entraremos em contacto brevemente.</p>
         </form>
       </div>
     </section>
@@ -163,24 +361,21 @@
 
   <footer class="rodape">
     <div class="wrap rodape__inner">
-      <img class="rodape__selo" src="img/selo.png" alt="Sónia Alexandra Santos, Advogada (RL)" width="360" height="352" loading="lazy">
-      <span>© <span id="ano">2026</span> Sónia Alexandra Santos — Advogada, RL</span>
-      <a href="#inicio">Voltar ao topo ↑</a>
+      <img class="rodape__logo" src="img/logo.png" alt="Sónia Alexandra Santos — Advogada, Responsabilidade Limitada" width="752" height="347" loading="lazy">
+      <nav class="rodape__nav">
+        <a href="#online" data-i18n="nav.online">Consulta online</a><a href="#sobre" data-i18n="nav.sobre">Sobre</a><a href="#areas" data-i18n="nav.areas">Áreas de atuação</a><a href="#equipa" data-i18n="nav.equipa">Equipa</a><a href="#contacto" data-i18n="nav.contacto">Contacto</a>
+      </nav>
+      <p class="rodape__fim">© <span id="ano">2026</span> Sónia Alexandra Santos — <span data-i18n="rod.fim">Advogada, RL</span></p>
     </div>
   </footer>
 
-  <script>
-    const btn = document.querySelector('.menu-btn');
-    const nav = document.getElementById('nav');
-    btn.addEventListener('click', () => {
-      const aberto = nav.classList.toggle('aberto');
-      btn.setAttribute('aria-expanded', aberto);
-    });
-    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      nav.classList.remove('aberto');
-      btn.setAttribute('aria-expanded', false);
-    }));
-    document.getElementById('ano').textContent = new Date().getFullYear();
-  </script>
+  <a class="whatsapp" href="https://wa.me/351000000000" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2S21.8 6.6 21.8 12 17.4 21.8 12 21.8zM12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12S18.6 0 12 0z"/></svg>
+  </a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

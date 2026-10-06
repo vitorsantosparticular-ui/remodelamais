@@ -423,6 +423,21 @@ blockquote {
 .rodape__legal a, .rodape__fim a { text-decoration: underline; text-decoration-color: var(--linha); text-underline-offset: 3px; }
 .rodape__fim { margin: 0; padding-top: 24px; border-top: 1px solid var(--linha); width: 100%; font-size: .78rem; }
 
+/* Redes sociais */
+.redes { display: flex; gap: 10px; }
+.redes a { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--linha); color: var(--tinta); transition: background .3s, color .3s, border-color .3s, transform .3s var(--ease); }
+.redes a:hover { background: var(--acento); border-color: var(--acento); color: #fff; transform: translateY(-2px); }
+.redes svg { width: 18px; height: 18px; }
+.redes--claro { margin-top: 22px; }
+.redes--claro a { border-color: rgba(227, 204, 159, .45); color: #fff; }
+.redes--claro a:hover { background: var(--acento-claro); color: var(--escuro); }
+.redes--centro { justify-content: center; margin-bottom: 14px; }
+.redes--rodape { gap: 14px; justify-content: center; }
+.redes--rodape a { width: 52px; height: 52px; border-color: var(--acento); color: var(--acento); }
+.redes--rodape svg { width: 22px; height: 22px; }
+.redes--menu { display: none; }
+@media (max-width: 1180px) { .nav .redes--menu { display: flex; } .nav .redes a { padding: 0; border-bottom: 1px solid var(--linha); opacity: 1; transform: none; font-size: inherit; } }
+
 /* WhatsApp */
 .whatsapp {
   position: fixed; right: 22px; bottom: calc(22px + env(safe-area-inset-bottom, 0px)); z-index: 30;

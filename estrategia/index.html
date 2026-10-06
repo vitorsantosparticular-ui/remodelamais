@@ -155,6 +155,10 @@ tr:last-child td { border-bottom: 0; }
 .caixa--clara b { color: var(--tinta); }
 .caixa--clara li::marker { color: var(--acento); }
 
+.redes-e { display: flex; justify-content: center; gap: 14px; margin-bottom: 14px; }
+.redes-e a { width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--acento); color: var(--tinta); transition: background .3s, color .3s; }
+.redes-e a:hover { background: var(--acento); color: #fff; }
+.redes-e svg { width: 22px; height: 22px; }
 footer { padding-block: 40px; text-align: center; font-size: .78rem; color: var(--suave); }
 
 @media (max-width: 980px) {
@@ -294,7 +298,11 @@ footer { padding-block: 40px; text-align: center; font-size: .78rem; color: var(
   </section>
 </main>
 
-<footer>Sónia Alexandra Santos — Advogada, RL · Documento interno, não indexado</footer>
+<footer><!-- TODO: substituir pelos links reais do Instagram e LinkedIn -->
+      <div class="redes-e">
+        <a href="https://www.instagram.com/soniasantosadvogada" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.linkedin.com/in/soniasantosadvogada" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9.75h4v11H3zm7 0h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"/></svg></a>
+      </div>Sónia Alexandra Santos — Advogada, RL · Documento interno, não indexado</footer>
 
 <script>
 const TAGS_BASE = '#advogada #santamariadafeira #mozelos';

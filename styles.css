@@ -252,6 +252,10 @@ blockquote {
   margin: 0 0 1.4em; padding: 0 0 0 26px; border-left: 1px solid var(--acento);
   font: italic 500 clamp(1.35rem, 2.3vw, 1.75rem)/1.4 var(--italico); color: var(--tinta);
 }
+.factos { list-style: none; padding: 0; margin: 0 0 1.8em; display: flex; flex-wrap: wrap; gap: 18px 44px; }
+.factos li { display: flex; align-items: center; gap: 14px; }
+.factos b { font: 400 clamp(2rem, 3.6vw, 2.6rem)/1 var(--serif); color: var(--acento); }
+.factos span { font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--suave); line-height: 1.5; }
 .valores { list-style: none; padding: 0; margin: 2.2em 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .valores li { border-top: 1px solid var(--acento); padding-top: 16px; }
 .valores strong { display: block; font: 400 1.15rem var(--serif); color: var(--tinta); margin-bottom: 4px; }
@@ -275,6 +279,14 @@ blockquote {
 .cartao li::before { content: ""; position: absolute; left: 2px; top: 1.32em; width: 6px; height: 6px; border: 1px solid var(--acento); transform: rotate(45deg); transition: background .4s; }
 .cartao li:hover { padding-left: 34px; color: var(--tinta); }
 .cartao li:hover::before { background: var(--acento); }
+/* Área em destaque, a toda a largura */
+.cartao--destaque { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1.2fr; gap: 16px 60px; align-items: center; background: var(--fundo); border-color: var(--acento); }
+.cartao--destaque h3 { margin: 0; }
+.cartao__brilho { pointer-events: none; }
+.cartao--destaque .cartao__brilho { transform: scaleX(1); }
+.cartao__texto { margin: 0; font-size: 1.05rem; color: var(--texto); }
+@media (max-width: 960px) { .cartao--destaque { grid-template-columns: 1fr; } }
+
 /* Listas abreviadas: mostram 4 serviços e abrem com um toque */
 .cartao li:nth-child(n+5) { display: none; }
 .cartao.aberto li:nth-child(n+5) { display: block; animation: abrir .6s var(--ease) both; }

@@ -30,7 +30,7 @@ function aplicarIdioma(lang) {
   document.querySelectorAll('[data-lang]').forEach(b => b.setAttribute('aria-current', b.dataset.lang === idioma));
   try { localStorage.setItem('idioma', idioma); } catch (e) {}
   montarFaixa();
-  document.querySelectorAll('.cartao').forEach(textoMais);
+  document.querySelectorAll('.cartao').forEach(c => { if (c.querySelector('.cartao__mais')) textoMais(c); });
   montarDatas();
   atualizarResumo();
 }
@@ -60,6 +60,7 @@ function textoMais(cartao) {
 }
 document.querySelectorAll('.cartao').forEach(cartao => {
   const btn = cartao.querySelector('.cartao__mais');
+  if (!btn) return;
   btn.addEventListener('click', () => {
     const aberto = cartao.classList.toggle('aberto');
     btn.setAttribute('aria-expanded', aberto);
@@ -90,6 +91,7 @@ document.querySelectorAll('.faq details').forEach(d => d.addEventListener('toggl
   if (d.open) document.querySelectorAll('.faq details').forEach(o => { if (o !== d) o.open = false; });
 }));
 document.getElementById('ano').textContent = new Date().getFullYear();
+document.querySelectorAll('[data-anos]').forEach(el => { el.textContent = (new Date().getFullYear() - 2005) + '+'; });
 
 // ===== Marcação da consulta online =====
 const reserva = document.getElementById('reserva');

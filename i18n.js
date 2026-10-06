@@ -83,7 +83,12 @@ window.TRADUCOES = {
     'sobre.f1': 'years of practice<br>since 2005',
     'a3.etq': 'Businesses &amp; prevention',
     'a3.titulo': 'Preventive and corporate law',
-    'a3.desc': 'Legal support for businesses and individuals with a focus on prevention: analysing, advising and anticipating risks before they turn into conflicts.'
+    'a3.desc': 'Legal support for businesses and individuals with a focus on prevention: analysing, advising and anticipating risks before they turn into conflicts.',
+    'esc.mapa': 'Get directions',
+    'esc.dica': 'Swipe to see',
+    'esc.c1': 'The office',
+    'esc.c2': 'The consulting room',
+    'esc.c3': 'Reception'
   },
 
   fr: {
@@ -160,7 +165,12 @@ window.TRADUCOES = {
     'sobre.f1': 'ans d’exercice<br>depuis 2005',
     'a3.etq': 'Entreprises &amp; prévention',
     'a3.titulo': 'Droit préventif et droit des affaires',
-    'a3.desc': 'Un accompagnement juridique des entreprises et des particuliers axé sur la prévention : analyser, conseiller et anticiper les risques avant qu’ils ne deviennent des conflits.'
+    'a3.desc': 'Un accompagnement juridique des entreprises et des particuliers axé sur la prévention : analyser, conseiller et anticiper les risques avant qu’ils ne deviennent des conflits.',
+    'esc.mapa': 'Itinéraire',
+    'esc.dica': 'Faites glisser',
+    'esc.c1': 'Le cabinet',
+    'esc.c2': 'Le bureau',
+    'esc.c3': 'L’accueil'
   },
 
   de: {
@@ -237,7 +247,12 @@ window.TRADUCOES = {
     'sobre.f1': 'Jahre Berufserfahrung<br>seit 2005',
     'a3.etq': 'Unternehmen &amp; Prävention',
     'a3.titulo': 'Präventive Rechtsberatung und Unternehmensrecht',
-    'a3.desc': 'Rechtliche Begleitung für Unternehmen und Privatpersonen mit Schwerpunkt auf Prävention: analysieren, beraten und Risiken vorwegnehmen, bevor Konflikte entstehen.'
+    'a3.desc': 'Rechtliche Begleitung für Unternehmen und Privatpersonen mit Schwerpunkt auf Prävention: analysieren, beraten und Risiken vorwegnehmen, bevor Konflikte entstehen.',
+    'esc.mapa': 'Route planen',
+    'esc.dica': 'Zum Ansehen wischen',
+    'esc.c1': 'Die Kanzlei',
+    'esc.c2': 'Das Büro',
+    'esc.c3': 'Der Empfang'
   },
 
   it: {
@@ -314,6 +329,11 @@ window.TRADUCOES = {
     'sobre.f1': 'anni di professione<br>dal 2005',
     'a3.etq': 'Imprese &amp; prevenzione',
     'a3.titulo': 'Avvocatura preventiva e d’impresa',
-    'a3.desc': 'Assistenza legale a imprese e privati con un’attenzione alla prevenzione: analizzare, consigliare e anticipare i rischi prima che diventino conflitti.'
+    'a3.desc': 'Assistenza legale a imprese e privati con un’attenzione alla prevenzione: analizzare, consigliare e anticipare i rischi prima che diventino conflitti.',
+    'esc.mapa': 'Come arrivare',
+    'esc.dica': 'Scorri per vedere',
+    'esc.c1': 'Lo studio',
+    'esc.c2': 'L’ufficio',
+    'esc.c3': 'L’accoglienza'
   }
 };

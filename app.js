@@ -216,6 +216,20 @@ if (window.gsap && window.ScrollTrigger && !calmo) {
     const s = i % 2 ? 1 : -1;
     gsap.fromTo(img, { yPercent: -4 * s }, { yPercent: 4 * s, ease: 'none', scrollTrigger: { trigger: img.parentElement, scrub: true } });
   });
+  // Galeria do escritório: desliza na horizontal enquanto se faz scroll (só em ecrãs largos)
+  ScrollTrigger.matchMedia({
+    '(min-width: 961px)': () => {
+      const trilho = document.querySelector('.galeria__trilho');
+      const janela = document.querySelector('.galeria__janela');
+      const distancia = () => Math.max(0, trilho.scrollWidth - janela.clientWidth);
+      const mov = gsap.to(trilho, { x: () => -distancia(), ease: 'none',
+        scrollTrigger: { trigger: '.escritorio', pin: '.escritorio__pin', start: 'top top', end: () => '+=' + distancia() * 1.2, scrub: 1, invalidateOnRefresh: true } });
+      gsap.utils.toArray('.g img').forEach(img => {
+        gsap.fromTo(img, { xPercent: 6 }, { xPercent: -6, ease: 'none',
+          scrollTrigger: { trigger: img.parentElement, containerAnimation: mov, start: 'left right', end: 'right left', scrub: true } });
+      });
+    }
+  });
   gsap.from('.passos__linha span', { scaleX: 0, ease: 'none', scrollTrigger: { trigger: '.passos', start: 'top 75%', end: 'bottom 60%', scrub: true } });
 }
 

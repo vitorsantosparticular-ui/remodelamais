@@ -7,7 +7,11 @@ const AGENDA_URL = '';
 // Alternativa sem Google Calendar: link de pagamento (Stripe Payment Link, SumUp, easypay).
 const PAGAMENTO_URL = '';
 const HORAS = ['10:00', '11:00', '12:00', '14:30', '15:30', '16:30', '17:30'];
-const DIAS_DISPONIVEIS = 12; // dias úteis mostrados na marcação
+const DIAS_DISPONIVEIS = 15; // dias úteis mostrados na marcação
+// Disponibilidade real (opcional): endereço que recebe ?dia=AAAA-MM-DD e devolve as horas livres em JSON,
+// ex.: ["10:00","14:30"]. Pode ser um Google Apps Script ligado ao Google Calendar da Dra.
+// Vazio = usa a lista HORAS acima.
+const DISPONIBILIDADE_URL = '';
 
 // ===== Idiomas =====
 const IDIOMAS = ['pt', 'en', 'fr', 'de', 'it'];
@@ -124,10 +128,41 @@ function montarDatas() {
   const fSem = new Intl.DateTimeFormat(loc, { weekday: 'short' });
   const fMes = new Intl.DateTimeFormat(loc, { month: 'short' });
   caixaDatas.innerHTML = diasUteis(DIAS_DISPONIVEIS).map(d => `
-    <label class="opcao"><input type="radio" name="dia" value="${iso(d)}" ${iso(d) === escolhida ? 'checked' : ''}>
-      <span><small>${fSem.format(d).replace('.', '')}</small><b>${d.getDate()}</b><small>${fMes.format(d).replace('.', '')}</small></span></label>`).join('');
+    <label class="opcao" title="${new Intl.DateTimeFormat(loc, { weekday: 'long', day: 'numeric', month: 'long' }).format(d)}"><input type="radio" name="dia" value="${iso(d)}" ${iso(d) === escolhida ? 'checked' : ''}>
+      <span><small>${fSem.format(d).replace('.', '').slice(0, 3)}</small><b>${d.getDate()}</b><small>${fMes.format(d).replace('.', '')}</small></span></label>`).join('');
 }
-caixaHoras.innerHTML = HORAS.map(h => `<label class="opcao"><input type="radio" name="hora" value="${h}"><span>${h}</span></label>`).join('');
+// Horas: só aparecem depois de escolher o dia (a caixa abre com uma animação)
+const painelHoras = document.getElementById('painel-horas');
+const painelContinuar = document.getElementById('painel-continuar');
+const estadoHoras = document.getElementById('horas-estado');
+let pedidoHoras = 0;
+async function obterHorarios(dia) {
+  if (!DISPONIBILIDADE_URL) { await new Promise(r => setTimeout(r, 450)); return HORAS; }
+  const r = await fetch(`${DISPONIBILIDADE_URL}${DISPONIBILIDADE_URL.includes('?') ? '&' : '?'}dia=${dia}`);
+  if (!r.ok) throw new Error(r.status);
+  return r.json();
+}
+async function mostrarHoras(dia) {
+  const n = ++pedidoHoras;
+  document.querySelector('.dias__dica').classList.add('oculta');
+  painelHoras.classList.add('aberto');
+  painelContinuar.classList.remove('aberto');
+  caixaHoras.innerHTML = '';
+  estadoHoras.hidden = false;
+  estadoHoras.innerHTML = `<span class="gira" aria-hidden="true"></span>${t('res.aVerificar')}`;
+  let horas = [];
+  try { horas = await obterHorarios(dia); } catch (e) { horas = null; }
+  if (n !== pedidoHoras) return;
+  if (!horas) { estadoHoras.textContent = t('res.erroHoras'); return; }
+  if (!horas.length) { estadoHoras.textContent = t('res.semVagas'); return; }
+  estadoHoras.hidden = true;
+  caixaHoras.innerHTML = horas.map((h, i) => `<label class="opcao" style="animation-delay:${i * 40}ms"><input type="radio" name="hora" value="${h}"><span>${h}</span></label>`).join('');
+}
+caixaDatas.addEventListener('change', e => { if (e.target.name === 'dia') mostrarHoras(e.target.value); });
+caixaHoras.addEventListener('change', e => { if (e.target.name === 'hora') painelContinuar.classList.add('aberto'); });
+document.querySelectorAll('[data-dias]').forEach(b => b.addEventListener('click', () => {
+  caixaDatas.scrollBy({ left: Math.sign(+b.dataset.dias) * caixaDatas.clientWidth, behavior: 'smooth' });
+}));
 
 function dataEscolhida() {
   const dia = reserva.querySelector('input[name="dia"]:checked')?.value;
@@ -161,7 +196,7 @@ reserva.addEventListener('click', e => {
   if (!e.target.closest('[data-seguinte]')) return;
   if (etapa === 1) {
     if (!reserva.querySelector('input[name="dia"]:checked')) { aviso(caixaDatas.querySelector('input'), t('res.erroDia')); return; }
-    if (!reserva.querySelector('input[name="hora"]:checked')) { aviso(caixaHoras.querySelector('input'), t('res.erroHora')); return; }
+    if (!reserva.querySelector('input[name="hora"]:checked')) { const h = caixaHoras.querySelector('input'); if (h) aviso(h, t('res.erroHora')); return; }
   }
   if (etapa === 2) {
     const nome = reserva.querySelector('#r-nome');
@@ -174,10 +209,14 @@ reserva.addEventListener('click', e => {
   irPara(etapa + 1);
 });
 reserva.addEventListener('change', atualizarResumo);
+// Data e hora do envio, na hora de Portugal
+const agoraLisboa = () => new Intl.DateTimeFormat('pt-PT', { timeZone: 'Europe/Lisbon', weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' }).format(new Date()) + ' (hora de Portugal)';
+
 // Envio para o Netlify Forms (os pedidos chegam por email, configurado no painel do Netlify)
 async function enviarFormulario(form, extra = {}) {
   const dados = new FormData(form);
   dados.delete('dia'); dados.delete('hora');
+  dados.set('Pedido enviado em', agoraLisboa());
   Object.entries(extra).forEach(([k, v]) => dados.set(k, v));
   const r = await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(dados).toString() });
   if (!r.ok) throw new Error('Envio falhou: ' + r.status);

@@ -7,7 +7,10 @@ window.TRADUCOES = {
     'res.erroEmail': 'Indique um email válido.',
     'areas.menos': 'Ver menos',
     'res.erroConsent': 'Para continuar, aceite a Política de Privacidade.',
-    'form.erro': 'Não foi possível enviar. Tente novamente ou contacte-nos por telefone ou WhatsApp.'
+    'form.erro': 'Não foi possível enviar. Tente novamente ou contacte-nos por telefone ou WhatsApp.',
+    'res.aVerificar': 'A verificar disponibilidade…',
+    'res.semVagas': 'Sem horas livres neste dia. Escolha outro dia.',
+    'res.erroHoras': 'Não foi possível ver as horas. Tente outro dia ou contacte-nos.'
   },
 
   en: {
@@ -93,7 +96,11 @@ window.TRADUCOES = {
     'form.erro': 'We could not send your message. Please try again or contact us by phone or WhatsApp.',
     'rod.cookies': 'Cookie settings',
     'q0': 'What is preventive law?',
-    'r0': 'Legal advice before a problem arises: reviewing a contract before signing it, planning an estate division or preparing a will in time. It avoids disputes, costs and stress.'
+    'r0': 'Legal advice before a problem arises: reviewing a contract before signing it, planning an estate division or preparing a will in time. It avoids disputes, costs and stress.',
+    'res.dica': 'Choose a day to see the available times.',
+    'res.aVerificar': 'Checking availability…',
+    'res.semVagas': 'No free times on this day. Please choose another day.',
+    'res.erroHoras': 'We could not load the times. Try another day or contact us.'
   },
 
   fr: {
@@ -179,7 +186,11 @@ window.TRADUCOES = {
     'form.erro': 'L’envoi a échoué. Réessayez ou contactez-nous par téléphone ou WhatsApp.',
     'rod.cookies': 'Paramètres des cookies',
     'q0': 'Qu’est-ce que le droit préventif ?',
-    'r0': 'Un conseil juridique avant que le problème n’apparaisse : relire un contrat avant de le signer, préparer un partage ou un testament à temps. Cela évite litiges, frais et tensions.'
+    'r0': 'Un conseil juridique avant que le problème n’apparaisse : relire un contrat avant de le signer, préparer un partage ou un testament à temps. Cela évite litiges, frais et tensions.',
+    'res.dica': 'Choisissez un jour pour voir les horaires disponibles.',
+    'res.aVerificar': 'Vérification des disponibilités…',
+    'res.semVagas': 'Aucun horaire libre ce jour-là. Choisissez un autre jour.',
+    'res.erroHoras': 'Impossible d’afficher les horaires. Essayez un autre jour ou contactez-nous.'
   },
 
   de: {
@@ -265,7 +276,11 @@ window.TRADUCOES = {
     'form.erro': 'Senden fehlgeschlagen. Bitte versuchen Sie es erneut oder kontaktieren Sie uns telefonisch oder per WhatsApp.',
     'rod.cookies': 'Cookie-Einstellungen',
     'q0': 'Was ist präventive Rechtsberatung?',
-    'r0': 'Rechtlicher Rat, bevor ein Problem entsteht: einen Vertrag vor der Unterschrift prüfen, eine Erbteilung oder ein Testament rechtzeitig planen. Das vermeidet Streit, Kosten und Belastung.'
+    'r0': 'Rechtlicher Rat, bevor ein Problem entsteht: einen Vertrag vor der Unterschrift prüfen, eine Erbteilung oder ein Testament rechtzeitig planen. Das vermeidet Streit, Kosten und Belastung.',
+    'res.dica': 'Wählen Sie einen Tag, um die freien Zeiten zu sehen.',
+    'res.aVerificar': 'Verfügbarkeit wird geprüft…',
+    'res.semVagas': 'An diesem Tag sind keine Zeiten frei. Bitte wählen Sie einen anderen Tag.',
+    'res.erroHoras': 'Die Zeiten konnten nicht geladen werden. Versuchen Sie einen anderen Tag oder kontaktieren Sie uns.'
   },
 
   it: {
@@ -351,6 +366,10 @@ window.TRADUCOES = {
     'form.erro': 'Invio non riuscito. Riprovi o ci contatti per telefono o WhatsApp.',
     'rod.cookies': 'Impostazioni cookie',
     'q0': 'Che cos’è l’avvocatura preventiva?',
-    'r0': 'Una consulenza legale prima che il problema si presenti: rivedere un contratto prima di firmarlo, pianificare una divisione o un testamento per tempo. Evita controversie, costi e stress.'
+    'r0': 'Una consulenza legale prima che il problema si presenti: rivedere un contratto prima di firmarlo, pianificare una divisione o un testamento per tempo. Evita controversie, costi e stress.',
+    'res.dica': 'Scelga un giorno per vedere gli orari disponibili.',
+    'res.aVerificar': 'Verifica della disponibilità…',
+    'res.semVagas': 'Nessun orario libero in questo giorno. Scelga un altro giorno.',
+    'res.erroHoras': 'Impossibile caricare gli orari. Provi un altro giorno o ci contatti.'
   }
 };

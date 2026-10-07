@@ -203,6 +203,29 @@ section { position: relative; }
 .campo-titulo { font-size: .7rem; letter-spacing: .22em; text-transform: uppercase; font-weight: 500; color: var(--tinta); }
 .opcoes { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; }
 .opcoes--datas { grid-template-columns: repeat(auto-fill, minmax(78px, 1fr)); }
+/* Agenda compacta: fila de dias que desliza; as horas abrem só depois de escolher o dia */
+.dias__cab { display: flex; justify-content: space-between; align-items: center; }
+.dias__setas { display: flex; gap: 6px; }
+.dias__seta { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--linha); background: var(--claro); color: var(--tinta); cursor: pointer; font-size: 1rem; line-height: 1; transition: border-color .3s, background .3s; }
+.dias__seta:hover { border-color: var(--acento); }
+.dias__seta:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
+.dias { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 5 * 8px) / 6); gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; padding: 2px; margin: -2px; }
+.dias::-webkit-scrollbar { display: none; }
+.dias .opcao { scroll-snap-align: start; }
+.dias .opcao span { min-height: 0; padding: 8px 2px; }
+.dias__dica { margin: -4px 0 0; font-size: .8rem; color: var(--suave); transition: opacity .3s; }
+.dias__dica.oculta { display: none; }
+.desliza { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows .55s var(--ease), opacity .4s; }
+.desliza.aberto { grid-template-rows: 1fr; opacity: 1; }
+.desliza__in { overflow: hidden; min-height: 0; display: grid; gap: 12px; }
+.desliza.aberto .desliza__in { padding: 2px; margin: -2px; }
+.opcoes--horas { grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); gap: 8px; }
+.opcoes--horas .opcao span { min-height: 42px; padding: 8px 4px; }
+.opcoes--horas .opcao { animation: hora-entra .45s var(--ease) both; }
+@keyframes hora-entra { from { opacity: 0; transform: translateY(6px); } }
+.horas__estado[hidden] { display: none; }
+.horas__estado { margin: 0; display: flex; align-items: center; gap: 10px; font-size: .84rem; color: var(--suave); }
+.horas__estado .gira { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--linha); border-top-color: var(--acento); animation: rodar .8s linear infinite; }
 .opcao { position: relative; }
 .opcao input { position: absolute; opacity: 0; pointer-events: none; }
 .opcao span {
@@ -502,6 +525,7 @@ blockquote {
   .cartao { padding: 28px 22px; }
   .reserva { padding: 24px 18px; }
   .opcoes--datas { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .dias { grid-auto-columns: calc((100% - 4 * 8px) / 5); }
   .opcoes { grid-template-columns: repeat(3, 1fr); gap: 8px; }
   .opcao span { min-height: 48px; padding: 8px 4px; }
   .faq summary { padding-right: 36px; }

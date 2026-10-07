@@ -175,6 +175,7 @@
         <div class="agenda" id="agenda" data-reveal hidden></div>
         <form class="reserva" id="reserva" name="marcacao" method="POST" data-netlify="true" netlify-honeypot="empresa" data-reveal novalidate>
           <input type="hidden" name="form-name" value="marcacao">
+          <input type="hidden" name="Pedido enviado em">
           <input type="hidden" name="Tipo de pedido" value="Consulta online por videochamada (30 min)">
           <input type="hidden" name="Data e hora pedida">
           <input type="hidden" name="Idioma do site">
@@ -184,11 +185,20 @@
           <div class="reserva__passos" aria-hidden="true"><span class="feito"></span><span></span><span></span></div>
 
           <div class="etapa" data-etapa="1">
-            <span class="campo-titulo" data-i18n="res.dia">Dia</span>
-            <div class="opcoes opcoes--datas" id="datas"></div>
-            <span class="campo-titulo" data-i18n="res.hora">Hora</span>
-            <div class="opcoes" id="horas"></div>
-            <div class="reserva__acoes"><button type="button" class="btn btn--ouro" data-seguinte><span data-i18n="res.continuar">Continuar</span></button></div>
+            <div class="dias__cab"><span class="campo-titulo" data-i18n="res.dia">Dia</span>
+              <span class="dias__setas"><button type="button" class="dias__seta" data-dias="-1" aria-label="Dias anteriores">‹</button><button type="button" class="dias__seta" data-dias="1" aria-label="Dias seguintes">›</button></span></div>
+            <div class="dias" id="datas" role="radiogroup" aria-label="Dia"></div>
+            <p class="dias__dica" data-i18n="res.dica">Escolha um dia para ver as horas disponíveis.</p>
+            <div class="desliza" id="painel-horas" aria-live="polite">
+              <div class="desliza__in">
+                <span class="campo-titulo" data-i18n="res.hora">Hora</span>
+                <p class="horas__estado" id="horas-estado" hidden></p>
+                <div class="opcoes opcoes--horas" id="horas" role="radiogroup" aria-label="Hora"></div>
+              </div>
+            </div>
+            <div class="desliza" id="painel-continuar">
+              <div class="desliza__in"><div class="reserva__acoes"><button type="button" class="btn btn--ouro" data-seguinte><span data-i18n="res.continuar">Continuar</span></button></div></div>
+            </div>
           </div>
 
           <div class="etapa" data-etapa="2" hidden>
@@ -405,6 +415,7 @@
         </div>
         <form class="form" id="form-contacto" name="contacto" method="POST" data-netlify="true" netlify-honeypot="empresa" data-reveal>
           <input type="hidden" name="form-name" value="contacto">
+          <input type="hidden" name="Pedido enviado em">
           <input type="hidden" name="Tipo de pedido" value="Mensagem do formulário de contacto">
           <input type="hidden" name="Idioma do site">
           <p class="escondido"><label>Não preencher: <input name="empresa" tabindex="-1" autocomplete="off"></label></p>

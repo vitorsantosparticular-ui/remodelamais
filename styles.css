@@ -437,7 +437,7 @@ blockquote {
 /* Rodapé */
 .rodape { background: var(--fundo); color: var(--suave); font-size: .85rem; padding: 70px 0 34px; text-align: center; }
 .rodape__inner { display: grid; justify-items: center; gap: 26px; }
-.rodape__logo { width: min(320px, 80%); }
+.rodape__logo { width: min(210px, 60%); }
 .rodape__nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; }
 .rodape__nav a { text-decoration: none; font-size: .74rem; letter-spacing: .18em; text-transform: uppercase; }
 .rodape__nav a:hover { color: var(--acento); }

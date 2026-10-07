@@ -160,6 +160,70 @@ tr:last-child td { border-bottom: 0; }
 .redes-e a:hover { background: var(--acento); color: #fff; }
 .redes-e svg { width: 22px; height: 22px; }
 
+/* Anúncios */
+.ad-resumo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.ad-plano { background: var(--claro); border: 1px solid var(--linha); border-top: 3px solid var(--acento); border-radius: 4px; padding: 20px; display: grid; gap: 6px; min-width: 0; }
+.ad-plano h3 { font-size: 1.2rem; }
+.ad-plano p:not(.eyebrow) { margin: 0; font-size: .88rem; }
+.ad-plano b { font: 400 1.5rem var(--serif); color: var(--tinta); margin-top: 6px; font-variant-numeric: tabular-nums; }
+.ad-plano small { color: var(--suave); font-size: .74rem; }
+.ad-nota { font-size: .8rem; color: var(--suave); margin: 14px 0 0; }
+.passos-ad { margin: 0 0 22px; padding-left: 20px; display: grid; gap: 8px; font-size: .9rem; }
+.passos-ad li::marker { color: var(--acento); font-weight: 600; }
+.passos-ad b { font-weight: 500; color: var(--tinta); }
+code { font: 400 .78rem ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--fundo-2); padding: 2px 6px; border-radius: 3px; overflow-wrap: anywhere; }
+.btn--mini { padding: 6px 10px; font-size: .6rem; letter-spacing: .14em; flex: none; }
+.ad-grupos { display: grid; gap: 12px; }
+.ad-grupo { background: var(--claro); border: 1px solid var(--linha); border-radius: 6px; }
+.ad-grupo summary { list-style: none; cursor: pointer; padding: 16px 20px; font: 400 1.15rem var(--serif); color: var(--tinta); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline; }
+.ad-grupo summary::-webkit-details-marker { display: none; }
+.ad-grupo summary small { font: 500 .68rem var(--sans); letter-spacing: .12em; color: var(--acento); }
+.ad-grupo summary:focus-visible { outline: 2px solid var(--acento); outline-offset: -2px; }
+.ad-grupo__corpo { padding: 0 20px 20px; display: grid; gap: 12px; }
+.ad-campo { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; font-size: .84rem; }
+.ad-campo b, .ad-campo__cab b { font-weight: 600; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--tinta); }
+.ad-campo__cab { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 8px; }
+.ad-campo__cab em { font-family: var(--sans); font-style: normal; font-weight: 400; color: var(--suave); text-transform: none; letter-spacing: 0; font-size: .74rem; }
+.ad-cols { display: grid; grid-template-columns: 1fr 1.4fr; gap: 20px; }
+.ad-cols > * { min-width: 0; }
+.kw { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.kw li { font: 400 .78rem ui-monospace, Menlo, monospace; background: var(--fundo-2); padding: 4px 8px; border-radius: 3px; }
+.lst { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; counter-reset: l; }
+.lst li { counter-increment: l; display: grid; grid-template-columns: 22px 1fr auto; gap: 8px; font-size: .86rem; padding: 4px 0; border-bottom: 1px dashed var(--linha); }
+.lst li::before { content: counter(l); color: var(--acento); font-size: .72rem; font-weight: 600; padding-top: 2px; }
+.lst small { color: var(--suave); font-size: .7rem; font-variant-numeric: tabular-nums; }
+.ad-extra { display: grid; grid-template-columns: 1fr 1fr 1.1fr; gap: 20px; margin: 22px 0 10px; }
+.ad-extra > div { background: var(--claro); border: 1px solid var(--linha); border-radius: 6px; padding: 18px; min-width: 0; font-size: .86rem; }
+.ad-extra p { margin: 0; }
+.sl { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.sl b { display: block; font-weight: 500; color: #1a0dab; }
+.sl span { color: var(--suave); font-size: .8rem; }
+.neg { color: var(--suave); }
+.g-imgs { display: grid; grid-template-columns: 1.9fr 1fr; gap: 10px; align-items: end; }
+.g-imgs figure, .ad-card figure { margin: 0; min-width: 0; }
+.g-imgs img, .ad-card img { border-radius: 4px; border: 1px solid var(--linha); width: 100%; }
+figcaption { font-size: .7rem; color: var(--suave); margin-top: 6px; }
+figcaption a { color: var(--tinta); }
+.ad-cards { display: grid; gap: 18px; }
+.ad-card { display: grid; grid-template-columns: 360px 1fr; gap: 26px; background: var(--claro); border: 1px solid var(--linha); border-radius: 6px; padding: 22px; }
+.ad-card > * { min-width: 0; }
+.ad-card__imgs { display: grid; grid-template-columns: 1fr .6fr; gap: 12px; align-items: end; }
+.ad-texto { white-space: pre-line; font-size: .88rem; background: var(--fundo); border: 1px dashed var(--linha); border-radius: 4px; padding: 12px 14px; margin: 0 0 14px; }
+.ad-mini { display: grid; gap: 8px; }
+.ad-mini > div { display: grid; grid-template-columns: 92px 1fr auto; gap: 10px; align-items: center; font-size: .86rem; padding-bottom: 8px; border-bottom: 1px solid var(--linha); }
+.ad-mini > div > * { min-width: 0; }
+.ad-mini b { font-weight: 600; font-size: .66rem; letter-spacing: .16em; text-transform: uppercase; color: var(--suave); }
+@media (max-width: 980px) {
+  .ad-resumo, .ad-extra { grid-template-columns: 1fr; }
+  .ad-card { grid-template-columns: 1fr; }
+  .ad-card__imgs { max-width: 420px; }
+}
+@media (max-width: 640px) {
+  .ad-cols { grid-template-columns: 1fr; }
+  .ad-mini > div { grid-template-columns: 1fr auto; }
+  .ad-mini > div b { grid-column: 1 / -1; }
+}
+
 /* Reunião */
 .progresso-r { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; margin-bottom: 22px; font-size: .82rem; color: var(--tinta); font-weight: 500; font-variant-numeric: tabular-nums; }
 .progresso-r .barra { height: 8px; }
@@ -221,7 +285,7 @@ footer { padding-block: 40px; text-align: center; font-size: .78rem; color: var(
     <h1>Instagram e LinkedIn da <em>Dra. Sónia</em></h1>
     <p>Tudo o que falta validar com a Dra. e a proposta para o lançamento das redes sociais: posicionamento, público, tipos de conteúdo, os primeiros posts prontos a publicar e o calendário das primeiras três semanas.</p>
     <nav class="indice" aria-label="Secções">
-      <a href="#reuniao">Reunião: validar</a><a href="#estrategia">Estratégia</a><a href="#instagram">Instagram</a><a href="#calendario">Calendário</a><a href="#linkedin">LinkedIn</a><a href="#ideias">Stories e Reels</a><a href="#regras">Regras e aprovação</a>
+      <a href="#reuniao">Reunião: validar</a><a href="#estrategia">Estratégia</a><a href="#instagram">Instagram</a><a href="#calendario">Calendário</a><a href="#linkedin">LinkedIn</a><a href="#anuncios">Anúncios</a><a href="#ideias">Stories e Reels</a><a href="#regras">Regras e aprovação</a>
     </nav>
   </div>
 </header>
@@ -371,8 +435,279 @@ footer { padding-block: 40px; text-align: center; font-size: .78rem; color: var(
     <div class="li-grelha" id="posts-li"></div>
   </section>
 
+
+  <section class="bloco" id="anuncios">
+    <div class="cab"><span class="cab__n">06</span><h2>Anúncios: Google, Facebook e Instagram</h2><p>Tudo pronto a copiar: imagens, textos, palavras-chave, segmentação e orçamento. Textos informativos, sem preços, promessas ou superlativos, como exige a Ordem dos Advogados.</p></div>
+
+    <div class="ad-resumo">
+      <div class="ad-plano"><p class="eyebrow">1 · Google Ads</p><h3>Pesquisa local</h3><p>Aparece a quem procura “advogado heranças”, “testamento” ou “divórcio” na zona.</p><b>10–15 €/dia</b><small>objetivo: pedidos de marcação</small></div>
+      <div class="ad-plano"><p class="eyebrow">2 · Meta (Facebook + Instagram)</p><h3>Família e heranças</h3><p>3 anúncios para pessoas da região e emigrantes, a levar para a página /consulta.</p><b>5–10 €/dia</b><small>objetivo: tráfego / leads</small></div>
+      <div class="ad-plano"><p class="eyebrow">3 · Instagram</p><h3>Ganhar seguidores</h3><p>Promover o perfil com o anúncio “dicas jurídicas” para criar audiência.</p><b>3–5 €/dia</b><small>objetivo: visitas ao perfil</small></div>
+    </div>
+    <p class="ad-nota">Valores de arranque sugeridos para testar 2 a 4 semanas; ajustar depois conforme os pedidos que chegam. Começar só depois de: notificações do Netlify ativas, contactos reais no site e Google Ads / Pixel ligados no aviso de cookies.</p>
+
+    <h3 class="subtit">Google Ads · Pesquisa</h3>
+    <ol class="passos-ad">
+      <li>Em <b>ads.google.com</b>, criar campanha <b>Pesquisa</b> com objetivo <b>Leads</b>. Desligar “Rede de Display” e “Parceiros de pesquisa”.</li>
+      <li><b>Localização:</b> Santa Maria da Feira + raio de 25 km (Espinho, Ovar, S. João da Madeira, Oliveira de Azeméis, sul de Gaia), com a opção “Presença: pessoas que estão ou estão regularmente nas localizações”.</li>
+      <li><b>Idioma:</b> português. <b>Licitação:</b> “Maximizar cliques” nas primeiras 2 semanas, depois “Maximizar conversões”.</li>
+      <li>Criar <b>um grupo de anúncios por tema</b> (abaixo), cada um com um anúncio responsivo: colar os títulos e as descrições.</li>
+      <li>Adicionar os <b>sitelinks</b>, as <b>frases de destaque</b>, as <b>imagens</b> e as <b>palavras-chave negativas</b> ao nível da campanha.</li>
+      <li>Criar a conversão <b>“Pedido de marcação”</b> e enviar o ID <code>AW-…</code> e o rótulo, para ligar no site.</li>
+    </ol>
+    <div class="ad-grupos">
+      <details class="ad-grupo">
+        <summary>Heranças e partilhas<small>12 títulos · 4 descrições · 7 palavras-chave</small></summary>
+        <div class="ad-grupo__corpo">
+          <div class="ad-campo"><b>URL final</b><code>https://soniasantosadvogada.pt/consulta/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=herancas</code><button class="btn btn--mini" type="button" data-texto="https://soniasantosadvogada.pt/consulta/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=herancas">Copiar</button></div>
+          <div class="ad-cols">
+            <div><div class="ad-campo__cab"><b>Palavras-chave</b><button class="btn btn--mini" type="button" data-texto="&quot;advogado heranças&quot;
+&quot;advogado partilhas&quot;
+&quot;partilha de herança&quot;
+&quot;inventário herança&quot;
+&quot;herança dos pais&quot;
+&quot;advogado heranças santa maria da feira&quot;
+[advogado partilha herança]">Copiar todas</button></div><ul class="kw"><li>&quot;advogado heranças&quot;</li><li>&quot;advogado partilhas&quot;</li><li>&quot;partilha de herança&quot;</li><li>&quot;inventário herança&quot;</li><li>&quot;herança dos pais&quot;</li><li>&quot;advogado heranças santa maria da feira&quot;</li><li>[advogado partilha herança]</li></ul></div>
+            <div><div class="ad-campo__cab"><b>Títulos <em>(máx. 30)</em></b><button class="btn btn--mini" type="button" data-texto="Advogada em Heranças
+Partilhas e Inventários
+Advogada Santa Maria da Feira
+Desde 2005 em Mozelos
+Resolva Antes de Complicar
+Herança por Partilhar?
+Consulta no Escritório
+Ou por Videochamada
+Advocacia Preventiva
+Sigilo Profissional
+Acordos Entre Herdeiros
+Inventário Judicial ou Notário">Copiar todos</button></div><ol class="lst"><li><span>Advogada em Heranças</span><small>20</small></li><li><span>Partilhas e Inventários</span><small>23</small></li><li><span>Advogada Santa Maria da Feira</span><small>29</small></li><li><span>Desde 2005 em Mozelos</span><small>21</small></li><li><span>Resolva Antes de Complicar</span><small>26</small></li><li><span>Herança por Partilhar?</span><small>22</small></li><li><span>Consulta no Escritório</span><small>22</small></li><li><span>Ou por Videochamada</span><small>19</small></li><li><span>Advocacia Preventiva</span><small>20</small></li><li><span>Sigilo Profissional</span><small>19</small></li><li><span>Acordos Entre Herdeiros</span><small>23</small></li><li><span>Inventário Judicial ou Notário</span><small>30</small></li></ol></div>
+          </div>
+          <div class="ad-campo__cab"><b>Descrições <em>(máx. 90)</em></b><button class="btn btn--mini" type="button" data-texto="Partilhas, inventários e acordos entre herdeiros. Advogada desde 2005 em Mozelos.
+Consulta no escritório em Santa Maria da Feira ou por videochamada.
+Explicamos os seus direitos, os prazos e os custos antes de decidir.
+Advocacia preventiva: tratar a herança antes de se tornar um conflito.">Copiar todas</button></div><ol class="lst"><li><span>Partilhas, inventários e acordos entre herdeiros. Advogada desde 2005 em Mozelos.</span><small>81</small></li><li><span>Consulta no escritório em Santa Maria da Feira ou por videochamada.</span><small>67</small></li><li><span>Explicamos os seus direitos, os prazos e os custos antes de decidir.</span><small>68</small></li><li><span>Advocacia preventiva: tratar a herança antes de se tornar um conflito.</span><small>70</small></li></ol>
+        </div>
+      </details>
+      <details class="ad-grupo">
+        <summary>Testamentos<small>10 títulos · 4 descrições · 5 palavras-chave</small></summary>
+        <div class="ad-grupo__corpo">
+          <div class="ad-campo"><b>URL final</b><code>https://soniasantosadvogada.pt/consulta/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=testamentos</code><button class="btn btn--mini" type="button" data-texto="https://soniasantosadvogada.pt/consulta/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=testamentos">Copiar</button></div>
+          <div class="ad-cols">
+            <div><div class="ad-campo__cab"><b>Palavras-chave</b><button class="btn btn--mini" type="button" data-texto="&quot;fazer testamento&quot;
+&quot;advogado testamento&quot;
+&quot;testamento advogado&quot;
+&quot;como fazer um testamento&quot;
+&quot;testamento santa maria da feira&quot;">Copiar todas</button></div><ul class="kw"><li>&quot;fazer testamento&quot;</li><li>&quot;advogado testamento&quot;</li><li>&quot;testamento advogado&quot;</li><li>&quot;como fazer um testamento&quot;</li><li>&quot;testamento santa maria da feira&quot;</li></ul></div>
+            <div><div class="ad-campo__cab"><b>Títulos <em>(máx. 30)</em></b><button class="btn btn--mini" type="button" data-texto="Advogada em Testamentos
+Planear a Sua Herança
+Advogada Santa Maria da Feira
+Desde 2005 em Mozelos
+Organize a Herança a Tempo
+Evite Conflitos na Família
+Consulta no Escritório
+Ou por Videochamada
+Advocacia Preventiva
+Sigilo Profissional">Copiar todos</button></div><ol class="lst"><li><span>Advogada em Testamentos</span><small>23</small></li><li><span>Planear a Sua Herança</span><small>21</small></li><li><span>Advogada Santa Maria da Feira</span><small>29</small></li><li><span>Desde 2005 em Mozelos</span><small>21</small></li><li><span>Organize a Herança a Tempo</span><small>26</small></li><li><span>Evite Conflitos na Família</span><small>26</small></li><li><span>Consulta no Escritório</span><small>22</small></li><li><span>Ou por Videochamada</span><small>19</small></li><li><span>Advocacia Preventiva</span><small>20</small></li><li><span>Sigilo Profissional</span><small>19</small></li></ol></div>
+          </div>
+          <div class="ad-campo__cab"><b>Descrições <em>(máx. 90)</em></b><button class="btn btn--mini" type="button" data-texto="Um testamento preparado a tempo, dentro do que a lei permite, evita desentendimentos.
+Consulta no escritório em Santa Maria da Feira ou por videochamada.
+Explicamos as opções, a legítima e os passos necessários antes de decidir.
+Advogada desde 2005. Advocacia preventiva para famílias.">Copiar todas</button></div><ol class="lst"><li><span>Um testamento preparado a tempo, dentro do que a lei permite, evita desentendimentos.</span><small>85</small></li><li><span>Consulta no escritório em Santa Maria da Feira ou por videochamada.</span><small>67</small></li><li><span>Explicamos as opções, a legítima e os passos necessários antes de decidir.</span><small>74</small></li><li><span>Advogada desde 2005. Advocacia preventiva para famílias.</span><small>56</small></li></ol>
+        </div>
+      </details>
+      <details class="ad-grupo">
+        <summary>Divórcio e família<small>10 títulos · 4 descrições · 5 palavras-chave</small></summary>
+        <div class="ad-grupo__corpo">
+          <div class="ad-campo"><b>URL final</b><code>https://soniasantosadvogada.pt/consulta/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=familia</code><button class="btn btn--mini" type="button" data-texto="https://soniasantosadvogada.pt/consulta/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=familia">Copiar</button></div>
+          <div class="ad-cols">
+            <div><div class="ad-campo__cab"><b>Palavras-chave</b><button class="btn btn--mini" type="button" data-texto="&quot;advogado divórcio&quot;
+&quot;divórcio por mútuo consentimento&quot;
+&quot;regulação das responsabilidades parentais&quot;
+&quot;pensão de alimentos advogado&quot;
+&quot;advogado família santa maria da feira&quot;">Copiar todas</button></div><ul class="kw"><li>&quot;advogado divórcio&quot;</li><li>&quot;divórcio por mútuo consentimento&quot;</li><li>&quot;regulação das responsabilidades parentais&quot;</li><li>&quot;pensão de alimentos advogado&quot;</li><li>&quot;advogado família santa maria da feira&quot;</li></ul></div>
+            <div><div class="ad-campo__cab"><b>Títulos <em>(máx. 30)</em></b><button class="btn btn--mini" type="button" data-texto="Advogada de Família
+Divórcio e Partilhas
+Responsabilidades Parentais
+Advogada Santa Maria da Feira
+Desde 2005 em Mozelos
+Consulta no Escritório
+Ou por Videochamada
+Foco no Bem dos Filhos
+Sigilo Profissional
+Advocacia Preventiva">Copiar todos</button></div><ol class="lst"><li><span>Advogada de Família</span><small>19</small></li><li><span>Divórcio e Partilhas</span><small>20</small></li><li><span>Responsabilidades Parentais</span><small>27</small></li><li><span>Advogada Santa Maria da Feira</span><small>29</small></li><li><span>Desde 2005 em Mozelos</span><small>21</small></li><li><span>Consulta no Escritório</span><small>22</small></li><li><span>Ou por Videochamada</span><small>19</small></li><li><span>Foco no Bem dos Filhos</span><small>22</small></li><li><span>Sigilo Profissional</span><small>19</small></li><li><span>Advocacia Preventiva</span><small>20</small></li></ol></div>
+          </div>
+          <div class="ad-campo__cab"><b>Descrições <em>(máx. 90)</em></b><button class="btn btn--mini" type="button" data-texto="Divórcio, regulação das responsabilidades parentais e alimentos. Advogada desde 2005.
+Consulta no escritório em Santa Maria da Feira ou por videochamada.
+Explicamos os seus direitos, os prazos e os custos antes de decidir.
+Acompanhamento próximo e discreto, com sigilo profissional.">Copiar todas</button></div><ol class="lst"><li><span>Divórcio, regulação das responsabilidades parentais e alimentos. Advogada desde 2005.</span><small>85</small></li><li><span>Consulta no escritório em Santa Maria da Feira ou por videochamada.</span><small>67</small></li><li><span>Explicamos os seus direitos, os prazos e os custos antes de decidir.</span><small>68</small></li><li><span>Acompanhamento próximo e discreto, com sigilo profissional.</span><small>59</small></li></ol>
+        </div>
+      </details>
+      <details class="ad-grupo">
+        <summary>Procurações e atos notariais<small>8 títulos · 4 descrições · 5 palavras-chave</small></summary>
+        <div class="ad-grupo__corpo">
+          <div class="ad-campo"><b>URL final</b><code>https://soniasantosadvogada.pt/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=atos-notariais#areas</code><button class="btn btn--mini" type="button" data-texto="https://soniasantosadvogada.pt/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=atos-notariais#areas">Copiar</button></div>
+          <div class="ad-cols">
+            <div><div class="ad-campo__cab"><b>Palavras-chave</b><button class="btn btn--mini" type="button" data-texto="&quot;procuração advogado&quot;
+&quot;reconhecimento de assinatura&quot;
+&quot;autenticação de documentos&quot;
+&quot;autorização de saída de menores&quot;
+&quot;procuração santa maria da feira&quot;">Copiar todas</button></div><ul class="kw"><li>&quot;procuração advogado&quot;</li><li>&quot;reconhecimento de assinatura&quot;</li><li>&quot;autenticação de documentos&quot;</li><li>&quot;autorização de saída de menores&quot;</li><li>&quot;procuração santa maria da feira&quot;</li></ul></div>
+            <div><div class="ad-campo__cab"><b>Títulos <em>(máx. 30)</em></b><button class="btn btn--mini" type="button" data-texto="Procurações e Autenticações
+Reconhecimento de Assinatura
+Atos Notariais em Mozelos
+Advogada Santa Maria da Feira
+Certificação de Documentos
+Autorização Saída de Menores
+Desde 2005 em Mozelos
+Atendimento PT e EN">Copiar todos</button></div><ol class="lst"><li><span>Procurações e Autenticações</span><small>27</small></li><li><span>Reconhecimento de Assinatura</span><small>28</small></li><li><span>Atos Notariais em Mozelos</span><small>25</small></li><li><span>Advogada Santa Maria da Feira</span><small>29</small></li><li><span>Certificação de Documentos</span><small>26</small></li><li><span>Autorização Saída de Menores</span><small>28</small></li><li><span>Desde 2005 em Mozelos</span><small>21</small></li><li><span>Atendimento PT e EN</span><small>19</small></li></ol></div>
+          </div>
+          <div class="ad-campo__cab"><b>Descrições <em>(máx. 90)</em></b><button class="btn btn--mini" type="button" data-texto="Procurações, reconhecimentos de assinatura, autenticações e certificações.
+Escritório em Mozelos, Santa Maria da Feira. Advogada desde 2005.
+Autorização de saída de menores, registos e traduções certificadas.
+Para quem vive fora: procurações para tratar de assuntos em Portugal.">Copiar todas</button></div><ol class="lst"><li><span>Procurações, reconhecimentos de assinatura, autenticações e certificações.</span><small>74</small></li><li><span>Escritório em Mozelos, Santa Maria da Feira. Advogada desde 2005.</span><small>65</small></li><li><span>Autorização de saída de menores, registos e traduções certificadas.</span><small>67</small></li><li><span>Para quem vive fora: procurações para tratar de assuntos em Portugal.</span><small>69</small></li></ol>
+        </div>
+      </details>
+    </div>
+    <div class="ad-extra">
+      <div><div class="ad-campo__cab"><b>Sitelinks</b></div><ul class="sl"><li><b>Pedir marcação</b><span>Consulta presencial ou online · Por videochamada ou no escritório</span></li><li><b>Sobre a Dra. Sónia</b><span>Advogada desde 2005 · Advocacia preventiva</span></li><li><b>Áreas de atuação</b><span>Família, heranças e empresas · Atos notariais</span></li><li><b>Como chegar</b><span>Rua Dr. Amorim, Mozelos · Santa Maria da Feira</span></li></ul></div>
+      <div><div class="ad-campo__cab"><b>Frases de destaque</b><button class="btn btn--mini" type="button" data-texto="Advogada desde 2005
+Consulta por videochamada
+Sigilo profissional
+Atendimento PT e EN
+Escritório em Mozelos">Copiar</button></div><p>Advogada desde 2005 · Consulta por videochamada · Sigilo profissional · Atendimento PT e EN · Escritório em Mozelos</p>
+        <div class="ad-campo__cab" style="margin-top:18px"><b>Palavras-chave negativas</b><button class="btn btn--mini" type="button" data-texto="grátis
+gratuito
+gratuita
+emprego
+estágio
+curso
+minuta
+modelo
+pdf
+exemplo
+oab
+brasil
+ordem dos advogados
+lei
+artigo
+código civil
+segurança social">Copiar</button></div><p class="neg">grátis, gratuito, gratuita, emprego, estágio, curso, minuta, modelo, pdf, exemplo, oab, brasil, ordem dos advogados, lei, artigo, código civil, segurança social</p></div>
+      <div><div class="ad-campo__cab"><b>Imagens para a Google</b></div>
+        <div class="g-imgs"><figure><img src="anuncios/G1-google-1200x628.jpg" alt="Imagem Google horizontal" loading="lazy"><figcaption>1200×628 · <a href="anuncios/G1-google-1200x628.jpg" download>descarregar</a></figcaption></figure><figure><img src="anuncios/G2-google-1200x1200.jpg" alt="Imagem Google quadrada" loading="lazy"><figcaption>1200×1200 · <a href="anuncios/G2-google-1200x1200.jpg" download>descarregar</a></figcaption></figure></div>
+        <p class="ad-nota">Logótipo quadrado: usar o avatar dourado ou creme (1080×1080).</p></div>
+    </div>
+
+    <h3 class="subtit">Meta · Facebook e Instagram (família e heranças)</h3>
+    <ol class="passos-ad">
+      <li>Em <b>business.facebook.com</b> → Gestor de Anúncios → campanha <b>Tráfego</b> (ou <b>Leads</b> quando o Pixel estiver ligado). Categoria especial: <b>nenhuma</b>.</li>
+      <li><b>Público:</b> Portugal, 30–65 anos, Santa Maria da Feira + 25 km. Para o anúncio A3, um segundo conjunto: portugueses a viver em França, Suíça, Luxemburgo, Alemanha e Reino Unido (idioma português).</li>
+      <li><b>Posicionamentos:</b> Advantage+, com a imagem 4:5 para o feed e a 9:16 para Stories e Reels.</li>
+      <li>Um <b>conjunto de anúncios</b> com A1 e A2; outro com A3. Deixar correr 7 dias antes de mexer.</li>
+    </ol>
+    <div class="ad-cards">
+      <article class="ad-card">
+        <div class="ad-card__imgs">
+          <figure><img src="anuncios/A1-herancas-feed.jpg" alt="Anúncio A1, formato feed" loading="lazy"><figcaption>Feed 4:5 · <a href="anuncios/A1-herancas-feed.jpg" download>descarregar</a></figcaption></figure>
+          <figure><img src="anuncios/A1-herancas-stories.jpg" alt="Anúncio A1, formato Stories" loading="lazy"><figcaption>Stories/Reels 9:16 · <a href="anuncios/A1-herancas-stories.jpg" download>descarregar</a></figcaption></figure>
+        </div>
+        <div class="ad-card__txt">
+          <div class="meta"><span class="chip chip--ouro">A1</span><span class="chip">Heranças e partilhas</span></div>
+          <div class="ad-campo__cab"><b>Texto principal</b><button class="btn btn--mini" type="button" data-texto="A casa dos pais ficou para os irmãos… e agora, quem decide?
+
+Partilhas, inventários e acordos entre herdeiros, tratados a tempo e com clareza. A Dra. Sónia Alexandra Santos é advogada desde 2005, com escritório em Mozelos, Santa Maria da Feira, e consultas também por videochamada.">Copiar</button></div><p class="ad-texto">A casa dos pais ficou para os irmãos… e agora, quem decide?
+
+Partilhas, inventários e acordos entre herdeiros, tratados a tempo e com clareza. A Dra. Sónia Alexandra Santos é advogada desde 2005, com escritório em Mozelos, Santa Maria da Feira, e consultas também por videochamada.</p>
+          <div class="ad-mini">
+            <div><b>Título</b><span>Heranças e partilhas na Feira</span><button class="btn btn--mini" type="button" data-texto="Heranças e partilhas na Feira">Copiar</button></div>
+            <div><b>Descrição</b><span>Advogada desde 2005</span><button class="btn btn--mini" type="button" data-texto="Advogada desde 2005">Copiar</button></div>
+            <div><b>Botão</b><span>Saber mais</span></div>
+            <div><b>URL</b><code>https://soniasantosadvogada.pt/consulta/?utm_source=meta&amp;utm_medium=paid&amp;utm_campaign=herancas</code><button class="btn btn--mini" type="button" data-texto="https://soniasantosadvogada.pt/consulta/?utm_source=meta&amp;utm_medium=paid&amp;utm_campaign=herancas">Copiar</button></div>
+          </div>
+        </div>
+      </article>
+      <article class="ad-card">
+        <div class="ad-card__imgs">
+          <figure><img src="anuncios/A2-testamento-feed.jpg" alt="Anúncio A2, formato feed" loading="lazy"><figcaption>Feed 4:5 · <a href="anuncios/A2-testamento-feed.jpg" download>descarregar</a></figcaption></figure>
+          <figure><img src="anuncios/A2-testamento-stories.jpg" alt="Anúncio A2, formato Stories" loading="lazy"><figcaption>Stories/Reels 9:16 · <a href="anuncios/A2-testamento-stories.jpg" download>descarregar</a></figcaption></figure>
+        </div>
+        <div class="ad-card__txt">
+          <div class="meta"><span class="chip chip--ouro">A2</span><span class="chip">Testamentos</span></div>
+          <div class="ad-campo__cab"><b>Texto principal</b><button class="btn btn--mini" type="button" data-texto="Quer deixar tudo organizado para que os seus filhos não tenham de discutir?
+
+Um testamento preparado a tempo, dentro do que a lei permite, ajuda a evitar desentendimentos na família. Advocacia preventiva em Mozelos, Santa Maria da Feira, ou por videochamada.">Copiar</button></div><p class="ad-texto">Quer deixar tudo organizado para que os seus filhos não tenham de discutir?
+
+Um testamento preparado a tempo, dentro do que a lei permite, ajuda a evitar desentendimentos na família. Advocacia preventiva em Mozelos, Santa Maria da Feira, ou por videochamada.</p>
+          <div class="ad-mini">
+            <div><b>Título</b><span>Testamentos: organizar a herança a tempo</span><button class="btn btn--mini" type="button" data-texto="Testamentos: organizar a herança a tempo">Copiar</button></div>
+            <div><b>Descrição</b><span>Advocacia preventiva</span><button class="btn btn--mini" type="button" data-texto="Advocacia preventiva">Copiar</button></div>
+            <div><b>Botão</b><span>Saber mais</span></div>
+            <div><b>URL</b><code>https://soniasantosadvogada.pt/consulta/?utm_source=meta&amp;utm_medium=paid&amp;utm_campaign=testamentos</code><button class="btn btn--mini" type="button" data-texto="https://soniasantosadvogada.pt/consulta/?utm_source=meta&amp;utm_medium=paid&amp;utm_campaign=testamentos">Copiar</button></div>
+          </div>
+        </div>
+      </article>
+      <article class="ad-card">
+        <div class="ad-card__imgs">
+          <figure><img src="anuncios/A3-vive-fora-feed.jpg" alt="Anúncio A3, formato feed" loading="lazy"><figcaption>Feed 4:5 · <a href="anuncios/A3-vive-fora-feed.jpg" download>descarregar</a></figcaption></figure>
+          <figure><img src="anuncios/A3-vive-fora-stories.jpg" alt="Anúncio A3, formato Stories" loading="lazy"><figcaption>Stories/Reels 9:16 · <a href="anuncios/A3-vive-fora-stories.jpg" download>descarregar</a></figcaption></figure>
+        </div>
+        <div class="ad-card__txt">
+          <div class="meta"><span class="chip chip--ouro">A3</span><span class="chip">Para quem vive fora</span></div>
+          <div class="ad-campo__cab"><b>Texto principal</b><button class="btn btn--mini" type="button" data-texto="Vive fora de Portugal e tem assuntos por resolver cá?
+
+Heranças, partilhas e procurações podem começar com uma consulta por videochamada, em português ou inglês. Escritório em Mozelos, Santa Maria da Feira.">Copiar</button></div><p class="ad-texto">Vive fora de Portugal e tem assuntos por resolver cá?
+
+Heranças, partilhas e procurações podem começar com uma consulta por videochamada, em português ou inglês. Escritório em Mozelos, Santa Maria da Feira.</p>
+          <div class="ad-mini">
+            <div><b>Título</b><span>Assuntos em Portugal, sem estar cá</span><button class="btn btn--mini" type="button" data-texto="Assuntos em Portugal, sem estar cá">Copiar</button></div>
+            <div><b>Descrição</b><span>Consulta por videochamada</span><button class="btn btn--mini" type="button" data-texto="Consulta por videochamada">Copiar</button></div>
+            <div><b>Botão</b><span>Saber mais</span></div>
+            <div><b>URL</b><code>https://soniasantosadvogada.pt/consulta/?utm_source=meta&amp;utm_medium=paid&amp;utm_campaign=emigrantes</code><button class="btn btn--mini" type="button" data-texto="https://soniasantosadvogada.pt/consulta/?utm_source=meta&amp;utm_medium=paid&amp;utm_campaign=emigrantes">Copiar</button></div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <h3 class="subtit">Instagram · ganhar seguidores</h3>
+    <article class="ad-card">
+      <div class="ad-card__imgs">
+        <figure><img src="anuncios/A4-seguidores-feed.jpg" alt="Anúncio seguidores, feed" loading="lazy"><figcaption>Feed 4:5 · <a href="anuncios/A4-seguidores-feed.jpg" download>descarregar</a></figcaption></figure>
+        <figure><img src="anuncios/A4-seguidores-stories.jpg" alt="Anúncio seguidores, Stories" loading="lazy"><figcaption>Stories 9:16 · <a href="anuncios/A4-seguidores-stories.jpg" download>descarregar</a></figcaption></figure>
+      </div>
+      <div class="ad-card__txt">
+        <div class="meta"><span class="chip chip--ouro">A4</span><span class="chip">Seguidores</span></div>
+        <div class="ad-campo__cab"><b>Texto</b><button class="btn btn--mini" type="button" data-texto="Siga para dicas práticas sobre família, heranças e contratos, explicadas de forma simples pela Dra. Sónia Alexandra Santos, advogada desde 2005 em Santa Maria da Feira.
+
+&quot;O melhor processo é aquele que nunca chega a tribunal.&quot;">Copiar</button></div><p class="ad-texto">Siga para dicas práticas sobre família, heranças e contratos, explicadas de forma simples pela Dra. Sónia Alexandra Santos, advogada desde 2005 em Santa Maria da Feira.
+
+&quot;O melhor processo é aquele que nunca chega a tribunal.&quot;</p>
+        <ol class="passos-ad" style="margin:14px 0 0">
+          <li>Publicar o post A4 no perfil (ou usar o post 04 “Antes de assinar” e o 07 “Mito ou facto”, os mais úteis).</li>
+          <li>Na app do Instagram: <b>Promover</b> → objetivo <b>Mais visitas ao perfil</b>.</li>
+          <li>Público: Santa Maria da Feira + 25 km, 28–60 anos, interesses “família”, “imobiliário”, “empreendedorismo”.</li>
+          <li>3–5 €/dia durante 14 dias. Promover sempre os posts educativos, não os de serviços.</li>
+        </ol>
+      </div>
+    </article>
+
+    <div class="regras" style="margin-top:28px">
+      <div class="caixa"><h3>Regras para todos os anúncios</h3><ul>
+        <li>Informar, <b>nunca prometer resultados</b> (“ganhe o seu processo”, “resolvemos tudo”).</li>
+        <li><b>Sem preços</b>, descontos ou “consulta grátis” nos anúncios.</li>
+        <li>Sem superlativos nem comparações (“a melhor advogada”, “a mais experiente”).</li>
+        <li><b>Nunca</b> referir casos ou clientes, mesmo anónimos.</li>
+        <li>A Dra. aprova cada anúncio antes de ser publicado.</li>
+      </ul></div>
+      <div class="caixa caixa--clara"><h3>O que medir (semanal)</h3><ul>
+        <li><b>Pedidos de marcação</b> recebidos por email (o campo “Origem” diz de que anúncio vieram).</li>
+        <li>Custo por pedido em cada plataforma e em cada grupo de anúncios.</li>
+        <li>Pesquisas que acionaram os anúncios (Google → Termos de pesquisa), para acrescentar negativas.</li>
+        <li>Novos seguidores e visitas ao perfil no Instagram.</li>
+        <li>Desligar o que não gera pedidos ao fim de 2 semanas e reforçar o que gera.</li>
+      </ul></div>
+    </div>
+  </section>
+
   <section class="bloco" id="ideias">
-    <div class="cab"><span class="cab__n">06</span><h2>Stories e Reels</h2><p>O que mais faz crescer a audiência. As fotos vêm de uma sessão filmada, por isso há material para vídeos curtos.</p></div>
+    <div class="cab"><span class="cab__n">07</span><h2>Stories e Reels</h2><p>O que mais faz crescer a audiência. As fotos vêm de uma sessão filmada, por isso há material para vídeos curtos.</p></div>
     <div class="ideias">
       <div class="ideia"><p class="eyebrow">Stories · semanal</p><h3>“Pergunte à advogada”</h3><ul><li>Caixa de perguntas à segunda-feira</li><li>Respostas curtas em texto ou vídeo</li><li>As melhores viram posts “Sabia que”</li></ul></div>
       <div class="ideia"><p class="eyebrow">Stories · interação</p><h3>Sondagens “Mito ou facto?”</h3><ul><li>“Pode deserdar um filho?”</li><li>“Os enteados herdam?”</li><li>Resposta no dia seguinte, com link para o site</li></ul></div>
@@ -381,7 +716,7 @@ footer { padding-block: 40px; text-align: center; font-size: .78rem; color: var(
   </section>
 
   <section class="bloco" id="regras">
-    <div class="cab"><span class="cab__n">07</span><h2>Regras e aprovação</h2><p>A publicidade de advogados é permitida desde 2024, mas deve ser verdadeira, objetiva e respeitar o sigilo profissional.</p></div>
+    <div class="cab"><span class="cab__n">08</span><h2>Regras e aprovação</h2><p>A publicidade de advogados é permitida desde 2024, mas deve ser verdadeira, objetiva e respeitar o sigilo profissional.</p></div>
     <div class="regras">
       <div class="caixa"><h3>Cuidados em todos os posts</h3><ul>
         <li><b>Nunca</b> falar de casos ou clientes reais, mesmo sem nomes.</li>
@@ -636,6 +971,14 @@ document.addEventListener('click', e => {
     atualizar(); aviso.textContent = 'Respostas apagadas.';
   };
 })();
+
+// Botões "Copiar" dos anúncios
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-texto]'); if (!b) return;
+  const original = b.textContent;
+  const ok = () => { b.textContent = 'Copiado ✓'; setTimeout(() => { b.textContent = original; }, 1600); };
+  try { navigator.clipboard.writeText(b.dataset.texto).then(ok, () => { b.textContent = 'Copie à mão'; }); } catch (err) { b.textContent = 'Copie à mão'; }
+});
 </script>
 </body>
 </html>

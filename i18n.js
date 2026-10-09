@@ -12,7 +12,8 @@ window.TRADUCOES = {
     'res.semVagas': 'Sem horas livres neste dia. Escolha outro dia.',
     'res.erroHoras': 'Não foi possível ver as horas. Tente outro dia ou contacte-nos.',
     'res.online': 'Online · 30 min',
-    'res.presencial': 'Presencial · 60 min'
+    'res.presencial': 'Presencial · 60 min',
+    'nina.msg': 'Olá Nina! Acabei de pedir uma marcação:'
   },
 
   en: {
@@ -109,7 +110,10 @@ window.TRADUCOES = {
     'res.mais_iva': '+ VAT',
     'res.meet': 'Google Meet',
     'res.escritorio': 'Office in Mozelos',
-    'cont.horarioV': 'Monday to Friday, 10am–6pm'
+    'cont.horarioV': 'Monday to Friday, 10am–6pm',
+    'nina.txt': 'Any questions about your booking? Nina, our virtual assistant, answers on WhatsApp.',
+    'nina.btn': 'Chat with Nina',
+    'nina.msg': 'Hello Nina! I have just requested a booking:'
   },
 
   fr: {
@@ -206,7 +210,10 @@ window.TRADUCOES = {
     'res.mais_iva': '+ TVA',
     'res.meet': 'Google Meet',
     'res.escritorio': 'Cabinet à Mozelos',
-    'cont.horarioV': 'Du lundi au vendredi, 10h–18h'
+    'cont.horarioV': 'Du lundi au vendredi, 10h–18h',
+    'nina.txt': 'Une question sur votre rendez-vous ? Nina, notre assistante virtuelle, répond sur WhatsApp.',
+    'nina.btn': 'Parler à Nina',
+    'nina.msg': 'Bonjour Nina ! Je viens de demander un rendez-vous :'
   },
 
   de: {
@@ -303,7 +310,10 @@ window.TRADUCOES = {
     'res.mais_iva': '+ MwSt.',
     'res.meet': 'Google Meet',
     'res.escritorio': 'Kanzlei in Mozelos',
-    'cont.horarioV': 'Montag bis Freitag, 10–18 Uhr'
+    'cont.horarioV': 'Montag bis Freitag, 10–18 Uhr',
+    'nina.txt': 'Fragen zu Ihrem Termin? Nina, unsere virtuelle Assistentin, antwortet auf WhatsApp.',
+    'nina.btn': 'Mit Nina chatten',
+    'nina.msg': 'Hallo Nina! Ich habe gerade einen Termin angefragt:'
   },
 
   it: {
@@ -400,6 +410,9 @@ window.TRADUCOES = {
     'res.mais_iva': '+ IVA',
     'res.meet': 'Google Meet',
     'res.escritorio': 'Studio a Mozelos',
-    'cont.horarioV': 'Dal lunedì al venerdì, 10–18'
+    'cont.horarioV': 'Dal lunedì al venerdì, 10–18',
+    'nina.txt': 'Domande sulla prenotazione? Nina, la nostra assistente virtuale, risponde su WhatsApp.',
+    'nina.btn': 'Parla con Nina',
+    'nina.msg': 'Ciao Nina! Ho appena richiesto una prenotazione:'
   }
 };

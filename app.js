@@ -257,6 +257,9 @@ reserva.addEventListener('submit', async e => {
     await enviarFormulario(reserva, { 'Data e hora pedida': dataPT, 'Idioma do site': idioma.toUpperCase() });
     irPara(4);
     medir('marcacao');
+    const tipoTxt = t(tipoAtual() === 'online' ? 'res.online' : 'res.presencial');
+    const msg = `${t('nina.msg')} ${tipoTxt} · ${dataEscolhida() || ''} · ${reserva.querySelector('#r-nome').value}`;
+    document.getElementById('nina-link').href = 'https://wa.me/351964822700?text=' + encodeURIComponent(msg);
     if (PAGAMENTO_URL) {
       const email = encodeURIComponent(reserva.querySelector('#r-email').value);
       setTimeout(() => { location.href = `${PAGAMENTO_URL}${PAGAMENTO_URL.includes('?') ? '&' : '?'}prefilled_email=${email}`; }, 1500);

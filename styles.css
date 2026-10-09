@@ -264,6 +264,10 @@ section { position: relative; }
 .nota { font-size: .78rem; color: var(--suave); margin: 0; display: flex; gap: 8px; align-items: flex-start; }
 .nota svg { width: 16px; height: 16px; flex: none; margin-top: 3px; color: var(--acento); }
 .sucesso { text-align: center; padding: 10px 0; }
+.nina { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--linha); display: grid; justify-items: center; gap: 12px; }
+.nina p { margin: 0; font-size: .88rem; color: var(--suave); max-width: 32ch; }
+.nina__btn { gap: 10px; }
+.nina__btn svg { position: relative; z-index: 1; flex: none; }
 .sucesso__icone { width: 64px; height: 64px; margin: 0 auto 16px; border-radius: 50%; display: grid; place-items: center; background: var(--ouro-forte); color: #fff; }
 .sucesso__icone svg { width: 28px; height: 28px; }
 

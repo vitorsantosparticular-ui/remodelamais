@@ -227,6 +227,55 @@ figcaption a { color: var(--tinta); }
   .ad-mini > div b { grid-column: 1 / -1; }
 }
 
+
+/* WhatsApp Business */
+.wa-passos { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.wa-passo { display: grid; grid-template-columns: 52px 1fr; gap: 18px; background: var(--claro); border: 1px solid var(--linha); border-radius: 6px; padding: 22px; }
+.wa-n { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--ouro); color: #fff; font: 400 1.15rem var(--serif); text-shadow: 0 1px 1px rgba(70,50,30,.3); }
+.wa-corpo { min-width: 0; display: grid; gap: 12px; }
+.wa-corpo h4 { margin: 8px 0 0; font: 400 1.25rem var(--serif); color: var(--tinta); }
+.wa-corpo p { margin: 0; font-size: .9rem; }
+.wa-corpo b { font-weight: 500; color: var(--tinta); }
+.wa-perfil { display: grid; grid-template-columns: 300px 1fr; gap: 20px; align-items: start; }
+.wa-perfil > * { min-width: 0; }
+.wa-perfil__imgs { display: grid; grid-template-columns: .55fr 1fr; gap: 10px; align-items: end; }
+.wa-perfil__imgs figure { margin: 0; min-width: 0; }
+.wa-perfil__imgs img { width: 100%; border-radius: 4px; border: 1px solid var(--linha); }
+.wa-perfil__imgs figure:first-child img { border-radius: 50%; }
+.wa-dados { margin: 0; display: grid; }
+.wa-dados div { display: grid; grid-template-columns: 96px 1fr; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--linha); font-size: .86rem; }
+.wa-dados dt { font-size: .64rem; letter-spacing: .16em; text-transform: uppercase; color: var(--acento); font-weight: 600; padding-top: 3px; }
+.wa-dados dd { margin: 0; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; min-width: 0; }
+.wa-dados small { color: var(--suave); font-size: .7rem; }
+.wa-cat { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.wa-item { display: grid; grid-template-columns: 96px 1fr; gap: 14px; background: var(--fundo); border-radius: 4px; padding: 12px; }
+.wa-item > * { min-width: 0; }
+.wa-item img { width: 96px; height: 96px; object-fit: cover; border-radius: 4px; }
+.wa-item b { display: block; font: 400 1rem var(--serif); color: var(--tinta); }
+.wa-item p { font-size: .8rem; margin: 4px 0 8px; color: var(--texto); }
+.wa-item__acoes { display: flex; gap: 6px; flex-wrap: wrap; }
+.wa-msg { display: flex; gap: 12px; align-items: flex-start; background: #e7f6dc; border-radius: 8px 8px 8px 2px; padding: 12px 14px; max-width: 640px; }
+.wa-msg p { white-space: pre-line; font-size: .86rem; color: #213326; margin: 0; flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.wa-rap { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.wa-rap li { display: grid; grid-template-columns: 130px 1fr auto; gap: 12px; align-items: start; padding: 10px 0; border-bottom: 1px solid var(--linha); }
+.wa-rap li > * { min-width: 0; }
+.wa-rap b { font-weight: 500; font-size: .86rem; color: var(--tinta); }
+.wa-rap p { font-size: .82rem !important; color: var(--suave); white-space: pre-line; overflow-wrap: anywhere; }
+.wa-etqs { display: flex; flex-wrap: wrap; gap: 8px; }
+.wa-etq { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 20px; background: var(--fundo); border: 1px solid var(--linha); font-size: .82rem; }
+.wa-etq i { width: 10px; height: 10px; border-radius: 50%; }
+.wa-nota { font-size: .78rem !important; color: var(--suave); }
+.wa-seg { margin: 0; padding-left: 18px; display: grid; gap: 8px; font-size: .88rem; }
+.wa-seg li::marker { color: var(--acento); }
+@media (max-width: 860px) { .wa-perfil { grid-template-columns: 1fr; } .wa-perfil__imgs { max-width: 360px; } .wa-cat { grid-template-columns: 1fr; } }
+@media (max-width: 640px) {
+  .wa-passo { grid-template-columns: 1fr; padding: 18px 16px; gap: 10px; }
+  .wa-rap li { grid-template-columns: 1fr auto; }
+  .wa-rap li code { grid-column: 1 / -1; justify-self: start; }
+  .wa-dados div { grid-template-columns: 1fr; gap: 4px; }
+  .wa-msg { flex-direction: column; }
+}
+
 /* Reunião */
 .progresso-r { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; margin-bottom: 22px; font-size: .82rem; color: var(--tinta); font-weight: 500; font-variant-numeric: tabular-nums; }
 .progresso-r .barra { height: 8px; }
@@ -290,7 +339,7 @@ footer { padding-block: 40px; text-align: center; font-size: .78rem; color: var(
     <h1>Instagram e LinkedIn da <em>Dra. Sónia</em></h1>
     <p>Tudo o que falta validar com a Dra. e a proposta para o lançamento das redes sociais: posicionamento, público, tipos de conteúdo, os primeiros posts prontos a publicar e o calendário das primeiras três semanas.</p>
     <nav class="indice" aria-label="Secções">
-      <a href="#reuniao">Reunião: validar</a><a href="#estrategia">Estratégia</a><a href="#instagram">Instagram</a><a href="#calendario">Calendário</a><a href="#linkedin">LinkedIn</a><a href="#anuncios">Anúncios</a><a href="#ideias">Stories e Reels</a><a href="#regras">Regras e aprovação</a>
+      <a href="#reuniao">Reunião: validar</a><a href="#estrategia">Estratégia</a><a href="#instagram">Instagram</a><a href="#calendario">Calendário</a><a href="#linkedin">LinkedIn</a><a href="#anuncios">Anúncios</a><a href="#whatsapp">WhatsApp Business</a><a href="#ideias">Stories e Reels</a><a href="#regras">Regras e aprovação</a>
     </nav>
   </div>
 </header>
@@ -722,8 +771,49 @@ Heranças, partilhas e procurações podem começar com uma consulta por videoch
     </div>
   </section>
 
+
+  <section class="bloco" id="whatsapp">
+    <div class="cab"><span class="cab__n">07</span><h2>WhatsApp Business: passo a passo</h2><p>Para o WhatsApp do escritório ficar profissional e organizado: perfil, catálogo de serviços, mensagens automáticas, respostas rápidas, etiquetas e segurança. Tudo com textos prontos a copiar.</p></div>
+    <ol class="wa-passos"><li class="wa-passo"><span class="wa-n">1</span><div class="wa-corpo"><h4>Instalar e escolher o número</h4><p>Instalar a app <b>WhatsApp Business</b> (ícone com um “B”) num telemóvel do escritório. Usar um <b>número só do escritório</b>, separado do pessoal da Dra. Se o número já tem WhatsApp normal, a app oferece-se para o converter e mantém as conversas.</p></div></li><li class="wa-passo"><span class="wa-n">2</span><div class="wa-corpo"><h4>Perfil da empresa</h4><p>Em <b>Definições → Ferramentas para empresas → Perfil da empresa</b> (o nome pode variar ligeiramente):</p>
+  <div class="wa-perfil">
+    <div class="wa-perfil__imgs"><figure><img src="whatsapp/foto-perfil.jpg" alt="Foto de perfil" loading="lazy"><figcaption>Foto de perfil · <a href="whatsapp/foto-perfil.jpg" download>descarregar</a></figcaption></figure><figure><img src="whatsapp/capa-whatsapp.jpg" alt="Foto de capa" loading="lazy"><figcaption>Foto de capa · <a href="whatsapp/capa-whatsapp.jpg" download>descarregar</a></figcaption></figure></div>
+    <dl class="wa-dados">
+      <div><dt>Nome</dt><dd>Sónia Alexandra Santos · Advogada <button class="btn btn--mini" type="button" data-texto="Sónia Alexandra Santos · Advogada">Copiar</button></dd></div>
+      <div><dt>Categoria</dt><dd>Serviços jurídicos / Advogado (a opção mais próxima)</dd></div>
+      <div><dt>Descrição</dt><dd><span class="wa-desc">Advogada desde 2005. Advocacia preventiva, heranças, testamentos, divórcio e atos notariais. Escritório em Mozelos, Santa Maria da Feira, e consultas por videochamada (PT/EN). Marcações: soniasantosadvogada.pt</span> <small>209 car.</small> <button class="btn btn--mini" type="button" data-texto="Advogada desde 2005. Advocacia preventiva, heranças, testamentos, divórcio e atos notariais. Escritório em Mozelos, Santa Maria da Feira, e consultas por videochamada (PT/EN). Marcações: soniasantosadvogada.pt">Copiar</button></dd></div>
+      <div><dt>Morada</dt><dd>Rua Dr. Amorim, Ed. Casa do Povo, Loja G, 4535-211 Mozelos <button class="btn btn--mini" type="button" data-texto="Rua Dr. Amorim, Ed. Casa do Povo, Loja G, 4535-211 Mozelos, Santa Maria da Feira">Copiar</button></dd></div>
+      <div><dt>Horário</dt><dd>[horário do escritório] — escolher “Horário definido”</dd></div>
+      <div><dt>Email</dt><dd>[email do escritório]</dd></div>
+      <div><dt>Sites</dt><dd>soniasantosadvogada.pt · instagram.com/soniasantosadvogada <button class="btn btn--mini" type="button" data-texto="https://soniasantosadvogada.pt">Copiar</button></dd></div>
+    </dl>
+  </div></div></li><li class="wa-passo"><span class="wa-n">3</span><div class="wa-corpo"><h4>Catálogo de serviços</h4><p>Em <b>Ferramentas para empresas → Catálogo → Adicionar item</b>. Um item por serviço, com a imagem, o nome, a descrição e o link. <b>Deixar o preço em branco</b> (regras da Ordem). Permite enviar um serviço ao cliente com um toque.</p><div class="wa-cat"><article class="wa-item"><img src="whatsapp/servico-1-herancas.jpg" alt="Heranças e partilhas" loading="lazy"><div><b>Heranças e partilhas</b><p>Partilhas, inventários (judiciais e extrajudiciais) e acordos entre herdeiros. Consulta no escritório ou por videochamada.</p><div class="wa-item__acoes"><button class="btn btn--mini" type="button" data-texto="Heranças e partilhas">Nome</button><button class="btn btn--mini" type="button" data-texto="Partilhas, inventários (judiciais e extrajudiciais) e acordos entre herdeiros. Consulta no escritório ou por videochamada.">Descrição</button><button class="btn btn--mini" type="button" data-texto="https://soniasantosadvogada.pt/consulta/">Link</button><a class="btn btn--mini" href="whatsapp/servico-1-herancas.jpg" download>Imagem</a></div></div></article><article class="wa-item"><img src="whatsapp/servico-2-testamentos.jpg" alt="Testamentos" loading="lazy"><div><b>Testamentos</b><p>Planear a herança a tempo, dentro do que a lei permite, para evitar conflitos na família.</p><div class="wa-item__acoes"><button class="btn btn--mini" type="button" data-texto="Testamentos">Nome</button><button class="btn btn--mini" type="button" data-texto="Planear a herança a tempo, dentro do que a lei permite, para evitar conflitos na família.">Descrição</button><button class="btn btn--mini" type="button" data-texto="https://soniasantosadvogada.pt/consulta/">Link</button><a class="btn btn--mini" href="whatsapp/servico-2-testamentos.jpg" download>Imagem</a></div></div></article><article class="wa-item"><img src="whatsapp/servico-3-familia.jpg" alt="Divórcio e família" loading="lazy"><div><b>Divórcio e família</b><p>Divórcio, separação, regulação das responsabilidades parentais e alimentos.</p><div class="wa-item__acoes"><button class="btn btn--mini" type="button" data-texto="Divórcio e família">Nome</button><button class="btn btn--mini" type="button" data-texto="Divórcio, separação, regulação das responsabilidades parentais e alimentos.">Descrição</button><button class="btn btn--mini" type="button" data-texto="https://soniasantosadvogada.pt/consulta/">Link</button><a class="btn btn--mini" href="whatsapp/servico-3-familia.jpg" download>Imagem</a></div></div></article><article class="wa-item"><img src="whatsapp/servico-4-atos-notariais.jpg" alt="Procurações e atos notariais" loading="lazy"><div><b>Procurações e atos notariais</b><p>Procurações, reconhecimento de assinaturas, autenticação e certificação de documentos, autorização de saída de menores.</p><div class="wa-item__acoes"><button class="btn btn--mini" type="button" data-texto="Procurações e atos notariais">Nome</button><button class="btn btn--mini" type="button" data-texto="Procurações, reconhecimento de assinaturas, autenticação e certificação de documentos, autorização de saída de menores.">Descrição</button><button class="btn btn--mini" type="button" data-texto="https://soniasantosadvogada.pt/#areas">Link</button><a class="btn btn--mini" href="whatsapp/servico-4-atos-notariais.jpg" download>Imagem</a></div></div></article><article class="wa-item"><img src="whatsapp/servico-5-preventiva-empresas.jpg" alt="Advocacia preventiva e de empresa" loading="lazy"><div><b>Advocacia preventiva e de empresa</b><p>Aconselhamento antes de surgir o problema: contratos, empresas e decisões importantes.</p><div class="wa-item__acoes"><button class="btn btn--mini" type="button" data-texto="Advocacia preventiva e de empresa">Nome</button><button class="btn btn--mini" type="button" data-texto="Aconselhamento antes de surgir o problema: contratos, empresas e decisões importantes.">Descrição</button><button class="btn btn--mini" type="button" data-texto="https://soniasantosadvogada.pt/#areas">Link</button><a class="btn btn--mini" href="whatsapp/servico-5-preventiva-empresas.jpg" download>Imagem</a></div></div></article><article class="wa-item"><img src="whatsapp/servico-6-videochamada.jpg" alt="Consulta por videochamada" loading="lazy"><div><b>Consulta por videochamada</b><p>Consulta de 30 minutos, onde estiver, em português ou inglês.</p><div class="wa-item__acoes"><button class="btn btn--mini" type="button" data-texto="Consulta por videochamada">Nome</button><button class="btn btn--mini" type="button" data-texto="Consulta de 30 minutos, onde estiver, em português ou inglês.">Descrição</button><button class="btn btn--mini" type="button" data-texto="https://soniasantosadvogada.pt/#online">Link</button><a class="btn btn--mini" href="whatsapp/servico-6-videochamada.jpg" download>Imagem</a></div></div></article></div></div></li><li class="wa-passo"><span class="wa-n">4</span><div class="wa-corpo"><h4>Mensagem de saudação</h4><p><b>Ferramentas para empresas → Mensagem de saudação</b> → ativar → enviar a “Todos os que não estão no livro de endereços”. Aparece na primeira mensagem de cada pessoa (ou após 14 dias sem conversa).</p><div class="wa-msg"><p>Olá! Obrigada pela sua mensagem. Este é o WhatsApp do escritório da Dra. Sónia Alexandra Santos, Advogada.
+
+Para o podermos ajudar, indique o seu nome e o assunto (ex.: herança, testamento, divórcio, procuração). Respondemos em horário de expediente.
+
+Para pedir marcação: soniasantosadvogada.pt/consulta</p><button class="btn btn--mini" type="button" data-texto="Olá! Obrigada pela sua mensagem. Este é o WhatsApp do escritório da Dra. Sónia Alexandra Santos, Advogada.
+
+Para o podermos ajudar, indique o seu nome e o assunto (ex.: herança, testamento, divórcio, procuração). Respondemos em horário de expediente.
+
+Para pedir marcação: soniasantosadvogada.pt/consulta">Copiar</button></div></div></li><li class="wa-passo"><span class="wa-n">5</span><div class="wa-corpo"><h4>Mensagem de ausência</h4><p><b>Ferramentas para empresas → Mensagem de ausência</b> → ativar → agendar <b>“Fora do horário de funcionamento”</b>. Assim ninguém fica sem resposta à noite e ao fim de semana.</p><div class="wa-msg"><p>Obrigada pela sua mensagem. Neste momento o escritório está fechado.
+
+Respondemos no próximo dia útil. Se preferir, pode pedir já a sua marcação em soniasantosadvogada.pt/consulta</p><button class="btn btn--mini" type="button" data-texto="Obrigada pela sua mensagem. Neste momento o escritório está fechado.
+
+Respondemos no próximo dia útil. Se preferir, pode pedir já a sua marcação em soniasantosadvogada.pt/consulta">Copiar</button></div></div></li><li class="wa-passo"><span class="wa-n">6</span><div class="wa-corpo"><h4>Respostas rápidas</h4><p><b>Ferramentas para empresas → Respostas rápidas → +</b>. Na conversa basta escrever <code>/</code> e escolher. Substituir o que está entre [ ].</p><ul class="wa-rap"><li><code>/marcacao</code><div><b>Pedir marcação</b><p>Pode pedir a sua marcação aqui: soniasantosadvogada.pt/consulta
+Indique o dia e a hora que prefere, no escritório ou por videochamada. Confirmamos por mensagem.</p></div><button class="btn btn--mini" type="button" data-texto="Pode pedir a sua marcação aqui: soniasantosadvogada.pt/consulta
+Indique o dia e a hora que prefere, no escritório ou por videochamada. Confirmamos por mensagem.">Copiar</button></li><li><code>/morada</code><div><b>Morada</b><p>Estamos na Rua Dr. Amorim, Ed. Casa do Povo, Loja G, 4535-211 Mozelos (Santa Maria da Feira).
+Mapa: https://www.google.com/maps/search/?api=1&amp;query=Rua+Dr.+Amorim%2C+Ed.+Casa+do+Povo%2C+4535-211+Mozelos</p></div><button class="btn btn--mini" type="button" data-texto="Estamos na Rua Dr. Amorim, Ed. Casa do Povo, Loja G, 4535-211 Mozelos (Santa Maria da Feira).
+Mapa: https://www.google.com/maps/search/?api=1&amp;query=Rua+Dr.+Amorim%2C+Ed.+Casa+do+Povo%2C+4535-211+Mozelos">Copiar</button></li><li><code>/horario</code><div><b>Horário</b><p>O escritório funciona [dias e horas]. Fora deste horário respondemos no dia útil seguinte.</p></div><button class="btn btn--mini" type="button" data-texto="O escritório funciona [dias e horas]. Fora deste horário respondemos no dia útil seguinte.">Copiar</button></li><li><code>/video</code><div><b>Videochamada</b><p>Fazemos consultas por videochamada, de 30 minutos, em português ou inglês. Depois de confirmada a marcação, enviamos o link da chamada.</p></div><button class="btn btn--mini" type="button" data-texto="Fazemos consultas por videochamada, de 30 minutos, em português ou inglês. Depois de confirmada a marcação, enviamos o link da chamada.">Copiar</button></li><li><code>/documentos</code><div><b>Documentos</b><p>Para a consulta, traga o seu documento de identificação e os documentos relacionados com o assunto. Por segurança, evite enviar documentos pessoais por WhatsApp: se for preciso, indicamos um email.</p></div><button class="btn btn--mini" type="button" data-texto="Para a consulta, traga o seu documento de identificação e os documentos relacionados com o assunto. Por segurança, evite enviar documentos pessoais por WhatsApp: se for preciso, indicamos um email.">Copiar</button></li><li><code>/confirmado</code><div><b>Marcação confirmada</b><p>A sua consulta está confirmada: [dia] às [hora], [no escritório / por videochamada]. Se precisar de alterar, avise com 24 horas de antecedência.</p></div><button class="btn btn--mini" type="button" data-texto="A sua consulta está confirmada: [dia] às [hora], [no escritório / por videochamada]. Se precisar de alterar, avise com 24 horas de antecedência.">Copiar</button></li><li><code>/lembrete</code><div><b>Lembrete</b><p>Lembramos a sua consulta amanhã, [dia] às [hora]. Até amanhã!</p></div><button class="btn btn--mini" type="button" data-texto="Lembramos a sua consulta amanhã, [dia] às [hora]. Até amanhã!">Copiar</button></li><li><code>/aconselhamento</code><div><b>Sem parecer por mensagem</b><p>Para lhe dar uma resposta correta precisamos de analisar a situação em consulta; por mensagem não conseguimos dar aconselhamento jurídico. Pode marcar aqui: soniasantosadvogada.pt/consulta</p></div><button class="btn btn--mini" type="button" data-texto="Para lhe dar uma resposta correta precisamos de analisar a situação em consulta; por mensagem não conseguimos dar aconselhamento jurídico. Pode marcar aqui: soniasantosadvogada.pt/consulta">Copiar</button></li></ul></div></li><li class="wa-passo"><span class="wa-n">7</span><div class="wa-corpo"><h4>Etiquetas para organizar pedidos</h4><p>Na lista de conversas, tocar longo numa conversa → <b>Etiquetar</b>. Criar estas etiquetas e usá-las sempre, para ver de relance o estado de cada pedido:</p><div class="wa-etqs"><span class="wa-etq"><i style="background:#3b82c4"></i>Novo contacto</span><span class="wa-etq"><i style="background:#d9a441"></i>A aguardar resposta</span><span class="wa-etq"><i style="background:#6f9a6a"></i>Consulta marcada</span><span class="wa-etq"><i style="background:#c06b52"></i>Pagamento pendente</span><span class="wa-etq"><i style="background:#8b6fb0"></i>Documentos em falta</span><span class="wa-etq"><i style="background:#4f4035"></i>Cliente</span></div></div></li><li class="wa-passo"><span class="wa-n">8</span><div class="wa-corpo"><h4>Link e QR code</h4><p><b>Ferramentas para empresas → Link curto</b>: ativar a mensagem predefinida “Olá, gostaria de marcar uma consulta.”. O link e o QR code servem para o site, o Instagram, os cartões e a montra do escritório.</p><div class="wa-msg"><p>https://wa.me/351XXXXXXXXX?text=Ol%C3%A1%2C%20gostaria%20de%20marcar%20uma%20consulta.</p><button class="btn btn--mini" type="button" data-texto="https://wa.me/351XXXXXXXXX?text=Ol%C3%A1%2C%20gostaria%20de%20marcar%20uma%20consulta.">Copiar</button></div><p class="wa-nota">Trocar <code>351XXXXXXXXX</code> pelo número (com 351, sem espaços). Enviar-nos o número para ligar os botões do site.</p></div></li><li class="wa-passo"><span class="wa-n">9</span><div class="wa-corpo"><h4>Ligar ao Instagram e Facebook</h4><p><b>Ferramentas para empresas → Facebook e Instagram</b> → ligar a página e a conta do escritório. Permite pôr o botão de WhatsApp no Instagram e fazer anúncios que abrem conversa no WhatsApp.</p></div></li><li class="wa-passo"><span class="wa-n">10</span><div class="wa-corpo"><h4>Estado (Status)</h4><p>Publicar no Estado 2 a 3 vezes por semana as mesmas imagens dos posts do Instagram (dicas, “Sabia que”, escritório). Quem tem o número guardado vê, sem custos.</p></div></li><li class="wa-passo"><span class="wa-n">11</span><div class="wa-corpo"><h4>Segurança e sigilo</h4><ul class="wa-seg">
+   <li><b>Verificação em dois passos:</b> Definições → Conta → Verificação em dois passos → criar PIN e email de recuperação.</li>
+   <li><b>Dispositivos ligados:</b> rever regularmente quem tem o WhatsApp Web aberto e terminar sessões antigas.</li>
+   <li><b>Cópia de segurança encriptada:</b> Definições → Conversas → Cópia de segurança → encriptação ponto a ponto.</li>
+   <li><b>Sem aconselhamento por mensagem:</b> usar a resposta <code>/aconselhamento</code> e encaminhar para consulta.</li>
+   <li><b>Documentos sensíveis:</b> preferir email ou entrega no escritório; não guardar documentos de clientes na galeria do telemóvel.</li>
+   <li><b>Sem grupos com clientes</b> e sem partilhar conversas; o sigilo profissional aplica-se ao WhatsApp.</li>
+  </ul></div></li></ol>
+  </section>
+
   <section class="bloco" id="ideias">
-    <div class="cab"><span class="cab__n">07</span><h2>Stories e Reels</h2><p>O que mais faz crescer a audiência. As fotos vêm de uma sessão filmada, por isso há material para vídeos curtos.</p></div>
+    <div class="cab"><span class="cab__n">08</span><h2>Stories e Reels</h2><p>O que mais faz crescer a audiência. As fotos vêm de uma sessão filmada, por isso há material para vídeos curtos.</p></div>
     <div class="ideias">
       <div class="ideia"><p class="eyebrow">Stories · semanal</p><h3>“Pergunte à advogada”</h3><ul><li>Caixa de perguntas à segunda-feira</li><li>Respostas curtas em texto ou vídeo</li><li>As melhores viram posts “Sabia que”</li></ul></div>
       <div class="ideia"><p class="eyebrow">Stories · interação</p><h3>Sondagens “Mito ou facto?”</h3><ul><li>“Pode deserdar um filho?”</li><li>“Os enteados herdam?”</li><li>Resposta no dia seguinte, com link para o site</li></ul></div>
@@ -732,7 +822,7 @@ Heranças, partilhas e procurações podem começar com uma consulta por videoch
   </section>
 
   <section class="bloco" id="regras">
-    <div class="cab"><span class="cab__n">08</span><h2>Regras e aprovação</h2><p>A publicidade de advogados é permitida desde 2024, mas deve ser verdadeira, objetiva e respeitar o sigilo profissional.</p></div>
+    <div class="cab"><span class="cab__n">09</span><h2>Regras e aprovação</h2><p>A publicidade de advogados é permitida desde 2024, mas deve ser verdadeira, objetiva e respeitar o sigilo profissional.</p></div>
     <div class="regras">
       <div class="caixa"><h3>Cuidados em todos os posts</h3><ul>
         <li><b>Nunca</b> falar de casos ou clientes reais, mesmo sem nomes.</li>

@@ -227,6 +227,74 @@ figcaption a { color: var(--tinta); }
   .ad-mini > div b { grid-column: 1 / -1; }
 }
 
+/* WhatsApp Business */
+.wa { display: grid; grid-template-columns: 340px 1fr; gap: 48px; align-items: start; }
+.wa > * { min-width: 0; }
+.tel--wa .tel__ecra { background: #f6f5f3; padding-bottom: 14px; }
+.wa-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.wa-perfil { text-align: center; padding: 0 16px 10px; margin-top: -42px; position: relative; }
+.wa-foto { width: 84px; height: 84px; border-radius: 50%; margin: 0 auto 8px; box-shadow: 0 0 0 3px #fff; }
+.wa-perfil b { display: block; font-size: 1rem; font-weight: 600; }
+.wa-perfil small { color: #667781; font-size: .74rem; }
+.wa-botoes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 0 14px 12px; }
+.wa-botoes span { background: #fff; border-radius: 10px; text-align: center; padding: 8px 4px; font-size: .7rem; color: #008069; font-weight: 600; }
+.wa-desc { background: #fff; margin: 0 14px 8px; padding: 10px 12px; border-radius: 10px; font-size: .74rem; line-height: 1.45; }
+.wa-cat { background: #fff; margin: 0 14px 8px; padding: 10px 12px; border-radius: 10px; font-size: .74rem; font-weight: 600; }
+.wa-cat div { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; margin-top: 8px; }
+.wa-cat img { border-radius: 6px; aspect-ratio: 1; object-fit: cover; }
+.wa-info { list-style: none; background: #fff; margin: 0 14px; padding: 4px 12px; border-radius: 10px; font-size: .72rem; }
+.wa-info li { display: grid; grid-template-columns: 22px 1fr; padding: 6px 0; border-bottom: 1px solid #eee; }
+.wa-info li:last-child { border-bottom: 0; }
+.wa-info i { font-style: normal; }
+.wa-passos { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.wa-passo { background: var(--claro); border: 1px solid var(--linha); border-radius: 6px; padding: 20px 22px; font-size: .9rem; transition: opacity .2s; }
+.wa-passo.feito { opacity: .7; }
+.wa-passo.feito h3 { text-decoration: line-through; text-decoration-color: var(--acento); }
+.wa-passo__cab { display: grid; grid-template-columns: 28px 1fr; gap: 12px; align-items: start; margin-bottom: 10px; }
+.wa-passo h3 { font-size: 1.25rem; }
+.wa-passo h3 small { display: block; font: 500 .64rem var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--acento); margin-bottom: 4px; }
+.wa-passo > p { margin: 0 0 12px; }
+.wa-passo > ul { margin: 0; padding-left: 18px; display: grid; gap: 7px; }
+.wa-passo > ul li::marker { color: var(--acento); }
+.wa-passo b { font-weight: 500; color: var(--tinta); }
+.wa-chk input { position: absolute; opacity: 0; }
+.wa-chk span { display: grid; place-items: center; width: 24px; height: 24px; border: 1px solid var(--acento); border-radius: 50%; background: #fff; cursor: pointer; margin-top: 4px; }
+.wa-chk input:checked + span { background: var(--acento); }
+.wa-chk input:checked + span::after { content: ""; width: 10px; height: 5px; border: solid #fff; border-width: 0 0 2px 2px; transform: rotate(-45deg) translate(1px, -1px); }
+.wa-chk input:focus-visible + span { outline: 2px solid var(--acento); outline-offset: 2px; }
+.wa-passo .wa-dica { font-size: .8rem; color: var(--suave); margin: 12px 0 0; }
+.wa-fotos { display: grid; grid-template-columns: 1fr 1fr 2fr; gap: 12px; align-items: end; }
+.wa-fotos figure { margin: 0; min-width: 0; }
+.wa-fotos img { border-radius: 50%; border: 1px solid var(--linha); aspect-ratio: 1; object-fit: cover; width: 100%; }
+.wa-fotos .wa-fotos__capa img { border-radius: 4px; aspect-ratio: 16 / 9; }
+.wa-catalogo { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.wa-item { display: grid; grid-template-columns: 96px 1fr; gap: 12px; background: var(--fundo); border-radius: 4px; padding: 10px; min-width: 0; }
+.wa-item > * { min-width: 0; }
+.wa-item img { border-radius: 3px; aspect-ratio: 1; object-fit: cover; }
+.wa-item b { display: block; font-size: .88rem; margin-bottom: 2px; }
+.wa-item p { margin: 0 0 8px; font-size: .78rem; line-height: 1.45; }
+.wa-item small { display: block; color: var(--suave); font-size: .7rem; margin-bottom: 8px; overflow-wrap: anywhere; }
+.wa-item .acoes { margin-top: 0; gap: 6px; }
+.wa-msgs { display: grid; gap: 10px; }
+.wa-msg { background: var(--fundo); border-radius: 4px; padding: 12px 14px; min-width: 0; }
+.wa-msg .ad-campo__cab { margin-bottom: 6px; }
+.wa-balao { white-space: pre-line; background: #d9fdd3; color: #111b21; font-size: .84rem; line-height: 1.5; padding: 9px 12px; border-radius: 8px 0 8px 8px; margin: 0; max-width: 520px; }
+.wa-etiquetas { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.wa-etiquetas li { display: grid; grid-template-columns: 14px 1fr; gap: 0 10px; align-items: center; background: var(--fundo); border-radius: 4px; padding: 9px 12px; font-size: .84rem; }
+.wa-etiquetas i { width: 12px; height: 12px; border-radius: 50%; grid-row: span 2; }
+.wa-etiquetas span { color: var(--suave); font-size: .74rem; grid-column: 2; }
+@media (max-width: 980px) {
+  .wa { grid-template-columns: 1fr; }
+  .tel--wa { position: static; max-width: 340px; margin: 0 auto; }
+}
+@media (max-width: 640px) {
+  .wa-catalogo, .wa-etiquetas { grid-template-columns: 1fr; }
+  .wa-fotos { grid-template-columns: 1fr 1fr; }
+  .wa-fotos__capa { grid-column: 1 / -1; }
+  .wa-passo { padding: 16px; }
+  .wa-item { grid-template-columns: 76px 1fr; }
+}
+
 /* Reunião */
 .progresso-r { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; margin-bottom: 22px; font-size: .82rem; color: var(--tinta); font-weight: 500; font-variant-numeric: tabular-nums; }
 .progresso-r .barra { height: 8px; }
@@ -288,9 +356,9 @@ footer { padding-block: 40px; text-align: center; font-size: .78rem; color: var(
     <div class="capa__top"><img src="../img/monograma.png" alt=""><span>Documento interno · para reunião</span></div>
     <p class="eyebrow" style="color:var(--acento-claro)">Plano de comunicação</p>
     <h1>Instagram e LinkedIn da <em>Dra. Sónia</em></h1>
-    <p>Tudo o que falta validar com a Dra. e a proposta para o lançamento das redes sociais: posicionamento, público, tipos de conteúdo, os primeiros posts prontos a publicar e o calendário das primeiras três semanas.</p>
+    <p>Tudo o que falta validar com a Dra. e a proposta para o lançamento das redes sociais: posicionamento, público, tipos de conteúdo, os primeiros posts prontos a publicar e o calendário das primeiras três semanas e o passo a passo do WhatsApp Business.</p>
     <nav class="indice" aria-label="Secções">
-      <a href="#reuniao">Reunião: validar</a><a href="#estrategia">Estratégia</a><a href="#instagram">Instagram</a><a href="#calendario">Calendário</a><a href="#linkedin">LinkedIn</a><a href="#anuncios">Anúncios</a><a href="#ideias">Stories e Reels</a><a href="#regras">Regras e aprovação</a>
+      <a href="#reuniao">Reunião: validar</a><a href="#estrategia">Estratégia</a><a href="#instagram">Instagram</a><a href="#calendario">Calendário</a><a href="#linkedin">LinkedIn</a><a href="#anuncios">Anúncios</a><a href="#whatsapp">WhatsApp</a><a href="#ideias">Stories e Reels</a><a href="#regras">Regras e aprovação</a>
     </nav>
   </div>
 </header>
@@ -346,7 +414,7 @@ footer { padding-block: 40px; text-align: center; font-size: .78rem; color: var(
         <li class="q" data-id="dados-6" data-grupo="dados"><label class="q__chk"><input type="checkbox" id="dados-6"><span></span></label><div class="q__corpo"><label for="dados-6-n" class="q__txt">Links do Instagram e LinkedIn</label><textarea id="dados-6-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
       </ul></details>
       <details class="grupo" open><summary><span>Textos e conteúdo</span><small data-grupo="textos"></small></summary><ul>
-        <li class="q" data-id="textos-0" data-grupo="textos"><label class="q__chk"><input type="checkbox" id="textos-0"><span></span></label><div class="q__corpo"><label for="textos-0-n" class="q__txt">Aprova a citação “O melhor processo é aquele que nunca chega a tribunal.”?</label><div class="sn" role="group" aria-label="Resposta"><label><input type="radio" name="textos-0-sn" value="Sim"><span>Sim</span></label><label><input type="radio" name="textos-0-sn" value="Não"><span>Não</span></label><label><input type="radio" name="textos-0-sn" value="A ver"><span>A ver</span></label></div><textarea id="textos-0-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
+        <li class="q" data-id="textos-0" data-grupo="textos"><label class="q__chk"><input type="checkbox" id="textos-0"><span></span></label><div class="q__corpo"><label for="textos-0-n" class="q__txt">Bordão da Dra. (confirmado): “O melhor processo é aquele que nunca foi intentado.” Usar também na assinatura de email e no cartão de visita?</label><div class="sn" role="group" aria-label="Resposta"><label><input type="radio" name="textos-0-sn" value="Sim"><span>Sim</span></label><label><input type="radio" name="textos-0-sn" value="Não"><span>Não</span></label><label><input type="radio" name="textos-0-sn" value="A ver"><span>A ver</span></label></div><textarea id="textos-0-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
         <li class="q" data-id="textos-1" data-grupo="textos"><label class="q__chk"><input type="checkbox" id="textos-1"><span></span></label><div class="q__corpo"><label for="textos-1-n" class="q__txt">Aprova os textos do Sobre e das áreas de atuação?</label><div class="sn" role="group" aria-label="Resposta"><label><input type="radio" name="textos-1-sn" value="Sim"><span>Sim</span></label><label><input type="radio" name="textos-1-sn" value="Não"><span>Não</span></label><label><input type="radio" name="textos-1-sn" value="A ver"><span>A ver</span></label></div><textarea id="textos-1-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
         <li class="q" data-id="textos-2" data-grupo="textos"><label class="q__chk"><input type="checkbox" id="textos-2"><span></span></label><div class="q__corpo"><label for="textos-2-n" class="q__txt">Que serviços quer destacar em Advocacia de empresa (contratos, sociedades, cobranças…)?</label><textarea id="textos-2-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
         <li class="q" data-id="textos-3" data-grupo="textos"><label class="q__chk"><input type="checkbox" id="textos-3"><span></span></label><div class="q__corpo"><label for="textos-3-n" class="q__txt">Aprova os textos jurídicos dos posts (“Sabia que” sobre a legítima, “Mito ou facto” sobre testamentos)?</label><div class="sn" role="group" aria-label="Resposta"><label><input type="radio" name="textos-3-sn" value="Sim"><span>Sim</span></label><label><input type="radio" name="textos-3-sn" value="Não"><span>Não</span></label><label><input type="radio" name="textos-3-sn" value="A ver"><span>A ver</span></label></div><textarea id="textos-3-n" rows="1" placeholder="Resposta / notas"></textarea></div></li>
@@ -692,9 +760,9 @@ Heranças, partilhas e procurações podem começar com uma consulta por videoch
         <div class="meta"><span class="chip chip--ouro">A4</span><span class="chip">Seguidores</span></div>
         <div class="ad-campo__cab"><b>Texto</b><button class="btn btn--mini" type="button" data-texto="Siga para dicas práticas sobre família, heranças e contratos, explicadas de forma simples pela Dra. Sónia Alexandra Santos, advogada desde 2005 em Santa Maria da Feira.
 
-&quot;O melhor processo é aquele que nunca chega a tribunal.&quot;">Copiar</button></div><p class="ad-texto">Siga para dicas práticas sobre família, heranças e contratos, explicadas de forma simples pela Dra. Sónia Alexandra Santos, advogada desde 2005 em Santa Maria da Feira.
+&quot;O melhor processo é aquele que nunca foi intentado.&quot;">Copiar</button></div><p class="ad-texto">Siga para dicas práticas sobre família, heranças e contratos, explicadas de forma simples pela Dra. Sónia Alexandra Santos, advogada desde 2005 em Santa Maria da Feira.
 
-&quot;O melhor processo é aquele que nunca chega a tribunal.&quot;</p>
+&quot;O melhor processo é aquele que nunca foi intentado.&quot;</p>
         <ol class="passos-ad" style="margin:14px 0 0">
           <li>Publicar o post A4 no perfil (ou usar o post 04 “Antes de assinar” e o 07 “Mito ou facto”, os mais úteis).</li>
           <li>Na app do Instagram: <b>Promover</b> → objetivo <b>Mais visitas ao perfil</b>.</li>
@@ -722,8 +790,134 @@ Heranças, partilhas e procurações podem começar com uma consulta por videoch
     </div>
   </section>
 
+  <section class="bloco" id="whatsapp">
+    <div class="cab"><span class="cab__n">07</span><h2>WhatsApp Business: passo a passo</h2><p>Tudo para a Dra. deixar o WhatsApp do escritório completo e profissional: fotos, serviços no catálogo, mensagens automáticas e as configurações de privacidade. Marque cada passo à medida que o faz; o progresso fica guardado neste navegador.</p></div>
+
+    <div class="progresso-r"><span id="wa-contagem">0 de 0 passos feitos</span><div class="barra"><i id="wa-barra" style="width:0%"></i></div></div>
+
+    <div class="wa">
+      <div class="tel tel--wa" aria-label="Pré-visualização do perfil no WhatsApp Business">
+        <div class="tel__ecra">
+          <div class="wa-capa"><img src="whatsapp/capa.jpg" alt=""></div>
+          <div class="wa-perfil">
+            <img class="wa-foto" src="whatsapp/perfil-logo.jpg" alt="">
+            <b>Sónia Alexandra Santos · Advogada</b>
+            <small>Conta comercial · Serviços jurídicos</small>
+          </div>
+          <div class="wa-botoes"><span>Mensagem</span><span>Ligar</span><span>Partilhar</span></div>
+          <p class="wa-desc">Advogada desde 2005, com escritório em Mozelos, Santa Maria da Feira. Advocacia preventiva e de empresa, Família e Sucessões e Atos Notariais…</p>
+          <div class="wa-cat"><span>Catálogo</span><div>
+            <img src="whatsapp/catalogo-01-consulta-videochamada.jpg" alt=""><img src="whatsapp/catalogo-03-herancas-partilhas.jpg" alt=""><img src="whatsapp/catalogo-04-testamentos.jpg" alt=""><img src="whatsapp/catalogo-06-atos-notariais.jpg" alt="">
+          </div></div>
+          <ul class="wa-info">
+            <li><i>📍</i>Rua Dr. Amorim, Ed. Casa do Povo, Loja G, Mozelos</li>
+            <li><i>🕘</i>Aberto · seg. a sex.</li>
+            <li><i>🌐</i>soniasantosadvogada.pt</li>
+          </ul>
+        </div>
+      </div>
+
+      <ol class="wa-passos">
+        <li class="wa-passo" data-id="wa-1">
+          <div class="wa-passo__cab"><label class="wa-chk"><input type="checkbox"><span></span></label><h3><small>Passo 1 · 10 min</small>Número e aplicação</h3></div>
+          <ul>
+            <li>Usar um <b>número só do escritório</b>, não o telemóvel pessoal da Dra.</li>
+            <li>Instalar a app <b>WhatsApp Business</b> (ícone com “B”), não o WhatsApp normal. É gratuita.</li>
+            <li>Se esse número já tem WhatsApp normal: abrir a WhatsApp Business, escolher <b>“Usar este número”</b>. As conversas e grupos passam para a conta comercial.</li>
+            <li>Para responder no computador do escritório: <b>Definições → Dispositivos ligados</b> e ler o QR code em <b>web.whatsapp.com</b> (até 4 computadores com o mesmo número).</li>
+          </ul>
+        </li>
+
+        <li class="wa-passo" data-id="wa-2">
+          <div class="wa-passo__cab"><label class="wa-chk"><input type="checkbox"><span></span></label><h3><small>Passo 2 · 5 min</small>Foto de perfil e capa</h3></div>
+          <p>Em <b>Definições → Ferramentas comerciais → Perfil comercial</b>, tocar na foto e na capa.</p>
+          <div class="wa-fotos">
+            <figure><img src="whatsapp/perfil-logo.jpg" alt="Foto de perfil com o monograma dourado" loading="lazy"><figcaption><b>Recomendada:</b> monograma, igual ao Instagram · <a href="whatsapp/perfil-logo.jpg" download>descarregar</a></figcaption></figure>
+            <figure><img src="whatsapp/perfil-foto.jpg" alt="Foto de perfil com a Dra. Sónia" loading="lazy"><figcaption>Alternativa: foto da Dra. · <a href="whatsapp/perfil-foto.jpg" download>descarregar</a></figcaption></figure>
+            <figure class="wa-fotos__capa"><img src="whatsapp/capa.jpg" alt="Imagem de capa do perfil" loading="lazy"><figcaption>Capa do perfil · <a href="whatsapp/capa.jpg" download>descarregar</a></figcaption></figure>
+          </div>
+          <p class="wa-dica">A foto aparece num círculo pequeno em todas as conversas: o monograma lê-se melhor e mantém a mesma imagem em todas as redes.</p>
+        </li>
+
+        <li class="wa-passo" data-id="wa-3">
+          <div class="wa-passo__cab"><label class="wa-chk"><input type="checkbox"><span></span></label><h3><small>Passo 3 · 10 min</small>Perfil comercial</h3></div>
+          <p>No mesmo ecrã <b>Perfil comercial</b>, preencher todos os campos. Perfis completos transmitem mais confiança.</p>
+          <div class="ad-mini" id="wa-perfil"></div>
+        </li>
+
+        <li class="wa-passo" data-id="wa-4">
+          <div class="wa-passo__cab"><label class="wa-chk"><input type="checkbox"><span></span></label><h3><small>Passo 4 · 20 min</small>Catálogo de serviços</h3></div>
+          <p>Em <b>Ferramentas comerciais → Catálogo → Adicionar novo item</b>. Para cada serviço: imagem, nome, descrição e link. <b>Preço em branco</b>: a Ordem dos Advogados não permite promoções e cada caso é diferente (só a consulta online pode ter o valor, se a Dra. aprovar).</p>
+          <div class="wa-catalogo" id="wa-catalogo"></div>
+          <p class="wa-dica">No fim, partilhar o catálogo: no Instagram (link na bio) e na resposta rápida <code>/servicos</code>.</p>
+        </li>
+
+        <li class="wa-passo" data-id="wa-5">
+          <div class="wa-passo__cab"><label class="wa-chk"><input type="checkbox"><span></span></label><h3><small>Passo 5 · 10 min</small>Mensagens automáticas</h3></div>
+          <p>Em <b>Ferramentas comerciais</b>. Funcionam sozinhas e são gratuitas.</p>
+          <div class="wa-msgs" id="wa-auto"></div>
+        </li>
+
+        <li class="wa-passo" data-id="wa-6">
+          <div class="wa-passo__cab"><label class="wa-chk"><input type="checkbox"><span></span></label><h3><small>Passo 6 · 15 min</small>Respostas rápidas</h3></div>
+          <p>Em <b>Ferramentas comerciais → Respostas rápidas → +</b>. Depois, na conversa, basta escrever <code>/</code> e escolher. Poupam tempo e garantem que todos no escritório respondem da mesma forma.</p>
+          <div class="wa-msgs" id="wa-rapidas"></div>
+        </li>
+
+        <li class="wa-passo" data-id="wa-7">
+          <div class="wa-passo__cab"><label class="wa-chk"><input type="checkbox"><span></span></label><h3><small>Passo 7 · 5 min</small>Etiquetas para organizar os contactos</h3></div>
+          <p>Em <b>Ferramentas comerciais → Etiquetas</b> (ou carregar numa conversa → Etiquetar). Assim ninguém fica sem resposta e vê-se logo quem está à espera de quê.</p>
+          <ul class="wa-etiquetas">
+            <li><i style="background:#7fb8e6"></i><b>Novo contacto</b><span>ainda não respondido</span></li>
+            <li><i style="background:#f2c14e"></i><b>Marcação pendente</b><span>pediu consulta, falta confirmar</span></li>
+            <li><i style="background:#6cc49a"></i><b>Consulta marcada</b><span>já está na agenda</span></li>
+            <li><i style="background:#e3967a"></i><b>Aguarda documentos</b><span>pedimos documentos ao cliente</span></li>
+            <li><i style="background:#b0915f"></i><b>Cliente</b><span>processo em curso</span></li>
+            <li><i style="background:#a99bd6"></i><b>Vive fora</b><span>consultas por videochamada</span></li>
+          </ul>
+        </li>
+
+        <li class="wa-passo" data-id="wa-8">
+          <div class="wa-passo__cab"><label class="wa-chk"><input type="checkbox"><span></span></label><h3><small>Passo 8 · 10 min</small>Privacidade e sigilo profissional</h3></div>
+          <p>Há documentos e dados de clientes no telemóvel: estas definições são obrigatórias.</p>
+          <ul>
+            <li><b>Definições → Conta → Verificação em dois passos:</b> ativar, com PIN de 6 dígitos e email de recuperação. Impede que alguém roube a conta.</li>
+            <li><b>Definições → Privacidade → Bloqueio da app</b> (impressão digital ou Face ID): ativar.</li>
+            <li><b>Definições → Conversas → Visibilidade de multimédia:</b> desligar, para que fotos e documentos de clientes não vão para a galeria do telemóvel.</li>
+            <li><b>Definições → Conversas → Cópia de segurança:</b> ativar a <b>cópia encriptada ponta a ponta</b>.</li>
+            <li><b>Dispositivos ligados:</b> rever uma vez por mês e terminar sessões que não reconheça.</li>
+            <li>Documentos recebidos: guardar no processo do cliente e apagar do telemóvel. Nunca falar de casos nem clientes nos Estados.</li>
+          </ul>
+        </li>
+
+        <li class="wa-passo" data-id="wa-9">
+          <div class="wa-passo__cab"><label class="wa-chk"><input type="checkbox"><span></span></label><h3><small>Passo 9 · 10 min</small>Ligar o WhatsApp a tudo</h3></div>
+          <ul>
+            <li><b>Ferramentas comerciais → Link curto:</b> ativar e colar a mensagem pré-escrita abaixo. Dá um link <code>wa.me/…</code> e um <b>QR code</b>.</li>
+            <li>Enviar o <b>número do WhatsApp</b> para o substituirmos no site (botão flutuante, menu e contactos).</li>
+            <li><b>Instagram:</b> Editar perfil → Adicionar WhatsApp. <b>Facebook:</b> Página → Adicionar botão → Enviar mensagem WhatsApp.</li>
+            <li><b>Perfil da Empresa no Google:</b> acrescentar o link do WhatsApp nos contactos.</li>
+            <li>Imprimir o <b>QR code</b> para a receção e incluir o link na assinatura de email.</li>
+          </ul>
+          <div class="ad-mini"><div><b>Mensagem do link</b><span>Olá! Gostaria de marcar uma consulta.</span><button class="btn btn--mini" data-texto="Olá! Gostaria de marcar uma consulta.">Copiar</button></div></div>
+        </li>
+
+        <li class="wa-passo" data-id="wa-10">
+          <div class="wa-passo__cab"><label class="wa-chk"><input type="checkbox"><span></span></label><h3><small>Passo 10 · contínuo</small>Estados e rotina de atendimento</h3></div>
+          <ul>
+            <li><b>Estados:</b> 2 a 3 por semana, reaproveitando os posts do Instagram (secção 03). Quem tem o número guardado vê-os; é publicidade gratuita.</li>
+            <li><b>Avisos</b> (férias, fecho em feriados): pelos Estados, nunca com mensagens em massa a clientes que não o pediram (RGPD).</li>
+            <li><b>Responder</b> no mesmo dia útil, etiquetar cada conversa e arquivar as resolvidas.</li>
+            <li>Por WhatsApp: informar e marcar. <b>Aconselhamento jurídico só em consulta.</b></li>
+            <li>Uma vez por mês: contar quantas conversas chegaram e quantas viraram consultas (a etiqueta <b>Consulta marcada</b> mostra-o logo).</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <section class="bloco" id="ideias">
-    <div class="cab"><span class="cab__n">07</span><h2>Stories e Reels</h2><p>O que mais faz crescer a audiência. As fotos vêm de uma sessão filmada, por isso há material para vídeos curtos.</p></div>
+    <div class="cab"><span class="cab__n">08</span><h2>Stories e Reels</h2><p>O que mais faz crescer a audiência. As fotos vêm de uma sessão filmada, por isso há material para vídeos curtos.</p></div>
     <div class="ideias">
       <div class="ideia"><p class="eyebrow">Stories · semanal</p><h3>“Pergunte à advogada”</h3><ul><li>Caixa de perguntas à segunda-feira</li><li>Respostas curtas em texto ou vídeo</li><li>As melhores viram posts “Sabia que”</li></ul></div>
       <div class="ideia"><p class="eyebrow">Stories · interação</p><h3>Sondagens “Mito ou facto?”</h3><ul><li>“Pode deserdar um filho?”</li><li>“Os enteados herdam?”</li><li>Resposta no dia seguinte, com link para o site</li></ul></div>
@@ -732,7 +926,7 @@ Heranças, partilhas e procurações podem começar com uma consulta por videoch
   </section>
 
   <section class="bloco" id="regras">
-    <div class="cab"><span class="cab__n">08</span><h2>Regras e aprovação</h2><p>A publicidade de advogados é permitida desde 2024, mas deve ser verdadeira, objetiva e respeitar o sigilo profissional.</p></div>
+    <div class="cab"><span class="cab__n">09</span><h2>Regras e aprovação</h2><p>A publicidade de advogados é permitida desde 2024, mas deve ser verdadeira, objetiva e respeitar o sigilo profissional.</p></div>
     <div class="regras">
       <div class="caixa"><h3>Cuidados em todos os posts</h3><ul>
         <li><b>Nunca</b> falar de casos ou clientes reais, mesmo sem nomes.</li>
@@ -742,7 +936,7 @@ Heranças, partilhas e procurações podem começar com uma consulta por videoch
         <li>Responder a comentários e mensagens no prazo de 24 horas.</li>
       </ul></div>
       <div class="caixa caixa--clara"><h3>Para a Dra. aprovar</h3><ul>
-        <li><b>Citação:</b> “O melhor processo é aquele que nunca chega a tribunal.”</li>
+        <li><b>Bordão:</b> “O melhor processo é aquele que nunca foi intentado.” (confirmado pela Dra.; usar em todas as redes).</li>
         <li><b>Textos jurídicos:</b> o “Sabia que” sobre a legítima e o “Mito ou facto” sobre testamentos.</li>
         <li><b>Nome do perfil:</b> @soniasantosadvogada (confirmar se está livre).</li>
         <li><b>Legendas do LinkedIn</b> na primeira pessoa.</li>
@@ -799,11 +993,11 @@ Rua Dr. Amorim, Ed. Casa do Povo, Loja G
 Para reuniões presenciais e atos notariais. Indicações de como chegar em soniasantosadvogada.pt`,
     tags: TAGS_BASE + ' #escritoriodeadvocacia' },
   { n: '06', titulo: 'Citação', tema: 'Proximidade', imgs: ['06-citacao'],
-    legenda: `“O melhor processo é aquele que nunca chega a tribunal.”
+    legenda: `“O melhor processo é aquele que nunca foi intentado.”
 — Dra. Sónia Alexandra Santos
 
 Rever um contrato antes de o assinar, planear uma partilha ou preparar um testamento a tempo: é assim que a advocacia preventiva evita litígios.`,
-    tags: TAGS_BASE + ' #advocaciapreventiva', aviso: 'Citação: aprovar' },
+    tags: TAGS_BASE + ' #advocaciapreventiva' },
   { n: '07', titulo: 'Testamentos: mito ou facto?', tema: 'Educar', imgs: ['07-mito-facto'],
     legenda: `Mito ou facto?
 
@@ -832,8 +1026,8 @@ Desde 2005 que acompanho pessoas, famílias e empresas. O site reúne as áreas 
 
 Obrigada a todos os que confiam no nosso trabalho.`,
     tags: '#advocacia #advocaciapreventiva #santamariadafeira' },
-  { n: 'L2', titulo: 'Citação', img: 'L2-citacao', aviso: 'Citação: aprovar',
-    legenda: `“O melhor processo é aquele que nunca chega a tribunal.”
+  { n: 'L2', titulo: 'Citação', img: 'L2-citacao',
+    legenda: `“O melhor processo é aquele que nunca foi intentado.”
 
 É a ideia que orienta a minha prática há mais de 20 anos. Um contrato bem revisto, uma partilha planeada a tempo ou um testamento bem preparado evitam meses, por vezes anos, de litígio.
 
@@ -986,6 +1180,117 @@ document.addEventListener('click', e => {
     qs.forEach(q => { q.querySelectorAll('input').forEach(i => i.checked = false); const ta = q.querySelector('textarea'); ta.value = ''; ta.style.height = ''; });
     atualizar(); aviso.textContent = 'Respostas apagadas.';
   };
+})();
+
+// ===== WhatsApp Business: textos prontos e passos feitos (guardado só neste navegador) =====
+(function () {
+  const SITE = 'https://soniasantosadvogada.pt';
+  const botao = (t, rotulo = 'Copiar') => { const b = document.createElement('button'); b.className = 'btn btn--mini'; b.dataset.texto = t; b.textContent = rotulo; return b; };
+  const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+
+  const PERFIL = [
+    ['Nome', 'Sónia Alexandra Santos · Advogada'],
+    ['Categoria', 'Serviços jurídicos'],
+    ['Descrição', 'Advogada desde 2005, com escritório em Mozelos, Santa Maria da Feira. Advocacia preventiva e de empresa, Direito da Família e Sucessões (heranças, partilhas, testamentos, divórcios, responsabilidades parentais) e Atos Notariais. Consultas no escritório ou por videochamada, em português e inglês. “O melhor processo é aquele que nunca foi intentado.”'],
+    ['Morada', 'Rua Dr. Amorim, Ed. Casa do Povo, Loja G, 4535-211 Mozelos'],
+    ['Horário', 'Seg. a sex.: [confirmar, ex.: 9h30–13h e 14h30–19h] · Sáb. e dom.: fechado'],
+    ['Email', '[email do escritório]'],
+    ['Site 1', SITE],
+    ['Site 2', 'https://www.instagram.com/soniasantosadvogada'],
+  ];
+  const perfil = document.getElementById('wa-perfil');
+  PERFIL.forEach(([k, v]) => {
+    const d = el('div'); d.append(el('b', null, k), el('span', null, v));
+    d.append(v.startsWith('[') || v.includes('[confirmar') ? el('small', null, 'a preencher') : botao(v));
+    perfil.append(d);
+  });
+
+  const CAT = [
+    ['01-consulta-videochamada', 'Consulta por videochamada', 'Consulta online de 30 minutos, em português ou inglês, onde quer que esteja. Ouvimos a sua situação e explicamos as opções, os prazos e os custos.', SITE + '/#online'],
+    ['02-consulta-escritorio', 'Consulta no escritório', 'Reunião presencial no escritório em Mozelos, Santa Maria da Feira. Marcação prévia.', SITE + '/#escritorio'],
+    ['03-herancas-partilhas', 'Heranças, inventários e partilhas', 'Habilitação de herdeiros, inventários judiciais e extrajudiciais e partilhas de bens entre herdeiros.', SITE + '/#areas'],
+    ['04-testamentos', 'Testamentos', 'Preparação de testamentos para organizar a herança a tempo, dentro dos limites da lei.', SITE + '/#areas'],
+    ['05-divorcio-parentais', 'Divórcio e responsabilidades parentais', 'Divórcio por mútuo consentimento ou litigioso, regulação das responsabilidades parentais, alimentos e separação de pessoas e bens.', SITE + '/#areas'],
+    ['06-atos-notariais', 'Atos notariais e registos', 'Procurações, reconhecimento de assinaturas, autenticação e tradução de documentos, DPA, registo predial e automóvel, autorização de saída de menores.', SITE + '/#areas'],
+    ['07-empresas', 'Advocacia de empresa', 'Contratos, constituição e alteração de sociedades e cobranças, com uma abordagem preventiva: analisar antes de assinar.', SITE + '/#areas'],
+    ['08-vive-fora', 'Para quem vive fora de Portugal', 'Heranças, procurações e registos em Portugal tratados à distância, com consultas por videochamada.', SITE + '/#online'],
+  ];
+  const cat = document.getElementById('wa-catalogo');
+  CAT.forEach(([f, nome, desc, link]) => {
+    const src = `whatsapp/catalogo-${f}.jpg`;
+    const it = el('div', 'wa-item'), img = el('img'); img.src = src; img.alt = ''; img.loading = 'lazy';
+    const corpo = el('div'), ac = el('div', 'acoes'), dl = el('a', 'btn btn--mini', 'Imagem');
+    dl.href = src; dl.setAttribute('download', '');
+    ac.append(botao(nome, 'Nome'), botao(desc, 'Descrição'), botao(link, 'Link'), dl);
+    corpo.append(el('b', null, nome), el('p', null, desc), el('small', null, link.replace('https://', '')), ac);
+    it.append(img, corpo); cat.append(it);
+  });
+
+  const msg = (alvo, [titulo, nota, texto]) => {
+    const d = el('div', 'wa-msg'), cab = el('div', 'ad-campo__cab'), t = el('b', null, titulo);
+    if (nota) { t.append(' '); t.append(el('em', null, nota)); }
+    cab.append(t, botao(texto)); d.append(cab, el('p', 'wa-balao', texto));
+    document.getElementById(alvo).append(d);
+  };
+  [
+    ['Mensagem de saudação', 'enviar a: novos clientes e a quem não fala há 14 dias', `Olá! Obrigada pelo contacto com o escritório da Dra. Sónia Alexandra Santos, Advogada.
+
+Diga-nos, por favor, o seu nome e o assunto (por ex.: herança, divórcio, contrato, procuração) e respondemos com a maior brevidade.
+
+Pode também marcar a sua consulta, no escritório ou por videochamada, em soniasantosadvogada.pt
+
+“O melhor processo é aquele que nunca foi intentado.”`],
+    ['Mensagem de ausência', 'agendar: fora do horário de funcionamento', `Olá! De momento o escritório está fechado.
+
+Recebemos a sua mensagem e respondemos no próximo dia útil.
+
+Se preferir, marque já a sua consulta em soniasantosadvogada.pt`],
+  ].forEach(m => msg('wa-auto', m));
+  [
+    ['/marcar', 'pedido de consulta', `Com todo o gosto! Pode marcar a consulta diretamente em soniasantosadvogada.pt (no escritório ou por videochamada).
+
+Se preferir, indique-nos dois ou três dias e horas que lhe dão jeito e confirmamos por aqui.`],
+    ['/morada', null, `O escritório fica na Rua Dr. Amorim, Ed. Casa do Povo, Loja G, 4535-211 Mozelos (Santa Maria da Feira).
+
+Indicações e mapa: soniasantosadvogada.pt`],
+    ['/horario', null, `O nosso horário é de segunda a sexta-feira, [horário a confirmar].
+
+As consultas são sempre por marcação.`],
+    ['/videochamada', null, `As consultas por videochamada têm 30 minutos e podem ser feitas a partir de qualquer país, em português ou inglês.
+
+Marque o dia e a hora em soniasantosadvogada.pt e receberá o link da reunião por email.`],
+    ['/documentos', 'antes da consulta', `Para aproveitar melhor a consulta, traga (ou envie por email) os documentos que tiver sobre o assunto: por exemplo, contratos, cadernetas prediais, certidões ou cartas recebidas.
+
+Por segurança, pedimos que não envie documentos pessoais por WhatsApp.`],
+    ['/aconselhamento', 'quando pedem um parecer por mensagem', `Obrigada pela sua questão. Para lhe dar uma resposta correta precisamos de conhecer bem a sua situação, o que só é possível em consulta.
+
+Pode marcá-la em soniasantosadvogada.pt, no escritório ou por videochamada.`],
+    ['/servicos', null, `Estas são as áreas em que trabalhamos: veja o nosso catálogo aqui no WhatsApp ou em soniasantosadvogada.pt
+
+Diga-nos qual é o seu assunto e indicamos o próximo passo.`],
+    ['/obrigada', 'depois da consulta', `Obrigada pela sua confiança. Qualquer questão, estamos ao dispor por aqui ou pelo email do escritório.
+
+Dra. Sónia Alexandra Santos`],
+  ].forEach(m => msg('wa-rapidas', m));
+
+  // Progresso dos passos
+  const CHAVE = 'whatsapp-dra-sonia';
+  let feitos = {};
+  try { feitos = JSON.parse(localStorage.getItem(CHAVE) || '{}'); } catch (e) {}
+  const passos = [...document.querySelectorAll('.wa-passo')];
+  const atualizar = () => {
+    const n = passos.filter(p => p.querySelector('.wa-chk input').checked).length;
+    document.getElementById('wa-contagem').textContent = `${n} de ${passos.length} passos feitos`;
+    document.getElementById('wa-barra').style.width = (n / passos.length * 100) + '%';
+    passos.forEach(p => p.classList.toggle('feito', p.querySelector('.wa-chk input').checked));
+  };
+  passos.forEach(p => {
+    const c = p.querySelector('.wa-chk input');
+    c.setAttribute('aria-label', 'Feito: ' + p.querySelector('h3').lastChild.textContent);
+    c.checked = !!feitos[p.dataset.id];
+    c.addEventListener('change', () => { feitos[p.dataset.id] = c.checked; try { localStorage.setItem(CHAVE, JSON.stringify(feitos)); } catch (e) {} atualizar(); });
+  });
+  atualizar();
 })();
 
 // Botões "Copiar" dos anúncios

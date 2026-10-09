@@ -179,6 +179,22 @@ section { position: relative; }
 .online__grid > * { min-width: 0; }
 .detalhe { display: inline-flex; align-items: center; gap: 12px; margin: 4px 0 6px; padding: 10px 16px; border: 1px solid var(--linha); border-radius: 40px; font-size: .84rem; color: var(--tinta); background: var(--fundo); }
 .detalhe::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--acento); }
+.precos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 6px 0 4px; max-width: 520px; }
+.preco-c { background: var(--fundo); border: 1px solid var(--linha); border-top: 2px solid var(--acento); border-radius: 4px; padding: 14px 16px; display: grid; gap: 2px; }
+.preco-c span { font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--suave); font-weight: 500; }
+.preco-c b { font: 400 1.9rem/1.1 var(--serif); color: var(--tinta); font-variant-numeric: tabular-nums; }
+.preco-c b small { font: 500 .78rem var(--sans); color: var(--acento); letter-spacing: .06em; }
+.preco-c em { font-family: var(--sans); font-style: normal; font-size: .78rem; color: var(--suave); }
+.tipos { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.tipo { position: relative; }
+.tipo input { position: absolute; opacity: 0; pointer-events: none; }
+.tipo > span { display: grid; gap: 2px; padding: 12px 14px; border: 1px solid var(--linha); border-radius: 4px; background: var(--claro); cursor: pointer; transition: .3s var(--ease); }
+.tipo b { font-weight: 500; font-size: .86rem; color: var(--tinta); }
+.tipo small { font-size: .78rem; color: var(--suave); }
+.tipo > span:hover { border-color: var(--acento); }
+.tipo input:checked + span { border-color: var(--acento); background: var(--acento); }
+.tipo input:checked + span b, .tipo input:checked + span small { color: #fff; }
+.tipo input:focus-visible + span { outline: 2px solid var(--acento); outline-offset: 2px; }
 .linguas { margin: 10px 0 0; font-size: .84rem; color: var(--suave); }
 .linguas b { font-weight: 500; letter-spacing: .14em; color: var(--tinta); margin-left: 4px; }
 .agenda { background: var(--claro); border: 1px solid var(--linha); border-radius: 4px; overflow: hidden; box-shadow: 0 40px 80px -45px rgba(79, 64, 53, .5); }

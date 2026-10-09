@@ -6,7 +6,19 @@
 const AGENDA_URL = '';
 // Alternativa sem Google Calendar: link de pagamento (Stripe Payment Link, SumUp, easypay).
 const PAGAMENTO_URL = '';
-const HORAS = ['10:00', '11:00', '12:00', '14:30', '15:30', '16:30', '17:30'];
+// Consultas: duração e preço (sem IVA). Horário do escritório: segunda a sexta, 10h–18h; 15 min entre consultas.
+const CONSULTAS = {
+  online: { min: 30, preco: 35, tipo: 'Consulta online por videochamada (30 min, 35 € + IVA)' },
+  presencial: { min: 60, preco: 70, tipo: 'Consulta presencial no escritório (60 min, 70 € + IVA)' },
+};
+const ABERTURA = 10 * 60, FECHO = 18 * 60, INTERVALO = 15, IVA = 0.23;
+function horasPara(tipo) {
+  const dur = CONSULTAS[tipo].min, lista = [];
+  for (let m = ABERTURA; m + dur <= FECHO; m += dur + INTERVALO) lista.push(`${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`);
+  return lista;
+}
+const tipoAtual = () => document.querySelector('input[name="Modalidade"]:checked')?.value || 'online';
+const euros = v => new Intl.NumberFormat('pt-PT', { style: 'currency', currency: 'EUR' }).format(v);
 const DIAS_DISPONIVEIS = 15; // dias úteis mostrados na marcação
 // Disponibilidade real (opcional): endereço que recebe ?dia=AAAA-MM-DD e devolve as horas livres em JSON,
 // ex.: ["10:00","14:30"]. Pode ser um Google Apps Script ligado ao Google Calendar da Dra.
@@ -137,8 +149,8 @@ const painelContinuar = document.getElementById('painel-continuar');
 const estadoHoras = document.getElementById('horas-estado');
 let pedidoHoras = 0;
 async function obterHorarios(dia) {
-  if (!DISPONIBILIDADE_URL) { await new Promise(r => setTimeout(r, 450)); return HORAS; }
-  const r = await fetch(`${DISPONIBILIDADE_URL}${DISPONIBILIDADE_URL.includes('?') ? '&' : '?'}dia=${dia}`);
+  if (!DISPONIBILIDADE_URL) { await new Promise(r => setTimeout(r, 450)); return horasPara(tipoAtual()); }
+  const r = await fetch(`${DISPONIBILIDADE_URL}${DISPONIBILIDADE_URL.includes('?') ? '&' : '?'}dia=${dia}&tipo=${tipoAtual()}`);
   if (!r.ok) throw new Error(r.status);
   return r.json();
 }
@@ -159,6 +171,12 @@ async function mostrarHoras(dia) {
   caixaHoras.innerHTML = horas.map((h, i) => `<label class="opcao" style="animation-delay:${i * 40}ms"><input type="radio" name="hora" value="${h}"><span>${h}</span></label>`).join('');
 }
 caixaDatas.addEventListener('change', e => { if (e.target.name === 'dia') mostrarHoras(e.target.value); });
+document.querySelectorAll('input[name="Modalidade"]').forEach(r => r.addEventListener('change', () => {
+  reserva.elements['Tipo de pedido'].value = CONSULTAS[tipoAtual()].tipo;
+  const dia = reserva.querySelector('input[name="dia"]:checked')?.value;
+  if (dia) mostrarHoras(dia);
+  atualizarResumo();
+}));
 caixaHoras.addEventListener('change', e => { if (e.target.name === 'hora') painelContinuar.classList.add('aberto'); });
 document.querySelectorAll('[data-dias]').forEach(b => b.addEventListener('click', () => {
   caixaDatas.scrollBy({ left: Math.sign(+b.dataset.dias) * caixaDatas.clientWidth, behavior: 'smooth' });
@@ -173,6 +191,9 @@ function dataEscolhida() {
   return `${txt} · ${hora}`;
 }
 function atualizarResumo() {
+  const c = CONSULTAS[tipoAtual()];
+  document.getElementById('resumo-tipo').textContent = t(tipoAtual() === 'online' ? 'res.online' : 'res.presencial');
+  document.getElementById('resumo-total').textContent = `${euros(c.preco)} + IVA (${euros(c.preco * (1 + IVA))})`;
   document.getElementById('resumo-data').textContent = dataEscolhida() || '—';
   document.getElementById('resumo-nome').textContent = reserva.querySelector('#r-nome').value || '—';
 }

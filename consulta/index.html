@@ -76,6 +76,7 @@
     .lp-escolha { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .lp-escolha label { position: relative; }
     .lp-escolha input { position: absolute; opacity: 0; pointer-events: none; }
+    .lp-escolha span small { opacity: .8; font-size: .78rem; }
     .lp-escolha span { display: block; text-align: center; padding: 12px 10px; border: 1px solid var(--linha); border-radius: 4px; background: var(--fundo); font-size: .88rem; color: var(--texto); letter-spacing: 0; text-transform: none; font-weight: 400; cursor: pointer; transition: .25s; }
     .lp-escolha input:checked + span { background: var(--acento); border-color: var(--acento); color: #fff; }
     .lp-escolha input:focus-visible + span { outline: 2px solid var(--acento); outline-offset: 2px; }
@@ -134,8 +135,7 @@
           <p class="lead">Uma consulta com a Dra. Sónia Alexandra Santos para perceber a sua situação, conhecer os seus direitos e saber qual o melhor caminho. No escritório em Mozelos ou por videochamada.</p>
           <div class="lp-acoes">
             <a href="#pedido" class="btn btn--ouro"><span>Pedir marcação</span></a>
-            <!-- TODO: substituir pelo número real de WhatsApp -->
-            <a href="https://wa.me/351000000000" class="btn btn--linha" target="_blank" rel="noopener"><span>Falar pelo WhatsApp</span></a>
+            <a href="https://wa.me/351964822700" class="btn btn--linha" target="_blank" rel="noopener"><span>Falar pelo WhatsApp</span></a>
           </div>
           <ul class="lp-confianca">
             <li>Advogada desde 2005</li>
@@ -171,8 +171,8 @@
           <h2>Simples, claro e <em class="ouro-texto">ao seu ritmo</em></h2>
         </div>
         <ol class="lp-passos">
-          <li><div><b>Pede a marcação</b><span>Preencha o formulário ou envie mensagem. Respondemos para combinar o dia e a hora.</span></div></li>
-          <li><div><b>Consulta de 30 minutos</b><span>No escritório ou por videochamada. Ouvimos a situação e explicamos as opções, os prazos e os custos.</span></div></li>
+          <li><div><b>Pede a marcação</b><span>Preencha o formulário ou envie mensagem. Respondemos no mesmo dia útil para combinar o dia e a hora.</span></div></li>
+          <li><div><b>Consulta online ou presencial</b><span>Por Google Meet (30 min, 35 € + IVA) ou no escritório (60 min, 70 € + IVA). Ouvimos a situação e explicamos as opções, os prazos e os custos.</span></div></li>
           <li><div><b>Decide com segurança</b><span>Se quiser avançar, tratamos de tudo e mantemo-lo informado em cada etapa.</span></div></li>
         </ol>
       </div>
@@ -200,11 +200,11 @@
           <p class="eyebrow">Pedir marcação</p>
           <h2>Peça a sua <em class="ouro-texto">marcação</em></h2>
           <p class="lead">Deixe os seus dados e a melhor forma de o contactar. Respondemos com brevidade para combinar a consulta.</p>
-          <!-- TODO: substituir pelos contactos reais -->
           <ul class="lp-contactos">
-            <li><small>Telefone</small><a href="tel:+351000000000">[telefone]</a></li>
+            <li><small>Telefone</small><a href="tel:+351964822700">964 822 700</a></li>
+            <li><small>Email</small><a href="mailto:geral@soniasantosadvogada.pt">geral@soniasantosadvogada.pt</a></li>
             <li><small>Morada</small><span>Rua Dr. Amorim, Ed. Casa do Povo, Loja G<br>4535-211 Mozelos, Santa Maria da Feira</span></li>
-            <li><small>Horário</small><span>[horário]</span></li>
+            <li><small>Horário</small><span>Segunda a sexta, 10h–18h</span></li>
           </ul>
         </div>
 
@@ -232,8 +232,8 @@
               <fieldset style="border:0;padding:0;margin:0;display:grid;gap:8px">
                 <legend class="campo" style="margin-bottom:8px">Prefere</legend>
                 <div class="lp-escolha">
-                  <label><input type="radio" name="Modalidade" value="No escritório (Mozelos)" checked><span>No escritório</span></label>
-                  <label><input type="radio" name="Modalidade" value="Por videochamada"><span>Por videochamada</span></label>
+                  <label><input type="radio" name="Modalidade" value="Presencial no escritório (60 min, 70 € + IVA)" checked><span>No escritório · 60 min<br><small>70 € + IVA</small></span></label>
+                  <label><input type="radio" name="Modalidade" value="Online por Google Meet (30 min, 35 € + IVA)"><span>Por videochamada · 30 min<br><small>35 € + IVA</small></span></label>
                 </div>
               </fieldset>
               <label class="campo" for="c-msg">Em poucas palavras, qual é a situação? (opcional)<textarea id="c-msg" name="Mensagem" rows="3"></textarea></label>
@@ -275,11 +275,12 @@
         <a href="https://www.instagram.com/soniasantosadvogada" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
         <a href="https://www.linkedin.com/in/soniasantosadvogada" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9.75h4v11H3zm7 0h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"/></svg></a>
       </div>
+    <p>Cédula profissional n.º 10985P · Inscrita na <a href="https://portal.oa.pt" target="_blank" rel="noopener">Ordem dos Advogados</a></p>
     <p>© <span id="ano">2026</span> Sónia Alexandra Santos — Advogada, RL · <a href="../">Site principal</a> · <a href="../privacidade.html">Política de Privacidade</a> · <a href="#" data-cookies>Definições de cookies</a></p>
   </footer>
 
   <nav class="lp-barra" aria-label="Ações rápidas">
-    <a href="https://wa.me/351000000000" class="btn btn--linha" target="_blank" rel="noopener" aria-label="WhatsApp"><span>WhatsApp</span></a>
+    <a href="https://wa.me/351964822700" class="btn btn--linha" target="_blank" rel="noopener" aria-label="WhatsApp"><span>WhatsApp</span></a>
     <a href="#pedido" class="btn btn--ouro"><span>Pedir marcação</span></a>
   </nav>
 

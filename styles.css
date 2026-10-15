@@ -243,6 +243,8 @@ section { position: relative; }
 .horas__estado[hidden] { display: none; }
 .horas__estado { margin: 0; display: flex; align-items: center; gap: 10px; font-size: .84rem; color: var(--suave); }
 .horas__estado .gira { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--linha); border-top-color: var(--acento); animation: rodar .8s linear infinite; }
+.dias__vazio { display: flex; align-items: center; gap: 10px; margin: 0; padding: 14px 4px; font-size: .9rem; color: var(--suave); }
+.dias__vazio .gira { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--linha); border-top-color: var(--acento); animation: rodar .8s linear infinite; }
 .opcao { position: relative; }
 .opcao input { position: absolute; opacity: 0; pointer-events: none; }
 .opcao span {

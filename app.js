@@ -20,10 +20,13 @@ function horasPara(tipo) {
 const tipoAtual = () => document.querySelector('input[name="Modalidade"]:checked')?.value || 'online';
 const euros = v => new Intl.NumberFormat('pt-PT', { style: 'currency', currency: 'EUR' }).format(v);
 const DIAS_DISPONIVEIS = 15; // dias úteis mostrados na marcação
-// Disponibilidade real (opcional): endereço que recebe ?dia=AAAA-MM-DD e devolve as horas livres em JSON,
-// ex.: ["10:00","14:30"]. Pode ser um Google Apps Script ligado ao Google Calendar da Dra.
-// Vazio = usa a lista HORAS acima.
+// Google Calendar da Dra.: endereço da aplicação web do Google Apps Script (pasta google-agenda/, ver LEIA-ME.md),
+// ex.: 'https://script.google.com/macros/s/XXXX/exec'. Com ele preenchido, o site só mostra os dias e horas
+// livres no calendário e cada pedido fica marcado no calendário até a Dra. confirmar.
+// Vazio = mostra o horário do escritório (segunda a sexta, 10h–18h) e a Dra. confirma por email.
 const DISPONIBILIDADE_URL = '';
+const urlAgenda = params => `${DISPONIBILIDADE_URL}${DISPONIBILIDADE_URL.includes('?') ? '&' : '?'}${new URLSearchParams(params)}`;
+let diasLivres = null; // dias com horas livres, vindos do Google Calendar
 
 // ===== Idiomas =====
 const IDIOMAS = ['pt', 'en', 'fr', 'de', 'it'];
@@ -139,7 +142,9 @@ function montarDatas() {
   const loc = LOCALE[idioma];
   const fSem = new Intl.DateTimeFormat(loc, { weekday: 'short' });
   const fMes = new Intl.DateTimeFormat(loc, { month: 'short' });
-  caixaDatas.innerHTML = diasUteis(DIAS_DISPONIVEIS).map(d => `
+  const dias = diasLivres ? diasLivres.map(s => { const [a, m, d] = s.split('-').map(Number); return new Date(a, m - 1, d, 12); }) : diasUteis(DIAS_DISPONIVEIS);
+  if (diasLivres && !dias.length) { caixaDatas.innerHTML = `<p class="dias__vazio">${t('res.semVagas')}</p>`; return; }
+  caixaDatas.innerHTML = dias.map(d => `
     <label class="opcao" title="${new Intl.DateTimeFormat(loc, { weekday: 'long', day: 'numeric', month: 'long' }).format(d)}"><input type="radio" name="dia" value="${iso(d)}" ${iso(d) === escolhida ? 'checked' : ''}>
       <span><small>${fSem.format(d).replace('.', '').slice(0, 3)}</small><b>${d.getDate()}</b><small>${fMes.format(d).replace('.', '')}</small></span></label>`).join('');
 }
@@ -150,9 +155,38 @@ const estadoHoras = document.getElementById('horas-estado');
 let pedidoHoras = 0;
 async function obterHorarios(dia) {
   if (!DISPONIBILIDADE_URL) { await new Promise(r => setTimeout(r, 450)); return horasPara(tipoAtual()); }
-  const r = await fetch(`${DISPONIBILIDADE_URL}${DISPONIBILIDADE_URL.includes('?') ? '&' : '?'}dia=${dia}&tipo=${tipoAtual()}`);
+  const r = await fetch(urlAgenda({ acao: 'horas', dia, tipo: tipoAtual() }));
   if (!r.ok) throw new Error(r.status);
-  return r.json();
+  const horas = await r.json();
+  if (!Array.isArray(horas)) throw new Error('resposta inválida');
+  return horas;
+}
+// Dias com vagas no Google Calendar (só quando a agenda está ligada)
+let pedidoDias = 0;
+async function carregarDias() {
+  if (!DISPONIBILIDADE_URL) return;
+  const n = ++pedidoDias;
+  caixaDatas.innerHTML = `<p class="dias__vazio"><span class="gira" aria-hidden="true"></span>${t('res.aVerificar')}</p>`;
+  try {
+    const r = await fetch(urlAgenda({ acao: 'dias', tipo: tipoAtual() }));
+    const dias = await r.json();
+    if (n !== pedidoDias) return;
+    diasLivres = Array.isArray(dias) ? dias : null;
+  } catch (e) {
+    if (n !== pedidoDias) return;
+    diasLivres = null; // sem ligação: mostra os dias úteis e a Dra. confirma por email
+  }
+  montarDatas();
+}
+// Marca o pedido no Google Calendar. text/plain evita o pedido prévio de CORS do Apps Script.
+async function reservarNaAgenda(dados) {
+  if (!DISPONIBILIDADE_URL) return { ok: true };
+  try {
+    const r = await fetch(DISPONIBILIDADE_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ acao: 'reservar', ...dados }) });
+    return await r.json();
+  } catch (e) {
+    return { ok: true, semAgenda: true }; // o pedido segue por email na mesma
+  }
 }
 async function mostrarHoras(dia) {
   const n = ++pedidoHoras;
@@ -174,7 +208,12 @@ caixaDatas.addEventListener('change', e => { if (e.target.name === 'dia') mostra
 document.querySelectorAll('input[name="Modalidade"]').forEach(r => r.addEventListener('change', () => {
   reserva.elements['Tipo de pedido'].value = CONSULTAS[tipoAtual()].tipo;
   const dia = reserva.querySelector('input[name="dia"]:checked')?.value;
-  if (dia) mostrarHoras(dia);
+  if (DISPONIBILIDADE_URL) {
+    // Uma consulta presencial (60 min) pode não caber onde cabe uma online: recarrega os dias e fecha as horas
+    painelHoras.classList.remove('aberto'); painelContinuar.classList.remove('aberto');
+    document.querySelector('.dias__dica').classList.remove('oculta');
+    carregarDias().then(() => { const el = caixaDatas.querySelector(`input[value="${dia}"]`); if (el) { el.checked = true; mostrarHoras(dia); } });
+  } else if (dia) mostrarHoras(dia);
   atualizarResumo();
 }));
 caixaHoras.addEventListener('change', e => { if (e.target.name === 'hora') painelContinuar.classList.add('aberto'); });
@@ -254,7 +293,16 @@ reserva.addEventListener('submit', async e => {
   const dataPT = dia ? new Intl.DateTimeFormat('pt-PT', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(ano, mes - 1, d)) + ' às ' + hora : '';
   botao.disabled = true; erro.hidden = true;
   try {
-    await enviarFormulario(reserva, { 'Data e hora pedida': dataPT, 'Idioma do site': idioma.toUpperCase() });
+    const v = id => reserva.querySelector(id).value;
+    const agenda = await reservarNaAgenda({ dia, hora, tipo: tipoAtual(), nome: v('#r-nome'), email: v('#r-email'), telefone: v('#r-tel'), assunto: v('#r-area'), mensagem: v('#r-msg'), idioma: idioma.toUpperCase() });
+    if (agenda.ok === false && agenda.motivo === 'ocupado') {
+      // Alguém marcou esta hora entretanto: volta à escolha de horas, já atualizadas
+      alert(t('res.ocupada'));
+      irPara(1);
+      mostrarHoras(dia);
+      return;
+    }
+    await enviarFormulario(reserva, { 'Data e hora pedida': dataPT, 'Idioma do site': idioma.toUpperCase(), 'Google Calendar': agenda.semAgenda || !DISPONIBILIDADE_URL ? 'Não marcado: marcar à mão' : 'Marcado como pedido (amarelo)' });
     irPara(4);
     medir('marcacao');
     const tipoTxt = t(tipoAtual() === 'online' ? 'res.online' : 'res.presencial');
@@ -350,3 +398,4 @@ if (!inicial) {
   inicial = IDIOMAS.includes(nav2) ? nav2 : 'pt';
 }
 aplicarIdioma(inicial);
+carregarDias();

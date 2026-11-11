@@ -1,0 +1,30 @@
+# Ambiente completo: PostgreSQL + Redis + servidor (que também serve o cliente compilado).
+# Uso: docker compose up --build   →   http://localhost:3001
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: bairro
+      POSTGRES_PASSWORD: bairro
+      POSTGRES_DB: bairro
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bairro"]
+      interval: 5s
+      retries: 10
+  redis:
+    image: redis:7-alpine
+  app:
+    build: .
+    depends_on:
+      db: { condition: service_healthy }
+      redis: { condition: service_started }
+    environment:
+      DATABASE_URL: postgresql://bairro:bairro@db:5432/bairro?schema=public
+      REDIS_URL: redis://redis:6379
+      PORT: 3001
+      WEB_ORIGIN: http://localhost:3001
+      COOKIE_SECURE: "false"
+    ports: ["3001:3001"]
+volumes:
+  pgdata:

@@ -1,0 +1,18 @@
+{
+  "name": "bairro-pt",
+  "private": true,
+  "version": "0.1.0",
+  "description": "BAIRRO.PT — mundo social virtual português (multijogador, isométrico, pixel-art)",
+  "workspaces": ["packages/*", "apps/*"],
+  "scripts": {
+    "dev": "npm run dev -w @bairro/server & npm run dev -w @bairro/web",
+    "build": "npm run build -w @bairro/web",
+    "start": "npm run start -w @bairro/server",
+    "db:migrate": "npm run db:migrate -w @bairro/server",
+    "db:deploy": "npm run db:deploy -w @bairro/server",
+    "db:seed": "npm run db:seed -w @bairro/server",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test -w @bairro/server"
+  },
+  "engines": { "node": ">=22.9" }
+}

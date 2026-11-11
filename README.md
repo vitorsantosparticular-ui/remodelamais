@@ -42,3 +42,7 @@ Protótipo de um jogo 2D isométrico (estilo hotel de pixéis, 2010) num bairro 
 - Toca no chão para andar (A* em 8 direções); arrasta para mover a câmara.
 - ☕ Café A Bica: trabalhar (4h, +28 €), bica e pastel de nata · 🔑 Tejo Imóveis: arrendar à semana · 🏠 Casa (Prédio Nº 28): dormir.
 - Dinheiro, energia, dia/hora, casa e posição guardados no `localStorage` (`vidaLisboa.v1`).
+
+## BAIRRO.PT (`/bairro`)
+Mundo social virtual multijogador (Node + PostgreSQL + Redis + React/PixiJS). Não faz parte do site: está excluído
+da publicação (Netlify devolve 404 em `/bairro/*`; `.vercelignore`). Instruções em `bairro/README.md`.

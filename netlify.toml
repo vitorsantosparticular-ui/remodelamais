@@ -35,6 +35,13 @@
   status = 404
   force = true
 
+# BAIRRO.PT (código do jogo multijogador): não publicar com o site
+[[redirects]]
+  from = "/bairro/*"
+  to = "/"
+  status = 404
+  force = true
+
 [[redirects]]
   from = "/netlify.toml"
   to = "/"

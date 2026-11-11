@@ -1,0 +1,171 @@
+// BAIRRO.PT — modelo de dados (fase 1/2). Ver ARCHITECTURE.md.
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  PLAYER
+  MODERATOR
+  ADMIN
+}
+
+enum AccountStatus {
+  ACTIVE
+  SUSPENDED
+  DELETED
+}
+
+enum Rarity {
+  COMMON
+  UNCOMMON
+  RARE
+  EPIC
+  LEGENDARY
+  LIMITED
+}
+
+enum RoomAccess {
+  OPEN
+  OWNER_ONLY
+}
+
+model User {
+  id            String        @id @default(cuid())
+  username      String        @unique
+  usernameLower String        @unique
+  passwordHash  String
+  /// Só o ano: o mínimo para saber se é menor (RGPD — minimização de dados).
+  birthYear     Int
+  role          Role          @default(PLAYER)
+  status        AccountStatus @default(ACTIVE)
+  motto         String        @default("")
+  figure        Json
+  /// Saldos: só o servidor altera (fase 3 acrescenta o livro-razão de transações).
+  credits       Int           @default(500)
+  diamonds      Int           @default(0)
+  homeRoomId    String?       @unique
+  lastRoomId    String?
+  lastX         Int?
+  lastY         Int?
+  createdAt     DateTime      @default(now())
+  lastLoginAt   DateTime?
+
+  sessions     Session[]
+  roomsOwned   Room[]          @relation("RoomOwner")
+  homeRoom     Room?           @relation("HomeRoom", fields: [homeRoomId], references: [id])
+  items        FurnitureItem[]
+  chatMessages ChatMessage[]
+  auditLogs    AuditLog[]
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  /// SHA-256 do token; o token em claro só existe no cookie do jogador.
+  tokenHash String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+
+  @@index([userId])
+}
+
+model Room {
+  id          String     @id @default(cuid())
+  name        String
+  description String     @default("")
+  ownerId     String?
+  owner       User?      @relation("RoomOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+  homeOf      User?      @relation("HomeRoom")
+  isPublic    Boolean    @default(false)
+  category    String     @default("geral")
+  width       Int
+  height      Int
+  floor       String     @default("madeira")
+  wall        String     @default("branca")
+  doorX       Int        @default(0)
+  doorY       Int        @default(0)
+  access      RoomAccess @default(OPEN)
+  maxUsers    Int        @default(25)
+  /// Ordem no navegador para os espaços públicos.
+  sortOrder   Int        @default(0)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  items        FurnitureItem[]
+  chatMessages ChatMessage[]
+
+  @@index([isPublic, sortOrder])
+  @@index([ownerId])
+}
+
+model FurnitureDefinition {
+  id          String  @id
+  name        String
+  category    String
+  width       Int
+  length      Int
+  stackHeight Float
+  canSit      Boolean
+  canWalk     Boolean
+  canStack    Boolean
+  rarity      Rarity
+  price       Int
+  sprite      String
+  /// Disponível na loja (fase 3).
+  available   Boolean @default(true)
+
+  items FurnitureItem[]
+}
+
+/// Cada peça de mobília é única (ID próprio) — base para raros, trocas e histórico de donos.
+model FurnitureItem {
+  id           String              @id @default(cuid())
+  definitionId String
+  definition   FurnitureDefinition @relation(fields: [definitionId], references: [id])
+  ownerId      String?
+  owner        User?               @relation(fields: [ownerId], references: [id], onDelete: SetNull)
+  /// null = no inventário do dono.
+  roomId       String?
+  room         Room?               @relation(fields: [roomId], references: [id], onDelete: SetNull)
+  x            Int                 @default(0)
+  y            Int                 @default(0)
+  z            Float               @default(0)
+  rotation     Int                 @default(0)
+  createdAt    DateTime            @default(now())
+
+  @@index([roomId])
+  @@index([ownerId])
+}
+
+model ChatMessage {
+  id        String   @id @default(cuid())
+  roomId    String
+  room      Room     @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  text      String
+  /// Marcada pelo filtro (para revisão da moderação).
+  flagged   Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([roomId, createdAt])
+  @@index([createdAt])
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  actorId   String?
+  actor     User?    @relation(fields: [actorId], references: [id], onDelete: SetNull)
+  action    String
+  data      Json?
+  ip        String?
+  createdAt DateTime @default(now())
+
+  @@index([action, createdAt])
+}

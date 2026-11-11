@@ -82,11 +82,23 @@ footer{margin-top:40px;font-size:13px;color:var(--muted)}
 
   <h2>1 · O que cada foto mostra</h2>
   <div class="photos">
-    <figure><img src="fotos/fachada-rua.jpg" alt="Fachada amarela térrea virada à rua"><figcaption>Fachada da habitação: alpendre, estores, porta para a rua</figcaption></figure>
+    <figure><img src="fotos/fachada-completa.jpg" alt="Fachada completa: anexo à esquerda, habitação com alpendre à direita"><figcaption>Fachada completa: o anexo à esquerda, a habitação à direita</figcaption></figure>
+    <figure><img src="fotos/fachada-rua.jpg" alt="Fachada amarela térrea virada à rua"><figcaption>A mesma fachada vista de outro ângulo</figcaption></figure>
     <figure><img src="fotos/sala-entrada.jpg" alt="Sala com porta exterior e ladrilho"><figcaption>Habitação: sala de entrada</figcaption></figure>
     <figure><img src="fotos/quarto-a.jpg" alt="Quarto com teto em madeira"><figcaption>Habitação: quarto com teto em madeira</figcaption></figure>
     <figure><img src="fotos/quarto-b.jpg" alt="Quarto com reboco caído junto à janela"><figcaption>Habitação: quarto com janela e humidade</figcaption></figure>
     <figure><img src="fotos/patio-traseiras.jpg" alt="Pátio com anexos em ruína e tanque"><figcaption>Pátio do anexo: WC exterior, arrumos em ruína, tanque</figcaption></figure>
+  </div>
+
+  <div class="card" style="margin-top:14px">
+    <h3 style="margin-top:0">Leitura da fachada, da esquerda para a direita</h3>
+    <ol style="margin:0">
+      <li><b>Corpo branco baixo</b>, com uma janela pequena: é o anexo (o quarto do postigo). O pátio fica por trás.</li>
+      <li><b>Corpo amarelo com telhado inclinado</b>, porta metálica cinzenta e uma janela com estore: ainda é o anexo. A porta cinzenta dá para a divisão do contador, que tem a porta para o pátio do tanque. O telhado de uma água bate certo com os tetos inclinados que se veem por dentro.</li>
+      <li><b>Habitação com alpendre</b> e grelhas de betão: porta n.º 20A ao centro e janelas de um lado e do outro. Por trás ficam a sala de entrada e a 2.ª sala, e atrás delas os quartos com teto em madeira.</li>
+      <li><b>Parede cega à direita</b>, com platibanda até à empena: ainda é a habitação. São divisões que recebem luz por trás ou pelo lado, provavelmente o quarto 3 e a alcova.</li>
+    </ol>
+    <p class="note" style="margin:8px 0 0">Ou seja: <b>anexo primeiro, casa a seguir</b>, cada um com porta própria para a rua. Isto encaixa no anúncio, que descreve de nascente para poente: “pátio + 4 divisões” (o anexo), depois “2 divisões” e “4 divisões” (a habitação, 6 divisões ao todo).</p>
   </div>
 
   <div class="grid g2" style="margin-top:14px">
@@ -101,7 +113,7 @@ footer{margin-top:40px;font-size:13px;color:var(--muted)}
         <li><b>Quarto 3 / sala de jantar</b>: teto em madeira, lustre, chão em <b>ladrilho vinílico</b> antigo a descolar.</li>
         <li><b>Alcova</b> com janela, ligada ao quarto 3 por um vão largo sem porta.</li>
       </ol>
-      <p class="note" style="margin:6px 0 0">As divisões comunicam entre si por portas. São as <b>6 divisões</b> dos corpos poente e central.</p>
+      <p class="note" style="margin:6px 0 0">As divisões comunicam entre si por portas. São as <b>6 divisões</b> à direita na fachada: o alpendre e a parede cega.</p>
     </div>
     <div class="card a">
       <span class="tag">Anexo — a parte de serviço</span>
@@ -113,7 +125,7 @@ footer{margin-top:40px;font-size:13px;color:var(--muted)}
         <li><b>Quarto pequeno</b> com um postigo (janela muito pequena) e humidade por baixo.</li>
         <li><b>Casa de banho antiga</b>: sanita, bidé, lavatório e base de duche em cimento; humidade até meio metro de altura.</li>
       </ol>
-      <p class="note" style="margin:6px 0 0">É o corpo nascente: <b>pátio + 4 divisões</b> (mais o WC).</p>
+      <p class="note" style="margin:6px 0 0">À esquerda na fachada: o corpo branco e o corpo amarelo da porta cinzenta, com o <b>pátio por trás</b> (4 divisões mais o WC).</p>
     </div>
   </div>
 
@@ -132,101 +144,92 @@ footer{margin-top:40px;font-size:13px;color:var(--muted)}
   <h2>2 · Como deve estar organizada hoje (esquema)</h2>
   <p class="note">Esquema de leitura, <b>sem escala</b>, feito a partir do anúncio e das fotos. A posição exata de cada divisão confirma-se na visita, com fita métrica.</p>
   <div class="plan">
-  <svg viewBox="0 0 1000 480" role="img" aria-label="Planta esquemática atual: habitação a poente, anexo e pátio a nascente">
-    <rect class="ext" x="20" y="20" width="960" height="95" rx="4"/>
-    <text class="lbl" x="40" y="55">Logradouro nas traseiras</text>
-    <text class="sm" x="40" y="74">espaço exterior referido no anúncio</text>
-    <!-- HABITAÇÃO -->
-    <rect class="zoneB" x="30" y="125" width="488" height="270" opacity=".5"/>
-    <rect class="wall" x="30" y="125" width="300" height="270"/>
-    <line class="wall-in" x1="180" y1="125" x2="180" y2="395"/><line class="wall-in" x1="30" y1="260" x2="330" y2="260"/>
-    <rect class="wall" x="338" y="125" width="180" height="270"/>
-    <line class="wall-in" x1="338" y1="260" x2="400" y2="260"/><line class="wall-in" x1="456" y1="260" x2="518" y2="260"/>
-    <text class="lbl" x="105" y="185" text-anchor="middle">Quarto 1</text><text class="sm" x="105" y="203" text-anchor="middle">teto madeira</text>
-    <text class="lbl" x="255" y="185" text-anchor="middle">Quarto 2</text><text class="sm" x="255" y="203" text-anchor="middle">teto madeira</text>
-    <text class="lbl" x="105" y="320" text-anchor="middle">Sala de entrada</text><text class="sm" x="105" y="338" text-anchor="middle">porta + janela à rua</text>
-    <text class="lbl" x="255" y="320" text-anchor="middle">2.ª sala</text><text class="sm" x="255" y="338" text-anchor="middle">teto liso</text>
-    <text class="lbl" x="428" y="185" text-anchor="middle">Alcova</text><text class="sm" x="428" y="203" text-anchor="middle">com janela</text>
-    <text class="sm" x="428" y="252" text-anchor="middle">vão largo</text>
-    <text class="lbl" x="428" y="320" text-anchor="middle">Quarto 3</text><text class="sm" x="428" y="338" text-anchor="middle">chão vinílico</text>
-    <text class="big" x="274" y="415" text-anchor="middle" style="fill:var(--b)!important">HABITAÇÃO · 6 divisões</text>
-    <!-- ANEXO -->
-    <rect class="zoneA" x="526" y="125" width="290" height="270" opacity=".5"/>
-    <rect class="wall" x="526" y="125" width="290" height="270"/>
-    <line class="wall-in" x1="671" y1="125" x2="671" y2="395"/><line class="wall-in" x1="526" y1="260" x2="816" y2="260"/>
-    <line class="wall-in" x1="740" y1="125" x2="740" y2="260"/>
-    <text class="lbl" x="598" y="185" text-anchor="middle">Quarto peq.</text><text class="sm" x="598" y="203" text-anchor="middle">só postigo</text>
-    <text class="lbl" x="705" y="185" text-anchor="middle">WC</text><text class="sm" x="705" y="203" text-anchor="middle">antigo</text>
-    <text class="lbl" x="778" y="185" text-anchor="middle">Cozinha</text><text class="sm" x="778" y="203" text-anchor="middle">escorada</text>
-    <text class="lbl" x="598" y="320" text-anchor="middle">Distribuidor</text><text class="sm" x="598" y="338" text-anchor="middle">divisão amarela</text>
-    <text class="lbl" x="743" y="320" text-anchor="middle">Entrada anexo</text><text class="sm" x="743" y="338" text-anchor="middle">contador · porta pátio</text>
-    <rect x="808" y="295" width="16" height="44" fill="var(--a)"/>
-    <text class="big" x="671" y="415" text-anchor="middle" style="fill:var(--a)!important">ANEXO · 4 div. + WC</text>
-    <!-- Pátio -->
-    <rect class="ext" x="824" y="125" width="150" height="270"/>
-    <text class="lbl" x="899" y="150" text-anchor="middle">Pátio</text>
-    <rect class="ruin" x="834" y="165" width="60" height="60"/><text class="sm" x="864" y="200" text-anchor="middle">WC ext.</text>
-    <rect class="ruin" x="904" y="165" width="60" height="80"/><text class="sm" x="934" y="208" text-anchor="middle">arrumos</text>
-    <rect class="ruin" x="844" y="270" width="110" height="60"/><text class="sm" x="899" y="305" text-anchor="middle">tanque</text>
-    <text class="sm" x="522" y="440" text-anchor="middle" style="fill:var(--warn)!important">sem ligação</text>
-    <rect x="20" y="448" width="960" height="28" rx="4" fill="var(--line)"/>
-    <text class="lbl" x="500" y="467" text-anchor="middle">RUA</text>
-    <text class="sm" x="40" y="467">← poente</text><text class="sm" x="960" y="467" text-anchor="end">nascente →</text>
+  <svg viewBox="0 0 1000 500" role="img" aria-label="Planta esquemática atual: anexo à esquerda, habitação à direita, como na fachada">
+    <rect class="ext" x="20" y="20" width="398" height="95" rx="4"/>
+    <rect class="ext" x="426" y="20" width="554" height="95" rx="4"/>
+    <text class="lbl" x="34" y="42">Pátio do anexo</text>
+    <rect class="ruin" x="150" y="32" width="60" height="70"/><text class="sm" x="180" y="71" text-anchor="middle">WC ext.</text>
+    <rect class="ruin" x="220" y="32" width="70" height="70"/><text class="sm" x="255" y="71" text-anchor="middle">arrumos</text>
+    <rect class="ruin" x="300" y="45" width="105" height="55"/><text class="sm" x="352" y="76" text-anchor="middle">tanque</text>
+    <text class="lbl" x="446" y="55">Logradouro nas traseiras</text><text class="sm" x="446" y="74">espaço exterior referido no anúncio</text>
+    <rect class="zoneA" x="30" y="125" width="388" height="270" opacity=".5"/>
+    <rect class="zoneB" x="426" y="125" width="544" height="270" opacity=".5"/>
+    <rect class="wall" x="30" y="125" width="388" height="270"/>
+    <rect class="wall" x="426" y="125" width="544" height="270"/>
+    <line class="wall-in" x1="160" y1="125" x2="160" y2="395"/><line class="wall-in" x1="290" y1="125" x2="290" y2="395"/>
+    <line class="wall-in" x1="30" y1="260" x2="290" y2="260"/>
+    <line class="wall-in" x1="607" y1="125" x2="607" y2="395"/><line class="wall-in" x1="788" y1="125" x2="788" y2="395"/>
+    <line class="wall-in" x1="426" y1="260" x2="970" y2="260"/>
+    <text class="lbl" x="95" y="185" text-anchor="middle">WC antigo</text><text class="sm" x="95" y="203" text-anchor="middle">bidé, base duche</text>
+    <text class="lbl" x="225" y="185" text-anchor="middle">Cozinha antiga</text><text class="sm" x="225" y="203" text-anchor="middle">forno, escorada</text>
+    <text class="lbl" x="95" y="320" text-anchor="middle">Quarto peq.</text><text class="sm" x="95" y="338" text-anchor="middle">postigo à rua</text>
+    <text class="lbl" x="225" y="320" text-anchor="middle">Divisão amarela</text><text class="sm" x="225" y="338" text-anchor="middle">janela c/ estore</text>
+    <text class="lbl" x="354" y="255" text-anchor="middle">Entrada</text><text class="sm" x="354" y="273" text-anchor="middle">porta cinzenta</text><text class="sm" x="354" y="288" text-anchor="middle">porta p/ pátio</text>
+    <text class="lbl" x="516" y="185" text-anchor="middle">Quarto 1</text><text class="sm" x="516" y="203" text-anchor="middle">teto madeira</text>
+    <text class="lbl" x="697" y="185" text-anchor="middle">Quarto 2</text><text class="sm" x="697" y="203" text-anchor="middle">teto madeira</text>
+    <text class="lbl" x="879" y="185" text-anchor="middle">Alcova</text><text class="sm" x="879" y="203" text-anchor="middle">com janela</text>
+    <text class="lbl" x="516" y="320" text-anchor="middle">2.ª sala</text><text class="sm" x="516" y="338" text-anchor="middle">janela sob alpendre</text>
+    <text class="lbl" x="697" y="320" text-anchor="middle">Sala de entrada</text><text class="sm" x="697" y="338" text-anchor="middle">porta 20A</text>
+    <text class="lbl" x="879" y="320" text-anchor="middle">Quarto 3</text><text class="sm" x="879" y="338" text-anchor="middle">fachada cega</text><text class="sm" x="879" y="353" text-anchor="middle">chão vinílico</text>
+    <text class="sm" x="879" y="252" text-anchor="middle">vão largo</text>
+    <rect x="332" y="390" width="44" height="10" fill="var(--muted)"/>
+    <rect x="655" y="390" width="40" height="10" fill="var(--muted)"/>
+    <rect x="332" y="120" width="44" height="10" fill="var(--a)"/>
+    <text class="big" x="224" y="488" text-anchor="middle" style="fill:var(--a)!important">ANEXO · 4 div. + WC + pátio</text>
+    <text class="big" x="698" y="488" text-anchor="middle" style="fill:var(--b)!important">HABITAÇÃO · 6 divisões</text>
+    <text class="sm" x="380" y="434" text-anchor="middle" style="fill:var(--warn)!important">sem ligação ↔</text>
+    <rect x="440" y="398" width="300" height="26" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="3 3"/><text class="sm" x="590" y="415" text-anchor="middle">alpendre</text>
+    <rect x="20" y="440" width="960" height="28" rx="4" fill="var(--line)"/>
+    <text class="lbl" x="500" y="459" text-anchor="middle">RUA</text>
+    <text class="sm" x="40" y="459">← nascente</text><text class="sm" x="960" y="459" text-anchor="end">poente →</text>
   </svg>
   </div>
 
   <h2>3 · Proposta: duas casas</h2>
   <p>A separação já existe: <b>habitação de um lado, anexo do outro, sem ligação entre os dois</b>. Aproveita-se isso. Cada casa fica com entrada própria, contadores próprios e exterior privado, e quase não se mexe em paredes-mestras.</p>
   <div class="plan">
-  <svg viewBox="0 0 1000 500" role="img" aria-label="Planta proposta: T3 na habitação e T2 no anexo">
-    <rect class="ext" x="20" y="20" width="510" height="95" rx="4"/>
-    <rect class="ext" x="538" y="20" width="442" height="95" rx="4"/>
-    <line x1="534" y1="20" x2="534" y2="115" stroke="var(--b)" stroke-width="3" stroke-dasharray="4 4"/>
-    <text class="lbl" x="40" y="55">Logradouro da Casa B</text><text class="sm" x="40" y="74">relva, estendal, churrasco</text>
-    <text class="lbl" x="558" y="55">Traseiras da Casa A</text><text class="sm" x="558" y="74">arrumos / horta</text>
-    <text class="sm" x="542" y="104">muro / sebe</text>
-
-    <!-- CASA B -->
-    <rect class="zoneB" x="30" y="125" width="488" height="270"/>
-    <rect class="wall" x="30" y="125" width="300" height="270"/>
-    <rect class="wall" x="338" y="125" width="180" height="270"/>
-    <line class="wall-in" x1="180" y1="125" x2="180" y2="260"/>
-    <line class="wall-in" x1="30" y1="260" x2="330" y2="260"/>
-    <line class="wall-in" x1="338" y1="260" x2="518" y2="260"/>
-    <line class="new" x1="180" y1="262" x2="180" y2="298"/><line class="new" x1="180" y1="350" x2="180" y2="393"/>
-    <text class="lbl" x="105" y="185" text-anchor="middle">Quarto 1</text><text class="sm" x="105" y="203" text-anchor="middle">casal</text>
-    <text class="lbl" x="255" y="185" text-anchor="middle">Quarto 2</text>
-    <text class="lbl" x="180" y="320" text-anchor="middle">Sala + cozinha</text><text class="sm" x="180" y="338" text-anchor="middle">as duas salas abertas numa só</text>
-    <text class="lbl" x="428" y="185" text-anchor="middle">WC completo</text><text class="sm" x="428" y="203" text-anchor="middle">na antiga alcova</text>
-    <text class="lbl" x="428" y="320" text-anchor="middle">Quarto 3</text><text class="sm" x="428" y="338" text-anchor="middle">chão novo</text>
-    <text class="big" x="274" y="420" text-anchor="middle" style="fill:var(--b)!important">CASA B · T3 (habitação)</text>
-
-    <!-- CASA A -->
-    <rect class="zoneA" x="526" y="125" width="290" height="270"/>
-    <rect class="wall" x="526" y="125" width="290" height="270"/>
-    <line class="wall-in" x1="671" y1="125" x2="671" y2="260"/>
-    <line class="wall-in" x1="526" y1="260" x2="816" y2="260"/>
-    <line class="wall-in" x1="740" y1="125" x2="740" y2="260"/>
-    <line class="new" x1="671" y1="262" x2="671" y2="292"/><line class="new" x1="671" y1="362" x2="671" y2="393"/>
-    <text class="lbl" x="598" y="185" text-anchor="middle">Quarto 2</text><text class="sm" x="598" y="203" text-anchor="middle">janela aumentada</text>
-    <text class="lbl" x="705" y="185" text-anchor="middle">WC</text><text class="sm" x="705" y="203" text-anchor="middle">refeito</text>
-    <text class="lbl" x="778" y="185" text-anchor="middle">Quarto 1</text><text class="sm" x="778" y="203" text-anchor="middle">ex-cozinha</text>
-    <text class="lbl" x="671" y="315" text-anchor="middle">Sala + cozinha</text><text class="sm" x="671" y="333" text-anchor="middle">entrada e distribuidor abertos</text>
-    <rect x="808" y="295" width="16" height="44" fill="var(--a)"/>
-    <text class="big" x="671" y="420" text-anchor="middle" style="fill:var(--a)!important">CASA A · T2 (anexo)</text>
-
-    <!-- Pátio novo -->
-    <rect class="ext" x="824" y="125" width="150" height="270"/>
-    <rect x="824" y="125" width="150" height="270" fill="var(--a-soft)" opacity=".45"/>
-    <text class="lbl" x="899" y="150" text-anchor="middle">Pátio privado</text>
-    <rect x="834" y="165" width="60" height="55" fill="none" stroke="var(--a)" stroke-width="2"/><text class="sm" x="864" y="197" text-anchor="middle">arrumos</text>
-    <rect x="844" y="270" width="110" height="60" fill="none" stroke="var(--a)" stroke-width="2"/><text class="sm" x="899" y="298" text-anchor="middle">tanque → canteiro</text><text class="sm" x="899" y="314" text-anchor="middle">ou mesa exterior</text>
-    <text class="sm" x="899" y="365" text-anchor="middle">esplanada · estendal</text>
-
+  <svg viewBox="0 0 1000 520" role="img" aria-label="Planta proposta: T2 no anexo com pátio, T3 na habitação">
+    <rect class="ext" x="20" y="20" width="398" height="95" rx="4"/>
+    <rect x="20" y="20" width="398" height="95" rx="4" fill="var(--a-soft)" opacity=".5"/>
+    <rect class="ext" x="426" y="20" width="554" height="95" rx="4"/>
+    <line x1="422" y1="20" x2="422" y2="115" stroke="var(--b)" stroke-width="3" stroke-dasharray="4 4"/>
+    <text class="lbl" x="34" y="42">Pátio privado da Casa A</text>
+    <text class="sm" x="34" y="62">ruínas demolidas · esplanada · estendal</text>
+    <rect x="300" y="45" width="105" height="55" fill="none" stroke="var(--a)" stroke-width="2"/><text class="sm" x="352" y="70" text-anchor="middle">tanque →</text><text class="sm" x="352" y="85" text-anchor="middle">canteiro</text>
+    <rect x="34" y="75" width="70" height="30" fill="none" stroke="var(--a)" stroke-width="2"/><text class="sm" x="69" y="94" text-anchor="middle">arrumo</text>
+    <text class="lbl" x="446" y="55">Logradouro da Casa B</text><text class="sm" x="446" y="74">relva, estendal, churrasco</text>
+    <rect class="zoneA" x="30" y="125" width="388" height="270"/>
+    <rect class="zoneB" x="426" y="125" width="544" height="270"/>
+    <rect class="wall" x="30" y="125" width="388" height="270"/>
+    <rect class="wall" x="426" y="125" width="544" height="270"/>
+    <line class="wall-in" x1="160" y1="125" x2="160" y2="395"/><line class="wall-in" x1="290" y1="125" x2="290" y2="260"/>
+    <line class="wall-in" x1="30" y1="260" x2="290" y2="260"/>
+    <line class="new" x1="290" y1="262" x2="290" y2="290"/><line class="new" x1="290" y1="365" x2="290" y2="393"/>
+    <line class="wall-in" x1="607" y1="125" x2="607" y2="260"/><line class="wall-in" x1="788" y1="125" x2="788" y2="395"/>
+    <line class="wall-in" x1="426" y1="260" x2="970" y2="260"/>
+    <line class="new" x1="607" y1="262" x2="607" y2="290"/><line class="new" x1="607" y1="365" x2="607" y2="393"/>
+    <text class="lbl" x="95" y="185" text-anchor="middle">WC</text><text class="sm" x="95" y="203" text-anchor="middle">refeito</text>
+    <text class="lbl" x="225" y="185" text-anchor="middle">Quarto 1</text><text class="sm" x="225" y="203" text-anchor="middle">ex-cozinha</text>
+    <text class="lbl" x="354" y="185" text-anchor="middle">Hall</text><text class="sm" x="354" y="203" text-anchor="middle">porta p/ pátio</text>
+    <text class="lbl" x="95" y="320" text-anchor="middle">Quarto 2</text><text class="sm" x="95" y="338" text-anchor="middle">janela aumentada</text>
+    <text class="lbl" x="289" y="320" text-anchor="middle">Sala + cozinha</text><text class="sm" x="289" y="338" text-anchor="middle">entrada pela porta</text><text class="sm" x="289" y="353" text-anchor="middle">da rua (ex-cinzenta)</text>
+    <text class="lbl" x="516" y="185" text-anchor="middle">Quarto 1</text><text class="sm" x="516" y="203" text-anchor="middle">casal</text>
+    <text class="lbl" x="697" y="185" text-anchor="middle">Quarto 2</text>
+    <text class="lbl" x="879" y="185" text-anchor="middle">WC completo</text><text class="sm" x="879" y="203" text-anchor="middle">na antiga alcova</text>
+    <text class="lbl" x="607" y="320" text-anchor="middle">Sala + cozinha</text><text class="sm" x="607" y="338" text-anchor="middle">as duas salas</text><text class="sm" x="607" y="353" text-anchor="middle">abertas numa só</text>
+    <text class="lbl" x="879" y="320" text-anchor="middle">Quarto 3</text><text class="sm" x="879" y="338" text-anchor="middle">chão novo</text>
+    <rect x="332" y="390" width="44" height="10" fill="var(--muted)"/>
+    <rect x="655" y="390" width="40" height="10" fill="var(--muted)"/>
+    <rect x="332" y="120" width="44" height="10" fill="var(--a)"/>
+    <text class="big" x="224" y="488" text-anchor="middle" style="fill:var(--a)!important">CASA A · T2 (anexo + pátio)</text>
+    <text class="big" x="698" y="488" text-anchor="middle" style="fill:var(--b)!important">CASA B · T3 (habitação)</text>
+    <rect x="440" y="398" width="300" height="26" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="3 3"/><text class="sm" x="590" y="415" text-anchor="middle">alpendre</text>
     <rect x="20" y="440" width="960" height="28" rx="4" fill="var(--line)"/>
     <text class="lbl" x="500" y="459" text-anchor="middle">RUA</text>
-    <line class="new" x1="40" y1="487" x2="70" y2="487"/><text class="sm" x="76" y="491">parede a abrir (confirmar que não é mestra)</text>
-    <rect x="520" y="482" width="14" height="10" fill="var(--a)"/><text class="sm" x="540" y="491">porta para o pátio</text>
+    <text class="sm" x="40" y="459">← nascente</text><text class="sm" x="960" y="459" text-anchor="end">poente →</text>
+    <line class="new" x1="40" y1="508" x2="70" y2="508"/><text class="sm" x="76" y="512">parede a abrir (confirmar que não é mestra)</text>
+    <rect x="520" y="503" width="14" height="10" fill="var(--a)"/><text class="sm" x="540" y="512">porta para o pátio</text>
+    <rect x="700" y="503" width="14" height="10" fill="var(--muted)"/><text class="sm" x="720" y="512">porta para a rua</text>
   </svg>
   </div>
 
@@ -246,7 +249,7 @@ footer{margin-top:40px;font-size:13px;color:var(--muted)}
       <span class="tag">Casa A · T2 no anexo, com pátio</span>
       <ul>
         <li><b>Telhado novo</b> (é aqui que estão as escoras) e chão novo sobre os cimentos.</li>
-        <li>A divisão de entrada e a divisão amarela abrem-se numa <b>sala com cozinha</b>, com porta para o pátio.</li>
+        <li>A porta cinzenta passa a <b>porta de entrada da casa</b>. A divisão de entrada e a divisão amarela abrem-se numa <b>sala com cozinha</b>; atrás fica um pequeno hall com a porta para o pátio.</li>
         <li>A <b>antiga cozinha passa a quarto 1</b>. A lareira com forno sai, ou fica como nicho decorativo se a estrutura o permitir.</li>
         <li>O quarto pequeno passa a <b>quarto 2</b>, com a janela aumentada.</li>
         <li>O <b>WC é refeito</b> no mesmo sítio, porque a água e o esgoto já lá estão.</li>
@@ -401,7 +404,7 @@ footer{margin-top:40px;font-size:13px;color:var(--muted)}
     <li>Preço máximo a pagar: <b>115 mil €</b>. Acima disto, a margem fica demasiado curta.</li>
   </ol>
 
-  <footer>Esquemas sem escala, feitos a partir do anúncio e de 15 fotografias. Valores indicativos (novembro 2026).</footer>
+  <footer>Esquemas sem escala, feitos a partir do anúncio e de 16 fotografias. Valores indicativos (novembro 2026).</footer>
 </main>
 </body>
 </html>

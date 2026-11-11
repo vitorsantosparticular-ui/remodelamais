@@ -1,5 +1,5 @@
 /** Cliente REST. A sessão vai num cookie httpOnly; o JavaScript nunca vê o token. */
-import type { Figure, RoomInfo } from '@bairro/shared';
+import type { CityState, Figure, PropertyListing, RoomInfo } from '@bairro/shared';
 
 export interface Me {
   id: string; username: string; figure: Figure; motto: string; role: string;
@@ -28,5 +28,10 @@ export const api = {
   saveFigure: (figure: Figure, motto: string) => req<{ ok: true; figure: Figure; motto: string }>('PUT', '/api/me/figure', { figure, motto }),
   rooms: (tab: 'public' | 'players' | 'mine') => req<RoomListItem[]>('GET', `/api/rooms?tab=${tab}`),
   createRoom: (p: { name: string; description: string; size: string; floor: string; wall: string; access: string }) => req<{ id: string }>('POST', '/api/rooms', p),
+  city: () => req<CityState>('GET', '/api/city/state'),
+  people: (bairro: string) => req<Array<{ username: string; figure: Figure; motto: string }>>('GET', `/api/city/bairro/${bairro}/people`),
+  act: (path: string, body: unknown) => req<{ ok: true; result: unknown; state: CityState }>('POST', path, body),
+  statement: () => req<Array<{ id: string; account: 'WALLET' | 'BANK'; amount: number; balanceAfter: number; kind: string; memo: string; ts: number }>>('GET', '/api/bank/statement'),
+  properties: () => req<PropertyListing[]>('GET', '/api/properties'),
   player: (username: string) => req<{ username: string; figure: Figure; motto: string; createdAt: string; homeRoomId: string | null }>('GET', `/api/players/${encodeURIComponent(username)}`),
 };

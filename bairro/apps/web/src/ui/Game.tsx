@@ -1,7 +1,12 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { CHAT_MAX_LENGTH, type Figure } from '@bairro/shared';
 import { RoomView } from '../game/RoomView';
-import { connectGame, joinRoom, type GameSocket } from '../net/socket';
+import { connectGame, enterRoom, leaveRoom, type GameSocket } from '../net/socket';
+import { refreshCity } from '../cityActions';
+import { BAIRRO_BY_ID, JOB_BY_ID, TRANSPORTS, fmtEuros } from '@bairro/shared';
+import { CityMap } from './city/CityMap';
+import { BairroPanel, fmtDur } from './city/BairroPanel';
+import { AssetsWindow, AtmWindow, BankWindow, JobsWindow, RealEstateWindow, StandWindow } from './city/PlaceWindows';
 import { useGame } from '../store';
 import { api } from '../api';
 import { Navigator } from './Navigator';
@@ -13,7 +18,7 @@ export function Game() {
   const host = useRef<HTMLDivElement>(null);
   const view = useRef<RoomView | null>(null);
   const sock = useRef<GameSocket | null>(null);
-  const { me, room, window: win, set, connected } = useGame();
+  const { me, room, window: win, set, connected, mode, city } = useGame();
 
   useEffect(() => {
     let alive = true;
@@ -26,27 +31,53 @@ export function Game() {
     v.mount(host.current!).then(() => {
       mounted = true;
       if (!alive) { v.destroy(); return; }
-      const m = useGame.getState().me!;
-      sock.current = connectGame(v, m.lastRoomId ?? 'praca-central');
+      sock.current = connectGame(v);
       (window as unknown as { __bairro: unknown }).__bairro = { view: v, socket: sock.current };
     });
+    refreshCity();
     return () => { alive = false; sock.current?.disconnect(); if (mounted) v.destroy(); };
   }, []);
 
-  const enter = (roomId: string) => sock.current && joinRoom(sock.current, roomId);
+  // Quando a viagem ou o turno acabam, pede o estado novo ao servidor.
+  useEffect(() => {
+    const ends = [city?.travel?.arrivesAt, city?.work?.until].filter((t): t is number => !!t);
+    if (!ends.length) return;
+    const ms = Math.max(200, Math.min(...ends) - Date.now() + 300);
+    const t = setTimeout(async () => {
+      const before = useGame.getState().city;
+      await refreshCity();
+      const after = useGame.getState().city;
+      if (before?.travel && !after?.travel) useGame.getState().notify(`Chegaste a ${BAIRRO_BY_ID.get(after!.location)?.name}!`);
+      if (before?.work && !after?.work) useGame.getState().notify(`Turno acabado: +${fmtEuros(JOB_BY_ID.get(before.work.jobId)?.pay ?? 0)} na carteira.`);
+    }, ms);
+    return () => clearTimeout(t);
+  }, [city?.travel?.arrivesAt, city?.work?.until]);
+
+  const enter = (roomId: string) => { set({ window: null }); enterRoom(sock.current, roomId); };
   if (!me) return null;
+  const inRoom = mode === 'room';
 
   return (
-    <div className="game">
-      <div ref={host} className="viewport" />
+    <div className={`game ${inRoom ? 'in-room' : 'in-city'}`}>
+      <div ref={host} className="viewport" style={{ visibility: inRoom ? 'visible' : 'hidden' }} />
+      {!inRoom && (
+        <div className="city-layer">
+          <CityMap />
+          <BairroPanel onEnterRoom={enter} />
+        </div>
+      )}
+
       <div className="hud-top">
         <div className="panel">
-          <div className="room-name">{room?.name ?? 'A ligar…'}</div>
-          <div className="room-sub">{room?.ownerName ? `Quarto de ${room.ownerName}` : room?.description}</div>
+          {inRoom ? <>
+            <div className="room-name">{room?.name ?? 'A entrar…'}</div>
+            <div className="room-sub">{room?.ownerName ? `Quarto de ${room.ownerName}` : room?.description}</div>
+          </> : <CityStatus />}
         </div>
-        <div className="panel wallet" aria-label="Carteira">
-          <span title="Créditos"><i className="coin" /> {me.credits}</span>
-          <span title="Diamantes"><i className="gem" /> {me.diamonds}</span>
+        <div className="panel wallet" aria-label="Dinheiro">
+          <span title="Carteira">👛 {city ? fmtEuros(city.wallet) : '—'}</span>
+          <span title="Conta bancária">🏦 {city ? fmtEuros(city.bank) : '—'}</span>
+          <span title="Diamantes"><i className="gem" /> {city?.diamonds ?? me.diamonds}</span>
         </div>
       </div>
       {!connected && <div className="offline">Sem ligação ao servidor. A tentar de novo…</div>}
@@ -54,21 +85,61 @@ export function Game() {
       {win === 'navigator' && <Navigator onEnter={enter} />}
       {win === 'avatar' && <AvatarWindow />}
       {win === 'chatlog' && <ChatLog />}
-      <SelectedUser />
+      {win === 'banco' && city && <BankWindow />}
+      {win === 'multibanco' && city && <AtmWindow />}
+      {win === 'trabalho' && city && <JobsWindow />}
+      {win === 'stand' && city && <StandWindow />}
+      {win === 'imobiliaria' && city && <RealEstateWindow />}
+      {win === 'bens' && city && <AssetsWindow onEnterRoom={enter} />}
+      {inRoom && <SelectedUser />}
       <Toast />
 
       <div className="toolbar">
         <div className="tools">
-          <button className="tool" onClick={() => set({ window: win === 'navigator' ? null : 'navigator' })} title="Navegador (N)"><span>🧭</span><small>Navegar</small></button>
-          <button className="tool" onClick={() => me.homeRoomId && enter(me.homeRoomId)} title="Ir para a tua casa"><span>🏠</span><small>Casa</small></button>
+          {inRoom
+            ? <button className="tool" onClick={() => leaveRoom(sock.current)} title="Sair para o mapa (M)"><span>🗺️</span><small>Mapa</small></button>
+            : <button className="tool" onClick={() => set({ bairroOpen: city?.location ?? null })} title="O bairro onde estás"><span>📍</span><small>Aqui</small></button>}
+          <button className="tool" onClick={() => set({ window: win === 'bens' ? null : 'bens' })} title="Casas, veículos e dinheiro"><span>🎒</span><small>Bens</small></button>
           <button className="tool" onClick={() => set({ window: win === 'avatar' ? null : 'avatar' })} title="Mudar o visual"><span>👕</span><small>Visual</small></button>
-          <button className="tool" onClick={() => set({ window: win === 'chatlog' ? null : 'chatlog' })} title="Histórico do chat"><span>💬</span><small>Histórico</small></button>
-          <button className="tool" onClick={() => view.current?.setZoom(view.current.getZoom() === 1 ? 2 : 1)} title="Zoom"><span>🔍</span><small>Zoom</small></button>
+          <button className="tool" onClick={() => set({ window: win === 'navigator' ? null : 'navigator' })} title="Quartos dos jogadores (N)"><span>🧭</span><small>Quartos</small></button>
+          {inRoom && <>
+            <button className="tool" onClick={() => set({ window: win === 'chatlog' ? null : 'chatlog' })} title="Histórico do chat"><span>💬</span><small>Histórico</small></button>
+            <button className="tool" onClick={() => view.current?.setZoom(view.current.getZoom() === 1 ? 2 : 1)} title="Zoom"><span>🔍</span><small>Zoom</small></button>
+          </>}
         </div>
-        <ChatInput socket={sock} />
-        <button className="tool" onClick={async () => { await api.logout(); sock.current?.disconnect(); set({ me: null, room: null }); }} title="Sair"><span>🚪</span><small>Sair</small></button>
+        {inRoom ? <ChatInput socket={sock} /> : <div className="chat city-hint">Toca num bairro para veres o que há lá ou para viajares. {useGame.getState().online > 0 && `${useGame.getState().online} jogador(es) na cidade.`}</div>}
+        <button className="tool" onClick={async () => { await api.logout(); sock.current?.disconnect(); set({ me: null, room: null, city: null, mode: 'city' }); }} title="Sair"><span>🚪</span><small>Sair</small></button>
       </div>
-      <Shortcuts />
+      <Shortcuts onMap={() => leaveRoom(sock.current)} />
+    </div>
+  );
+}
+
+/** Onde estou / o que estou a fazer, com barra de progresso. */
+function CityStatus() {
+  const city = useGame(s => s.city);
+  const [now, setNow] = useState(Date.now());
+  useEffect(() => { const t = setInterval(() => setNow(Date.now()), 500); return () => clearInterval(t); }, []);
+  if (!city) return <div className="room-name">A abrir a cidade…</div>;
+  const hour = new Intl.DateTimeFormat('pt-PT', { timeZone: 'Europe/Lisbon', hour: '2-digit', minute: '2-digit' }).format(now);
+  let label = `Em ${BAIRRO_BY_ID.get(city.location)?.name}`, sub = `Lisboa, ${hour}`, pct: number | null = null;
+  if (city.travel) {
+    const left = Math.max(0, (city.travel.arrivesAt - now) / 1000);
+    label = `A caminho de ${BAIRRO_BY_ID.get(city.travel.to)?.name}`;
+    sub = `${TRANSPORTS[city.travel.mode].icon} ${TRANSPORTS[city.travel.mode].name} · faltam ${fmtDur(left)}`;
+    pct = (now - city.travel.startedAt) / (city.travel.arrivesAt - city.travel.startedAt);
+  } else if (city.work) {
+    const job = JOB_BY_ID.get(city.work.jobId);
+    const left = Math.max(0, (city.work.until - now) / 1000);
+    label = `${job?.icon} ${job?.name}`;
+    sub = `A trabalhar · faltam ${fmtDur(left)} · ${fmtEuros(job?.pay ?? 0)}`;
+    pct = (now - city.work.startedAt) / (city.work.until - city.work.startedAt);
+  }
+  return (
+    <div className="status">
+      <div className="room-name">{label}</div>
+      <div className="room-sub">{sub}</div>
+      {pct !== null && <div className="bar"><div style={{ width: `${Math.min(100, Math.max(0, pct * 100))}%` }} /></div>}
     </div>
   );
 }
@@ -140,7 +211,7 @@ function SelectedUser() {
   return (
     <div className="user-card panel">
       <button className="x" onClick={() => set({ selectedUserId: null })} aria-label="Fechar">✕</button>
-      <AvatarPreview figure={u.figure} scale={1} />
+      <AvatarPreview figure={u.figure} scale={1} single />
       <div className="min-w-0">
         <b>{u.username}</b>
         <p>{u.motto || '—'}</p>
@@ -162,7 +233,7 @@ function Toast() {
 }
 
 /** Atalhos: Enter foca o chat, N abre o navegador, H vai para casa, Esc fecha janelas. */
-function Shortcuts() {
+function Shortcuts({ onMap }: { onMap: () => void }) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const typing = (e.target as HTMLElement).matches('input, select, textarea');
@@ -171,9 +242,10 @@ function Shortcuts() {
       if (typing) return;
       if (e.key === 'Enter') { document.getElementById('chat-input')?.focus(); e.preventDefault(); }
       if (e.key.toLowerCase() === 'n') s.set({ window: s.window === 'navigator' ? null : 'navigator' });
+      if (e.key.toLowerCase() === 'm' && s.mode === 'room') onMap();
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, []);
+  }, [onMap]);
   return null;
 }

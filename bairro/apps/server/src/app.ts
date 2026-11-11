@@ -12,6 +12,8 @@ import { authRoutes } from './modules/auth/routes';
 import { playerRoutes } from './modules/players/routes';
 import { roomRoutes } from './modules/rooms/routes';
 import { purgeOldMessages } from './modules/chat/service';
+import { cityRoutes } from './modules/city/routes';
+import { chargeDueRent, setCityHooks } from './modules/city/service';
 
 const WEB_DIST = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../web/dist');
 
@@ -36,6 +38,8 @@ export async function buildServer(opts: { kv?: KV } = {}) {
   authRoutes(app, kv);
   playerRoutes(app, gw);
   roomRoutes(app, gw);
+  cityRoutes(app, gw, kv);
+  setCityHooks({ leaveRoom: id => gw.leaveRoomOf(id), notify: (id, m) => gw.notify(id, m) });
 
   // Em produção o servidor também serve o cliente compilado (apps/web/dist).
   if (existsSync(WEB_DIST)) {
@@ -46,9 +50,13 @@ export async function buildServer(opts: { kv?: KV } = {}) {
     });
   }
 
+  // Rendas de quem está offline também são cobradas (a cada 5 minutos).
+  const rent = setInterval(() => chargeDueRent().catch(e => logger.error({ err: e }, 'rendas falharam')), 5 * 60_000);
   const retention = setInterval(() => purgeOldMessages().catch(e => logger.error({ err: e }, 'retenção falhou')), 60 * 60_000);
   app.addHook('onClose', async () => {
     clearInterval(retention);
+    clearInterval(rent);
+    gw.stop();
     gw.io.disconnectSockets(true);
     await new Promise(r => setTimeout(r, 200)); // deixar os handlers de saída gravar posições
     await kv.close();

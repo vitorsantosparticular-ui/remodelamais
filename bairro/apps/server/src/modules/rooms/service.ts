@@ -1,5 +1,5 @@
 import type { Prisma, Room, User } from '@prisma/client';
-import { FLOOR_TYPES, WALL_TYPES, type RoomInfo, type RoomItemState, type FloorType, type WallType } from '@bairro/shared';
+import { FLOOR_TYPES, WALL_TYPES, START_BAIRRO, type RoomInfo, type RoomItemState, type FloorType, type WallType } from '@bairro/shared';
 import { prisma } from '../../db';
 
 type RoomWithOwner = Room & { owner: Pick<User, 'username'> | null };
@@ -27,7 +27,7 @@ export async function loadRoom(roomId: string): Promise<{ info: RoomInfo; items:
 export async function createHomeRoom(tx: Prisma.TransactionClient, userId: string, username: string) {
   const room = await tx.room.create({
     data: {
-      name: `Casa de ${username}`, description: 'O meu cantinho no bairro.', ownerId: userId, category: 'casas',
+      name: 'Quarto em casa dos pais', description: `O quarto de ${username}. Um dia vou ter casa própria!`, ownerId: userId, category: 'casas', bairro: START_BAIRRO,
       width: 8, height: 8, floor: 'madeira', wall: 'amarela', doorX: 0, doorY: 4,
     },
   });

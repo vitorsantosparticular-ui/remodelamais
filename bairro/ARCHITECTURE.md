@@ -46,10 +46,20 @@ Módulos previstos (fases seguintes): `inventory`, `economy` (livro-razão), `tr
 - **Quartos em memória** só enquanto têm gente; carregados da BD ao entrar.
 - **Persistência:** posição gravada quando o jogador para e quando sai; ao voltar reaparece onde estava.
 
+## Cidade e economia
+- **Tempo preguiçoso (lazy):** viagens e turnos guardam `arrivesAt`/`workUntil`. `settle(userId)` resolve o que já passou
+  (chegada, pagamento do turno, rendas) sempre que o jogador age; sem timers por jogador.
+- **Dinheiro:** só através de `moveMoney(tx, …)` — `UPDATE … WHERE saldo >= montante` (sem negativos em corrida) +
+  `LedgerEntry` com saldo resultante. Transferências e compras correm numa transação.
+- **Casas únicas:** a aquisição é `updateMany WHERE ownerId IS NULL AND tenantId IS NULL` — se dois pedirem ao mesmo tempo,
+  só um ganha. Cada casa tem histórico (`PropertyHistory`) e um quarto próprio cujo dono acompanha o ocupante.
+- **Lugar importa:** o servidor exige estar no bairro certo para cada ação (banco na Baixa, imobiliária no Chiado, stand
+  nas Avenidas, biscates no seu bairro, quartos com `bairro`).
+
 ## Protocolo Socket.IO (`packages/shared/src/protocol.ts`)
-Cliente → servidor: `room:join {roomId}` (com ack), `room:move {x,y}`, `chat:send {text}`.
+Cliente → servidor: `room:join {roomId}` (com ack), `room:leave`, `room:move {x,y}`, `chat:send {text}`. As ações da cidade são REST (`/api/city/*`, `/api/bank/*`, `/api/properties/*`, `/api/vehicles/*`, `/api/jobs/*`).
 Servidor → cliente: `room:snapshot`, `room:user_joined`, `room:user_left`, `room:users_moved`, `chat:message`,
-`user:figure`, `error:game`, `notice`.
+`user:figure`, `error:game`, `notice`, `room:left`, `city:presence`, `city:changed`.
 
 ## Modelo de dados (Prisma)
 `User` (saldos `credits`/`diamonds`, figura JSON validada, papel, estado, casa, última posição) ·

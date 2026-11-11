@@ -39,6 +39,8 @@ async function register(name: string) {
   const r = await post('/api/auth/register', { username: name, password: 'palavra-passe-1', birthYear: 1995, acceptTerms: true });
   assert.equal(r.status, 200, JSON.stringify(r.json));
   assert.match(r.cookie, /^bairro_sid=/);
+  // Setup de teste: pôr o jogador na Baixa (onde fica a Praça Central) sem esperar pela viagem.
+  await prisma.user.update({ where: { usernameLower: name.toLowerCase() }, data: { location: 'baixa' } });
   return r.cookie;
 }
 function connect(cookie: string): Promise<CSocket> {

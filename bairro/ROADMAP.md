@@ -22,8 +22,19 @@ Legenda: ✅ feito e testado · 🟡 parcial · ⬜ por fazer
 - ⬜ Mais peças de roupa: acessórios, chapéus, óculos, roupa sazonal e rara; guardar conjuntos
 - ⬜ 8 direções de desenho completas (hoje 4 vistas + espelho)
 
+## Cidade e bens (prioridade pedida: estilo "vida na cidade")
+- ✅ Mapa da cidade como ecrã principal (9 bairros, presença em tempo real, dia/noite de Lisboa)
+- ✅ Viagens com tempo real e custo (a pé, metro, táxi, veículo próprio)
+- ✅ Biscates por bairro (turnos em tempo real, limite diário)
+- ✅ Banco: carteira e conta, depósito, levantamento, transferências entre jogadores, extrato (livro-razão)
+- ✅ Casas únicas: arrendar (débito direto semanal, despejo), comprar, vender, deixar; histórico de donos; quarto por casa
+- ✅ Stand: comprar e vender veículos
+- ⬜ Mais locais por bairro: supermercado, loja de roupa, ginásio, universidade, discoteca, praia (Costa/Cascais)
+- ⬜ Arrendar a outros jogadores (senhorios), mercado de casas entre jogadores
+- ⬜ Garagem e estacionamento, multas, seguro, revisão do carro
+
 ## Fase 3 — Economia
-- ⬜ Livro-razão de transações (créditos, diamantes, fichas sazonais) com operações atómicas
+- 🟡 Livro-razão de transações: feito para o dinheiro (carteira/banco); falta diamantes e fichas sazonais
 - ⬜ Inventário e **modo de construção** (arrastar, rodar, empilhar, guardar mobília)
 - ⬜ Loja de mobília e de roupa (raridades, edições limitadas)
 - ⬜ Trocas entre jogadores (confirmação dupla, atómicas), mercado, histórico de posse

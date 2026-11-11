@@ -10,7 +10,7 @@ const LABELS: Record<string, string> = {
 };
 
 /** Pré-visualização do avatar (frente e costas), ampliada sem suavização. */
-export function AvatarPreview({ figure, scale = 2 }: { figure: Figure; scale?: number }) {
+export function AvatarPreview({ figure, scale = 2, single = false }: { figure: Figure; scale?: number; single?: boolean }) {
   const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     const c = ref.current; if (!c) return;
@@ -19,9 +19,9 @@ export function AvatarPreview({ figure, scale = 2 }: { figure: Figure; scale?: n
     ctx.imageSmoothingEnabled = false;
     ctx.clearRect(0, 0, c.width, c.height);
     ctx.drawImage(sheet, 0, 0, AV_W, AV_H, 0, 0, AV_W * scale, AV_H * scale);
-    ctx.drawImage(sheet, AV_W * 4, 0, AV_W, AV_H, AV_W * scale + 8, 0, AV_W * scale, AV_H * scale);
-  }, [figure, scale]);
-  return <canvas ref={ref} width={AV_W * scale * 2 + 8} height={AV_H * scale} className="pixel" aria-label="Pré-visualização do avatar" />;
+    if (!single) ctx.drawImage(sheet, AV_W * 4, 0, AV_W, AV_H, AV_W * scale + 8, 0, AV_W * scale, AV_H * scale);
+  }, [figure, scale, single]);
+  return <canvas ref={ref} width={single ? AV_W * scale : AV_W * scale * 2 + 8} height={AV_H * scale} className="pixel" aria-label="Pré-visualização do avatar" />;
 }
 
 function Swatches({ list, value, onPick, label }: { list: readonly string[]; value: string; onPick: (v: string) => void; label: string }) {

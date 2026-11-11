@@ -12,6 +12,8 @@ import type { KV } from '../infra/kv';
 import { parseCookies, SESSION_COOKIE, userFromToken } from '../modules/auth/sessions';
 import { RoomManager } from '../modules/rooms/RoomManager';
 import { recentMessages, saveMessage } from '../modules/chat/service';
+import { effectiveLocation, settle } from '../modules/city/service';
+import { BAIRRO_BY_ID } from '@bairro/shared';
 
 type GameSocket = Socket<ClientToServer, ServerToClient, Record<string, never>, { user: User }>;
 
@@ -77,9 +79,17 @@ export function createGateway(http: HttpServer, kv: KV) {
         const roomId = typeof p?.roomId === 'string' ? p.roomId : '';
         const inst = await rooms.get(roomId);
         if (!inst) return reply({ ok: false, error: 'Esse quarto não existe.' });
-        const fresh = await prisma.user.findUnique({ where: { id: user.id } });
-        if (!fresh || fresh.status !== 'ACTIVE') { socket.disconnect(true); return; }
+        const fresh = await settle(user.id);
+        if (fresh.status !== 'ACTIVE') { socket.disconnect(true); return; }
         const isStaff = fresh.role !== 'PLAYER';
+        // Quartos com bairro: é preciso estar lá (e não em viagem).
+        const roomBairro = await prisma.room.findUnique({ where: { id: roomId }, select: { bairro: true } });
+        if (roomBairro?.bairro && !isStaff) {
+          if (fresh.travelTo) return reply({ ok: false, error: 'Ainda estás em viagem.' });
+          if (fresh.location !== roomBairro.bairro) {
+            return reply({ ok: false, error: `Este sítio fica em ${BAIRRO_BY_ID.get(roomBairro.bairro)?.name ?? roomBairro.bairro}. Vai até lá primeiro.` });
+          }
+        }
         if (inst.info.access === 'OWNER_ONLY' && inst.info.ownerId !== fresh.id && !isStaff) {
           return reply({ ok: false, error: 'Este quarto é privado.' });
         }
@@ -106,6 +116,8 @@ export function createGateway(http: HttpServer, kv: KV) {
         reply({ ok: false, error: 'Erro ao entrar no quarto.' });
       }
     });
+
+    socket.on('room:leave', async () => { await leaveCurrentRoom(socket); });
 
     socket.on('room:move', async p => {
       const roomId = rooms.userRoom.get(user.id);
@@ -153,6 +165,32 @@ export function createGateway(http: HttpServer, kv: KV) {
     if (s) { s.emit('notice', { message }); s.disconnect(true); }
   }
 
-  return { io, rooms, figureChanged, kick };
+  /** Tira o jogador do quarto (ex.: partiu de viagem, foi despejado). */
+  function leaveRoomOf(userId: string) {
+    const s = socketOf.get(userId);
+    if (s) leaveCurrentRoom(s).then(() => s.emit('room:left')).catch(() => undefined);
+  }
+  function notify(userId: string, message: string) {
+    const s = socketOf.get(userId);
+    if (s) { s.emit('notice', { message }); s.emit('city:changed', { reason: message }); }
+  }
+  const onlineUserIds = () => [...socketOf.keys()];
+
+  // Presença por bairro, difundida a todos a cada 4 s (só se mudou).
+  let lastPresence = '';
+  const presenceTimer = setInterval(async () => {
+    try {
+      const ids = onlineUserIds();
+      const rows = ids.length ? await prisma.user.findMany({ where: { id: { in: ids } }, select: { location: true, travelTo: true, arrivesAt: true } }) : [];
+      const counts: Record<string, number> = {};
+      for (const r of rows) { const l = effectiveLocation(r); if (l) counts[l] = (counts[l] ?? 0) + 1; }
+      const payload = { counts, total: ids.length };
+      const key = JSON.stringify(payload);
+      if (key !== lastPresence) { lastPresence = key; io.emit('city:presence', payload); }
+    } catch (e) { logger.error({ err: e }, 'presença falhou'); }
+  }, 4000);
+  io.engine.on('close', () => clearInterval(presenceTimer));
+
+  return { io, rooms, figureChanged, kick, leaveRoomOf, notify, onlineUserIds, stop: () => clearInterval(presenceTimer) };
 }
 export type Gateway = ReturnType<typeof createGateway>;

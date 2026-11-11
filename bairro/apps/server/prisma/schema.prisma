@@ -48,6 +48,22 @@ model User {
   /// Saldos: só o servidor altera (fase 3 acrescenta o livro-razão de transações).
   credits       Int           @default(500)
   diamonds      Int           @default(0)
+  /// Dinheiro do jogo em cêntimos: carteira (no bolso) e conta bancária. Só o servidor altera, sempre com LedgerEntry.
+  walletCents   Int           @default(15000)
+  bankCents     Int           @default(0)
+  /// Cidade: bairro atual e viagem em curso (a chegada é resolvida quando o tempo passa).
+  location      String        @default("campo-ourique")
+  travelFrom    String?
+  travelTo      String?
+  travelMode    String?
+  travelStart   DateTime?
+  arrivesAt     DateTime?
+  /// Biscate em curso.
+  workJob       String?
+  workStart     DateTime?
+  workUntil     DateTime?
+  shiftsDay     String?
+  shiftsCount   Int           @default(0)
   homeRoomId    String?       @unique
   lastRoomId    String?
   lastX         Int?
@@ -61,6 +77,11 @@ model User {
   items        FurnitureItem[]
   chatMessages ChatMessage[]
   auditLogs    AuditLog[]
+  ledger       LedgerEntry[]
+  vehicles     Vehicle[]
+  propertiesOwned  Property[]        @relation("PropertyOwner")
+  propertiesRented Property[]        @relation("PropertyTenant")
+  propertyHistory  PropertyHistory[]
 }
 
 model Session {
@@ -92,6 +113,9 @@ model Room {
   doorY       Int        @default(0)
   access      RoomAccess @default(OPEN)
   maxUsers    Int        @default(25)
+  /// Bairro onde fica (é preciso estar lá para entrar). null = quarto "online", acessível de qualquer lado.
+  bairro      String?
+  property    Property?
   /// Ordem no navegador para os espaços públicos.
   sortOrder   Int        @default(0)
   createdAt   DateTime   @default(now())
@@ -168,4 +192,72 @@ model AuditLog {
   createdAt DateTime @default(now())
 
   @@index([action, createdAt])
+}
+
+enum MoneyAccount {
+  WALLET
+  BANK
+}
+
+/// Livro-razão: cada movimento de dinheiro fica registado com o saldo resultante.
+model LedgerEntry {
+  id           String       @id @default(cuid())
+  userId       String
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  account      MoneyAccount
+  amount       Int
+  balanceAfter Int
+  kind         String
+  memo         String       @default("")
+  refId        String?
+  createdAt    DateTime     @default(now())
+
+  @@index([userId, createdAt])
+}
+
+/// Cada casa é única (morada própria) e só pode ter um dono OU um inquilino de cada vez.
+model Property {
+  id            String    @id
+  bairro        String
+  address       String
+  type          String
+  price         Int
+  rentWeek      Int
+  ownerId       String?
+  owner         User?     @relation("PropertyOwner", fields: [ownerId], references: [id], onDelete: SetNull)
+  tenantId      String?
+  tenant        User?     @relation("PropertyTenant", fields: [tenantId], references: [id], onDelete: SetNull)
+  rentPaidUntil DateTime?
+  roomId        String?   @unique
+  room          Room?     @relation(fields: [roomId], references: [id], onDelete: SetNull)
+  updatedAt     DateTime  @updatedAt
+
+  history PropertyHistory[]
+
+  @@index([bairro])
+}
+
+/// Histórico de quem comprou, vendeu, arrendou ou foi despejado.
+model PropertyHistory {
+  id         String   @id @default(cuid())
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  action     String
+  amount     Int      @default(0)
+  createdAt  DateTime @default(now())
+
+  @@index([propertyId, createdAt])
+}
+
+model Vehicle {
+  id            String   @id @default(cuid())
+  model         String
+  ownerId       String
+  owner         User     @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  purchasePrice Int
+  createdAt     DateTime @default(now())
+
+  @@index([ownerId])
 }

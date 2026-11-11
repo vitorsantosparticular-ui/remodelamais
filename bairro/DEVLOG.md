@@ -1,5 +1,35 @@
 # Diário de desenvolvimento — BAIRRO.PT
 
+## 2026-11-11 (tarde) — Mudança de rumo: "vida na cidade"
+Pedido: algo mais parecido com o Vida na Banda; prioridade **cidade e bens**, ecrã principal **mapa da cidade**.
+(Não foi possível consultar vidanabanda.com a partir do ambiente de desenvolvimento — domínio bloqueado — por isso
+as mecânicas foram desenhadas a partir da escolha do utilizador, com identidade e arte originais.)
+
+### Implementado
+- `packages/shared/src/city.ts`: bairros, locais, transportes e preços, biscates, veículos, tipos de casa.
+- Servidor `modules/city` + `modules/economy/money.ts`: viagens, biscates, banco, casas, stand. Todo o dinheiro passa por
+  `moveMoney` (atualização condicional — nunca negativo — e `LedgerEntry`). O tempo é resolvido por `settle()` quando o
+  jogador age; as rendas de quem está offline são cobradas por uma tarefa a cada 5 minutos.
+- Migração `cidade`: dinheiro em cêntimos (carteira/banco), localização e viagem, turnos, `LedgerEntry`, `Property`
+  (única, dono OU inquilino), `PropertyHistory`, `Vehicle`. Quartos ganham `bairro` (é preciso estar lá para entrar).
+- Tempo real: presença por bairro (`city:presence`), `room:leave`, `room:left` (sair ao viajar/despejo), `city:changed`.
+- Cliente: mapa SVG de Lisboa (Monsanto, Tejo, ponte, linha do elétrico), painel do bairro, janelas de Banco, Multibanco,
+  Biscates, Imobiliária, Stand e Os meus bens; estado com barra de progresso de viagem/turno.
+
+### Testado
+- `npm test`: **16/16** (8 novos da cidade): estado inicial; metro cobra bilhete e bloqueia ações durante a viagem; biscate só
+  no bairro certo e paga no fim com registo; banco (depósito, montantes inválidos, levantamento, transferência, depósito
+  fora do banco recusado); **3 levantamentos em simultâneo** só deixam passar 2 (saldo nunca negativo); **2 jogadores a
+  arrendar a mesma casa ao mesmo tempo** → um 200, outro 409, quem perde não paga; despejo por falta de saldo com histórico;
+  renda cobrada automaticamente; stand e viagem de carro.
+- Ponta-a-ponta (`e2e/cidade.cjs`): 2 contas (desktop + telemóvel), viagem de táxi em tempo real até à Baixa, contador de
+  presença, biscate com barra de progresso, os dois na Praça Central com chat, janela do banco. Sem erros de JavaScript.
+
+### Problemas conhecidos
+- O mapa ainda não mostra os outros jogadores em viagem (só contagens por bairro).
+- Os espaços públicos do navegador "Quartos" só deixam entrar quem está no bairro certo (mensagem explica onde ir).
+
+
 ## 2026-11-11 — Fase 1 + primeiro marco jogável
 
 ### Implementado

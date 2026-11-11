@@ -5,3 +5,4 @@ export * from './furniture';
 export * from './rooms';
 export * from './chat';
 export * from './protocol';
+export * from './city';

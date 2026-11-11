@@ -35,3 +35,10 @@ Preencher os IDs em `MEDICAO` no topo do ficheiro.
 
 ## Publicar
 GitHub Pages (Settings → Pages) ou Netlify (arrastar a pasta).
+
+## Jogo "Vida em Lisboa" (`/jogo`)
+Protótipo de um jogo 2D isométrico (estilo hotel de pixéis, 2010) num bairro da Baixa/Chiado, feito em Phaser 3 (via CDN, sem build).
+- `jogo/index.html`, `jogo/jogo.css`, `jogo/jogo.js` — tudo desenhado por código, sem imagens.
+- Toca no chão para andar (A* em 8 direções); arrasta para mover a câmara.
+- ☕ Café A Bica: trabalhar (4h, +28 €), bica e pastel de nata · 🔑 Tejo Imóveis: arrendar à semana · 🏠 Casa (Prédio Nº 28): dormir.
+- Dinheiro, energia, dia/hora, casa e posição guardados no `localStorage` (`vidaLisboa.v1`).

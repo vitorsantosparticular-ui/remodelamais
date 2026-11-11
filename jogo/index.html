@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0e1b2a">
+<title>Vida em Lisboa</title>
+<link rel="stylesheet" href="jogo.css">
+</head>
+<body>
+<div id="jogo"></div>
+
+<!-- HUD (estilo hotel de pixéis, 2010) -->
+<div id="hud" hidden>
+  <div class="hud-caixa">
+    <div class="hud-nome" id="hud-nome">—</div>
+    <div class="hud-linha"><span class="moeda"></span><b id="hud-dinheiro">0,00 €</b></div>
+    <div class="hud-linha">
+      <span class="raio">⚡</span>
+      <div class="barra"><div id="hud-energia"></div></div>
+    </div>
+    <div class="hud-linha hud-pequeno"><span id="hud-dia">Dia 1</span> · <span id="hud-hora">08:00</span></div>
+    <div class="hud-linha hud-pequeno" id="hud-casa">Sem casa</div>
+  </div>
+  <div class="hud-botoes">
+    <button id="btn-zoom" title="Zoom">🔍</button>
+    <button id="btn-menu" title="Menu">☰</button>
+  </div>
+</div>
+
+<!-- Barra de conversa -->
+<form id="chat" hidden autocomplete="off">
+  <input id="chat-texto" maxlength="80" placeholder="Diz qualquer coisa…" enterkeyhint="send">
+  <button type="submit">Falar</button>
+</form>
+
+<!-- Janela genérica -->
+<div id="janela" class="janela" hidden role="dialog" aria-modal="true">
+  <div class="janela-titulo"><span id="janela-titulo"></span><button id="janela-fechar" aria-label="Fechar">✕</button></div>
+  <div class="janela-corpo" id="janela-corpo"></div>
+</div>
+
+<div id="aviso" hidden></div>
+<div id="negro"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js"></script>
+<script>window.Phaser || document.write('<script src="https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js"><\/script>')</script>
+<script src="jogo.js"></script>
+</body>
+</html>

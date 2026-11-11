@@ -1,0 +1,98 @@
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; height: 100%; overflow: hidden;
+  background: #0e1b2a; color: #fff;
+  font: bold 11px/1.35 Verdana, Tahoma, sans-serif;
+  -webkit-user-select: none; user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+#jogo { position: fixed; inset: 0; }
+#jogo canvas { display: block; touch-action: none; }
+
+/* ---------- HUD ---------- */
+#hud { position: fixed; top: 0; left: 0; right: 0; pointer-events: none;
+  display: flex; justify-content: space-between; padding: max(8px, env(safe-area-inset-top)) 8px 0; }
+#hud[hidden] { display: none; }
+.hud-caixa {
+  pointer-events: auto; min-width: 168px;
+  background: rgba(20, 26, 33, .88); border: 2px solid #000; border-radius: 6px;
+  box-shadow: inset 0 0 0 1px #5d6670, 0 2px 0 rgba(0,0,0,.35); padding: 6px 9px 7px;
+}
+.hud-nome { color: #ffd84a; font-size: 12px; margin-bottom: 3px; text-shadow: 1px 1px 0 #000; }
+.hud-linha { display: flex; align-items: center; gap: 6px; margin-top: 3px; text-shadow: 1px 1px 0 #000; }
+.hud-pequeno { font-weight: normal; color: #cfd6dd; }
+#hud-dinheiro { font-size: 13px; }
+.moeda { width: 14px; height: 14px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff3a0, #f2b01e 55%, #a86d00);
+  border: 1px solid #5a3a00; display: inline-block; }
+.raio { width: 14px; text-align: center; color: #7fe36a; }
+.barra { flex: 1; height: 9px; background: #000; border: 1px solid #5d6670; border-radius: 2px; overflow: hidden; }
+#hud-energia { height: 100%; width: 100%; background: linear-gradient(#a6f08e, #3fae2a); transition: width .3s; }
+#hud-energia.baixa { background: linear-gradient(#ffb08e, #d0421c); }
+.hud-botoes { display: flex; gap: 6px; align-items: flex-start; pointer-events: auto; }
+
+button {
+  font: bold 11px Verdana, Tahoma, sans-serif; color: #fff; cursor: pointer;
+  border: 2px solid #000; border-radius: 5px; padding: 6px 10px;
+  background: linear-gradient(#5d6670, #3a4148); box-shadow: inset 0 1px 0 rgba(255,255,255,.25);
+  text-shadow: 1px 1px 0 #000;
+}
+button:active { transform: translateY(1px); }
+button.verde { background: linear-gradient(#79c94b, #3f8f1d); }
+button.azul { background: linear-gradient(#5aa7e0, #2a6aa8); }
+button.vermelho { background: linear-gradient(#e56a4f, #a8301a); }
+button:disabled { opacity: .45; cursor: default; transform: none; }
+.hud-botoes button { min-width: 38px; height: 38px; font-size: 16px; padding: 0; }
+
+/* ---------- Conversa ---------- */
+#chat { position: fixed; left: 50%; transform: translateX(-50%);
+  bottom: max(10px, env(safe-area-inset-bottom)); display: flex; gap: 6px; width: min(460px, calc(100% - 16px)); }
+#chat[hidden] { display: none; }
+#chat input {
+  flex: 1; min-width: 0; font: 12px Verdana, sans-serif; padding: 8px 10px;
+  border: 2px solid #000; border-radius: 5px; background: #fff; color: #000;
+  -webkit-user-select: text; user-select: text;
+}
+
+/* ---------- Janelas ---------- */
+.janela {
+  position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: min(380px, calc(100% - 20px)); max-height: calc(100% - 40px); overflow: auto;
+  background: #e9eef1; color: #1a1a1a; border: 2px solid #000; border-radius: 8px;
+  box-shadow: 0 6px 0 rgba(0,0,0,.35); z-index: 20;
+}
+.janela[hidden] { display: none; }
+.janela-titulo {
+  display: flex; justify-content: space-between; align-items: center; gap: 8px;
+  background: linear-gradient(#3e8fc7, #1f5f92); color: #fff; padding: 6px 6px 6px 10px;
+  border-bottom: 2px solid #000; border-radius: 6px 6px 0 0; text-shadow: 1px 1px 0 #000; font-size: 12px;
+}
+.janela-titulo button { padding: 1px 6px; background: linear-gradient(#e56a4f, #a8301a); }
+.janela-corpo { padding: 12px; font-weight: normal; }
+.janela-corpo p { margin: 0 0 10px; }
+.janela-corpo .opcoes { display: grid; gap: 8px; }
+.cartao {
+  display: grid; grid-template-columns: 40px 1fr auto; gap: 10px; align-items: center;
+  background: #fff; border: 1px solid #9aa6ae; border-radius: 6px; padding: 8px;
+}
+.cartao .ico { font-size: 26px; text-align: center; }
+.cartao b { display: block; }
+.cartao small { color: #55606a; }
+.cartao.atual { border-color: #3f8f1d; box-shadow: inset 0 0 0 1px #3f8f1d; }
+.cores { display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0 12px; }
+.cores button { width: 34px; height: 34px; padding: 0; border-radius: 50%; }
+.cores button.sel { outline: 3px solid #ffd84a; }
+.janela input[type=text] { width: 100%; font: 13px Verdana, sans-serif; padding: 8px; border: 2px solid #000; border-radius: 5px;
+  -webkit-user-select: text; user-select: text; margin: 4px 0 10px; }
+.nota { color: #55606a; font-size: 10px; margin-top: 10px !important; }
+
+#aviso {
+  position: fixed; left: 50%; top: 70px; transform: translateX(-50%); z-index: 30; max-width: calc(100% - 20px);
+  background: #fffbe0; color: #1a1a1a; border: 2px solid #000; border-radius: 6px; padding: 8px 12px; text-align: center;
+  box-shadow: 0 3px 0 rgba(0,0,0,.3);
+}
+#negro { position: fixed; inset: 0; background: #000; opacity: 0; pointer-events: none; transition: opacity .6s; z-index: 15; }
+#negro.on { opacity: 1; }
+
+@media (max-width: 480px) {
+  .hud-caixa { min-width: 140px; padding: 5px 7px; }
+}

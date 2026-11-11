@@ -63,3 +63,9 @@
   for = "/consulta/*"
   [headers.values]
     X-Robots-Tag = "noindex, follow"
+
+# Protótipo do jogo "Vida em Lisboa": não indexar
+[[headers]]
+  for = "/jogo/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

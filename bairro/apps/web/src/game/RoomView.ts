@@ -282,7 +282,7 @@ export class RoomView {
       const age = now - b.born;
       b.node.alpha = age > 25_000 ? Math.max(0, 1 - (age - 25_000) / 3000) : 1;
     }
-    this.bubbles = this.bubbles.filter(b => { if (b.node.alpha <= 0 || b.y < 50) { b.node.destroy({ children: true }); return false; } return true; });
+    this.bubbles = this.bubbles.filter(b => { if (b.node.alpha <= 0 || b.y < 4) { b.node.destroy({ children: true }); return false; } return true; });
   }
 
   // ------------------------------------------------------------------ chat (balões no topo, à moda clássica)

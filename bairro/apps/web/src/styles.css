@@ -115,7 +115,7 @@ body {
   flex: 1; min-width: 0; font: 12px Verdana, sans-serif; padding: 8px 10px; border: 2px solid #000; border-radius: 6px; background: #fff; color: #000;
 }
 @media (max-width: 640px) {
-  .tool small { display: none; }
+  .tool small { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .tool { min-width: 36px; }
   .toolbar { flex-wrap: wrap; }
   .chat { order: -1; flex-basis: 100%; }

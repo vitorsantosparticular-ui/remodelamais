@@ -4,12 +4,15 @@ import type { ClientToServer, ServerToClient } from '@bairro/shared';
 import { useGame } from '../store';
 import type { RoomView } from '../game/RoomView';
 import { refreshCity } from '../cityActions';
+import { createDemoSocket } from '../demo/demoServer';
 
 export type GameSocket = Socket<ServerToClient, ClientToServer>;
 
 /** Liga ao servidor. O jogo começa no mapa; só se entra num quarto quando o jogador escolhe. */
 export function connectGame(view: RoomView): GameSocket {
-  const s: GameSocket = io({ withCredentials: true, transports: ['websocket', 'polling'] });
+  const s: GameSocket = import.meta.env.VITE_DEMO === '1'
+    ? createDemoSocket() as unknown as GameSocket
+    : io({ withCredentials: true, transports: ['websocket', 'polling'] });
   const g = useGame.getState;
 
   s.on('connect', () => {

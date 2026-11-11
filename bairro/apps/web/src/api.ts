@@ -7,9 +7,13 @@ export interface Me {
 }
 export type RoomListItem = RoomInfo & { users: number };
 
-export class ApiError extends Error { constructor(public status: number, message: string) { super(message); } }
+import { ApiError } from './errors';
+import { demoRequest } from './demo/demoServer';
+export { ApiError };
+const DEMO = import.meta.env.VITE_DEMO === '1';
 
 async function req<T>(method: string, path: string, body?: unknown): Promise<T> {
+  if (DEMO) return demoRequest(method, path, body) as Promise<T>;
   const r = await fetch(path, {
     method, credentials: 'same-origin',
     headers: body !== undefined ? { 'content-type': 'application/json' } : undefined,

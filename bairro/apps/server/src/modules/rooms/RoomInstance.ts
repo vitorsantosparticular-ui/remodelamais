@@ -25,7 +25,7 @@ export interface RoomCallbacks {
 export class RoomInstance {
   readonly users = new Map<string, RoomUser>();
   private tiles: TileInfo[] = [];
-  private timer: NodeJS.Timeout | null = null;
+  private timer: ReturnType<typeof setInterval> | null = null;
 
   constructor(public info: RoomInfo, public items: RoomItemState[], private cb: RoomCallbacks) {
     this.rebuildTiles();

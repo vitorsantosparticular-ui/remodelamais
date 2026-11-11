@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Casa da Aldeia — Projeto</title>
+<meta name="robots" content="noindex">
+<style>
+:root{
+  --bg:#f7f3ee; --card:#ffffff; --ink:#2f2924; --muted:#7a6e64; --line:#e3d9ce;
+  --a:#c07a3a; --a-soft:#f3e3d2; --b:#3f7a6b; --b-soft:#dcebe6; --warn:#b8462f; --warn-soft:#f6e0da;
+  --wall:#4a3f37; --room:#fbf8f4; --ext:#eef1e6;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1c1916; --card:#262220; --ink:#efe8e1; --muted:#a99c90; --line:#3b3430;
+    --a:#e09a5a; --a-soft:#3d2c1d; --b:#6fb3a1; --b-soft:#1f3530; --warn:#e6806a; --warn-soft:#3d231d;
+    --wall:#d8cfc6; --room:#2d2926; --ext:#28302a;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1c1916; --card:#262220; --ink:#efe8e1; --muted:#a99c90; --line:#3b3430;
+  --a:#e09a5a; --a-soft:#3d2c1d; --b:#6fb3a1; --b-soft:#1f3530; --warn:#e6806a; --warn-soft:#3d231d;
+  --wall:#d8cfc6; --room:#2d2926; --ext:#28302a;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:1040px;margin:0 auto;padding:28px 16px 64px}
+h1{font-size:clamp(26px,5vw,38px);line-height:1.15;margin:0 0 6px}
+h2{font-size:22px;margin:44px 0 12px;padding-top:10px;border-top:1px solid var(--line)}
+h3{font-size:17px;margin:20px 0 6px}
+.lead{color:var(--muted);font-size:18px;margin:0 0 20px}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.card.a{border-left:5px solid var(--a)} .card.b{border-left:5px solid var(--b)} .card.w{border-left:5px solid var(--warn)}
+.kpi{font-size:28px;font-weight:700;line-height:1.1}
+.kpi small{font-size:14px;font-weight:500;color:var(--muted)}
+.muted{color:var(--muted)}
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:99px;background:var(--a-soft);color:var(--a)}
+.tag.b{background:var(--b-soft);color:var(--b)} .tag.w{background:var(--warn-soft);color:var(--warn)}
+.photos{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.photos figure{margin:0}
+.photos img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:8px;display:block;background:var(--line)}
+.photos figcaption{font-size:13px;color:var(--muted);margin-top:4px}
+svg{width:100%;height:auto;display:block}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;overflow:hidden}
+.plan text{font-family:system-ui,sans-serif;fill:var(--ink)}
+.wall{fill:none;stroke:var(--wall);stroke-width:5}
+.wall-in{stroke:var(--wall);stroke-width:3}
+.room{fill:var(--room)}
+.ext{fill:var(--ext)}
+.ruin{fill:none;stroke:var(--warn);stroke-width:2;stroke-dasharray:6 4}
+.zoneA{fill:var(--a-soft)} .zoneB{fill:var(--b-soft)}
+.new{stroke:var(--b);stroke-width:3;stroke-dasharray:5 3;fill:none}
+.lbl{font-size:13px;font-weight:600} .sm{font-size:11px;fill:var(--muted)!important}
+.big{font-size:15px;font-weight:700;letter-spacing:.06em}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+td.n,th.n{text-align:right;white-space:nowrap}
+tfoot td{font-weight:700}
+.scroll{overflow-x:auto}
+ul,ol{padding-left:20px} li{margin:4px 0}
+.note{font-size:13px;color:var(--muted)}
+footer{margin-top:40px;font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<main>
+  <span class="tag">Projeto de investimento · arrendamento</span>
+  <h1>Casa da aldeia — 10 min de Torres Vedras</h1>
+  <p class="lead">Hoje é <b>uma habitação com um anexo</b>. Aqui está a leitura das fotos divisão a divisão, e a proposta para a transformar em <b>duas casas independentes para arrendar</b>: a habitação passa a T3 e o anexo, com o pátio, passa a T2.</p>
+
+  <div class="grid g3">
+    <div class="card"><div class="kpi">Habitação + anexo <small></small></div><div class="muted">3 corpos (4 + 2 + 4 divisões) e pátio, tudo térreo</div></div>
+    <div class="card b"><div class="kpi">Casa B · T3 <small>habitação</small></div><div class="muted">Já tem chão, tetos e caixilharia: obra média</div></div>
+    <div class="card a"><div class="kpi">Casa A · T2 <small>anexo + pátio</small></div><div class="muted">Está em bruto e o teto está escorado: obra pesada</div></div>
+  </div>
+
+  <h2>1 · O que cada foto mostra</h2>
+  <div class="photos">
+    <figure><img src="fotos/fachada-rua.jpg" alt="Fachada amarela térrea virada à rua"><figcaption>Fachada da habitação: alpendre, estores, porta para a rua</figcaption></figure>
+    <figure><img src="fotos/sala-entrada.jpg" alt="Sala com porta exterior e ladrilho"><figcaption>Habitação: sala de entrada</figcaption></figure>
+    <figure><img src="fotos/quarto-a.jpg" alt="Quarto com teto em madeira"><figcaption>Habitação: quarto com teto em madeira</figcaption></figure>
+    <figure><img src="fotos/quarto-b.jpg" alt="Quarto com reboco caído junto à janela"><figcaption>Habitação: quarto com janela e humidade</figcaption></figure>
+    <figure><img src="fotos/patio-traseiras.jpg" alt="Pátio com anexos em ruína e tanque"><figcaption>Pátio do anexo: WC exterior, arrumos em ruína, tanque</figcaption></figure>
+  </div>
+
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card b">
+      <span class="tag b">Habitação — a parte “de morar”</span>
+      <p class="muted" style="margin:8px 0 4px">É fácil de reconhecer: chão em mosaico, rodapés, tetos acabados, portas envernizadas, estores.</p>
+      <ol>
+        <li><b>Sala de entrada</b>: porta e janela para a rua, teto liso, mosaico cor de tijolo, quadro elétrico por cima da porta.</li>
+        <li><b>Segunda sala</b> (teto liso, o mesmo mosaico), ligada à primeira e com passagem para os quartos.</li>
+        <li><b>Quarto 1</b>: teto em lambrim de madeira escura, mosaico a imitar parquet.</li>
+        <li><b>Quarto 2</b>: igual, com janela de portadas e estore; reboco caído e humidade em baixo.</li>
+        <li><b>Quarto 3 / sala de jantar</b>: teto em madeira, lustre, chão em <b>ladrilho vinílico</b> antigo a descolar.</li>
+        <li><b>Alcova</b> com janela, ligada ao quarto 3 por um vão largo sem porta.</li>
+      </ol>
+      <p class="note" style="margin:6px 0 0">As divisões comunicam entre si por portas. São as <b>6 divisões</b> dos corpos poente e central.</p>
+    </div>
+    <div class="card a">
+      <span class="tag">Anexo — a parte de serviço</span>
+      <p class="muted" style="margin:8px 0 4px">Também é fácil de reconhecer: chão em cimento, paredes caiadas ou pintadas de amarelo, tetos em lambrim branco inclinado a acompanhar o telhado.</p>
+      <ol>
+        <li><b>Cozinha antiga</b>: lareira de cozinha com <b>forno a lenha</b>, bancada em tijoleira, e <b>duas escoras metálicas</b> a segurar o teto.</li>
+        <li><b>Divisão de entrada do anexo</b>: contador e quadro, manchas de ferrugem, porta direta para o <b>pátio do tanque</b>.</li>
+        <li><b>Divisão amarela</b> (distribuidor): duas portas para outras divisões, janela pequena alta, teto de duas águas, <b>ninho de andorinha</b> no canto.</li>
+        <li><b>Quarto pequeno</b> com um postigo (janela muito pequena) e humidade por baixo.</li>
+        <li><b>Casa de banho antiga</b>: sanita, bidé, lavatório e base de duche em cimento; humidade até meio metro de altura.</li>
+      </ol>
+      <p class="note" style="margin:6px 0 0">É o corpo nascente: <b>pátio + 4 divisões</b> (mais o WC).</p>
+    </div>
+  </div>
+
+  <div class="card w" style="margin-top:14px">
+    <h3 style="margin-top:0">Problemas que se veem (e que pesam no orçamento)</h3>
+    <ul>
+      <li><span class="tag w">alta</span> <b>Teto do anexo escorado</b>: as escoras na cozinha querem dizer que a madeira do telhado cedeu ou apodreceu. O ninho de andorinha mostra que entram aves, ou seja, há aberturas. Conta-se já com <b>telhado novo no anexo</b>.</li>
+      <li><span class="tag w">alta</span> <b>Humidade que sobe do chão</b> em toda a casa: salitre nos rodapés, reboco a cair, marca horizontal no WC.</li>
+      <li><span class="tag w">alta</span> <b>Possível amianto</b> na chapa ondulada do pátio e no ladrilho vinílico antigo do quarto 3. Tem de ser analisado antes de partir; se der positivo, a remoção é feita por empresa certificada.</li>
+      <li><span class="tag">média</span> <b>Fissura horizontal</b> no topo da fachada e fissuras na empena: um engenheiro tem de ver.</li>
+      <li><span class="tag">média</span> Eletricidade e canalização antigas, para substituir. O WC atual não serve.</li>
+      <li><span class="tag">média</span> O quarto pequeno do anexo só tem um postigo. Para ser quarto, a janela tem de ser aumentada (a lei pede janela com pelo menos 1/10 da área do chão).</li>
+    </ul>
+  </div>
+
+  <h2>2 · Como deve estar organizada hoje (esquema)</h2>
+  <p class="note">Esquema de leitura, <b>sem escala</b>, feito a partir do anúncio e das fotos. A posição exata de cada divisão confirma-se na visita, com fita métrica.</p>
+  <div class="plan">
+  <svg viewBox="0 0 1000 480" role="img" aria-label="Planta esquemática atual: habitação a poente, anexo e pátio a nascente">
+    <rect class="ext" x="20" y="20" width="960" height="95" rx="4"/>
+    <text class="lbl" x="40" y="55">Logradouro nas traseiras</text>
+    <text class="sm" x="40" y="74">espaço exterior referido no anúncio</text>
+    <!-- HABITAÇÃO -->
+    <rect class="zoneB" x="30" y="125" width="488" height="270" opacity=".5"/>
+    <rect class="wall" x="30" y="125" width="300" height="270"/>
+    <line class="wall-in" x1="180" y1="125" x2="180" y2="395"/><line class="wall-in" x1="30" y1="260" x2="330" y2="260"/>
+    <rect class="wall" x="338" y="125" width="180" height="270"/>
+    <line class="wall-in" x1="338" y1="260" x2="400" y2="260"/><line class="wall-in" x1="456" y1="260" x2="518" y2="260"/>
+    <text class="lbl" x="105" y="185" text-anchor="middle">Quarto 1</text><text class="sm" x="105" y="203" text-anchor="middle">teto madeira</text>
+    <text class="lbl" x="255" y="185" text-anchor="middle">Quarto 2</text><text class="sm" x="255" y="203" text-anchor="middle">teto madeira</text>
+    <text class="lbl" x="105" y="320" text-anchor="middle">Sala de entrada</text><text class="sm" x="105" y="338" text-anchor="middle">porta + janela à rua</text>
+    <text class="lbl" x="255" y="320" text-anchor="middle">2.ª sala</text><text class="sm" x="255" y="338" text-anchor="middle">teto liso</text>
+    <text class="lbl" x="428" y="185" text-anchor="middle">Alcova</text><text class="sm" x="428" y="203" text-anchor="middle">com janela</text>
+    <text class="sm" x="428" y="252" text-anchor="middle">vão largo</text>
+    <text class="lbl" x="428" y="320" text-anchor="middle">Quarto 3</text><text class="sm" x="428" y="338" text-anchor="middle">chão vinílico</text>
+    <text class="big" x="274" y="415" text-anchor="middle" style="fill:var(--b)!important">HABITAÇÃO · 6 divisões</text>
+    <!-- ANEXO -->
+    <rect class="zoneA" x="526" y="125" width="290" height="270" opacity=".5"/>
+    <rect class="wall" x="526" y="125" width="290" height="270"/>
+    <line class="wall-in" x1="671" y1="125" x2="671" y2="395"/><line class="wall-in" x1="526" y1="260" x2="816" y2="260"/>
+    <line class="wall-in" x1="740" y1="125" x2="740" y2="260"/>
+    <text class="lbl" x="598" y="185" text-anchor="middle">Quarto peq.</text><text class="sm" x="598" y="203" text-anchor="middle">só postigo</text>
+    <text class="lbl" x="705" y="185" text-anchor="middle">WC</text><text class="sm" x="705" y="203" text-anchor="middle">antigo</text>
+    <text class="lbl" x="778" y="185" text-anchor="middle">Cozinha</text><text class="sm" x="778" y="203" text-anchor="middle">escorada</text>
+    <text class="lbl" x="598" y="320" text-anchor="middle">Distribuidor</text><text class="sm" x="598" y="338" text-anchor="middle">divisão amarela</text>
+    <text class="lbl" x="743" y="320" text-anchor="middle">Entrada anexo</text><text class="sm" x="743" y="338" text-anchor="middle">contador · porta pátio</text>
+    <rect x="808" y="295" width="16" height="44" fill="var(--a)"/>
+    <text class="big" x="671" y="415" text-anchor="middle" style="fill:var(--a)!important">ANEXO · 4 div. + WC</text>
+    <!-- Pátio -->
+    <rect class="ext" x="824" y="125" width="150" height="270"/>
+    <text class="lbl" x="899" y="150" text-anchor="middle">Pátio</text>
+    <rect class="ruin" x="834" y="165" width="60" height="60"/><text class="sm" x="864" y="200" text-anchor="middle">WC ext.</text>
+    <rect class="ruin" x="904" y="165" width="60" height="80"/><text class="sm" x="934" y="208" text-anchor="middle">arrumos</text>
+    <rect class="ruin" x="844" y="270" width="110" height="60"/><text class="sm" x="899" y="305" text-anchor="middle">tanque</text>
+    <text class="sm" x="522" y="440" text-anchor="middle" style="fill:var(--warn)!important">sem ligação</text>
+    <rect x="20" y="448" width="960" height="28" rx="4" fill="var(--line)"/>
+    <text class="lbl" x="500" y="467" text-anchor="middle">RUA</text>
+    <text class="sm" x="40" y="467">← poente</text><text class="sm" x="960" y="467" text-anchor="end">nascente →</text>
+  </svg>
+  </div>
+
+  <h2>3 · Proposta: duas casas</h2>
+  <p>A separação já existe: <b>habitação de um lado, anexo do outro, sem ligação entre os dois</b>. Aproveita-se isso. Cada casa fica com entrada própria, contadores próprios e exterior privado, e quase não se mexe em paredes-mestras.</p>
+  <div class="plan">
+  <svg viewBox="0 0 1000 500" role="img" aria-label="Planta proposta: T3 na habitação e T2 no anexo">
+    <rect class="ext" x="20" y="20" width="510" height="95" rx="4"/>
+    <rect class="ext" x="538" y="20" width="442" height="95" rx="4"/>
+    <line x1="534" y1="20" x2="534" y2="115" stroke="var(--b)" stroke-width="3" stroke-dasharray="4 4"/>
+    <text class="lbl" x="40" y="55">Logradouro da Casa B</text><text class="sm" x="40" y="74">relva, estendal, churrasco</text>
+    <text class="lbl" x="558" y="55">Traseiras da Casa A</text><text class="sm" x="558" y="74">arrumos / horta</text>
+    <text class="sm" x="542" y="104">muro / sebe</text>
+
+    <!-- CASA B -->
+    <rect class="zoneB" x="30" y="125" width="488" height="270"/>
+    <rect class="wall" x="30" y="125" width="300" height="270"/>
+    <rect class="wall" x="338" y="125" width="180" height="270"/>
+    <line class="wall-in" x1="180" y1="125" x2="180" y2="260"/>
+    <line class="wall-in" x1="30" y1="260" x2="330" y2="260"/>
+    <line class="wall-in" x1="338" y1="260" x2="518" y2="260"/>
+    <line class="new" x1="180" y1="262" x2="180" y2="298"/><line class="new" x1="180" y1="350" x2="180" y2="393"/>
+    <text class="lbl" x="105" y="185" text-anchor="middle">Quarto 1</text><text class="sm" x="105" y="203" text-anchor="middle">casal</text>
+    <text class="lbl" x="255" y="185" text-anchor="middle">Quarto 2</text>
+    <text class="lbl" x="180" y="320" text-anchor="middle">Sala + cozinha</text><text class="sm" x="180" y="338" text-anchor="middle">as duas salas abertas numa só</text>
+    <text class="lbl" x="428" y="185" text-anchor="middle">WC completo</text><text class="sm" x="428" y="203" text-anchor="middle">na antiga alcova</text>
+    <text class="lbl" x="428" y="320" text-anchor="middle">Quarto 3</text><text class="sm" x="428" y="338" text-anchor="middle">chão novo</text>
+    <text class="big" x="274" y="420" text-anchor="middle" style="fill:var(--b)!important">CASA B · T3 (habitação)</text>
+
+    <!-- CASA A -->
+    <rect class="zoneA" x="526" y="125" width="290" height="270"/>
+    <rect class="wall" x="526" y="125" width="290" height="270"/>
+    <line class="wall-in" x1="671" y1="125" x2="671" y2="260"/>
+    <line class="wall-in" x1="526" y1="260" x2="816" y2="260"/>
+    <line class="wall-in" x1="740" y1="125" x2="740" y2="260"/>
+    <line class="new" x1="671" y1="262" x2="671" y2="292"/><line class="new" x1="671" y1="362" x2="671" y2="393"/>
+    <text class="lbl" x="598" y="185" text-anchor="middle">Quarto 2</text><text class="sm" x="598" y="203" text-anchor="middle">janela aumentada</text>
+    <text class="lbl" x="705" y="185" text-anchor="middle">WC</text><text class="sm" x="705" y="203" text-anchor="middle">refeito</text>
+    <text class="lbl" x="778" y="185" text-anchor="middle">Quarto 1</text><text class="sm" x="778" y="203" text-anchor="middle">ex-cozinha</text>
+    <text class="lbl" x="671" y="315" text-anchor="middle">Sala + cozinha</text><text class="sm" x="671" y="333" text-anchor="middle">entrada e distribuidor abertos</text>
+    <rect x="808" y="295" width="16" height="44" fill="var(--a)"/>
+    <text class="big" x="671" y="420" text-anchor="middle" style="fill:var(--a)!important">CASA A · T2 (anexo)</text>
+
+    <!-- Pátio novo -->
+    <rect class="ext" x="824" y="125" width="150" height="270"/>
+    <rect x="824" y="125" width="150" height="270" fill="var(--a-soft)" opacity=".45"/>
+    <text class="lbl" x="899" y="150" text-anchor="middle">Pátio privado</text>
+    <rect x="834" y="165" width="60" height="55" fill="none" stroke="var(--a)" stroke-width="2"/><text class="sm" x="864" y="197" text-anchor="middle">arrumos</text>
+    <rect x="844" y="270" width="110" height="60" fill="none" stroke="var(--a)" stroke-width="2"/><text class="sm" x="899" y="298" text-anchor="middle">tanque → canteiro</text><text class="sm" x="899" y="314" text-anchor="middle">ou mesa exterior</text>
+    <text class="sm" x="899" y="365" text-anchor="middle">esplanada · estendal</text>
+
+    <rect x="20" y="440" width="960" height="28" rx="4" fill="var(--line)"/>
+    <text class="lbl" x="500" y="459" text-anchor="middle">RUA</text>
+    <line class="new" x1="40" y1="487" x2="70" y2="487"/><text class="sm" x="76" y="491">parede a abrir (confirmar que não é mestra)</text>
+    <rect x="520" y="482" width="14" height="10" fill="var(--a)"/><text class="sm" x="540" y="491">porta para o pátio</text>
+  </svg>
+  </div>
+
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card b">
+      <span class="tag b">Casa B · T3 na habitação</span>
+      <ul>
+        <li>As <b>duas salas da frente abrem-se numa só</b>: sala e cozinha juntas, com entrada pela porta atual da rua e o alpendre.</li>
+        <li><b>Quartos 1 e 2</b> mantêm-se como estão; os tetos em madeira são tratados e ficam (dão carácter).</li>
+        <li><b>Quarto 3</b>: tira-se o vinílico antigo (com análise de amianto) e põe-se chão novo.</li>
+        <li>A <b>alcova passa a casa de banho completa</b>, encostada aos quartos.</li>
+        <li>Fica com o logradouro das traseiras.</li>
+        <li>Para quem: <b>família</b>, que é o que mais falta no arrendamento de aldeia.</li>
+      </ul>
+    </div>
+    <div class="card a">
+      <span class="tag">Casa A · T2 no anexo, com pátio</span>
+      <ul>
+        <li><b>Telhado novo</b> (é aqui que estão as escoras) e chão novo sobre os cimentos.</li>
+        <li>A divisão de entrada e a divisão amarela abrem-se numa <b>sala com cozinha</b>, com porta para o pátio.</li>
+        <li>A <b>antiga cozinha passa a quarto 1</b>. A lareira com forno sai, ou fica como nicho decorativo se a estrutura o permitir.</li>
+        <li>O quarto pequeno passa a <b>quarto 2</b>, com a janela aumentada.</li>
+        <li>O <b>WC é refeito</b> no mesmo sítio, porque a água e o esgoto já lá estão.</li>
+        <li>Pátio: demolir as ruínas, ficar com um arrumo pequeno; o tanque vira canteiro ou é demolido.</li>
+        <li>Para quem: <b>casal</b> que trabalha em Torres Vedras ou faz a A8 para Lisboa.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card w" style="margin-top:14px">
+    <h3 style="margin-top:0">O ponto que decide tudo: o anexo está licenciado como habitação?</h3>
+    <p style="margin:0 0 8px">Na maioria das casas destas, o anexo está registado como <b>dependência ou arrumos</b>, não como casa. Para o arrendar como casa é preciso:</p>
+    <ol style="margin:0">
+      <li>pedir à Câmara a <b>alteração de uso</b> do anexo para habitação (com projeto);</li>
+      <li>constituir <b>propriedade horizontal</b> (duas frações), ou outra forma de dividir o prédio aceite pela Câmara;</li>
+      <li>ficar com <b>licença de utilização</b> para cada casa.</li>
+    </ol>
+    <p style="margin:8px 0 0">Antes de fazer uma oferta, pede a <b>caderneta predial</b>, a <b>certidão do registo</b> e a <b>licença de utilização</b>, e confirma na Câmara de Torres Vedras se este passo é possível. Se não for, a alternativa é arrendar a casa inteira como uma só, ou usar o anexo como apoio da habitação.</p>
+  </div>
+
+  <h2>4 · Obra: o que fazer e por que ordem</h2>
+  <div class="grid g2">
+    <div class="card"><span class="tag">Fase 0 · antes de comprar</span><ul>
+      <li>Visita com <b>engenheiro civil</b>: telhado do anexo, escoras, fissuras, humidades.</li>
+      <li>Documentos: que área está licenciada, e com que uso (habitação ou anexo).</li>
+      <li>Câmara: o anexo pode passar a habitação? A aldeia está numa ARU (Área de Reabilitação Urbana)?</li>
+      <li>Análise de amianto (chapa e vinílico).</li>
+    </ul></div>
+    <div class="card"><span class="tag">Fase 1 · projeto e licença</span><ul>
+      <li>Levantamento com medidas, projeto de arquitetura e especialidades.</li>
+      <li>Alteração de uso do anexo e propriedade horizontal.</li>
+      <li>Prazo realista: 4–8 meses.</li>
+    </ul></div>
+    <div class="card"><span class="tag">Fase 2 · casca</span><ul>
+      <li>Limpeza e demolição das ruínas do pátio.</li>
+      <li><b>Anexo: telhado novo</b>. <b>Habitação</b>: rever as madeiras, pôr subtelha e isolamento.</li>
+      <li><b>Humidade</b>: corte na base das paredes, picar os rebocos e voltar a rebocar com argamassa de cal ou de saneamento; drenagem nas paredes de trás.</li>
+      <li>Coser as fissuras e reforçar o topo da fachada.</li>
+    </ul></div>
+    <div class="card"><span class="tag">Fase 3 · interiores</span><ul>
+      <li>Eletricidade e água novas, com <b>contadores separados</b> para cada casa.</li>
+      <li>2 cozinhas e 2 casas de banho.</li>
+      <li>Janelas com vidro duplo e corte térmico; aumentar a janela do quarto pequeno.</li>
+      <li>Água quente com bomba de calor e ar condicionado nas salas.</li>
+      <li>Habitação: manter o mosaico onde estiver bom. Anexo: betonilha e chão novo.</li>
+    </ul></div>
+  </div>
+
+  <h2>5 · Orçamento estimado</h2>
+  <p class="note">Valores de referência para reabilitação na região Oeste em 2026, para cerca de 130–150 m² de construção. Servem para dar a ordem de grandeza. O número real só se sabe depois do levantamento e de 2 ou 3 orçamentos de empreiteiro.</p>
+  <div class="card scroll">
+  <table>
+    <thead><tr><th>Trabalho</th><th class="n">Mínimo</th><th class="n">Máximo</th></tr></thead>
+    <tbody>
+      <tr><td>Levantamento, engenheiro, análises</td><td class="n">2 000 €</td><td class="n">4 000 €</td></tr>
+      <tr><td>Projeto, alteração de uso do anexo, propriedade horizontal</td><td class="n">8 000 €</td><td class="n">14 000 €</td></tr>
+      <tr><td>Limpeza, demolições, amianto</td><td class="n">5 000 €</td><td class="n">10 000 €</td></tr>
+      <tr><td>Cobertura da habitação (revisão, isolamento, subtelha)</td><td class="n">8 000 €</td><td class="n">12 000 €</td></tr>
+      <tr><td>Cobertura do anexo (nova)</td><td class="n">10 000 €</td><td class="n">16 000 €</td></tr>
+      <tr><td>Tratamento de humidades e rebocos</td><td class="n">8 000 €</td><td class="n">14 000 €</td></tr>
+      <tr><td>Paredes abertas, lintéis, janela nova, fissuras</td><td class="n">4 000 €</td><td class="n">7 000 €</td></tr>
+      <tr><td>Eletricidade (2 instalações + ITED)</td><td class="n">7 000 €</td><td class="n">10 000 €</td></tr>
+      <tr><td>Águas e esgotos (2 ramais)</td><td class="n">7 000 €</td><td class="n">11 000 €</td></tr>
+      <tr><td>2 casas de banho</td><td class="n">8 000 €</td><td class="n">12 000 €</td></tr>
+      <tr><td>2 cozinhas</td><td class="n">8 000 €</td><td class="n">14 000 €</td></tr>
+      <tr><td>Janelas e portas exteriores</td><td class="n">9 000 €</td><td class="n">14 000 €</td></tr>
+      <tr><td>Pavimentos, tetos, pinturas, portas interiores</td><td class="n">13 000 €</td><td class="n">21 000 €</td></tr>
+      <tr><td>Água quente e climatização</td><td class="n">6 000 €</td><td class="n">10 000 €</td></tr>
+      <tr><td>Pátio e logradouro</td><td class="n">5 000 €</td><td class="n">9 000 €</td></tr>
+      <tr><td>Imprevistos (≈10%)</td><td class="n">11 000 €</td><td class="n">18 000 €</td></tr>
+    </tbody>
+    <tfoot><tr><td>Total da obra</td><td class="n">119 000 €</td><td class="n">196 000 €</td></tr></tfoot>
+  </table>
+  </div>
+  <p class="note">A habitação fica com cerca de 40% deste valor e o anexo com 60%, porque o anexo parte do zero. Uma forma de fasear: fazer primeiro a casa B (habitação), pô-la a render, e fazer o anexo a seguir.</p>
+
+  <h2>6 · Rendas e rentabilidade</h2>
+  <div class="grid g3">
+    <div class="card b"><div class="muted">Casa B · T3 (habitação)</div><div class="kpi">850–1 000 € <small>/mês</small></div></div>
+    <div class="card a"><div class="muted">Casa A · T2 (anexo + pátio)</div><div class="kpi">700–800 € <small>/mês</small></div></div>
+    <div class="card"><div class="muted">Total por ano</div><div class="kpi">18 600–21 600 €</div></div>
+  </div>
+  <p class="note">Rendas estimadas para aldeia a 10 minutos de Torres Vedras, casa renovada e sem mobília. Antes de decidir, confirma com anúncios atuais de T2 e T3 na zona (Idealista, Imovirtual).</p>
+
+  <div class="card" style="margin-top:12px">
+    <h3 style="margin-top:0">Como fazer a conta com o preço de compra</h3>
+    <p style="margin:0 0 8px"><b>Rentabilidade bruta = renda anual ÷ (preço de compra + IMT e escritura + obra)</b></p>
+    <p style="margin:0">Exemplo: compra a 90 000 €, cerca de 5 000 € de impostos e escritura, obra a 155 000 €. O total dá 250 000 €. Com 20 000 € de renda por ano são <b>8% bruto</b>. Tirando IMI, seguro, manutenção e impostos sobre a renda, ficam uns <b>5% líquidos</b>. Se a conta der menos de 7% bruto, não compensa o risco da obra: negocia-se o preço ou corta-se na obra.</p>
+  </div>
+
+  <h2>7 · Apoios e impostos a verificar</h2>
+  <ul>
+    <li><b>IVA a 6%</b> na empreitada, em vez de 23%, se o imóvel estiver numa ARU. Pode poupar 15 a 25 mil €.</li>
+    <li><b>Benefícios de IMI e IMT</b> para reabilitação em ARU, conforme o regulamento da Câmara.</li>
+    <li><b>Contratos de arrendamento longos</b> pagam menos IRS sobre as rendas. O Programa de Arrendamento Acessível pode dar isenção se a renda ficar abaixo do teto do concelho.</li>
+    <li>Estas regras mudam com frequência: confirma com o contabilista e com a Câmara antes de assinar.</li>
+  </ul>
+
+  <h2>8 · Próximos passos</h2>
+  <ol>
+    <li>Saber o <b>preço pedido</b> e pedir caderneta predial, certidão do registo e licença de utilização.</li>
+    <li>Confirmar na Câmara se o <b>anexo pode passar a habitação</b> e se o prédio pode ter duas frações. Se a resposta for não, o plano muda.</li>
+    <li>Visitar com engenheiro e medir as divisões. Com as medidas reais, esta planta é refeita à escala.</li>
+    <li>Pedir 2 ou 3 orçamentos de obra com base nesta proposta.</li>
+    <li>Fazer a conta de rentabilidade e definir o preço máximo a oferecer.</li>
+  </ol>
+
+  <footer>Esquemas sem escala, feitos a partir do anúncio e de 15 fotografias. Valores indicativos (novembro 2026).</footer>
+</main>
+</body>
+</html>

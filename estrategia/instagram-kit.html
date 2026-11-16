@@ -70,6 +70,7 @@ footer{font-size:12px;color:var(--suave);border-top:1px solid var(--linha);paddi
   <span class="lbl">Sónia Alexandra Santos · Advogada, RL · documento interno</span>
   <h1>Kit Instagram</h1>
   <p>Tudo para criar o perfil <b>@soniasantosadvogada</b> e publicar as primeiras três semanas: <em>copiar, colar e publicar</em>. Os textos e as imagens vêm do site e do plano de comunicação já feitos.</p>
+  <p style="color:var(--suave);font-size:13px">As imagens foram enviadas também na conversa com o Claude, para guardar no telemóvel. Se o botão Copiar não funcionar, abre-se uma caixa com o texto já selecionado.</p>
 </header>
 
 <section>
@@ -120,6 +121,13 @@ footer{font-size:12px;color:var(--suave);border-top:1px solid var(--linha);paddi
   <div class="check" id="check"></div>
 </section>
 
+<div id="cx" hidden style="position:fixed;inset:0;background:rgba(0,0,0,.45);display:grid;place-items:center;padding:16px;z-index:20">
+  <div style="background:var(--claro);border-radius:8px;padding:16px;max-width:560px;width:100%;display:flex;flex-direction:column;gap:10px">
+    <b style="color:var(--tinta)">Texto selecionado: mantenha o dedo em cima e escolha Copiar</b>
+    <textarea id="cx-t" rows="10" style="width:100%;font:14px/1.5 var(--sans);padding:10px;border:1px solid var(--linha);border-radius:4px;background:var(--fundo);color:var(--tinta)"></textarea>
+    <button class="btn" onclick="document.getElementById('cx').hidden=true">Fechar</button>
+  </div>
+</div>
 <footer>Kit preparado a partir do site soniasantosadvogada.pt e do plano de comunicação interno. Imagens em 1080 × 1350 (feed) e 1080 × 1920 (stories).</footer>
 </div>
 
@@ -220,7 +228,11 @@ const CHECK=[
 const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
 async function copiar(txt,btn){
   try{await navigator.clipboard.writeText(txt);const t=btn.textContent;btn.textContent='Copiado';btn.classList.add('ok');setTimeout(()=>{btn.textContent=t;btn.classList.remove('ok')},1600);}
-  catch(e){const r=document.createRange();r.selectNodeContents(btn.closest('[data-box]').querySelector('pre,.legenda'));const s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selecionado: copie';}
+  catch(e){mostrar(txt);}
+}
+function mostrar(txt){
+  const d=document.getElementById('cx');d.querySelector('textarea').value=txt;d.hidden=false;
+  const ta=d.querySelector('textarea');ta.focus();ta.select();
 }
 document.getElementById('campos').innerHTML=CAMPOS.map((c,i)=>`<div class="campo${c[2]?' largo':''}" data-box><div class="campo__cab"><span class="lbl">${c[0]}</span><button class="btn" data-c="${i}">Copiar</button></div><pre>${esc(c[1])}</pre>${c[2]?`<span class="conta">${c[1].length} de 150 caracteres</span>`:''}</div>`).join('');
 document.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>copiar(CAMPOS[b.dataset.c][1],b));

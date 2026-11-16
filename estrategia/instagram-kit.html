@@ -1,0 +1,240 @@
+<title>Kit Instagram · Dra. Sónia</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cormorant+Garamond:ital,wght@1,500&family=Montserrat:wght@400;500;600&display=swap">
+<style>
+/* Layout: guia passo a passo com a cor da marca; cada bloco é uma etapa da criação do perfil */
+:root{--fundo:#f7eee7;--fundo2:#efe2d7;--claro:#fffaf6;--linha:#e1d0c1;--tinta:#4f4035;--texto:#5a4d43;--suave:#8c7d71;--acento:#9c7d55;--ok:#3f7a52;
+--serif:"Marcellus",Georgia,serif;--it:"Cormorant Garamond",Georgia,serif;--sans:"Montserrat",system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--fundo:#1e1915;--fundo2:#2a231d;--claro:#262019;--linha:#3d342b;--tinta:#f1e6d8;--texto:#e2d5c6;--suave:#b0a191;--acento:#d6b47f;--ok:#7cc293;color-scheme:dark}}
+:root[data-theme="dark"]{--fundo:#1e1915;--fundo2:#2a231d;--claro:#262019;--linha:#3d342b;--tinta:#f1e6d8;--texto:#e2d5c6;--suave:#b0a191;--acento:#d6b47f;--ok:#7cc293;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--fundo);color:var(--texto);font:400 15px/1.6 var(--sans)}
+.wrap{max-width:1020px;margin:0 auto;padding-block:32px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:48px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;color:var(--tinta);margin:0;text-wrap:balance;line-height:1.15}
+h1{font-size:clamp(32px,5vw,50px)}h2{font-size:clamp(23px,3vw,30px)}h3{font-size:17px}
+p{margin:0;max-width:68ch}
+em{font-family:var(--it);font-style:italic;color:var(--acento);font-size:1.15em}
+.lbl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--suave);font-weight:500}
+header{display:flex;flex-direction:column;gap:12px;border-bottom:1px solid var(--linha);padding-bottom:28px}
+section{display:flex;flex-direction:column;gap:18px}
+.sec{display:flex;gap:14px;align-items:baseline}
+.sec .n{font:400 34px/1 var(--serif);color:var(--acento)}
+ol.passos{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px;max-width:72ch}
+ol.passos b{color:var(--tinta);font-weight:600}
+.campos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media(max-width:720px){.campos{grid-template-columns:1fr}}
+.campo{background:var(--claro);border:1px solid var(--linha);border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.campo.largo{grid-column:1/-1}
+.campo__cab{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.campo pre{margin:0;white-space:pre-wrap;font:500 15px/1.55 var(--sans);color:var(--tinta);overflow-wrap:anywhere}
+.conta{font-size:12px;color:var(--suave)}
+.btn{font:600 12px var(--sans);letter-spacing:.04em;padding:7px 13px;border-radius:999px;border:1px solid var(--acento);background:transparent;color:var(--acento);cursor:pointer;white-space:nowrap}
+.btn:hover{background:var(--acento);color:var(--claro)}
+.btn:focus-visible{outline:2px solid var(--acento);outline-offset:2px}
+.btn.ok{border-color:var(--ok);color:var(--ok)}
+.perfil{display:grid;grid-template-columns:220px minmax(0,1fr);gap:22px;align-items:start}
+@media(max-width:640px){.perfil{grid-template-columns:1fr}}
+.perfil img{width:200px;max-width:100%;border-radius:50%;border:1px solid var(--linha)}
+.dl{font-size:13px;color:var(--acento)}
+.destaques{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+@media(max-width:720px){.destaques{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.dest{display:flex;flex-direction:column;gap:8px;min-width:0}
+.dest img{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:6px;border:1px solid var(--linha)}
+.dest p{font-size:13px;color:var(--suave)}
+.post{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:22px;background:var(--claro);border:1px solid var(--linha);border-radius:8px;padding:18px}
+@media(max-width:720px){.post{grid-template-columns:1fr}}
+.post__imgs{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory}
+.post__imgs img{width:100%;min-width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px;scroll-snap-align:start}
+.post__txt{display:flex;flex-direction:column;gap:10px;min-width:0}
+.post__top{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.tag{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:var(--fundo2);color:var(--tinta)}
+.tag.aviso{background:#f6e3c4;color:#7a4d10}
+.legenda{white-space:pre-line;font-size:14px;line-height:1.6;background:var(--fundo);border:1px dashed var(--linha);border-radius:4px;padding:12px 14px;margin:0}
+.legenda .tags{color:var(--acento)}
+.acoes{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.regras{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-top:1px solid var(--tinta)}
+.regras div{padding:14px 18px 16px 0;border-bottom:1px solid var(--linha)}
+.regras div:nth-child(even){padding-left:18px;border-left:1px solid var(--linha)}
+@media(max-width:720px){.regras{grid-template-columns:1fr}.regras div{padding-left:0!important;border-left:0!important}}
+.regras p{font-size:14px;color:var(--suave)}
+.check{display:flex;flex-direction:column;border-top:1px solid var(--linha)}
+.check label{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--linha);cursor:pointer;align-items:flex-start}
+.check input{margin-top:5px;accent-color:var(--acento);width:16px;height:16px;flex:none}
+.check small{display:block;color:var(--suave);font-size:13px}
+footer{font-size:12px;color:var(--suave);border-top:1px solid var(--linha);padding-top:14px}
+</style>
+
+<div class="wrap">
+<header>
+  <span class="lbl">Sónia Alexandra Santos · Advogada, RL · documento interno</span>
+  <h1>Kit Instagram</h1>
+  <p>Tudo para criar o perfil <b>@soniasantosadvogada</b> e publicar as primeiras três semanas: <em>copiar, colar e publicar</em>. Os textos e as imagens vêm do site e do plano de comunicação já feitos.</p>
+</header>
+
+<section>
+  <div class="sec"><span class="n">1</span><h2>Criar a conta (5 minutos)</h2></div>
+  <ol class="passos">
+    <li>No telemóvel da Dra., instalar o <b>Instagram</b> e tocar em <b>Criar nova conta</b>.</li>
+    <li>Registar com o email <b>geral@soniasantosadvogada.pt</b> (não com um email pessoal). Assim a conta fica do escritório e recupera-se sempre.</li>
+    <li>Nome de utilizador: <b>soniasantosadvogada</b>. É o que já está ligado no site e nos rodapés. Se estiver ocupado, usar <b>dra.soniasantos</b> e avisar para mudarmos os links do site.</li>
+    <li>Escolher uma palavra-passe forte e guardá-la num gestor de palavras-passe.</li>
+    <li>Em <b>Definições → Tipo de conta e ferramentas → Mudar para conta profissional → Empresa</b>, categoria <b>Advogado(a)</b>. Dá o botão de contacto, a morada e as estatísticas.</li>
+    <li>Em <b>Definições → Centro de Contas → Palavra-passe e segurança</b>, ativar a <b>autenticação de dois fatores</b>.</li>
+    <li>Ligar à <b>página de Facebook</b> do escritório, se existir. É preciso para os anúncios no Instagram.</li>
+  </ol>
+</section>
+
+<section>
+  <div class="sec"><span class="n">2</span><h2>Preencher o perfil</h2></div>
+  <div class="perfil">
+    <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start"><img src="whatsapp/foto-perfil.jpg" alt="Foto de perfil da Dra. Sónia"><span class="lbl">Foto de perfil</span><a class="dl" href="whatsapp/foto-perfil.jpg" target="_blank" rel="noopener">Abrir para guardar a imagem</a></div>
+    <div class="campos" id="campos"></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec"><span class="n">3</span><h2>Destaques (capas e conteúdo)</h2></div>
+  <p>Publicar uma story com cada capa e guardá-la no destaque com o mesmo nome. Depois juntar as stories indicadas.</p>
+  <div class="destaques" id="destaques"></div>
+</section>
+
+<section>
+  <div class="sec"><span class="n">4</span><h2>Os primeiros 9 posts, por esta ordem</h2></div>
+  <p>Três por semana (segunda, quarta e sexta, entre as 12h e as 14h ou as 19h e as 21h). A ordem alterna imagens escuras e claras, para o perfil ficar em xadrez. O post 03 é um carrossel: carregar as 5 imagens no mesmo post.</p>
+  <div id="posts" style="display:flex;flex-direction:column;gap:16px"></div>
+</section>
+
+<section>
+  <div class="sec"><span class="n">5</span><h2>Regras para publicar</h2></div>
+  <div class="regras">
+    <div><h3>Ordem dos Advogados</h3><p>Só informação. Sem preços, sem promessas de resultados, sem comparações com colegas e sem casos de clientes identificáveis.</p></div>
+    <div><h3>Mensagens e comentários</h3><p>Responder no mesmo dia útil. Nunca dar aconselhamento jurídico por mensagem: encaminhar para consulta.</p></div>
+    <div><h3>Textos jurídicos</h3><p>Os posts 03 e 05 têm texto jurídico, e o 06 tem a citação da Dra. Publicar só depois de ela confirmar.</p></div>
+    <div><h3>Morada</h3><p>Os posts 01 e 04 e as hashtags indicam Mozelos. Confirmar com a Dra. se quer a localidade nas redes.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec"><span class="n">6</span><h2>Lista de verificação</h2></div>
+  <div class="check" id="check"></div>
+</section>
+
+<footer>Kit preparado a partir do site soniasantosadvogada.pt e do plano de comunicação interno. Imagens em 1080 × 1350 (feed) e 1080 × 1920 (stories).</footer>
+</div>
+
+<script>
+const TAGS_BASE = '#advogada #santamariadafeira #mozelos';
+const IG = [
+  { n: '01', titulo: 'Apresentação', tema: 'Proximidade', imgs: ['01-apresentacao'],
+    legenda: `Advogada desde 2005, a Dra. Sónia Alexandra Santos construiu a sua carreira na advocacia preventiva: ajudar pessoas, famílias e empresas a tomar as decisões certas antes de os problemas surgirem.
+
+Exerce sobretudo em Direito da Família e Sucessões, Atos Notariais e advocacia de empresa, com escritório em Mozelos, Santa Maria da Feira.
+
+📍 Rua Dr. Amorim, Ed. Casa do Povo, Loja G, Mozelos
+🌐 soniasantosadvogada.pt`,
+    tags: TAGS_BASE + ' #advocaciapreventiva #direitodafamilia' },
+  { n: '02', titulo: 'Antes de assinar um contrato', tema: 'Educar', imgs: ['02-antes-de-assinar'],
+    legenda: `Um contrato assinado à pressa pode sair caro.
+
+Antes de assinar, faça estas três perguntas. Se alguma resposta não for clara, vale a pena pedir ajuda antes, e não depois.
+
+Guarde este post para a próxima vez que tiver um contrato nas mãos. 📌`,
+    tags: TAGS_BASE + ' #contratos #advocaciapreventiva #dicasjuridicas' },
+  { n: '03', titulo: 'Como podemos ajudar a sua família', tema: 'Situações', imgs: ['03a-familia','03b-heranca','03c-testamento','03d-responsabilidades-parentais','03e-sabia-que'],
+    legenda: `A casa dos pais, um testamento por fazer, filhos de pais separados… São situações de todas as famílias e ficam muito mais simples quando são tratadas a tempo.
+
+Deslize até ao fim: sabia que não pode deixar tudo em testamento a quem quiser?
+
+Reconheceu-se em alguma? Guarde este post ou envie-o a quem possa precisar.`,
+    tags: TAGS_BASE + ' #herancas #partilhas #testamento #responsabilidadesparentais', aviso: 'Texto jurídico: confirmar' },
+  { n: '04', titulo: 'O escritório', tema: 'Proximidade', imgs: ['04-escritorio'],
+    legenda: `O escritório fica em Mozelos, Santa Maria da Feira:
+
+Rua Dr. Amorim, Ed. Casa do Povo, Loja G
+4535-211 Mozelos
+
+Para reuniões presenciais e atos notariais. Indicações de como chegar em soniasantosadvogada.pt`,
+    tags: TAGS_BASE + ' #escritoriodeadvocacia' },
+  { n: '05', titulo: 'Testamentos: mito ou facto?', tema: 'Educar', imgs: ['05-mito-facto'],
+    legenda: `Mito ou facto?
+
+Muita gente acha que o testamento só faz sentido para quem tem um grande património. Na verdade, pode ajudar qualquer família a organizar a herança e a evitar desentendimentos, sempre dentro dos limites da lei.
+
+Já tinha pensado nisto? Partilhe com alguém a quem isto possa interessar.`,
+    tags: TAGS_BASE + ' #testamento #herancas #mitooufacto', aviso: 'Texto jurídico: confirmar' },
+  { n: '06', titulo: 'Citação', tema: 'Proximidade', imgs: ['06-citacao'],
+    legenda: `“O melhor processo é aquele que nunca foi intentado.”
+— Dra. Sónia Alexandra Santos
+
+Rever um contrato antes de o assinar, planear uma partilha ou preparar um testamento a tempo: é assim que a advocacia preventiva evita litígios.`,
+    tags: TAGS_BASE + ' #advocaciapreventiva', aviso: 'Citação: aprovar' },
+  { n: '07', titulo: 'Para quem vive fora', tema: 'Situações', imgs: ['07-vive-fora'],
+    legenda: `Vive fora de Portugal e tem assuntos por resolver cá?
+
+Heranças, partilhas, procurações ou registos podem começar com uma consulta por videochamada, em português ou inglês.
+
+Envie este post a um familiar ou amigo que viva no estrangeiro.`,
+    tags: TAGS_BASE + ' #emigrantes #portuguesesnomundo #consultaonline' },
+  { n: '08', titulo: 'Novo site disponível', tema: 'Serviços e site', imgs: ['08-novo-site'],
+    legenda: `O novo site já está disponível: soniasantosadvogada.pt
+
+Áreas de atuação, equipa, escritório e marcação de consultas, no escritório ou por videochamada.
+
+Link na bio.`,
+    tags: TAGS_BASE + ' #novosite #consultaonline' },
+  { n: '09', titulo: 'No escritório ou por videochamada', tema: 'Serviços e site', imgs: ['09-videochamada'],
+    legenda: `Além das reuniões no escritório, a Dra. Sónia dá consultas por videochamada, de 30 minutos, onde quer que esteja.
+
+Marcação em soniasantosadvogada.pt`,
+    tags: TAGS_BASE + ' #consultaonline #videochamada' },
+];
+
+const CAMPOS=[
+ ['Nome','Sónia Alexandra Santos · Advogada'],
+ ['Nome de utilizador','soniasantosadvogada'],
+ ['Categoria','Advogado(a)'],
+ ['Link','https://soniasantosadvogada.pt'],
+ ['Biografia (máx. 150 caracteres)','Advocacia preventiva · Família e Heranças\nAdvogada desde 2005 · Santa Maria da Feira\nConsultas no escritório e por videochamada',1],
+ ['Telefone e WhatsApp','964 822 700'],
+ ['Email de contacto','geral@soniasantosadvogada.pt'],
+ ['Morada','Rua Dr. Amorim, Ed. Casa do Povo, Loja G, 4535-211 Mozelos'],
+];
+const DEST=[
+ ['1-sobre','Sobre','Post 01 (apresentação), a foto da Dra. no escritório e a citação.'],
+ ['2-familia','Família','As 5 imagens do post 03: heranças, testamento, responsabilidades parentais e o "Sabia que".'],
+ ['3-escritorio','Escritório','Post 04, fotografias da entrada e do gabinete, e a equipa.'],
+ ['4-consultas','Consultas','Posts 07 e 09: videochamada e para quem vive fora, com o link de marcação.'],
+ ['5-contactos','Contactos','Telefone, WhatsApp, email, morada e horário (segunda a sexta, 10h–18h).'],
+];
+const CHECK=[
+ ['Conta criada e profissional','Categoria Advogado(a), dois fatores ativos.'],
+ ['Perfil preenchido','Nome, bio, link, contactos e foto.'],
+ ['5 destaques com capa',''],
+ ['Textos jurídicos e citação aprovados pela Dra.','Posts 03, 05 e 06.'],
+ ['Link do Instagram confirmado no site','Rodapés, contacto e menu.'],
+ ['Semana 1 publicada','Posts 01, 02 e 03.'],
+ ['Semana 2 publicada','Posts 04, 05 e 06.'],
+ ['Semana 3 publicada','Posts 07, 08 e 09.'],
+];
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+async function copiar(txt,btn){
+  try{await navigator.clipboard.writeText(txt);const t=btn.textContent;btn.textContent='Copiado';btn.classList.add('ok');setTimeout(()=>{btn.textContent=t;btn.classList.remove('ok')},1600);}
+  catch(e){const r=document.createRange();r.selectNodeContents(btn.closest('[data-box]').querySelector('pre,.legenda'));const s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selecionado: copie';}
+}
+document.getElementById('campos').innerHTML=CAMPOS.map((c,i)=>`<div class="campo${c[2]?' largo':''}" data-box><div class="campo__cab"><span class="lbl">${c[0]}</span><button class="btn" data-c="${i}">Copiar</button></div><pre>${esc(c[1])}</pre>${c[2]?`<span class="conta">${c[1].length} de 150 caracteres</span>`:''}</div>`).join('');
+document.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>copiar(CAMPOS[b.dataset.c][1],b));
+document.getElementById('destaques').innerHTML=DEST.map(d=>`<div class="dest"><img src="instagram/destaques/${d[0]}.jpg" alt="Capa do destaque ${d[1]}" loading="lazy"><h3>${d[1]}</h3><p>${d[2]}</p><a class="dl" href="instagram/destaques/${d[0]}.jpg" target="_blank" rel="noopener">Abrir capa</a></div>`).join('');
+document.getElementById('posts').innerHTML=IG.map((p,i)=>`<article class="post" data-box>
+ <div class="post__imgs">${p.imgs.map(f=>`<img src="instagram/${f}.jpg" alt="${esc(p.titulo)}" loading="lazy">`).join('')}</div>
+ <div class="post__txt">
+  <div class="post__top"><span class="lbl">Post ${p.n} · semana ${Math.floor(i/3)+1}</span><span class="tag">${p.tema}</span>${p.aviso?`<span class="tag aviso">${p.aviso}</span>`:''}${p.imgs.length>1?`<span class="tag">Carrossel · ${p.imgs.length} imagens</span>`:''}</div>
+  <h3>${esc(p.titulo)}</h3>
+  <p class="legenda">${esc(p.legenda)}\n\n<span class="tags">${p.tags}</span></p>
+  <div class="acoes"><button class="btn" data-p="${i}">Copiar legenda</button>${p.imgs.map((f,k)=>`<a class="dl" href="instagram/${f}.jpg" target="_blank" rel="noopener">Imagem${p.imgs.length>1?' '+(k+1):''}</a>`).join(' · ')}</div>
+ </div></article>`).join('');
+document.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>{const p=IG[b.dataset.p];copiar(p.legenda+'\n\n'+p.tags,b)});
+let marc={};try{marc=JSON.parse(localStorage.getItem('kit-ig')||'{}')}catch(e){}
+document.getElementById('check').innerHTML=CHECK.map((c,i)=>`<label><input type="checkbox" id="ck${i}" ${marc[i]?'checked':''}><span><b>${c[0]}</b>${c[1]?`<small>${c[1]}</small>`:''}</span></label>`).join('');
+document.querySelectorAll('#check input').forEach((el,i)=>el.onchange=()=>{marc[i]=el.checked;try{localStorage.setItem('kit-ig',JSON.stringify(marc))}catch(e){}});
+</script>

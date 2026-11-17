@@ -590,9 +590,8 @@ p, li, dd, .lead, .cartao__texto, .valores span, .inclui span, details p, .preco
 .faixa__lista { list-style: none; margin: 0 auto; padding: 0 16px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px; max-width: 1180px; }
 .faixa__lista li { font: 400 clamp(1.05rem, 1.8vw, 1.35rem) var(--serif); display: flex; align-items: center; gap: 18px; white-space: nowrap; }
 .faixa__lista li + li::before { content: ""; width: 6px; height: 6px; background: var(--acento); transform: rotate(45deg); flex: none; }
-/* fotografia do topo: a Dra. a olhar para a câmara; o selo fica fora da figura */
+/* fotografia do topo */
 .hero__media { background: var(--fundo-2); }
-.hero__media img { object-position: 30% 28%; }
 /* botão de WhatsApp mais pequeno, sem halo, e escondido quando tapava conteúdo */
 .whatsapp { width: 46px; height: 46px; right: 14px; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); box-shadow: 0 8px 18px -8px rgba(95, 77, 62, .55); transition: transform .4s var(--ease), opacity .3s; }
 .whatsapp svg { width: 22px; height: 22px; }
@@ -602,9 +601,4 @@ p, li, dd, .lead, .cartao__texto, .valores span, .inclui span, details p, .preco
 .rodape { padding-bottom: calc(34px + 64px); }
 /* retratos da equipa com o mesmo enquadramento */
 .membro img { object-fit: cover; object-position: 50% 30%; aspect-ratio: 1; }
-.selo { left: auto; right: 40px; }
-@media (max-width: 960px) {
-  .selo { top: calc(62svh - 112px); bottom: auto; right: 16px; left: auto; width: 96px; height: 96px; }
-  .selo img { width: 32px; }
-  .selo text { font-size: 15px; }
-}
+

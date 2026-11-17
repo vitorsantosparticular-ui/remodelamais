@@ -79,7 +79,7 @@ function montarFaixa() {
 function textoMais(cartao) {
   const total = cartao.querySelectorAll('li').length;
   const aberto = cartao.classList.contains('aberto');
-  cartao.querySelector('.cartao__mais-txt').textContent = aberto ? t('areas.menos') : `${t('areas.mais')} (${total})`;
+  cartao.querySelector('.cartao__mais-txt').textContent = aberto ? t('areas.menos') : t('areas.mais');
 }
 document.querySelectorAll('.cartao').forEach(cartao => {
   const btn = cartao.querySelector('.cartao__mais');

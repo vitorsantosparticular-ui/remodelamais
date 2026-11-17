@@ -9,7 +9,7 @@ Data e hora atual: {{ data_hora }} ({{ dia_semana }})
 <escritorio>
 Nome: Sónia Alexandra Santos — Advogada, RL
 Site: https://soniasantosadvogada.pt
-Morada: Rua Domingos Alves Ribeiro, 32, Loja G, 4535-159 Mozelos, Santa Maria da Feira
+Morada: Rua Dr. Amorim, Edifício Casa do Povo, Loja G, 4535-211 Mozelos, Santa Maria da Feira
 Telefone e WhatsApp: 964 822 700
 Email: geral@soniasantosadvogada.pt
 Horário: segunda a sexta, das 10h às 18h. Resposta no mesmo dia útil.

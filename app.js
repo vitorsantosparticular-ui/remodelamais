@@ -45,7 +45,7 @@ function aplicarIdioma(lang) {
     const k = el.dataset.i18n;
     el.innerHTML = (idioma !== 'pt' && T[idioma] && T[idioma][k]) || original[k];
   });
-  document.querySelector('.idiomas__atual').textContent = idioma.toUpperCase();
+  const atual = document.querySelector('.idiomas__atual'); if (atual) atual.textContent = idioma.toUpperCase();
   document.querySelectorAll('[data-lang]').forEach(b => b.setAttribute('aria-current', b.dataset.lang === idioma));
   try { localStorage.setItem('idioma', idioma); } catch (e) {}
   montarFaixa();
@@ -54,19 +54,23 @@ function aplicarIdioma(lang) {
   atualizarResumo();
 }
 
+// Site só em português: o seletor de línguas foi retirado
 const seletor = document.querySelector('.idiomas');
-const seletorBtn = seletor.querySelector('.idiomas__btn');
-seletorBtn.addEventListener('click', e => {
-  e.stopPropagation();
-  const aberto = seletor.classList.toggle('aberto');
-  seletorBtn.setAttribute('aria-expanded', aberto);
-});
-document.addEventListener('click', () => { seletor.classList.remove('aberto'); seletorBtn.setAttribute('aria-expanded', false); });
+if (seletor) {
+  const seletorBtn = seletor.querySelector('.idiomas__btn');
+  seletorBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    const aberto = seletor.classList.toggle('aberto');
+    seletorBtn.setAttribute('aria-expanded', aberto);
+  });
+  document.addEventListener('click', () => { seletor.classList.remove('aberto'); seletorBtn.setAttribute('aria-expanded', false); });
+}
 document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => aplicarIdioma(b.dataset.lang)));
 
 // Faixa contínua: duplica o conteúdo para o movimento não ter cortes
 const trilho = document.querySelector('[data-faixa]');
 function montarFaixa() {
+  if (!trilho) return;
   trilho.querySelectorAll('[data-clone]').forEach(n => n.remove());
   [...trilho.children].forEach(n => { const c = n.cloneNode(true); c.setAttribute('data-clone', ''); c.removeAttribute('data-i18n'); trilho.appendChild(c); });
 }
@@ -391,11 +395,19 @@ if (!calmo && matchMedia('(hover: hover)').matches) {
 }
 
 // ===== Arranque =====
-let inicial = 'pt';
-try { inicial = localStorage.getItem('idioma') || ''; } catch (e) {}
-if (!inicial) {
-  const nav2 = (navigator.language || 'pt').slice(0, 2).toLowerCase();
-  inicial = IDIOMAS.includes(nav2) ? nav2 : 'pt';
-}
-aplicarIdioma(inicial);
+// Site só em português (decisão da Dra.): ignora a língua do navegador e escolhas antigas
+try { localStorage.removeItem('idioma'); } catch (e) {}
+aplicarIdioma('pt');
 carregarDias();
+
+// Botão de WhatsApp: esconde-se quando o rodapé, o contacto ou as perguntas frequentes estão à vista
+(() => {
+  const btn = document.querySelector('.whatsapp');
+  if (!btn || !('IntersectionObserver' in window)) return;
+  const visiveis = new Set();
+  const obs = new IntersectionObserver(es => {
+    es.forEach(e => e.isIntersecting ? visiveis.add(e.target) : visiveis.delete(e.target));
+    btn.classList.toggle('esconder', visiveis.size > 0);
+  }, { threshold: 0.05 });
+  document.querySelectorAll('.faq__lista, #contacto, .rodape, .hero__texto').forEach(el => obs.observe(el));
+})();

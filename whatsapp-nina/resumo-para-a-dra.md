@@ -15,7 +15,7 @@ Dra. Sónia Alexandra Santos · Advogada, RL
 
 ## 2. Site
 - Endereço: **soniasantosadvogada.pt**
-- Morada atualizada para Rua Domingos Alves Ribeiro, 32, Loja G, 4535-159 Mozelos.
+- Morada atualizada para Rua Dr. Amorim, Edifício Casa do Povo, Loja G, 4535-211 Mozelos.
 - Marcação de consultas online e presenciais, ligada ao Google Calendar.
 - Política de Privacidade e aviso de cookies.
 

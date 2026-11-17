@@ -75,7 +75,7 @@ function doPost(e) {
     ].join('\n');
     const evento = calendario().createEvent(titulo, inicio, fim, {
       description: descricao,
-      location: tipo === 'online' ? 'Google Meet (enviar link ao confirmar)' : 'Rua Dr. Amorim, Ed. Casa do Povo, Loja G, 4535-211 Mozelos',
+      location: tipo === 'online' ? 'Google Meet (enviar link ao confirmar)' : 'Rua Domingos Alves Ribeiro, 32, Loja G, 4535-159 Mozelos',
     });
     evento.setColor(CONFIG.COR_PEDIDO);
     evento.addPopupReminder(60);

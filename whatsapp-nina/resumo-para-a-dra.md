@@ -3,7 +3,7 @@
 Dra. Sónia Alexandra Santos · Advogada, RL
 
 ## 1. Instagram
-- Conta: **@soniasantosadvogada**, profissional (categoria Advogado(a)).
+- Conta: **@soniasantosadvogada.pt**, profissional (categoria Advogado(a)).
 - Perfil completo: nome, biografia, link do site, contactos e foto de perfil.
 - Primeiros posts publicados: apresentação e "Antes de assinar um contrato".
 - Próximos posts preparados para as próximas 3 semanas (3 por semana).

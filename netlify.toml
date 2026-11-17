@@ -69,3 +69,9 @@
   for = "/consulta/*"
   [headers.values]
     X-Robots-Tag = "noindex, follow"
+
+[[redirects]]
+  from = "/estrategia/presenca-digital.md"
+  to = "/"
+  status = 404
+  force = true
